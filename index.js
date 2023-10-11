@@ -20,7 +20,7 @@ app.use(cookieParser());
 
 const PORT = process.env.SERVER_PORT || 80;
 
-app.use("/api", router);
+app.use("/", router);
 
 app.listen(PORT, () => {
   db.sequelize
