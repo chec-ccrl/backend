@@ -22,6 +22,6 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: pm2 restart index.js
-      - run: ln -s /home/ubuntu/.env /home/ubuntu/actions-runner/_work/backend/backend/.env
+      - run: ln -sf /home/ubuntu/.env /home/ubuntu/actions-runner/_work/backend/backend/.env
 
 
