@@ -1,7 +1,7 @@
 const Dao = require("../dao");
 const logger = require("../util/logger");
 module.exports = {
-  create: async (dwellingObj) => {
+  create: async (dwellingObj, transaction) => {
     try {
       const createDwelling = await Dao.dwellingTypeDao.create(
         dwellingObj,
@@ -13,7 +13,7 @@ module.exports = {
       throw new Error(error);
     }
   },
-  getAll: async (dwellingObj) => {
+  getAll: async (dwellingObj, transaction) => {
     try {
       const dwelling = await Dao.dwellingTypeDao.getAll(
         dwellingObj,
@@ -25,7 +25,7 @@ module.exports = {
       throw new Error(error);
     }
   },
-  getDetail: async (dwellingObj) => {
+  getDetail: async (dwellingObj, transaction) => {
     try {
       const getDetail = await Dao.dwellingTypeDao.getDetail(
         dwellingObj,

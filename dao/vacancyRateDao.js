@@ -17,4 +17,16 @@ module.exports = {
       logger.info(error);
     }
   },
+  getAll: async (vacancyObj, transaction) => {
+    try {
+      let query = {
+        where: vacancyObj,
+        transaction,
+      };
+      const result = await db.vacancyRate.findAll(query);
+      return { result, count: result.length };
+    } catch (error) {
+      logger.info(error);
+    }
+  },
 };

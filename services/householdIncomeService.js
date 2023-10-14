@@ -1,7 +1,7 @@
 const Dao = require("../dao");
 const logger = require("../util/logger");
 module.exports = {
-  create: async (householdObj) => {
+  create: async (householdObj, transaction) => {
     try {
       const create = await Dao.householdIncomeDao.create(
         householdObj,
@@ -13,7 +13,7 @@ module.exports = {
       throw new Error(error);
     }
   },
-  getAll: async (householdObj) => {
+  getAll: async (householdObj, transaction) => {
     try {
       const household = await Dao.householdIncomeDao.getAll(
         householdObj,
@@ -25,7 +25,7 @@ module.exports = {
       throw new Error(error);
     }
   },
-  getDetail: async (householdObj) => {
+  getDetail: async (householdObj, transaction) => {
     try {
       const getDetail = await Dao.householdIncomeDao.getDetail(
         householdObj,

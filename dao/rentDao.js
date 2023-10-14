@@ -17,4 +17,16 @@ module.exports = {
       logger.info(error);
     }
   },
+  getAll: async (rentObj, transaction) => {
+    try {
+      let query = {
+        where: rentObj,
+        transaction,
+      };
+      const result = await db.rent.findAll(query);
+      return { result, count: result.length };
+    } catch (error) {
+      logger.info(error);
+    }
+  },
 };

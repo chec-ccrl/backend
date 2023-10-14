@@ -1,7 +1,7 @@
 const Dao = require("../dao");
 const logger = require("../util/logger");
 module.exports = {
-  create: async (rentObj) => {
+  create: async (rentObj, transaction) => {
     try {
       const create = await Dao.rentDao.create(rentObj, transaction);
       return create;
@@ -10,7 +10,7 @@ module.exports = {
       throw new Error(error);
     }
   },
-  getAll: async (rentObj) => {
+  getAll: async (rentObj, transaction) => {
     try {
       const rent = await Dao.rentDao.getAll(rentObj, transaction);
       return rent;
@@ -19,7 +19,7 @@ module.exports = {
       throw new Error(error);
     }
   },
-  getDetail: async (rentObj) => {
+  getDetail: async (rentObj, transaction) => {
     try {
       const getDetail = await Dao.rentDao.getDetail(rentObj, transaction);
       return getDetail;
