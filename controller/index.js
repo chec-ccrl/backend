@@ -17,7 +17,7 @@ glob
   })
   .forEach(async (file) => {
     const fileName = file.split("/");
-    controllers[fileName[fileName.length - 1].slice(0, -3)] = require(file);
+    controller[fileName[fileName.length - 1].slice(0, -3)] = require(file);
   });
 
 module.exports = controller;
