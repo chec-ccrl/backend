@@ -2,6 +2,7 @@ const ErrorHandler = require("../util/error");
 const Services = require("../services");
 const Validations = require("../validations");
 const logger = require("../util/logger");
+const db = require("../models");
 
 module.exports = {
   create: async (req, res, next) => {
@@ -12,11 +13,16 @@ module.exports = {
       if (error) {
         throw new ErrorHandler(400, error.details[0].message);
       }
-      const createDwelling = await Services.dwellingTypeService.create(value);
-      return res.status(200).send({
-        status: 200,
-        message: "Created successfully",
-        data: createDwelling,
+      const result = await db.sequelize.transaction(async (transaction) => {
+        const createDwelling = await Services.dwellingTypeService.create(
+          value,
+          transaction
+        );
+        return res.status(200).send({
+          status: 200,
+          message: "Created successfully",
+          data: createDwelling,
+        });
       });
     } catch (error) {
       next(error);
@@ -24,6 +30,14 @@ module.exports = {
   },
   getAll: async (req, res, next) => {
     try {
+      const result = await db.sequelize.transaction(async (transaction) => {
+        const data = await Services.dwellingTypeService.getAll({}, transaction);
+        return res.status(200).send({
+          status: 200,
+          message: "Created successfully",
+          data,
+        });
+      });
     } catch (error) {
       next(error);
     }
@@ -31,13 +45,18 @@ module.exports = {
   getDetail: async (req, res, next) => {
     try {
       const { dwellingTypeId } = req.params;
-      const details = await Services.dwellingTypeService.getDetail({
-        id: dwellingTypeId,
-      });
-      return res.status(200).send({
-        status: 200,
-        message: "Details fetched successfully",
-        data: details,
+      const result = await db.sequelize.transaction(async (transaction) => {
+        const details = await Services.dwellingTypeService.getDetail(
+          {
+            id: dwellingTypeId,
+          },
+          transaction
+        );
+        return res.status(200).send({
+          status: 200,
+          message: "Details fetched successfully",
+          data: details,
+        });
       });
     } catch (error) {
       next(error);

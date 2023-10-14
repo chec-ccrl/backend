@@ -23,6 +23,8 @@ module.exports = {
         where: completeHousingObj,
         transaction,
       };
+      logger.info("hi");
+
       const result = await db.completeHousing.findAll(query);
       return { result, count: result.length };
     } catch (error) {

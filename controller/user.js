@@ -1,8 +1,8 @@
 const ErrorHandler = require("../util/error");
 const Services = require("../services");
-const Validations = require('../validations');
+const Validations = require("../validations");
 const logger = require("../util/logger");
-
+const db = require("../models");
 module.exports = {
   create: async (req, res, next) => {
     try {

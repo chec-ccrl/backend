@@ -2,6 +2,7 @@ const ErrorHandler = require("../util/error");
 const Services = require("../services");
 const Validations = require("../validations");
 const logger = require("../util/logger");
+const db = require("../models");
 
 module.exports = {
   create: async (req, res, next) => {
@@ -10,11 +11,16 @@ module.exports = {
       if (error) {
         throw new ErrorHandler(400, error.details[0].message);
       }
-      const createRent = await Services.rentService.create(value);
-      return res.status(200).send({
-        status: 200,
-        message: "Created successfully",
-        data: createRent,
+      const result = await db.sequelize.transaction(async (transaction) => {
+        const createRent = await Services.rentService.create(
+          value,
+          transaction
+        );
+        return res.status(200).send({
+          status: 200,
+          message: "Created successfully",
+          data: createRent,
+        });
       });
     } catch (error) {
       next(error);
@@ -22,6 +28,14 @@ module.exports = {
   },
   getAll: async (req, res, next) => {
     try {
+      const result = await db.sequelize.transaction(async (transaction) => {
+        const data = await Services.rentService.getAll({}, transaction);
+        return res.status(200).send({
+          status: 200,
+          message: "Created successfully",
+          data,
+        });
+      });
     } catch (error) {
       next(error);
     }
@@ -29,13 +43,18 @@ module.exports = {
   getDetail: async (req, res, next) => {
     try {
       const { rentId } = req.params;
-      const details = await Services.rentService.getDetail({
-        id: rentId,
-      });
-      return res.status(200).send({
-        status: 200,
-        message: "Details fetched successfully",
-        data: details,
+      const result = await db.sequelize.transaction(async (transaction) => {
+        const details = await Services.rentService.getDetail(
+          {
+            id: rentId,
+          },
+          transaction
+        );
+        return res.status(200).send({
+          status: 200,
+          message: "Details fetched successfully",
+          data: details,
+        });
       });
     } catch (error) {
       next(error);
