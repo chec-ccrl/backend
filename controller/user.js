@@ -1,6 +1,6 @@
 const ErrorHandler = require("../util/error");
 const Services = require("../services");
-
+const Validations = require('../validations');
 const logger = require("../util/logger");
 
 module.exports = {
