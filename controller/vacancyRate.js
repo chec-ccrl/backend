@@ -18,6 +18,15 @@ module.exports = {
   },
   getDetail: async (req, res, next) => {
     try {
+      const { vacancyRateId } = req.params;
+      const details = await Services.vacancyRateService.getDetail({
+        id: vacancyRateId,
+      });
+      return res.status(200).send({
+        status: 200,
+        message: "Details fetched successfully",
+        data: details,
+      });
     } catch (error) {
       next(error);
     }

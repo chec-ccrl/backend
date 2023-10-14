@@ -27,9 +27,6 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING,
       },
       median_after_tax: {
-        type: Sequelize.STRING,
-      },
-      median_after_tax: {
         type: Sequelize.BOOLEAN,
       },
       median_before_tax: {

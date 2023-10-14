@@ -3,7 +3,7 @@ const path = require("path");
 const glob = require("glob");
 
 const basename = path.basename(__filename);
-const controllers = {};
+const controller = {};
 
 glob
   .sync(`${__dirname}/**/*.js`)
@@ -20,4 +20,4 @@ glob
     controllers[fileName[fileName.length - 1].slice(0, -3)] = require(file);
   });
 
-module.exports = controllers;
+module.exports = controller;
