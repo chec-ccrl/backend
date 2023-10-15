@@ -2,7 +2,7 @@ const Joi = require("joi");
 module.exports = {
   createValidation: (Obj) => {
     const schema = Joi.object().keys({
-      province: Joi.string().required().trim(),
+      Province: Joi.string().required().trim(),
       CSD: Joi.string(),
       CMA: Joi.string(),
       CMA_CA_mapping: Joi.string(),
