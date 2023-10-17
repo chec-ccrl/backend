@@ -29,14 +29,17 @@ module.exports = {
         province: "%%",
       };
       console.log(replacementObj);
+
       let sql = `SELECT id , count(*) over() as "total_count" from "completeHousings" where province ilike :province order by "createdAt" desc limit :limit offset :offset`;
       if (completeHousingObj?.filter?.province) {
         replacementObj.province = `%${completeHousingObj.filter.province}%`;
       }
+
       const data = await db.sequelize.query(sql, {
         replacements: replacementObj,
         type: QueryTypes.SELECT,
       });
+
       const ids = [];
 
       if (data.length === 0) {
@@ -50,10 +53,9 @@ module.exports = {
           id: ids,
         },
         order: [["createdAt", "DESC"]],
-        limit: completeHousingObj.limit ?? 25,
-        offset: completeHousingObj.offset ?? 0,
         transaction,
       };
+
 
       const result = await db.completeHousing.findAll(query);
       return { result, count: data[0].total_count };
