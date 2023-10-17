@@ -20,7 +20,9 @@ module.exports = {
   getAll: async (vacancyObj, transaction) => {
     try {
       let query = {
-        where: vacancyObj,
+        where: {},
+        limit: completeHousingObj.limit ?? 25,
+        offset: completeHousingObj.offset ?? 0,
         transaction,
       };
       const result = await db.vacancyRate.findAll(query);

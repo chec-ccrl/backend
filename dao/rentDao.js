@@ -20,7 +20,9 @@ module.exports = {
   getAll: async (rentObj, transaction) => {
     try {
       let query = {
-        where: rentObj,
+        where: {},
+        limit: completeHousingObj.limit ?? 25,
+        offset: completeHousingObj.offset ?? 0,
         transaction,
       };
       const result = await db.rent.findAll(query);

@@ -20,7 +20,7 @@ module.exports = {
   getAll: async (completeHousingObj, transaction) => {
     try {
       let query = {
-        where: completeHousingObj,
+        where: {},
         limit: completeHousingObj.limit ?? 25,
         offset: completeHousingObj.offset ?? 0,
         transaction,
