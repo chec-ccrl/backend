@@ -54,7 +54,7 @@ module.exports = {
         transaction,
       };
       const result = await db.householdIncome.findAll(query);
-      return { result, count: result.length };
+      return { result, count: data[0].total_count };
     } catch (error) {
       logger.info(error);
     }

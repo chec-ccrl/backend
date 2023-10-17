@@ -28,7 +28,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       bedroom_type: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,

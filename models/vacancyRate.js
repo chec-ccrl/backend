@@ -21,7 +21,7 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING,
       },
       bedroom_type: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       year: {
         type: Sequelize.INTEGER,
