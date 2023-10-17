@@ -21,9 +21,10 @@ module.exports = {
     try {
       let query = {
         where: completeHousingObj,
+        limit: completeHousingObj.limit ?? 25,
+        offset: completeHousingObj.offset ?? 0,
         transaction,
       };
-      logger.info("hi");
 
       const result = await db.completeHousing.findAll(query);
       return { result, count: result.length };

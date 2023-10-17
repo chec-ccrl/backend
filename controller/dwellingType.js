@@ -31,7 +31,10 @@ module.exports = {
   getAll: async (req, res, next) => {
     try {
       const result = await db.sequelize.transaction(async (transaction) => {
-        const data = await Services.dwellingTypeService.getAll({}, transaction);
+        const data = await Services.dwellingTypeService.getAll(
+          { limit: req.query.limit, offset: req.query.offset },
+          transaction
+        );
         return res.status(200).send({
           status: 200,
           message: "Created successfully",
