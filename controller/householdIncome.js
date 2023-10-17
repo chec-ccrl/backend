@@ -32,7 +32,7 @@ module.exports = {
     try {
       const result = await db.sequelize.transaction(async (transaction) => {
         const data = await Services.householdIncomeService.getAll(
-          { limit: req.query.limit, offset: req.query.offset },
+          req.query,
           transaction
         );
         return res.status(200).send({

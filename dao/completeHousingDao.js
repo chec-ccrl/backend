@@ -28,7 +28,6 @@ module.exports = {
         offset: Number(completeHousingObj.offset),
         province: "%%",
       };
-      console.log(replacementObj);
 
       let sql = `SELECT id , count(*) over() as "total_count" from "completeHousings" where province ilike :province order by "createdAt" desc , "units" desc limit :limit offset :offset`;
       if (completeHousingObj?.filter?.province) {
@@ -55,7 +54,6 @@ module.exports = {
         order: [["createdAt", "DESC"]],
         transaction,
       };
-
 
       const result = await db.completeHousing.findAll(query);
       return { result, count: data[0].total_count };
