@@ -31,7 +31,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       bedroom_type: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       apartment: {
         type: Sequelize.INTEGER,

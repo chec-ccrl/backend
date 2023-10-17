@@ -6,7 +6,7 @@ module.exports = {
       geography: Joi.string().required().trim(),
       geography_type: Joi.string().required().trim(),
       house_type: Joi.string(),
-      bedroom_type: Joi.number(),
+      bedroom_type: Joi.string(),
       year: Joi.number(),
       vacancy_rate: Joi.number(),
     });

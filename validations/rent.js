@@ -8,7 +8,7 @@ module.exports = {
       house_type: Joi.string(),
       year: Joi.number(),
       rent_value: Joi.number(),
-      bedroom_type: Joi.number(),
+      bedroom_type: Joi.string(),
     });
 
     return Joi.validate(Obj, schema);
