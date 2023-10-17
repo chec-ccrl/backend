@@ -7,7 +7,7 @@ module.exports = {
       CMA: Joi.string(),
       CMA_CA_mapping: Joi.string(),
       CA: Joi.string(),
-      housing_type: Joi.string(),
+      house_type: Joi.string(),
       median_after_tax: Joi.boolean(),
       median_before_tax: Joi.boolean(),
       year: Joi.number(),
