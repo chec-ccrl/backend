@@ -64,11 +64,11 @@ module.exports = {
   },
   delete: async (req, res, next) => {
     try {
-      const { completeHousingId } = req.params;
+      const { vacancyRateId } = req.params;
       const result = await db.sequelize.transaction(async (transaction) => {
         const details = await Services.vacancyRateService.delete(
           {
-            id: completeHousingId,
+            id: vacancyRateId,
           },
           transaction
         );
