@@ -63,7 +63,7 @@ module.exports = {
   },
   delete: async (completeHousingObj, transaction) => {
     try {
-      const result = await db.completeHousing.delete(
+      const result = await db.completeHousing.destroy(
         { where: completeHousingObj },
         transaction
       );

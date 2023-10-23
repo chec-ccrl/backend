@@ -62,7 +62,7 @@ module.exports = {
   },
   delete: async (rentObj, transaction) => {
     try {
-      const result = await db.rent.delete({ where: rentObj }, transaction);
+      const result = await db.rent.destroy({ where: rentObj }, transaction);
       return result;
     } catch (error) {
       logger.info(error);

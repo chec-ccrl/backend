@@ -62,7 +62,7 @@ module.exports = {
   },
   delete: async (vacancyObj, transaction) => {
     try {
-      const result = await db.vacancyRate.delete(
+      const result = await db.vacancyRate.destroy(
         { where: vacancyObj },
         transaction
       );
