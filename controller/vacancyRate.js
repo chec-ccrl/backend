@@ -62,4 +62,52 @@ module.exports = {
       next(error);
     }
   },
+  delete: async (req, res, next) => {
+    try {
+      const { completeHousingId } = req.params;
+      const result = await db.sequelize.transaction(async (transaction) => {
+        const details = await Services.vacancyRateService.delete(
+          {
+            id: completeHousingId,
+          },
+          transaction
+        );
+        return res.status(200).send({
+          status: 200,
+          message: "Details fetched successfully",
+          data: details,
+        });
+      });
+    } catch (error) {
+      next(error);
+    }
+  },
+  update: async (req, res, next) => {
+    try {
+      const { error, value } = Validations.vacancyRate.createValidation(
+        req.body
+      );
+      const { vacancyRateId } = req.params;
+      if (error) {
+        throw new ErrorHandler(400, error.details[0].message);
+      }
+      const result = await db.sequelize.transaction(async (transaction) => {
+        const obj = {
+          id: vacancyRateId,
+          ...value,
+        };
+        const updateVacancy = await Services.vacancyRateService.update(
+          obj,
+          transaction
+        );
+        return res.status(200).send({
+          status: 200,
+          message: "Created successfully",
+          data: updateVacancy,
+        });
+      });
+    } catch (error) {
+      next(error);
+    }
+  },
 };

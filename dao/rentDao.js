@@ -59,4 +59,24 @@ module.exports = {
       logger.info(error);
     }
   },
+  delete: async (rentObj, transaction) => {
+    try {
+      const result = await db.rent.delete({ where: rentObj }, transaction);
+      return result;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
+  update: async (rentObj, transaction) => {
+    try {
+      const updated = await db.rent.update(
+        rentObj,
+        { where: { id: rentObj.id } },
+        { transaction }
+      );
+      return updated;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
 };

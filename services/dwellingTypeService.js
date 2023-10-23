@@ -37,4 +37,28 @@ module.exports = {
       throw new Error(error);
     }
   },
+  delete: async (dwellingObj, transaction) => {
+    try {
+      const deletes = await Dao.dwellingTypeDao.delete(
+        dwellingObj,
+        transaction
+      );
+      return deletes;
+    } catch (error) {
+      logger.info(error);
+      throw new Error(error);
+    }
+  },
+  update: async (dwellingObj, transaction) => {
+    try {
+      const updates = await Dao.dwellingTypeDao.update(
+        dwellingObj,
+        transaction
+      );
+      return updates;
+    } catch (error) {
+      logger.info(error);
+      throw new Error(error);
+    }
+  },
 };

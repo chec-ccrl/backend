@@ -65,4 +65,52 @@ module.exports = {
       next(error);
     }
   },
+  delete: async (req, res, next) => {
+    try {
+      const { completeHousingId } = req.params;
+      const result = await db.sequelize.transaction(async (transaction) => {
+        const details = await Services.householdIncomeService.delete(
+          {
+            id: completeHousingId,
+          },
+          transaction
+        );
+        return res.status(200).send({
+          status: 200,
+          message: "Details fetched successfully",
+          data: details,
+        });
+      });
+    } catch (error) {
+      next(error);
+    }
+  },
+  update: async (req, res, next) => {
+    try {
+      const { error, value } = Validations.householdIncome.createValidation(
+        req.body
+      );
+      const { householdIncomeId } = req.params;
+      if (error) {
+        throw new ErrorHandler(400, error.details[0].message);
+      }
+      const result = await db.sequelize.transaction(async (transaction) => {
+        const obj = {
+          id: householdIncomeId,
+          ...value,
+        };
+        const updatehouse = await Services.householdIncomeService.update(
+          obj,
+          transaction
+        );
+        return res.status(200).send({
+          status: 200,
+          message: "Created successfully",
+          data: updatehouse,
+        });
+      });
+    } catch (error) {
+      next(error);
+    }
+  },
 };

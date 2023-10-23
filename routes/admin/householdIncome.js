@@ -8,5 +8,7 @@ module.exports = (router) => {
 
   router
     .route("/admin/household/income/:householdIncomeId")
-    .get(Controllers.householdIncome.getDetail);
+    .get(Controllers.householdIncome.getDetail)
+    .delete(Controllers.householdIncome.delete)
+    .put(Controllers.householdIncome.update);
 };

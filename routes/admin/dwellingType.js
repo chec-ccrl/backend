@@ -8,5 +8,7 @@ module.exports = (router) => {
 
   router
     .route("/admin/dwelling/type/:dwellingTypeId")
-    .get(Controllers.dwellingType.getDetail);
+    .get(Controllers.dwellingType.getDetail)
+    .delete(Controllers.dwellingType.delete)
+    .put(Controllers.dwellingType.update);
 };

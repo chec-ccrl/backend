@@ -59,4 +59,27 @@ module.exports = {
       logger.info(error);
     }
   },
+  delete: async (householdObj, transaction) => {
+    try {
+      const result = await db.householdIncome.delete(
+        { where: householdObj },
+        transaction
+      );
+      return result;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
+  update: async (householdObj, transaction) => {
+    try {
+      const updated = await db.householdIncome.update(
+        householdObj,
+        { where: { id: householdObj.id } },
+        { transaction }
+      );
+      return updated;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
 };

@@ -1,8 +1,8 @@
 const Common = require("../common");
 const db = require("../models");
 const logger = require("../util/logger");
+const { QueryTypes } = require("sequelize");
 
-const { QueryTypes, Op } = require("sequelize");
 module.exports = {
   create: async (completeHousingObj, transaction) => {
     try {
@@ -52,11 +52,33 @@ module.exports = {
           id: ids,
         },
         order: [["createdAt", "DESC"]],
-        transaction,
       };
 
-      const result = await db.completeHousing.findAll(query);
+      const result = await db.completeHousing.findAll(query, { transaction });
       return { result, count: data[0].total_count };
+    } catch (error) {
+      logger.info(error);
+    }
+  },
+  delete: async (completeHousingObj, transaction) => {
+    try {
+      const result = await db.completeHousing.delete(
+        { where: completeHousingObj },
+        transaction
+      );
+      return result;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
+  update: async (completeHousingObj, transaction) => {
+    try {
+      const updated = await db.completeHousing.update(
+        completeHousingObj,
+        { where: { id: completeHousingObj.id } },
+        { transaction }
+      );
+      return updated;
     } catch (error) {
       logger.info(error);
     }

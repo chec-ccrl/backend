@@ -8,5 +8,7 @@ module.exports = (router) => {
 
   router
     .route("/admin/complete/housing/:completeHousingId")
-    .get(Controllers.completeHousing.getDetail);
+    .get(Controllers.completeHousing.getDetail)
+    .delete(Controllers.completeHousing.delete)
+    .put(Controllers.completeHousing.update);
 };

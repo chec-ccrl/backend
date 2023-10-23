@@ -37,4 +37,28 @@ module.exports = {
       throw new Error(error);
     }
   },
+  delete: async (householdObj, transaction) => {
+    try {
+      const deletes = await Dao.householdIncomeDao.delete(
+        householdObj,
+        transaction
+      );
+      return deletes;
+    } catch (error) {
+      logger.info(error);
+      throw new Error(error);
+    }
+  },
+  update: async (householdObj, transaction) => {
+    try {
+      const updates = await Dao.householdIncomeDao.update(
+        householdObj,
+        transaction
+      );
+      return updates;
+    } catch (error) {
+      logger.info(error);
+      throw new Error(error);
+    }
+  },
 };

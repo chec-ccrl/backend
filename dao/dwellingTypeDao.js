@@ -59,4 +59,27 @@ module.exports = {
       logger.info(error);
     }
   },
+  delete: async (dwellingObj, transaction) => {
+    try {
+      const result = await db.dwellingType.delete(
+        { where: dwellingObj },
+        transaction
+      );
+      return result;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
+  update: async (dwellingObj, transaction) => {
+    try {
+      const updated = await db.dwellingType.update(
+        dwellingObj,
+        { where: { id: dwellingObj.id } },
+        { transaction }
+      );
+      return updated;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
 };

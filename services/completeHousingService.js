@@ -37,4 +37,28 @@ module.exports = {
       throw new Error(error);
     }
   },
+  delete: async (completeHousingObj, transaction) => {
+    try {
+      const deletes = await Dao.completeHousingDao.delete(
+        completeHousingObj,
+        transaction
+      );
+      return deletes;
+    } catch (error) {
+      logger.info(error);
+      throw new Error(error);
+    }
+  },
+  update: async (completeHousingObj, transaction) => {
+    try {
+      const updates = await Dao.completeHousingDao.update(
+        completeHousingObj,
+        transaction
+      );
+      return updates;
+    } catch (error) {
+      logger.info(error);
+      throw new Error(error);
+    }
+  },
 };

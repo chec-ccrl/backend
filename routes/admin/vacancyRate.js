@@ -8,5 +8,7 @@ module.exports = (router) => {
 
   router
     .route("/admin/vacancy/rate/:vacancyRateId")
-    .get(Controllers.vacancyRate.getDetail);
+    .get(Controllers.vacancyRate.getDetail)
+    .delete(Controllers.vacancyRate.delete)
+    .put(Controllers.vacancyRate.update);
 };

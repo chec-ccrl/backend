@@ -31,4 +31,22 @@ module.exports = {
       throw new Error(error);
     }
   },
+  delete: async (vacancyObj, transaction) => {
+    try {
+      const deletes = await Dao.vacancyRateDao.delete(vacancyObj, transaction);
+      return deletes;
+    } catch (error) {
+      logger.info(error);
+      throw new Error(error);
+    }
+  },
+  update: async (vacancyObj, transaction) => {
+    try {
+      const updates = await Dao.vacancyRateDao.update(vacancyObj, transaction);
+      return updates;
+    } catch (error) {
+      logger.info(error);
+      throw new Error(error);
+    }
+  },
 };
