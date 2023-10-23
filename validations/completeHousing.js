@@ -6,7 +6,7 @@ module.exports = {
       geography: Joi.string().required().trim(),
       geography_type: Joi.string().required().trim(),
       intended_market: Joi.string(),
-      housing_type: Joi.string(),
+      house_type: Joi.string(),
       year: Joi.number(),
       units: Joi.number(),
     });
@@ -19,7 +19,7 @@ module.exports = {
       geography: Joi.string().required().trim(),
       geography_type: Joi.string().required().trim(),
       intended_market: Joi.string(),
-      housing_type: Joi.string(),
+      house_type: Joi.string(),
       year: Joi.number(),
       units: Joi.number(),
     });
