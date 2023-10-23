@@ -28,7 +28,8 @@ module.exports = {
         offset: Number(dwellingObj.offset),
         province: "%%",
       };
-      let sql = `SELECT id , count(*) over() as "total_count" from "dwellingTypes" where province ilike :province order by "createdAt" desc , "row_house" desc limit :limit offset :offset`;
+      let sql = `SELECT id , count(*) over() as "total_count" from "dwellingTypes" 
+                where province ilike :province and "deletedAt" is null order by "createdAt" desc , "row_house" desc limit :limit offset :offset`;
       if (dwellingObj?.filter?.province) {
         replacementObj.province = `%${dwellingObj.filter.province}%`;
       }

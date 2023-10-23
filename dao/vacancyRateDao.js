@@ -28,7 +28,8 @@ module.exports = {
         offset: Number(vacancyObj.offset),
         province: "%%",
       };
-      let sql = `SELECT id , count(*) over() as "total_count" from "vacancyRates" where "province" ilike :province order by "createdAt" desc , "vacancy_rate" desc limit :limit offset :offset`;
+      let sql = `SELECT id , count(*) over() as "total_count" from "vacancyRates" 
+                where "province" ilike :province and "deletedAt" is null order by "createdAt" desc , "vacancy_rate" desc limit :limit offset :offset`;
       if (vacancyObj?.filter?.province) {
         replacementObj.province = `%${vacancyObj.filter.province}%`;
       }
