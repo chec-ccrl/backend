@@ -80,4 +80,12 @@ module.exports = {
       logger.info(error);
     }
   },
+  getDetail: async (rentObj, transaction) => {
+    try {
+      const result = await db.rent.findOne({ where: rentObj });
+      return result;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
 };
