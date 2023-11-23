@@ -26,6 +26,9 @@ module.exports = (sequelize, Sequelize) => {
       after_tax_income: {
         type: Sequelize.DOUBLE,
       },
+      market_income: {
+        type: Sequelize.DOUBLE,
+      },
     },
     {
       paranoid: true,

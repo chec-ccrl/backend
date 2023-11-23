@@ -20,6 +20,9 @@ module.exports = (sequelize, Sequelize) => {
       intended_market: {
         type: Sequelize.STRING,
       },
+      bedroom_type: {
+        type: Sequelize.STRING,
+      },
       house_type: {
         type: Sequelize.STRING,
       },
