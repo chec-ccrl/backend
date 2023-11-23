@@ -28,6 +28,15 @@ module.exports = {
       throw new Error(error);
     }
   },
+  getDetails: async (rentObj, transaction) => {
+    try {
+      const getDetails = await Dao.rentDao.getDetails(rentObj, transaction);
+      return getDetails;
+    } catch (error) {
+      logger.info(error);
+      throw new Error(error);
+    }
+  },
   delete: async (rentObj, transaction) => {
     try {
       const deletes = await Dao.rentDao.delete(rentObj, transaction);

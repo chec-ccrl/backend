@@ -16,7 +16,7 @@ module.exports = {
     try {
       const { province, rent_source, income_before_tax, income_after_tax } =
         req.body;
-      const multiplierDetails = await Services.multiplierDetails.getDetail({
+      const multiplierDetails = await Services.multiplierService.getDetail({
         province,
       });
       const outcome = [];
@@ -26,7 +26,7 @@ module.exports = {
         bedroom_type_const.map(async (bedroom_type) => {
           await Promise.all(
             house_type_const.map(async (house_type) => {
-              const rentDetails = await Services.rentService.getDetail({
+              const rentDetails = await Services.rentService.getDetails({
                 bedroom_type,
                 province,
                 year: "2022",
@@ -89,9 +89,13 @@ module.exports = {
 
       //*********************2nd ALGORITHM***************************** */
       const provinces = await Services.rankingService.getAllProvinces();
+      console.log(provinces);
       const all_outcome = [];
       await Promise.all(
         provinces.map(async (province) => {
+          const multiplierDetails = await Services.multiplierService.getDetail({
+            province,
+          });
           await Promise.all(
             bedroom_type_const.map(async (bedroom_type) => {
               await Promise.all(
@@ -114,14 +118,14 @@ module.exports = {
                       let marketBasketDetails;
                       if (geography_type === "CMA") {
                         marketBasketDetails =
-                          await Services.marketBasketMeasureService.getDetails({
+                          await Services.marketBasketMeasureService.getDetail({
                             province,
                             year: 2023,
                             cma: geography,
                           });
                       } else {
                         marketBasketDetails =
-                          await Services.marketBasketMeasureService.getDetails({
+                          await Services.marketBasketMeasureService.getDetail({
                             province,
                             year: 2023,
                             ca: geography,
@@ -158,7 +162,10 @@ module.exports = {
           );
         })
       );
+
       //*********************END 2nd ALGORITHM***************************/
+      await Services.pdfService.simplePdfGenerator();
+      return res.json("DONE");
     } catch (error) {
       next(error);
     }

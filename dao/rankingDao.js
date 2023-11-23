@@ -6,7 +6,7 @@ module.exports = {
   getAllProvinces: async () => {
     try {
       const result = await db.rentalRankingProvince.findAll({});
-      return { result, count: result.length };
+      return result;
     } catch (error) {
       logger.info(error);
     }

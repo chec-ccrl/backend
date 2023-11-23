@@ -88,4 +88,12 @@ module.exports = {
       logger.info(error);
     }
   },
+  getDetails: async (rentObj, transaction) => {
+    try {
+      const result = await db.rent.findAll({ where: rentObj });
+      return result;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
 };
