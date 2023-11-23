@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
-  const canadaIncomeSurveys = sequelize.define(
-    "canadaIncomeSurvey",
+  const canadaIncomeSurvey = sequelize.define(
+    "canadaIncomeSurveys",
     {
       id: {
         type: Sequelize.UUID,
@@ -32,5 +32,5 @@ module.exports = (sequelize, Sequelize) => {
     }
   );
 
-  return canadaIncomeSurveys;
+  return canadaIncomeSurvey;
 };
