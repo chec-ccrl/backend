@@ -26,6 +26,247 @@ module.exports = {
     }
   },
   simplePdfGenerator: async (data) => {
+    let {
+      province,
+      rent_source,
+      income_before_tax,
+      income_after_tax,
+      source_of_cost,
+      all_outcome,
+      outcome,
+    } = data;
+    province = province.toUpperCase();
+
+    const organizedOutcome = outcome.reduce((acc, current) => {
+      const { geography, geography_type } = current;
+
+      const keyy = geography.toUpperCase() + " - [" + geography_type + "]";
+
+      if (!acc[keyy]) {
+        acc[keyy] = [];
+      }
+
+      acc[keyy].push(current);
+
+      return acc;
+    }, {});
+    let firstTableHtml = ``;
+    let secondTableHtml = ``;
+    Object.keys(organizedOutcome).map((geo, index) => {
+      if (index <= 4) {
+        const data = organizedOutcome[geo];
+        let rowsRow = ``;
+        let rowsApartment = ``;
+        data.map((obj) => {
+          const bedroom_type =
+            obj.bedroom_type === "No Bedrooms"
+              ? "0B"
+              : obj.bedroom_type === "1 Bedroom"
+              ? "1B"
+              : obj.bedroom_type === "2 Bedroom"
+              ? "2B"
+              : "3B+";
+
+          if (obj.house_type === "Apartment") {
+            let imgString = obj.household_affordable
+              ? `<img width="17" height="17"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">`
+              : `<img width="17" height="17"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">`;
+            rowsApartment += ` <tr>
+                                      <td>${bedroom_type}</td>
+                                      <td>${imgString}</td>
+                                      <td>$${Math.ceil(
+                                        obj.optimal_income_before_tax
+                                      )}</td>
+                                      <td>$${Math.ceil(
+                                        obj.income_surplus_or_before_after_tax
+                                      )}</td>
+                                  </tr>`;
+          } else {
+            let imgString = obj.household_affordable
+              ? `<img width="17" height="17"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">`
+              : `<img width="17" height="17"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">`;
+            rowsRow += ` <tr>
+                                  <td>${bedroom_type}</td>
+                                  <td>${imgString}</td>
+                                  <td>$${Math.ceil(
+                                    obj.optimal_income_before_tax
+                                  )}</td>
+                                  <td>$${Math.ceil(
+                                    obj.income_surplus_or_deficit_before_tax
+                                  )}</td>
+                            </tr>`;
+          }
+        });
+        firstTableHtml += `<div class="main_five_main">
+            <div class="main_five_right_float">
+                ${index + 1}. ${geo}
+            </div>
+            <div class="main_five_right_left">
+                <div class="main_five_right">
+                    <div class="main_five_right_table">
+                        <table>
+                            <tr>
+                                <th>NUMBER OF BEDROOMS</th>
+                                <th>AFFORDABLE/ UNAFFORDABLE</th>
+                                <th>OPTIMAL INCOME</th>
+                                <th>INCOME SURPLUS / DEFICIT
+                                </th>
+                            </tr>
+                            ${rowsApartment}
+                        </table>
+                    </div>
+                </div>
+                <div class="main_five_right">
+                    <div class="main_five_right_table">
+                        <table>
+                            <tr>
+                                <th>NUMBER OF BEDROOMS</th>
+                                <th>AFFORDABLE/ UNAFFORDABLE</th>
+                                <th>OPTIMAL INCOME</th>
+                                <th>INCOME SURPLUS / DEFICIT
+                                </th>
+                            </tr>
+                            ${rowsRow}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+      }
+    });
+    Object.keys(organizedOutcome).map((geo, index) => {
+      if (index <= 4) {
+        const data = organizedOutcome[geo];
+        let rowsRow = ``;
+        let rowsApartment = ``;
+        data.map((obj) => {
+          const bedroom_type =
+            obj.bedroom_type === "No Bedrooms"
+              ? "0B"
+              : obj.bedroom_type === "1 Bedroom"
+              ? "1B"
+              : obj.bedroom_type === "2 Bedroom"
+              ? "2B"
+              : "3B+";
+
+          if (obj.house_type === "Apartment") {
+            let imgString = obj.residual_affordable
+              ? `<img width="17" height="17"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">`
+              : `<img width="17" height="17"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">`;
+            rowsApartment += ` <tr>
+                                      <td>${bedroom_type}</td>
+                                      <td>${imgString}</td>
+                                      <td>$${Math.ceil(
+                                        obj.optimal_income_after_tax
+                                      )}</td>
+                                      <td>$${Math.ceil(
+                                        obj.income_surplus_or_deficit_after_tax
+                                      )}</td>
+                                  </tr>`;
+          } else {
+            let imgString = obj.residual_affordable
+              ? `<img width="17" height="17"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">`
+              : `<img width="17" height="17"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">`;
+            rowsRow += ` <tr>
+                                  <td>${bedroom_type}</td>
+                                  <td>${imgString}</td>
+                                  <td>$${Math.ceil(
+                                    obj.optimal_income_after_tax
+                                  )}</td>
+                                  <td>$${Math.ceil(
+                                    obj.income_surplus_or_deficit_after_tax
+                                  )}</td>
+                            </tr>`;
+          }
+        });
+        secondTableHtml += `<div class="main_five_main">
+            <div class="main_five_right_float">
+                ${index + 1}. ${geo}
+            </div>
+            <div class="main_five_right_left">
+                <div class="main_five_right">
+                    <div class="main_five_right_table">
+                        <table>
+                            <tr>
+                                <th>NUMBER OF BEDROOMS</th>
+                                <th>AFFORDABLE/ UNAFFORDABLE</th>
+                                <th>OPTIMAL INCOME</th>
+                                <th>INCOME SURPLUS / DEFICIT
+                                </th>
+                            </tr>
+                            ${rowsApartment}
+                        </table>
+                    </div>
+                </div>
+                <div class="main_five_right">
+                    <div class="main_five_right_table">
+                        <table>
+                            <tr>
+                                <th>NUMBER OF BEDROOMS</th>
+                                <th>AFFORDABLE/ UNAFFORDABLE</th>
+                                <th>OPTIMAL INCOME</th>
+                                <th>INCOME SURPLUS / DEFICIT
+                                </th>
+                            </tr>
+                            ${rowsRow}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+      }
+    });
+
+    let rentSourceCheckBox1 =
+      rent_source === "Cmhc"
+        ? ` <div>
+                <label for="c1">CMHC</label>
+                <input type="checkbox" id="c1" value="CMHC" checked class="myinput large">
+            </div>`
+        : ` <div>
+                <label for="c1"> CMHC</label>
+                <input type="checkbox" id="c1" value="CMHC" class="myinput large">
+            </div>`;
+    let rentSourceCheckBox2 =
+      rent_source === "Realistic"
+        ? ` <div>
+                <label for="c2">REALISTIC RENT</label>
+                <input type="checkbox" id="c1" value="CMHC" checked class="myinput large">
+            </div>`
+        : ` <div>
+                <label for="c2">REALISTIC RENT</label>
+                <input type="checkbox" id="c1" value="CMHC" class="myinput large">
+            </div>`;
+
+    let sourceOfCostCheckBox1 =
+      source_of_cost === "Average"
+        ? ` <div>
+                <label for="c3" class="small_label">AVERAGE HOUSEHOLD EXPENSES </label>
+                <input type="checkbox" id="c3" value="CMHC" checked class="myinput large">
+            </div>`
+        : ` <div>
+                <label for="c3" class="small_label">AVERAGE HOUSEHOLD EXPENSES </label>
+                <input type="checkbox" id="c3" value="CMHC" class="myinput large">
+            </div>`;
+    let sourceOfCostCheckBox2 =
+      source_of_cost === "Poverty"
+        ? ` <div>
+                <label for="c3" class="small_label">POVERTY LINE EXPENSES</label>
+                <input type="checkbox" id="c3" value="CMHC" checked class="myinput large">
+            </div>`
+        : ` <div>
+                <label for="c3" class="small_label">POVERTY LINE EXPENSES</label>
+                <input type="checkbox" id="c3" value="CMHC" class="myinput large">
+            </div>`;
+
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     const htmlContent = `
@@ -493,11 +734,6 @@ module.exports = {
         padding: 0px 2px;
     }
 
-
-
-
-
-
     .main_page3_second {
         display: flex;
         flex-direction: row;
@@ -722,14 +958,6 @@ module.exports = {
         align-items: center;
     }
 
-
-
-
-
-
-
-
-
     .main_page4_first {
         display: flex;
         flex-direction: column;
@@ -915,13 +1143,6 @@ module.exports = {
         width: 45%;
     }
 
-
-
-
-
-
-
-
     .main_page4_first_one_one_main_one_border {
         border-right: 1.8px dashed black;
         margin-right: 5px;
@@ -932,18 +1153,10 @@ module.exports = {
         margin-top: 5px;
     }
 
-
-
-
-
     #main_page5_first_one_chart19,
     #main_page5_first_one_chart20 {
         width: 400px;
     }
-
-
-
-
 
     .main_page5_first {
         display: flex;
@@ -1069,11 +1282,6 @@ module.exports = {
         max-width: 500px;
     }
 
-
-
-
-
-
     .main_page6_first {
         display: flex;
         flex-direction: column;
@@ -1158,11 +1366,7 @@ module.exports = {
 </style>
 
 <body>
-    <!-- Main ELEMENT FOR COMPLETE PDF -->
     <div class="main">
-
-
-        <!-- FIRST PAGE -->
         <div style="position: relative;">
             <div class="main_first">
                 <div class="main_first_img">
@@ -1171,7 +1375,7 @@ module.exports = {
                 </div>
                 <div class="main_first_text">
                     <div class="main_first_text_tex1">
-                        NEW BRUNSWICK
+                        ${province}
                     </div>
                     <div class="main_first_text_tex2">
                         KEY INSIGHTS
@@ -1183,15 +1387,21 @@ module.exports = {
                     <div class="main_second_select1">
                         <label class="label" for="cars">PROVINCE:</label>
                         <select name="cars" id="cars">
-                            <option value="volvo">New Brunswick</option>
+                            <option value="volvo">${province}</option>
                         </select>
                     </div>
                     <div class="main_second_select1">
-                        <label class="label" for="cars">INCOME:</label>
+                        <label class="label" for="cars">INCOME BEFORE TAX:</label>
                         <select name="cars" id="cars">
-                            <option value="volvo">50,000</option>
+                            <option value="volvo">${income_before_tax}</option>
                         </select>
                     </div>
+                    <div class="main_second_select1">
+                    <label class="label" for="cars">INCOME AFTER TAX:</label>
+                    <select name="cars" id="cars">
+                        <option value="volvo">${income_after_tax}</option>
+                    </select>
+                </div>
                 </div>
                 <div class="main_second2">
                     <div class="main_second_select1">
@@ -1199,18 +1409,8 @@ module.exports = {
                             RENT SOURCE :
                         </div>
                         <div class="main_second_select1_check">
-                            <div>
-                                <label for="c1">
-                                    CMHC
-                                </label>
-                                <input type="checkbox" id="c1" value="CMHC" checked class="myinput large">
-                            </div>
-                            <div>
-                                <label for="c2">
-                                    REALISTIC RENT
-                                </label>
-                                <input type="checkbox" id="c2" value="CMHC" class="myinput large">
-                            </div>
+                           ${rentSourceCheckBox1}
+                            ${rentSourceCheckBox2}
                         </div>
                     </div>
                     <div class="main_second_select1">
@@ -1219,18 +1419,8 @@ module.exports = {
                             NECESSITIES SOURCE :
                         </div>
                         <div class="main_second_select1_check">
-                            <div>
-                                <label for="c3" class="small_label">
-                                    POVERTY LINE EXPENSES
-                                </label>
-                                <input type="checkbox" id="c3" value="CMHC" checked class="myinput large">
-                            </div>
-                            <div>
-                                <label for="c4" class="small_label">
-                                    AVERAGE HOUSEHOLD <br>EXPENSES
-                                </label>
-                                <input type="checkbox" id="c4" value="CMHC" class="myinput large">
-                            </div>
+                            ${sourceOfCostCheckBox1}
+                            ${sourceOfCostCheckBox2}
                         </div>
                     </div>
                 </div>
@@ -1270,501 +1460,7 @@ module.exports = {
                         ROW HOUSE
                     </div>
                 </div>
-                <div class="main_five_main">
-                    <div class="main_five_right_float">
-                        1. MONCTON - [CMA]
-                    </div>
-                    <div class="main_five_right_left">
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="main_five_main">
-                    <div class="main_five_right_float">
-                        1. MONCTON - [CMA]
-                    </div>
-                    <div class="main_five_right_left">
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="main_five_main">
-                    <div class="main_five_right_float">
-                        1. MONCTON - [CMA]
-                    </div>
-                    <div class="main_five_right_left">
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="main_five_main">
-                    <div class="main_five_right_float">
-                        1. MONCTON - [CMA]
-                    </div>
-                    <div class="main_five_right_left">
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="main_five_main">
-                    <div class="main_five_right_float">
-                        1. MONCTON - [CMA]
-                    </div>
-                    <div class="main_five_right_left">
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                ${firstTableHtml}
             </div>
             <div class="page1_footer">THIS WILL CONTINUE FOR ALL THE CMA’S & CA’S IN THIS PROVINCE</div>
         </div>
@@ -1781,7 +1477,7 @@ module.exports = {
                 </div>
                 <div class="main_first_text">
                     <div class="main_first_text_tex1">
-                        NEW BRUNSWICK
+                    ${province}
                     </div>
                     <div class="main_first_text_tex2">
                         KEY INSIGHTS
@@ -1789,62 +1485,48 @@ module.exports = {
                 </div>
             </div>
             <div class="main_second">
-                <div class="main_second1">
-                    <div class="main_second_select1">
-                        <label class="label" for="cars">PROVINCE:</label>
-                        <select name="cars" id="cars">
-                            <option value="volvo">New Brunswick</option>
-                        </select>
+            <div class="main_second1">
+                <div class="main_second_select1">
+                    <label class="label" for="cars">PROVINCE:</label>
+                    <select name="cars" id="cars">
+                        <option value="volvo">${province}</option>
+                    </select>
+                </div>
+                <div class="main_second_select1">
+                    <label class="label" for="cars">INCOME BEFORE TAX:</label>
+                    <select name="cars" id="cars">
+                        <option value="volvo">${income_before_tax}</option>
+                    </select>
+                </div>
+                <div class="main_second_select1">
+                <label class="label" for="cars">INCOME AFTER TAX:</label>
+                <select name="cars" id="cars">
+                    <option value="volvo">${income_after_tax}</option>
+                </select>
+            </div>
+            </div>
+            <div class="main_second2">
+                <div class="main_second_select1">
+                    <div class="main_second_select1_label label">
+                        RENT SOURCE :
                     </div>
-                    <div class="main_second_select1">
-                        <label class="label" for="cars">INCOME:</label>
-                        <select name="cars" id="cars">
-                            <option value="volvo">50,000</option>
-                        </select>
+                    <div class="main_second_select1_check">
+                       ${rentSourceCheckBox1}
+                        ${rentSourceCheckBox2}
                     </div>
                 </div>
-                <div class="main_second2">
-                    <div class="main_second_select1">
-                        <div class="main_second_select1_label label">
-                            RENT SOURCE :
-                        </div>
-                        <div class="main_second_select1_check">
-                            <div>
-                                <label for="c1">
-                                    CMHC
-                                </label>
-                                <input type="checkbox" id="c1" value="CMHC" checked class="myinput large">
-                            </div>
-                            <div>
-                                <label for="c2">
-                                    REALISTIC RENT
-                                </label>
-                                <input type="checkbox" id="c2" value="CMHC" class="myinput large">
-                            </div>
-                        </div>
+                <div class="main_second_select1">
+                    <div class="main_second_select1_label label">
+                        NON-SHELTER<br>
+                        NECESSITIES SOURCE :
                     </div>
-                    <div class="main_second_select1">
-                        <div class="main_second_select1_label label">
-                            NON-SHELTER<br>
-                            NECESSITIES SOURCE :
-                        </div>
-                        <div class="main_second_select1_check">
-                            <div>
-                                <label for="c3" class="small_label">
-                                    POVERTY LINE EXPENSES
-                                </label>
-                                <input type="checkbox" id="c3" value="CMHC" checked class="myinput large">
-                            </div>
-                            <div>
-                                <label for="c4" class="small_label">
-                                    AVERAGE HOUSEHOLD <br>EXPENSES
-                                </label>
-                                <input type="checkbox" id="c4" value="CMHC" class="myinput large">
-                            </div>
-                        </div>
+                    <div class="main_second_select1_check">
+                        ${sourceOfCostCheckBox1}
+                        ${sourceOfCostCheckBox2}
                     </div>
                 </div>
             </div>
+        </div>
             <div class="main_third">
                 <div class="main_third_text">
                     <span>
@@ -1880,501 +1562,7 @@ module.exports = {
                         ROW HOUSE
                     </div>
                 </div>
-                <div class="main_five_main">
-                    <div class="main_five_right_float">
-                        1. MONCTON - [CMA]
-                    </div>
-                    <div class="main_five_right_left">
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="main_five_main">
-                    <div class="main_five_right_float">
-                        1. MONCTON - [CMA]
-                    </div>
-                    <div class="main_five_right_left">
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="main_five_main">
-                    <div class="main_five_right_float">
-                        1. MONCTON - [CMA]
-                    </div>
-                    <div class="main_five_right_left">
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="main_five_main">
-                    <div class="main_five_right_float">
-                        1. MONCTON - [CMA]
-                    </div>
-                    <div class="main_five_right_left">
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="main_five_main">
-                    <div class="main_five_right_float">
-                        1. MONCTON - [CMA]
-                    </div>
-                    <div class="main_five_right_left">
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="main_five_right">
-                            <div class="main_five_right_table">
-                                <table>
-                                    <tr>
-                                        <th>NUMBER OF BEDROOMS</th>
-                                        <th>AFFORDABLE/ UNAFFORDABLE</th>
-                                        <th>OPTIMAL INCOME</th>
-                                        <th>INCOME SURPLUS / DEFICIT
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>0B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$48,000</td>
-                                        <td>$2,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">
-                                        </td>
-                                        <td>$50,000
-                                        </td>
-                                        <td>$0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2B</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$55,000</td>
-                                        <td>-$5000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3B+</td>
-                                        <td><img width="17" height="17"
-                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">
-                                        </td>
-                                        <td>$67,000</td>
-                                        <td>-$17,000</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                ${secondTableHtml}
             </div>
             <div class="page1_footer">THIS WILL CONTINUE FOR ALL THE CMA’S & CA’S IN THIS PROVINCE</div>
         </div>
@@ -2817,6 +2005,7 @@ module.exports = {
 
     try {
       const uploadResult = await s3.upload(params).promise();
+      return uploadResult;
       console.log("PDF uploaded successfully:", uploadResult.Location);
     } catch (error) {
       console.error("Error uploading PDF to S3:", error);

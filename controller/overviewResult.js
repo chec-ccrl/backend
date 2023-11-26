@@ -6,16 +6,21 @@ const db = require("../models");
 const bedroom_type_const = [
   "No Bedrooms",
   "1 Bedroom",
-  "2 Bedrooms",
-  "3 Bedrooms",
+  "2 Bedroom",
+  "3 Bedroom",
 ];
 const house_type_const = ["Apartment", "Row"];
 
 module.exports = {
   result: async (req, res, next) => {
     try {
-      const { province, rent_source, income_before_tax, income_after_tax } =
-        req.body;
+      const {
+        province,
+        rent_source,
+        income_before_tax,
+        income_after_tax,
+        source_of_cost,
+      } = req.body;
       const multiplierDetails = await Services.multiplierService.getDetail({
         province,
       });
@@ -43,22 +48,30 @@ module.exports = {
                   }
 
                   let marketBasketDetails;
-                  console.log(geography, geography_type);
-                  if (geography_type === "CMA") {
-                    marketBasketDetails =
-                      await Services.marketBasketMeasureService.getDetail({
-                        province,
-                        year: 2021,
-                        cma: geography,
-                      });
+                  if (source_of_cost === "Poverty") {
+                    if (geography_type === "CMA") {
+                      marketBasketDetails =
+                        await Services.marketBasketMeasureService.getDetail({
+                          province,
+                          year: 2021,
+                          cma: geography,
+                        });
+                    } else {
+                      marketBasketDetails =
+                        await Services.marketBasketMeasureService.getDetail({
+                          province,
+                          year: 2021,
+                          ca: geography,
+                        });
+                    }
                   } else {
                     marketBasketDetails =
-                      await Services.marketBasketMeasureService.getDetail({
+                      await Services.householdSpendingService.getDetail({
                         province,
                         year: 2021,
-                        ca: geography,
                       });
                   }
+
                   const cost_of_non_shelter_necessity =
                     marketBasketDetails?.cost || 10000;
                   const residual_income =
@@ -101,13 +114,6 @@ module.exports = {
             bedroom_type_const.map(async (bedroom_type) => {
               await Promise.all(
                 house_type_const.map(async (house_type) => {
-                  let gg = {
-                    bedroom_type,
-                    province,
-                    house_type,
-                    year: "2021",
-                  };
-                  // console.log(gg);
                   const rentDetails = await Services.rentService.getDetails({
                     bedroom_type,
                     province,
@@ -125,26 +131,37 @@ module.exports = {
                         rent = Number(obj.rent_value);
                       }
                       let marketBasketDetails;
-                      if (geography_type === "CMA") {
-                        marketBasketDetails =
-                          await Services.marketBasketMeasureService.getDetail({
-                            province,
-                            year: 2021,
-                            cma: geography,
-                          });
+                      if (source_of_cost === "Poverty") {
+                        if (geography_type === "CMA") {
+                          marketBasketDetails =
+                            await Services.marketBasketMeasureService.getDetail(
+                              {
+                                province,
+                                year: 2021,
+                                cma: geography,
+                              }
+                            );
+                        } else {
+                          marketBasketDetails =
+                            await Services.marketBasketMeasureService.getDetail(
+                              {
+                                province,
+                                year: 2021,
+                                ca: geography,
+                              }
+                            );
+                        }
                       } else {
                         marketBasketDetails =
-                          await Services.marketBasketMeasureService.getDetail({
+                          await Services.householdSpendingService.getDetail({
                             province,
                             year: 2021,
-                            ca: geography,
                           });
                       }
                       const cost_of_non_shelter_necessity =
                         marketBasketDetails?.cost || 10000;
                       const residual_income =
                         income_after_tax - cost_of_non_shelter_necessity;
-                      console.log(residual_income);
                       all_outcome.push({
                         geography,
                         geography_type,
@@ -172,10 +189,17 @@ module.exports = {
           );
         })
       );
-      return res.status(200).json({ data: { all_outcome, outcome } });
       //*********************END 2nd ALGORITHM***************************/
-      await Services.pdfService.simplePdfGenerator();
-      return res.json("DONE");
+      const link = await Services.pdfService.simplePdfGenerator({
+        province,
+        rent_source,
+        income_before_tax,
+        income_after_tax,
+        source_of_cost,
+        all_outcome,
+        outcome,
+      });
+      return res.json(link);
     } catch (error) {
       next(error);
     }
