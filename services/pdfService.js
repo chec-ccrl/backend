@@ -106,10 +106,6 @@ module.exports = {
         flex-direction: column;
         width: 100%;
     }
-
-
-
-
     .main_first {
         display: flex;
         flex-direction: row;
@@ -118,15 +114,12 @@ module.exports = {
         width: 100%;
         z-index: 1;
     }
-
     .main_first_img {
         width: 200px;
     }
-
     .main_first_img img {
         width: 100%;
     }
-
     .main_first_text {
         display: flex;
         flex-direction: column;
@@ -828,20 +821,17 @@ module.exports = {
     .main_page4_first_one:nth-child(2) .main_page4_first_one_one {
         width: 50% !important;
     }
-
     .main_page4_first_one_one_main_one_chart {
         display: flex;
         justify-content: center;
         align-items: flex-start;
     }
-
     .main_page4_first_one_one_main_one_chart_bar {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-
     .main_page4_first_one_one_main_one_chart_bar_big {
         width: 100px;
         height: 70px;
@@ -852,7 +842,6 @@ module.exports = {
         vertical-align: middle;
         font-weight: bolder;
     }
-
     .main_page4_first_one_one_main_one_chart_bar_small {
         width: 100px;
         height: 30px;
@@ -864,7 +853,6 @@ module.exports = {
         font-weight: bolder;
         margin-top: 2px;
     }
-
     .main_page4_first_one_one_main_one_chart_bar_other {
         display: flex;
         flex-direction: column;
@@ -2391,14 +2379,6 @@ module.exports = {
             <div class="page1_footer">THIS WILL CONTINUE FOR ALL THE CMA’S & CA’S IN THIS PROVINCE</div>
         </div>
 
-
-
-
-
-
-
-
-
         <!-- THIRD PAGE -->
         <div class="main_first">
             <div class="main_first_img">
@@ -2813,8 +2793,6 @@ module.exports = {
                     </td>
                     <td>-$5000</td>
                 </tr>
-
-
             </table>
         </div>
     </div>

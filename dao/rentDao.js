@@ -90,7 +90,9 @@ module.exports = {
   },
   getDetails: async (rentObj, transaction) => {
     try {
-      const result = await db.rent.findAll({ where: rentObj });
+      const result = await db.rent.findAll({
+        where: rentObj,
+      });
       return result;
     } catch (error) {
       logger.info(error);

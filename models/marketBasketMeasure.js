@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
   const marketBasketMeasure = sequelize.define(
-    "marketBasketMeaures",
+    "marketBasketMeasures",
     {
       id: {
         type: Sequelize.UUID,

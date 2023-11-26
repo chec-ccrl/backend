@@ -18,6 +18,16 @@ module.exports = {
       logger.info(error);
     }
   },
+  bulkCreate: async (marketObj, transaction) => {
+    try {
+      const marketBasketMeasure = await db.marketBasketMeasure.bulkCreate(
+        marketObj
+      );
+      return marketBasketMeasure;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
   getAll: async (marketObj, transaction) => {
     try {
       const result = await db.marketBasketMeasure.findAll({});

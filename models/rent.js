@@ -11,6 +11,9 @@ module.exports = (sequelize, Sequelize) => {
       province: {
         type: Sequelize.STRING,
       },
+      bedroom_type: {
+        type: Sequelize.STRING,
+      },
       geography: {
         type: Sequelize.STRING,
       },
@@ -25,9 +28,6 @@ module.exports = (sequelize, Sequelize) => {
       },
       rent_value: {
         type: Sequelize.INTEGER,
-      },
-      bedroom_type: {
-        type: Sequelize.STRING,
       },
     },
     {
