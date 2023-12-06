@@ -130,7 +130,9 @@ module.exports = {
                                 <td>${b1str}</td>
                                 <td>${b2str}</td>
                                 <td>${b3str}</td>
-                                <td>$${optimal_income.toFixed(2)}</td>
+                                <td>${
+                                  optimal_income < 0 ? "-" : ""
+                                }$${Math.ceil(Math.abs(optimal_income))}</td>
                             </tr>`;
 
             rowsHtmlCAResidual += ` <tr>
@@ -140,7 +142,9 @@ module.exports = {
                                 <td>${b1str}</td>
                                 <td>${b2str}</td>
                                 <td>${b3str}</td>
-                                <td>$${residual_income.toFixed(2)}</td>
+                                <td>${
+                                  residual_income < 0 ? "-" : ""
+                                }$${Math.ceil(Math.abs(residual_income))}</td>
                               </tr>`;
           } else {
             rowsHtmlCMA30 += ` <tr>
@@ -150,7 +154,9 @@ module.exports = {
                                 <td>${b1str}</td>
                                 <td>${b2str}</td>
                                 <td>${b3str}</td>
-                                <td>$${optimal_income.toFixed(2)}</td>
+                                <td>${
+                                  optimal_income < 0 ? "-" : ""
+                                }$${Math.ceil(Math.abs(optimal_income))}</td>
                             </tr>`;
 
             rowsHtmlCMAResidual += ` <tr>
@@ -160,7 +166,9 @@ module.exports = {
                                 <td>${b1str}</td>
                                 <td>${b2str}</td>
                                 <td>${b3str}</td>
-                                <td>$${residual_income.toFixed(2)}</td>
+                                <td>${
+                                  residual_income < 0 ? "-" : ""
+                                }$${Math.ceil(Math.abs(residual_income))}</td>
                               </tr>`;
           }
         });
@@ -191,7 +199,7 @@ module.exports = {
   <div class="main_page2_first">
       <table class="main_page2_first_table">
           <tr class="main_page2_first_table_tr">
-              <th class="main_page2_first_table_tr_th">Sr.No</th>
+              <th class="main_page2_first_table_tr_th">SN</th>
               <th class="main_page2_first_table_tr_th" style="width:30%">CMA’S</th>
               <th class="main_page2_first_table_tr_th">0B</th>
               <th class="main_page2_first_table_tr_th">1B</th>
@@ -205,7 +213,7 @@ module.exports = {
   <div class="main_page2_first">
       <table class="main_page2_first_table">
           <tr class="main_page2_first_table_tr">
-              <th class="main_page2_first_table_tr_th">Sr.No</th>
+              <th class="main_page2_first_table_tr_th">SN</th>
               <th class="main_page2_first_table_tr_th" style="width:30%">CA’S</th>
               <th class="main_page2_first_table_tr_th">0B</th>
               <th class="main_page2_first_table_tr_th">1B</th>
@@ -224,7 +232,7 @@ module.exports = {
   <div class="main_page2_first">
   <table class="main_page2_first_table">
           <tr class="main_page2_first_table_tr">
-              <th class="main_page2_first_table_tr_th">Sr.No</th>
+              <th class="main_page2_first_table_tr_th">SN</th>
               <th class="main_page2_first_table_tr_th" style="width:30%">CMA’S</th>
               <th class="main_page2_first_table_tr_th">0B</th>
               <th class="main_page2_first_table_tr_th">1B</th>
@@ -238,7 +246,7 @@ module.exports = {
   <div class="main_page2_first">
       <table class="main_page2_first_table">
             <tr class="main_page2_first_table_tr">
-                <th class="main_page2_first_table_tr_th">Sr.No</th>
+                <th class="main_page2_first_table_tr_th">SN</th>
                 <th class="main_page2_first_table_tr_th" style="width:30%">CA’S</th>
                 <th class="main_page2_first_table_tr_th">0B</th>
                 <th class="main_page2_first_table_tr_th">1B</th>
@@ -277,10 +285,12 @@ module.exports = {
                                       <td>${bedroom_type}</td>
                                       <td>${imgString}</td>
                                       <td>$${Math.ceil(
-                                        obj.optimal_income_before_tax
+                                        Math.abs(obj.optimal_income_before_tax)
                                       )}</td>
                                       <td>$${Math.ceil(
-                                        obj.income_surplus_or_deficit_before_tax
+                                        Math.abs(
+                                          obj.income_surplus_or_deficit_before_tax
+                                        )
                                       )}</td>
                                   </tr>`;
           } else {
@@ -293,10 +303,12 @@ module.exports = {
                                   <td>${bedroom_type}</td>
                                   <td>${imgString}</td>
                                   <td>$${Math.ceil(
-                                    obj.optimal_income_before_tax
+                                    Math.abs(obj.optimal_income_before_tax)
                                   )}</td>
                                   <td>$${Math.ceil(
-                                    obj.income_surplus_or_deficit_before_tax
+                                    Math.abs(
+                                      obj.income_surplus_or_deficit_before_tax
+                                    )
                                   )}</td>
                             </tr>`;
           }
@@ -362,12 +374,21 @@ module.exports = {
             rowsApartment += ` <tr>
                                       <td>${bedroom_type}</td>
                                       <td>${imgString}</td>
-                                      <td>$${Math.ceil(
-                                        obj.optimal_income_after_tax
-                                      )}</td>
-                                      <td>$${Math.ceil(
-                                        obj.income_surplus_or_deficit_after_tax
-                                      )}</td>
+                                      <td>${
+                                        obj.optimal_income_after_tax < 0
+                                          ? "-"
+                                          : ""
+                                      }$${Math.ceil(
+              Math.abs(obj.optimal_income_after_tax)
+            )}</td>
+                                      <td>${
+                                        obj.income_surplus_or_deficit_after_tax <
+                                        0
+                                          ? "-"
+                                          : ""
+                                      }$${Math.ceil(
+              Math.abs(obj.income_surplus_or_deficit_after_tax)
+            )}</td>
                                   </tr>`;
           } else {
             let imgString = obj.residual_affordable
@@ -378,12 +399,18 @@ module.exports = {
             rowsRow += ` <tr>
                                   <td>${bedroom_type}</td>
                                   <td>${imgString}</td>
-                                  <td>$${Math.ceil(
-                                    obj.optimal_income_after_tax
-                                  )}</td>
-                                  <td>$${Math.ceil(
-                                    obj.income_surplus_or_deficit_after_tax
-                                  )}</td>
+                                  <td>${
+                                    obj.optimal_income_after_tax < 0 ? "-" : ""
+                                  }$${Math.ceil(
+              Math.abs(obj.optimal_income_after_tax)
+            )}</td>
+                                  <td>${
+                                    obj.income_surplus_or_deficit_after_tax < 0
+                                      ? "-"
+                                      : ""
+                                  }$${Math.ceil(
+              Math.abs(obj.income_surplus_or_deficit_after_tax)
+            )}</td>
                             </tr>`;
           }
         });
@@ -534,9 +561,6 @@ module.exports = {
     table tr th:last-child {
         border-right: 0;
     }
-
-
-
 
     .main {
         display: flex;
@@ -693,7 +717,7 @@ module.exports = {
         text-align: center;
         letter-spacing: 0.3cap;
         margin-bottom: 7px;
-        font-size: 20px;
+        font-size: 18px;
         padding: 0px 7px;
     }
 
@@ -772,7 +796,8 @@ module.exports = {
     }
 
     .main_float_line {
-        height: 1100px;
+        height: 1090px;
+        margin-top:10px;
         position: absolute;
         width: 0px;
         border-left: 1.5px dashed black;
@@ -994,12 +1019,6 @@ module.exports = {
         max-width: 200px;
         align-self: center;
     }
-
-
-
-
-
-
 
     .main_page3_third {
         display: flex;
@@ -1564,29 +1583,29 @@ module.exports = {
                 <div class="main_second1">
                     <div class="main_second_select1">
                         <label class="label" for="cars">PROVINCE:</label>
-                        <select name="cars" id="cars">
+                        <select name="cars" id="cars" style="width: 200px;margin-left: 130px;">
                             <option value="volvo">${province}</option>
                         </select>
                     </div>
                     <div class="main_second_select1">
                         <label class="label" for="cars">INCOME BEFORE TAX:</label>
-                        <select name="cars" id="cars">
+                        <select name="cars" id="cars" style="width: 200px;">
                             <option value="volvo">${income_before_tax}</option>
                         </select>
                     </div>
                     <div class="main_second_select1">
                     <label class="label" for="cars">INCOME AFTER TAX:</label>
-                    <select name="cars" id="cars">
+                    <select name="cars" id="cars" style="width: 200px; margin-left: 20px;">
                         <option value="volvo">${income_after_tax}</option>
                     </select>
                 </div>
                 </div>
                 <div class="main_second2">
-                    <div class="main_second_select1">
+                    <div class="main_second_select1" style="margin-left: 40px;">
                         <div class="main_second_select1_label label">
                             RENT SOURCE :
                         </div>
-                        <div class="main_second_select1_check">
+                        <div class="main_second_select1_check" style="margin-left: 38px;">
                            ${rentSourceCheckBox1}
                             ${rentSourceCheckBox2}
                         </div>
@@ -1618,9 +1637,7 @@ module.exports = {
             </div>
             <div class="main_fourth">
                 <div class="main_fourth_text1">
-                    BASED ON YOUR INCOME, BELOW IS THE DISTRIBUTION OF ALL THE AFFORDABLE & UNAFFORDABLE TYPE OF HOUSE
-                    AS
-                    PER DIFFERENT CMA’S & CA’S
+                Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
                 </div>
                 <div class="main_fourth_text2">
                     BASED ON 30% BENCHMARK
@@ -1661,29 +1678,29 @@ module.exports = {
             <div class="main_second1">
                 <div class="main_second_select1">
                     <label class="label" for="cars">PROVINCE:</label>
-                    <select name="cars" id="cars">
+                    <select name="cars" id="cars" style="width: 200px;margin-left: 130px;">
                         <option value="volvo">${province}</option>
                     </select>
                 </div>
                 <div class="main_second_select1">
                     <label class="label" for="cars">INCOME BEFORE TAX:</label>
-                    <select name="cars" id="cars">
+                    <select name="cars" id="cars" style="width: 200px;">
                         <option value="volvo">${income_before_tax}</option>
                     </select>
                 </div>
-                <div class="main_second_select1">
+                <div class="main_second_select1" >
                 <label class="label" for="cars">INCOME AFTER TAX:</label>
-                <select name="cars" id="cars">
+                <select name="cars" id="cars" style="width: 200px; margin-left: 20px;">
                     <option value="volvo">${income_after_tax}</option>
                 </select>
             </div>
             </div>
             <div class="main_second2">
-                <div class="main_second_select1">
+                <div class="main_second_select1" style="margin-left: 40px;">
                     <div class="main_second_select1_label label">
                         RENT SOURCE :
                     </div>
-                    <div class="main_second_select1_check">
+                    <div class="main_second_select1_check" style="margin-left: 38px;">
                        ${rentSourceCheckBox1}
                         ${rentSourceCheckBox2}
                     </div>
@@ -1715,9 +1732,7 @@ module.exports = {
             </div>
             <div class="main_fourth">
                 <div class="main_fourth_text1">
-                    BASED ON YOUR INCOME, BELOW IS THE DISTRIBUTION OF ALL THE AFFORDABLE & UNAFFORDABLE TYPE OF HOUSE
-                    AS
-                    PER DIFFERENT CMA’S & CA’S
+                Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
                 </div>
                 <div class="main_fourth_text2">
                     BASED ON RESIDUAL INCOME
@@ -1762,11 +1777,9 @@ module.exports = {
     try {
       const uploadResult = await s3.upload(params).promise();
       return uploadResult;
-      console.log("PDF uploaded successfully:", uploadResult.Location);
     } catch (error) {
       console.error("Error uploading PDF to S3:", error);
     }
-
     // Close Puppeteer browser
     await browser.close();
   },
