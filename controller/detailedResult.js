@@ -15,6 +15,8 @@ const bedroom_type_const = [
 module.exports = {
   result: async (req, res, next) => {
     try {
+      const pdfResult = await Services.pdfService.detailPdfGenerator();
+      return res.status(200).json(pdfResult);
       const {
         province,
         geography,
@@ -61,6 +63,9 @@ module.exports = {
       let median_household_market_income_before_tax;
       let median_household_total_income_before_tax;
       let median_household_total_income_after_tax;
+      let affordable_rent_based_on_30_benchmark;
+      let all_rent_by_province;
+      let chmc_rent;
       await Promise.all(
         bedroom_type_const.map(async (bedroom_type) => {
           const raw_total_number_of_houses_by_bedroom_type =
@@ -110,39 +115,36 @@ module.exports = {
           );
         })
       );
-      await Promise.all(
-        bedroom_type_const.map(async (bedroom_type) => {
-          const raw_total_number_of_houses_constructed_by_bedroom_type =
-            await Services.completeHousingService.getDetails({
-              year,
-              province,
-              geography_type,
-              geography,
-              bedroom_type,
-            });
-          let renter = 0,
-            total = 0,
-            owned = 0;
-          raw_total_number_of_houses_constructed_by_bedroom_type.map((obj) => {
-            if (house_type === obj.house_type || house_type === "Both") {
-              if (obj.intended_market === "Rental") {
-                renter += obj.units;
-              } else if (obj.intended_market === "Homeowner") {
-                owned += obj.units;
-              } else if (obj.intended_market === "Total") {
-                total += obj.units;
-              }
-            }
-          });
-          housing_completion_rental_percentage.push({
-            bedroom_type,
-            percentage: renter / total,
-          });
-          total_number_of_houses_constructed_by_bedroom_type.push(
-            raw_total_number_of_houses_constructed_by_bedroom_type
-          );
-        })
+
+      const raw_total_number_of_houses_constructed_by_bedroom_type =
+        await Services.completeHousingService.getDetails({
+          year,
+          province,
+          geography_type,
+          geography,
+        });
+      let renter = 0,
+        total = 0,
+        owned = 0;
+      raw_total_number_of_houses_constructed_by_bedroom_type.map((obj) => {
+        if (house_type === obj.house_type || house_type === "Both") {
+          if (obj.intended_market === "Rental") {
+            renter += obj.units;
+          } else if (obj.intended_market === "Homeowner") {
+            owned += obj.units;
+          } else if (obj.intended_market === "Total") {
+            total += obj.units;
+          }
+        }
+      });
+      housing_completion_rental_percentage.push({
+        bedroom_type,
+        percentage: renter / total,
+      });
+      total_number_of_houses_constructed_by_bedroom_type.push(
+        raw_total_number_of_houses_constructed_by_bedroom_type
       );
+
       await Promise.all(
         bedroom_type_const.map(async (bedroom_type) => {
           let searchObj = {
@@ -163,34 +165,50 @@ module.exports = {
             searchObj
           );
           vacancy_rate.push(raw_vacancy_rate);
+
+          chmc_rent = await Services.rentService.getDetails(searchObj);
+          chmc_rent.map((obj) => {
+            if (rent_source === "Realistic") {
+              obj.rent_value = obj.rent_value * multiplierDetails.rent;
+            }
+            obj.rent_with_utility = obj.rent_value * multiplierDetails.utility;
+            return obj;
+          });
         })
       );
-      cost_of_non_shelter_necessity =
-        await Services.householdSpendService.getDetails({ province, year });
+      if (source_of_cost_of_non_shelter_necessity === "Average") {
+        cost_of_non_shelter_necessity =
+          await Services.householdSpendService.getDetails({ province, year });
+      } else {
+        cost_of_non_shelter_necessity =
+          await Services.marketBasketMeasureService.getDetails({
+            province,
+            year,
+          });
+      }
 
-      //********************MEDIAN OF CANDIAN SURVEY***************************** */
-
-      const raw_canadian_survey_data =
+      const raw_canada_survey =
         await Services.canadaIncomeSurveyService.getDetails({ province, year });
-      let raw_median_household_market_income_before_tax = [];
-      let raw_median_household_total_income_before_tax = [];
-      let raw_median_household_total_income_after_tax = [];
-      raw_canadian_survey_data.map((obj) => {
-        raw_median_household_market_income_before_tax.push(obj.market_income);
-        raw_median_household_total_income_before_tax.push(obj.total_income);
-        raw_median_household_total_income_after_tax.push(obj.after_tax_income);
-      });
-      median_household_market_income_before_tax = Common.helper.median(
-        raw_median_household_market_income_before_tax
-      );
-      median_household_total_income_before_tax = Common.helper.median(
-        raw_median_household_total_income_before_tax
-      );
-      median_household_total_income_after_tax = Common.helper.median(
-        raw_median_household_total_income_after_tax
-      );
 
-      //********************END MEDIAN OF CANDIAN SURVEY*********************** */
+      median_household_total_income_before_tax =
+        raw_canada_survey[0].median_total_before_tax;
+      median_household_total_income_after_tax =
+        raw_canada_survey[0].median_total_after_tax;
+
+      raw_canada_survey.map((obj) => {
+        if (affordability === "30%") {
+          obj.rent_value = obj.rent_value / 0.3;
+        } else if (affordability === "Residual") {
+          obj.rent_value = obj.rent_value + cost_of_non_shelter_necessity;
+        }
+      });
+      affordable_rent_based_on_30_benchmark =
+        (median_household_total_income_before_tax / 0.3) * 12;
+
+      all_rent_by_province = await Services.rentService.getDetails({
+        province,
+        year,
+      });
     } catch (error) {
       next(error);
     }
