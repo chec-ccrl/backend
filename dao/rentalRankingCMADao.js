@@ -30,8 +30,8 @@ module.exports = {
       };
       let sql = `SELECT id , count(*) over() as "total_count" from "rentalRankingCmas" 
                 where cma ilike :cma and "deletedAt" is null order by "createdAt" desc limit :limit offset :offset`;
-      if (spendingObj?.filter?.ca) {
-        replacementObj.ca = `%${spendingObj.filter.ca}%`;
+      if (spendingObj?.filter?.cma) {
+        replacementObj.ca = `%${spendingObj.filter.cma}%`;
       }
 
       const data = await db.sequelize.query(sql, {
