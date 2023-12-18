@@ -2,15 +2,15 @@ const Controllers = require("../../controller");
 
 module.exports = (router) => {
   router
-    .route("/admin/householdSpending")
+    .route("/admin/household/spend")
     .get(Controllers.householdSpending.getAll)
     .post(Controllers.householdSpending.create);
   router
-    .route("/admin/householdSpending/excel")
+    .route("/admin/household/spend/excel")
     .get(Controllers.householdSpending.addExcelFiles);
 
   router
-    .route("/admin/householdSpending/:householdSpendingId")
+    .route("/admin/household/spend/:householdSpendingId")
     .get(Controllers.householdSpending.getDetail)
     .delete(Controllers.householdSpending.delete)
     .put(Controllers.householdSpending.update);

@@ -6,14 +6,14 @@ const { QueryTypes, Op } = require("sequelize");
 module.exports = {
   create: async (spendingObj, transaction) => {
     try {
-      const householdSpend = await db.householdSpend.create(
+      const incomeRankingCa = await db.incomeRankingCa.create(
         {
           id: Common.helper.generateId(),
           ...spendingObj,
         },
         { transaction }
       );
-      return householdSpend.dataValues;
+      return incomeRankingCa.dataValues;
     } catch (error) {
       logger.info(error);
     }
@@ -26,12 +26,12 @@ module.exports = {
       const replacementObj = {
         limit: Number(spendingObj.limit),
         offset: Number(spendingObj.offset),
-        province: "%%",
+        ca: "%%",
       };
-      let sql = `SELECT id , count(*) over() as "total_count" from "householdSpends" 
-                where province ilike :province and "deletedAt" is null order by "createdAt" desc limit :limit offset :offset`;
-      if (spendingObj?.filter?.province) {
-        replacementObj.province = `%${spendingObj.filter.province}%`;
+      let sql = `SELECT id , count(*) over() as "total_count" from "incomeRankingCas" 
+                where ca ilike :ca and "deletedAt" is null order by "createdAt" desc limit :limit offset :offset`;
+      if (spendingObj?.filter?.ca) {
+        replacementObj.ca = `%${spendingObj.filter.ca}%`;
       }
 
       const data = await db.sequelize.query(sql, {
@@ -54,7 +54,7 @@ module.exports = {
         order: [["createdAt", "DESC"]],
         transaction,
       };
-      const result = await db.householdSpend.findAll(query);
+      const result = await db.incomeRankingCa.findAll(query);
       return { result, count: data[0].total_count };
     } catch (error) {
       logger.info(error);
@@ -62,7 +62,7 @@ module.exports = {
   },
   delete: async (spendingObj, transaction) => {
     try {
-      const result = await db.householdSpend.destroy(
+      const result = await db.incomeRankingCa.destroy(
         { where: spendingObj },
         transaction
       );
@@ -73,7 +73,7 @@ module.exports = {
   },
   update: async (spendingObj, transaction) => {
     try {
-      const updated = await db.householdSpend.update(
+      const updated = await db.incomeRankingCa.update(
         spendingObj,
         { where: { id: spendingObj.id } },
         { transaction }
@@ -85,7 +85,7 @@ module.exports = {
   },
   getDetail: async (spendingObj, transaction) => {
     try {
-      const result = await db.householdSpend.findOne({ where: spendingObj });
+      const result = await db.incomeRankingCa.findOne({ where: spendingObj });
       return result;
     } catch (error) {
       logger.info(error);

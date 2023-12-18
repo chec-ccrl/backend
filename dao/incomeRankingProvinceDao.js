@@ -6,14 +6,14 @@ const { QueryTypes, Op } = require("sequelize");
 module.exports = {
   create: async (spendingObj, transaction) => {
     try {
-      const householdSpend = await db.householdSpend.create(
+      const incomeRankingProvince = await db.incomeRankingProvince.create(
         {
           id: Common.helper.generateId(),
           ...spendingObj,
         },
         { transaction }
       );
-      return householdSpend.dataValues;
+      return incomeRankingProvince.dataValues;
     } catch (error) {
       logger.info(error);
     }
@@ -28,7 +28,7 @@ module.exports = {
         offset: Number(spendingObj.offset),
         province: "%%",
       };
-      let sql = `SELECT id , count(*) over() as "total_count" from "householdSpends" 
+      let sql = `SELECT id , count(*) over() as "total_count" from "incomeRankingProvinces" 
                 where province ilike :province and "deletedAt" is null order by "createdAt" desc limit :limit offset :offset`;
       if (spendingObj?.filter?.province) {
         replacementObj.province = `%${spendingObj.filter.province}%`;
@@ -54,7 +54,7 @@ module.exports = {
         order: [["createdAt", "DESC"]],
         transaction,
       };
-      const result = await db.householdSpend.findAll(query);
+      const result = await db.incomeRankingProvince.findAll(query);
       return { result, count: data[0].total_count };
     } catch (error) {
       logger.info(error);
@@ -62,7 +62,7 @@ module.exports = {
   },
   delete: async (spendingObj, transaction) => {
     try {
-      const result = await db.householdSpend.destroy(
+      const result = await db.incomeRankingProvince.destroy(
         { where: spendingObj },
         transaction
       );
@@ -73,7 +73,7 @@ module.exports = {
   },
   update: async (spendingObj, transaction) => {
     try {
-      const updated = await db.householdSpend.update(
+      const updated = await db.incomeRankingProvince.update(
         spendingObj,
         { where: { id: spendingObj.id } },
         { transaction }
@@ -85,7 +85,9 @@ module.exports = {
   },
   getDetail: async (spendingObj, transaction) => {
     try {
-      const result = await db.householdSpend.findOne({ where: spendingObj });
+      const result = await db.incomeRankingProvince.findOne({
+        where: spendingObj,
+      });
       return result;
     } catch (error) {
       logger.info(error);
