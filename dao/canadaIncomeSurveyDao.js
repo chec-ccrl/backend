@@ -6,24 +6,24 @@ const { QueryTypes, Op } = require("sequelize");
 module.exports = {
   create: async (marketObj, transaction) => {
     try {
-      const marketBasketMeasure = await db.marketBasketMeasure.create(
+      const canadaIncomeSurvey = await db.canadaIncomeSurvey.create(
         {
           id: Common.helper.generateId(),
           ...marketObj,
         },
         { transaction }
       );
-      return marketBasketMeasure.dataValues;
+      return canadaIncomeSurvey.dataValues;
     } catch (error) {
       logger.info(error);
     }
   },
   bulkCreate: async (marketObj, transaction) => {
     try {
-      const marketBasketMeasure = await db.marketBasketMeasure.bulkCreate(
+      const canadaIncomeSurvey = await db.canadaIncomeSurvey.bulkCreate(
         marketObj
       );
-      return marketBasketMeasure;
+      return canadaIncomeSurvey;
     } catch (error) {
       logger.info(error);
     }
@@ -38,7 +38,7 @@ module.exports = {
         offset: Number(marketObj.offset),
         province: "%%",
       };
-      let sql = `SELECT id , count(*) over() as "total_count" from "marketBasketMeasures" 
+      let sql = `SELECT id , count(*) over() as "total_count" from "canadaIncomeSurveys" 
                 where province ilike :province and "deletedAt" is null order by "createdAt" desc limit :limit offset :offset`;
       if (marketObj?.filter?.province) {
         replacementObj.province = `%${marketObj.filter.province}%`;
@@ -64,7 +64,7 @@ module.exports = {
         order: [["createdAt", "DESC"]],
         transaction,
       };
-      const result = await db.marketBasketMeasure.findAll(query);
+      const result = await db.canadaIncomeSurvey.findAll(query);
       return { result, count: data[0].total_count };
     } catch (error) {
       logger.info(error);
@@ -72,7 +72,7 @@ module.exports = {
   },
   delete: async (multiplierDao, transaction) => {
     try {
-      const result = await db.marketBasketMeasure.destroy(
+      const result = await db.canadaIncomeSurvey.destroy(
         { where: multiplierDao },
         transaction
       );
@@ -83,7 +83,7 @@ module.exports = {
   },
   update: async (marketObj, transaction) => {
     try {
-      const updated = await db.marketBasketMeasure.update(
+      const updated = await db.canadaIncomeSurvey.update(
         marketObj,
         { where: { id: marketObj.id } },
         { transaction }
@@ -95,7 +95,7 @@ module.exports = {
   },
   getDetail: async (marketObj, transaction) => {
     try {
-      const result = await db.marketBasketMeasure.findOne({ where: marketObj });
+      const result = await db.canadaIncomeSurvey.findOne({ where: marketObj });
       return result;
     } catch (error) {
       logger.info(error);
