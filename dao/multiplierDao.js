@@ -20,8 +20,42 @@ module.exports = {
   },
   getAll: async (multiplierObj, transaction) => {
     try {
-      const result = await db.multiplier.findAll({});
-      return { result, count: result.length };
+      if (multiplierObj.filter) {
+        multiplierObj.filter = JSON.parse(multiplierObj.filter);
+      }
+      const replacementObj = {
+        limit: Number(multiplierObj.limit),
+        offset: Number(multiplierObj.offset),
+        province: "%%",
+      };
+      let sql = `SELECT id , count(*) over() as "total_count" from "multipliers" 
+                where province ilike :province and "deletedAt" is null order by "createdAt" desc limit :limit offset :offset`;
+      if (multiplierObj?.filter?.province) {
+        replacementObj.province = `%${multiplierObj.filter.province}%`;
+      }
+
+      const data = await db.sequelize.query(sql, {
+        replacements: replacementObj,
+        type: QueryTypes.SELECT,
+      });
+
+      const ids = [];
+
+      if (data.length === 0) {
+        return { count: 0, result: [] };
+      }
+      for (let i = 0; i < data.length; i += 1) {
+        ids.push(data[i].id);
+      }
+      let query = {
+        where: {
+          id: ids,
+        },
+        order: [["createdAt", "DESC"]],
+        transaction,
+      };
+      const result = await db.multiplier.findAll(query);
+      return { result, count: data[0].total_count };
     } catch (error) {
       logger.info(error);
     }
