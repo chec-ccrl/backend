@@ -1,9 +1,11 @@
 const ErrorHandler = require("../util/error");
 const Services = require("../services");
 const Validations = require("../validations");
+const Common = require("../common");
 const logger = require("../util/logger");
 const db = require("../models");
 
+const excelToJson = require("convert-excel-to-json");
 module.exports = {
   create: async (req, res, next) => {
     try {
@@ -109,6 +111,30 @@ module.exports = {
           data: spendingDetails,
         });
       });
+    } catch (error) {
+      next(error);
+    }
+  },
+  addExcelFiles: async (req, res, next) => {
+    try {
+      let result = excelToJson({
+        sourceFile: __dirname + "/Sample_Files/Income Ranking CMA.xlsx",
+      });
+      result = result["Sheet1"];
+
+      let arr = [];
+      result.map((obj) => {
+        if (obj["A"] !== "CMA") {
+          let data = {
+            id: Common.helper.generateId(),
+            cma: obj["A"],
+            ranking: Number(obj["B"]),
+          };
+          arr.push(data);
+        }
+      });
+      await Services.incomeRankingCMAService.bulkCreate(arr);
+      return res.json("Done");
     } catch (error) {
       next(error);
     }

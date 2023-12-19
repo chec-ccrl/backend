@@ -6,7 +6,7 @@ const { QueryTypes, Op } = require("sequelize");
 module.exports = {
   create: async (spendingObj, transaction) => {
     try {
-      const incomeRankingCmas = await db.incomeRankingCmas.create(
+      const incomeRankingCmas = await db.incomeRankingCma.create(
         {
           id: Common.helper.generateId(),
           ...spendingObj,
@@ -54,7 +54,7 @@ module.exports = {
         order: [["createdAt", "DESC"]],
         transaction,
       };
-      const result = await db.incomeRankingCmas.findAll(query);
+      const result = await db.incomeRankingCma.findAll(query);
       return { result, count: data[0].total_count };
     } catch (error) {
       logger.info(error);
@@ -62,7 +62,7 @@ module.exports = {
   },
   delete: async (spendingObj, transaction) => {
     try {
-      const result = await db.incomeRankingCmas.destroy(
+      const result = await db.incomeRankingCma.destroy(
         { where: spendingObj },
         transaction
       );
@@ -73,7 +73,7 @@ module.exports = {
   },
   update: async (spendingObj, transaction) => {
     try {
-      const updated = await db.incomeRankingCmas.update(
+      const updated = await db.incomeRankingCma.update(
         spendingObj,
         { where: { id: spendingObj.id } },
         { transaction }
@@ -85,8 +85,16 @@ module.exports = {
   },
   getDetail: async (spendingObj, transaction) => {
     try {
-      const result = await db.incomeRankingCmas.findOne({ where: spendingObj });
+      const result = await db.incomeRankingCma.findOne({ where: spendingObj });
       return result;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
+  bulkCreate: async (marketObj, transaction) => {
+    try {
+      const incomeRankingCMA = await db.incomeRankingCma.bulkCreate(marketObj);
+      return incomeRankingCMA;
     } catch (error) {
       logger.info(error);
     }

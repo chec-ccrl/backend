@@ -1,8 +1,11 @@
 const ErrorHandler = require("../util/error");
 const Services = require("../services");
 const Validations = require("../validations");
+const Common = require("../common");
 const logger = require("../util/logger");
 const db = require("../models");
+
+const excelToJson = require("convert-excel-to-json");
 
 module.exports = {
   create: async (req, res, next) => {
@@ -87,9 +90,8 @@ module.exports = {
   },
   update: async (req, res, next) => {
     try {
-      const { error, value } = Validations.incomeRankingProvince.createValidation(
-        req.body
-      );
+      const { error, value } =
+        Validations.incomeRankingProvince.createValidation(req.body);
       const { incomeRankingProvinceId } = req.params;
       if (error) {
         throw new ErrorHandler(400, error.details[0].message);
@@ -99,16 +101,38 @@ module.exports = {
           id: incomeRankingProvinceId,
           ...value,
         };
-        const spendingDetails = await Services.incomeRankingProvinceService.update(
-          obj,
-          transaction
-        );
+        const spendingDetails =
+          await Services.incomeRankingProvinceService.update(obj, transaction);
         return res.status(200).send({
           status: 200,
           message: "Created successfully",
           data: spendingDetails,
         });
       });
+    } catch (error) {
+      next(error);
+    }
+  },
+  addExcelFiles: async (req, res, next) => {
+    try {
+      let result = excelToJson({
+        sourceFile: __dirname + "/Sample_Files/Income Ranking Province.xlsx",
+      });
+      result = result["Sheet1"];
+
+      let arr = [];
+      result.map((obj) => {
+        if (obj["A"] !== "CMA") {
+          let data = {
+            id: Common.helper.generateId(),
+            province: obj["A"],
+            ranking: Number(obj["B"]),
+          };
+          arr.push(data);
+        }
+      });
+      await Services.incomeRankingProvinceService.bulkCreate(arr);
+      return res.json("Done");
     } catch (error) {
       next(error);
     }

@@ -93,4 +93,14 @@ module.exports = {
       logger.info(error);
     }
   },
+  bulkCreate: async (marketObj, transaction) => {
+    try {
+      const incomeRankingProvince = await db.incomeRankingProvince.bulkCreate(
+        marketObj
+      );
+      return incomeRankingProvince;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
 };

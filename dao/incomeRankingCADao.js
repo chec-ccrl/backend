@@ -91,4 +91,12 @@ module.exports = {
       logger.info(error);
     }
   },
+  bulkCreate: async (marketObj, transaction) => {
+    try {
+      const incomeRankingCA = await db.incomeRankingCA.bulkCreate(marketObj);
+      return incomeRankingCA;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
 };
