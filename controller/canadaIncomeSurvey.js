@@ -1,8 +1,11 @@
 const ErrorHandler = require("../util/error");
 const Services = require("../services");
 const Validations = require("../validations");
+const Common = require("../common");
 const logger = require("../util/logger");
 const db = require("../models");
+
+const excelToJson = require("convert-excel-to-json");
 
 module.exports = {
   create: async (req, res, next) => {
@@ -109,6 +112,37 @@ module.exports = {
           data: createHousing,
         });
       });
+    } catch (error) {
+      next(error);
+    }
+  },
+  addExcelFiles: async (req, res, next) => {
+    try {
+      let result = excelToJson({
+        sourceFile: __dirname + "/Sample_Files/Canadian Income Survey.xlsx",
+      });
+
+      result = result["No_of_Families"];
+
+      await Promise.all(
+        result.map(async (obj) => {
+          if (obj["A"] !== "Province") {
+            const survey = await Services.canadaIncomeSurveyService.getDetail({
+              province: obj["A"],
+              cma: obj["B"],
+              year: obj["C"],
+            });
+            if (survey) {
+              await Services.canadaIncomeSurveyService.update({
+                id: survey.id,
+                number_of_family: obj["D"],
+              });
+            }
+          }
+        })
+      );
+
+      return res.json("Done");
     } catch (error) {
       next(error);
     }
