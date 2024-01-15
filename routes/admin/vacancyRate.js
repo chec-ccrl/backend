@@ -5,6 +5,9 @@ module.exports = (router) => {
     .route("/admin/vacancy/rate")
     .get(Controllers.vacancyRate.getAll)
     .post(Controllers.vacancyRate.create);
+  router
+    .route("/admin/vacancy/rate/excel")
+    .get(Controllers.vacancyRate.addExcelFiles);
 
   router
     .route("/admin/vacancy/rate/:vacancyRateId")

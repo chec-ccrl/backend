@@ -4,6 +4,8 @@ const Validations = require("../validations");
 const logger = require("../util/logger");
 const db = require("../models");
 
+const excelToJson = require("convert-excel-to-json");
+
 module.exports = {
   create: async (req, res, next) => {
     try {
@@ -106,6 +108,35 @@ module.exports = {
           data: updateVacancy,
         });
       });
+    } catch (error) {
+      next(error);
+    }
+  },
+  addExcelFiles: async (req, res, next) => {
+    try {
+      let result = excelToJson({
+        sourceFile: __dirname + "/Sample_Files/Vacancy Rate.xlsx",
+      });
+      result = result["Vacancy rate"];
+      let arr = [];
+      await Promise.all(
+        result.map(async (obj) => {
+          if (obj["A"] !== "Geography (Province name)") {
+            let data = {
+              province: obj["A"],
+              cma: obj["B"],
+              ca: obj["C"],
+              house_type: obj["D"],
+              bedroom_type: obj["E"],
+              year: obj["F"],
+              vacancy_rate: obj["G"],
+            };
+            arr.push(data);
+          }
+        })
+      );
+      await Services.vacancyRateService.bulkCreate(arr);
+      return res.json("Done");
     } catch (error) {
       next(error);
     }

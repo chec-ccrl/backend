@@ -121,19 +121,16 @@ module.exports = {
       let result = excelToJson({
         sourceFile: __dirname + "/Sample_Files/Market Basket Measure.xlsx",
       });
-      result = result["Sheet 1 - Market Basket Measure"];
+      result = result["Market Basket Measure"];
       let arr = [];
       result.map((obj) => {
-        if (obj["A"] !== "Province" && obj["A"] !== "Market Basket Measure") {
+        if (obj["A"] !== "Geography (Province name)") {
           let data = {
-            id: Common.helper.generateId(),
             province: obj["A"],
-            popuplation_type: obj["B"],
-            city: obj["C"],
-            cma: obj["D"],
-            ca: obj["E"],
-            year: Number(obj["F"]) === "nan" ? 0 : Number(obj["F"]),
-            cost: Number(obj["G"]) === "nan" ? 0 : Number(obj["G"]),
+            cma: obj["B"],
+            ca: obj["C"],
+            year: obj["D"],
+            cost: obj["E"],
           };
           arr.push(data);
         }

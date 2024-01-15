@@ -98,4 +98,12 @@ module.exports = {
       logger.info(error);
     }
   },
+  bulkCreate: async (marketObj, transaction) => {
+    try {
+      const canadaIncomeSurvey = await db.rent.bulkCreate(marketObj);
+      return canadaIncomeSurvey;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
 };

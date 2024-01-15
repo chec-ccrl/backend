@@ -84,4 +84,12 @@ module.exports = {
       logger.info(error);
     }
   },
+  bulkCreate: async (marketObj, transaction) => {
+    try {
+      const canadaIncomeSurvey = await db.completeHousing.bulkCreate(marketObj);
+      return canadaIncomeSurvey;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
 };

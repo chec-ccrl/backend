@@ -8,10 +8,16 @@ module.exports = (sequelize, Sequelize) => {
         unique: true,
         defaultValue: Sequelize.UUIDV4,
       },
+      year: {
+        type: Sequelize.INTEGER,
+      },
       province: {
         type: Sequelize.STRING,
       },
-      ranking: {
+      ranking_before_tax: {
+        type: Sequelize.INTEGER,
+      },
+      ranking_after_tax: {
         type: Sequelize.INTEGER,
       },
     },

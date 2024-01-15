@@ -4,6 +4,8 @@ const Validations = require("../validations");
 const logger = require("../util/logger");
 const db = require("../models");
 
+const excelToJson = require("convert-excel-to-json");
+
 module.exports = {
   create: async (req, res, next) => {
     try {
@@ -99,6 +101,35 @@ module.exports = {
           data: updateRent,
         });
       });
+    } catch (error) {
+      next(error);
+    }
+  },
+  addExcelFiles: async (req, res, next) => {
+    try {
+      let result = excelToJson({
+        sourceFile: __dirname + "/Sample_Files/CMHC Rent.xlsx",
+      });
+      result = result["Sheet1"];
+      let arr = [];
+      await Promise.all(
+        result.map(async (obj) => {
+          if (obj["A"] !== "Geography (Province name)") {
+            let data = {
+              province: obj["A"],
+              cma: obj["B"],
+              ca: obj["C"],
+              house_type:obj["D"],
+              bedroom_type:obj["E"],
+              year: obj["F"],
+              rent_value: obj["G"],
+            };
+            arr.push(data);
+          }
+        })
+      );
+      await Services.rentService.bulkCreate(arr);
+      return res.json("Done");
     } catch (error) {
       next(error);
     }

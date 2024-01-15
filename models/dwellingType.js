@@ -11,19 +11,10 @@ module.exports = (sequelize, Sequelize) => {
       province: {
         type: Sequelize.STRING,
       },
-      census_subdivision: {
+      cma: {
         type: Sequelize.STRING,
       },
-      CMA_CA_mapping: {
-        type: Sequelize.STRING,
-      },
-      CMA: {
-        type: Sequelize.STRING,
-      },
-      CA: {
-        type: Sequelize.STRING,
-      },
-      intended_market: {
+      ca: {
         type: Sequelize.STRING,
       },
       year: {
@@ -32,10 +23,10 @@ module.exports = (sequelize, Sequelize) => {
       bedroom_type: {
         type: Sequelize.STRING,
       },
-      apartment: {
-        type: Sequelize.INTEGER,
+      house_type: {
+        type: Sequelize.STRING,
       },
-      row_house: {
+      units: {
         type: Sequelize.INTEGER,
       },
     },

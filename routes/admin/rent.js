@@ -6,6 +6,8 @@ module.exports = (router) => {
     .get(Controllers.rent.getAll)
     .post(Controllers.rent.create);
 
+  router.route("/admin/rent/excel").get(Controllers.rent.addExcelFiles);
+
   router
     .route("/admin/rent/:rentId")
     .get(Controllers.rent.getDetail)

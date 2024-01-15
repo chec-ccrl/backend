@@ -55,4 +55,13 @@ module.exports = {
       throw new Error(error);
     }
   },
+  bulkCreate: async (marketObj, transaction) => {
+    try {
+      const bulkCreate = await Dao.rentDao.bulkCreate(marketObj, transaction);
+      return bulkCreate;
+    } catch (error) {
+      logger.info(error);
+      throw new Error(error);
+    }
+  },
 };

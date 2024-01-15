@@ -4,6 +4,7 @@ const Validations = require("../validations");
 const logger = require("../util/logger");
 const db = require("../models");
 
+const excelToJson = require("convert-excel-to-json");
 module.exports = {
   create: async (req, res, next) => {
     try {
@@ -109,6 +110,37 @@ module.exports = {
           data: updateDwelling,
         });
       });
+    } catch (error) {
+      next(error);
+    }
+  },
+  addExcelFiles: async (req, res, next) => {
+    try {
+      let result = excelToJson({
+        sourceFile:
+          __dirname + "/Sample_Files/Structural type of dwelling.xlsx",
+      });
+      result = result["Sheet2"];
+      let arr = [];
+      await Promise.all(
+        result.map(async (obj) => {
+          if (obj["A"] !== "Geography (Province name)") {
+            let t = {
+              province: obj["A"],
+              cma: obj["B"],
+              ca: obj["C"],
+              house_type: obj["D"],
+              bedroom_type: obj["E"],
+              year: obj["F"],
+              units: obj["G"],
+            };
+            arr.push(t);
+          }
+        })
+      );
+      await Services.dwellingTypeService.bulkCreate(arr);
+
+      return res.json("Done");
     } catch (error) {
       next(error);
     }

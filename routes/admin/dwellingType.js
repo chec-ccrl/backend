@@ -7,6 +7,10 @@ module.exports = (router) => {
     .post(Controllers.dwellingType.create);
 
   router
+    .route("/admin/dwelling/type/excel")
+    .get(Controllers.dwellingType.addExcelFiles);
+
+  router
     .route("/admin/dwelling/type/:dwellingTypeId")
     .get(Controllers.dwellingType.getDetail)
     .delete(Controllers.dwellingType.delete)

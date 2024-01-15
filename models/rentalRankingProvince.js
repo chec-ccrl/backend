@@ -8,6 +8,9 @@ module.exports = (sequelize, Sequelize) => {
         unique: true,
         defaultValue: Sequelize.UUIDV4,
       },
+      year: {
+        type: Sequelize.INTEGER,
+      },
       province: {
         type: Sequelize.STRING,
       },

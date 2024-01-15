@@ -120,19 +120,27 @@ module.exports = {
       let result = excelToJson({
         sourceFile: __dirname + "/Sample_Files/Multiplier.xlsx",
       });
-      result = result["Sheet1"];
+      result = result["Utility cost"];
       await Promise.all(
         result.map(async (obj) => {
-          if (obj["A"] !== "Province") {
-            let data = {
+          if (obj["A"] !== "Geography (Province name)") {
+            const survey = await Services.multiplierService.getDetail({
               province: obj["A"],
-              rent: obj["B"],
-              utility: obj["C"],
-            };
-            await Services.multiplierService.create(data);
+              cma: obj["B"],
+              ca: obj["C"],
+              year: obj["D"],
+            });
+
+            if (survey) {
+              await Services.multiplierService.update({
+                id: survey.id,
+                average_utility: obj["E"],
+              });
+            }
           }
         })
       );
+
       return res.json("Done");
     } catch (error) {
       next(error);

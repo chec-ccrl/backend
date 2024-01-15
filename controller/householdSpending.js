@@ -120,19 +120,23 @@ module.exports = {
       let result = excelToJson({
         sourceFile: __dirname + "/Sample_Files/Household Spending.xlsx",
       });
-      result = result["Sheet 1 - Household Spending"];
+      result = result["Household spending"];
+      let arr = [];
       await Promise.all(
         result.map(async (obj) => {
-          if (obj["A"] !== "Province" || obj["A"] !== "Household Spending") {
+          if (obj["A"] !== "Geography (Province name)") {
             let data = {
               province: obj["A"],
-              year: obj["B"],
-              cost: obj["C"],
+              cma: obj["B"],
+              ca: obj["C"],
+              year: obj["D"],
+              cost: obj["E"],
             };
-            await Services.householdSpendingService.create(data);
+            arr.push(data);
           }
         })
       );
+      await Services.householdSpendingService.bulkCreate(arr);
       return res.json("Done");
     } catch (error) {
       next(error);

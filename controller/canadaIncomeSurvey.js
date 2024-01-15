@@ -122,20 +122,22 @@ module.exports = {
         sourceFile: __dirname + "/Sample_Files/Canadian Income Survey.xlsx",
       });
 
-      result = result["No_of_Families"];
+      result = result["Median Income"];
 
       await Promise.all(
         result.map(async (obj) => {
-          if (obj["A"] !== "Province") {
+          if (obj["A"] !== "Geography (Province name)") {
             const survey = await Services.canadaIncomeSurveyService.getDetail({
               province: obj["A"],
               cma: obj["B"],
-              year: obj["C"],
+              ca: obj["C"],
+              year: obj["D"],
             });
             if (survey) {
               await Services.canadaIncomeSurveyService.update({
                 id: survey.id,
-                number_of_family: obj["D"],
+                median_before_tax: obj["E"],
+                median_after_tax: obj["F"],
               });
             }
           }

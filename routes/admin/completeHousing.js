@@ -7,6 +7,9 @@ module.exports = (router) => {
     .post(Controllers.completeHousing.create);
 
   router
+    .route("/admin/complete/housing/excel")
+    .get(Controllers.completeHousing.addExcelFiles);
+  router
     .route("/admin/complete/housing/:completeHousingId")
     .get(Controllers.completeHousing.getDetail)
     .delete(Controllers.completeHousing.delete)

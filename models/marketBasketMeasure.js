@@ -11,12 +11,6 @@ module.exports = (sequelize, Sequelize) => {
       province: {
         type: Sequelize.STRING,
       },
-      popuplation_type: {
-        type: Sequelize.STRING,
-      },
-      city: {
-        type: Sequelize.STRING,
-      },
       cma: {
         type: Sequelize.STRING,
       },

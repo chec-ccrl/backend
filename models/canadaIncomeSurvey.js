@@ -14,19 +14,25 @@ module.exports = (sequelize, Sequelize) => {
       cma: {
         type: Sequelize.STRING,
       },
+      ca: {
+        type: Sequelize.STRING,
+      },
       income_bracket: {
         type: Sequelize.STRING,
       },
       year: {
         type: Sequelize.INTEGER,
       },
-      total_income: {
+      percentage_of_family_total_income: {
         type: Sequelize.DOUBLE,
       },
-      after_tax_income: {
+      percentage_of_family_after_tax_income: {
         type: Sequelize.DOUBLE,
       },
-      number_of_family: {
+      number_of_family_total_income: {
+        type: Sequelize.DOUBLE,
+      },
+      number_of_family_after_tax_income: {
         type: Sequelize.DOUBLE,
       },
       median_before_tax: {

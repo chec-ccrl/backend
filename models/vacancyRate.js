@@ -11,10 +11,10 @@ module.exports = (sequelize, Sequelize) => {
       province: {
         type: Sequelize.STRING,
       },
-      geography: {
+      cma: {
         type: Sequelize.STRING,
       },
-      geography_type: {
+      ca: {
         type: Sequelize.STRING,
       },
       house_type: {

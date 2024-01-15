@@ -11,7 +11,13 @@ module.exports = (sequelize, Sequelize) => {
       ca: {
         type: Sequelize.STRING,
       },
-      ranking: {
+      year: {
+        type: Sequelize.INTEGER,
+      },
+      ranking_before_tax: {
+        type: Sequelize.INTEGER,
+      },
+      ranking_after_tax: {
         type: Sequelize.INTEGER,
       },
     },
