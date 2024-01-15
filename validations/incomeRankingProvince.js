@@ -3,7 +3,8 @@ module.exports = {
   createValidation: (Obj) => {
     const schema = Joi.object().keys({
       province: Joi.string().required().trim(),
-      ranking: Joi.number(),
+      ranking_before_tax: Joi.number(),
+      ranking_after_tax: Joi.number(),
     });
 
     return Joi.validate(Obj, schema);
@@ -11,7 +12,8 @@ module.exports = {
   updateValidation: (Obj) => {
     const schema = Joi.object().keys({
       province: Joi.string().required().trim(),
-      ranking: Joi.number(),
+      ranking_before_tax: Joi.number(),
+      ranking_after_tax: Joi.number(),
     });
 
     return Joi.validate(Obj, schema);

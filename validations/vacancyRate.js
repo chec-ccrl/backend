@@ -3,8 +3,8 @@ module.exports = {
   createValidation: (Obj) => {
     const schema = Joi.object().keys({
       province: Joi.string().required().trim(),
-      geography: Joi.string().required().trim(),
-      geography_type: Joi.string().required().trim(),
+      cma: Joi.string(),
+      ca: Joi.string(),
       house_type: Joi.string(),
       bedroom_type: Joi.string(),
       year: Joi.number(),
@@ -16,8 +16,8 @@ module.exports = {
   updateValidation: (Obj) => {
     const schema = Joi.object().keys({
       province: Joi.string().required().trim(),
-      geography: Joi.string().required().trim(),
-      geography_type: Joi.string().required().trim(),
+      cma: Joi.string(),
+      ca: Joi.string(),
       house_type: Joi.string(),
       bedroom_type: Joi.string(),
       year: Joi.number(),
