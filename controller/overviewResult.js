@@ -4,10 +4,10 @@ const Validations = require("../validations");
 const logger = require("../util/logger");
 const db = require("../models");
 const bedroom_type_const = [
-  "No Bedrooms",
+  "0 Bedroom",
   "1 Bedroom",
   "2 Bedroom",
-  "3 Bedroom",
+  "3 Bedroom+",
 ];
 const house_type_const = ["Apartment", "Row"];
 
@@ -16,16 +16,15 @@ module.exports = {
     try {
       const {
         province,
+        year,
         rent_source,
         income_before_tax,
         income_after_tax,
         source_of_cost,
       } = req.body;
-      const multiplierDetails = await Services.multiplierService.getDetail({
-        province,
-      });
+
       const outcome = [];
-      const household_income_before_tax = 0.3 * income_before_tax;
+      const household_income_before_tax = income_before_tax;
       //*********************1st ALGORITHM***************************** */
       await Promise.all(
         bedroom_type_const.map(async (bedroom_type) => {
@@ -34,64 +33,95 @@ module.exports = {
               const rentDetails = await Services.rentService.getDetails({
                 bedroom_type,
                 province,
-                year: "2021",
+                year: String(year),
                 house_type,
               });
               await Promise.all(
                 rentDetails.map(async (obj) => {
                   let rent = 0;
-                  const { geography, geography_type } = obj;
+                  const { cma, ca } = obj;
+                  const multiplierDetails =
+                    await Services.multiplierService.getDetail({
+                      province,
+                      year,
+                      cma,
+                      ca,
+                    });
+
                   if (rent_source === "Realistic") {
-                    rent = Number(multiplierDetails.rent * obj.rent_value);
+                    rent = Number(
+                      (multiplierDetails?.rent ?? 1000) *
+                        obj.rent_value *
+                        (multiplierDetails?.utility ?? 1)
+                    );
                   } else {
-                    rent = Number(obj.rent_value);
+                    rent = Number(
+                      obj.rent_value * (multiplierDetails?.utility ?? 1)
+                    );
                   }
 
                   let marketBasketDetails;
                   if (source_of_cost === "Poverty") {
-                    if (geography_type === "CMA") {
+                    if (cma !== "NA") {
                       marketBasketDetails =
                         await Services.marketBasketMeasureService.getDetail({
                           province,
-                          year: 2021,
-                          cma: geography,
+                          year,
+                          cma,
                         });
                     } else {
                       marketBasketDetails =
                         await Services.marketBasketMeasureService.getDetail({
                           province,
-                          year: 2021,
-                          ca: geography,
+                          year,
+                          ca,
                         });
                     }
                   } else {
-                    marketBasketDetails =
-                      await Services.householdSpendingService.getDetail({
-                        province,
-                        year: 2021,
-                      });
+                    if (cma !== "NA") {
+                      marketBasketDetails =
+                        await Services.householdSpendingService.getDetail({
+                          province,
+                          year,
+                          cma,
+                        });
+                    } else {
+                      marketBasketDetails =
+                        await Services.householdSpendingService.getDetail({
+                          province,
+                          year,
+                          ca,
+                        });
+                    }
                   }
 
                   const cost_of_non_shelter_necessity =
-                    marketBasketDetails?.cost || 10000;
+                    marketBasketDetails?.cost;
                   const residual_income =
                     income_after_tax - cost_of_non_shelter_necessity;
                   outcome.push({
-                    geography,
-                    geography_type,
+                    cma,
+                    ca,
                     province,
                     bedroom_type,
                     house_type,
-                    residual_affordable: residual_income > rent ? true : false,
+                    residual_affordable:
+                      residual_income / 12 > rent ? true : false,
                     household_affordable:
-                      rent < household_income_before_tax ? true : false,
-                    optimal_income_after_tax:
-                      rent + cost_of_non_shelter_necessity,
-                    income_surplus_or_deficit_after_tax:
-                      income_after_tax - (rent + cost_of_non_shelter_necessity),
-                    optimal_income_before_tax: rent / 0.3,
-                    income_surplus_or_deficit_before_tax:
-                      income_after_tax - rent / 0.3,
+                      rent < (household_income_before_tax * 0.3) / 12
+                        ? true
+                        : false,
+                    optimal_income_after_tax: Number(
+                      rent + cost_of_non_shelter_necessity
+                    ).toFixed(0),
+                    optimal_income_before_tax: Number(rent / 0.3).toFixed(0),
+                    income_difference_by_residual: Number(
+                      household_income_before_tax -
+                        (rent + cost_of_non_shelter_necessity)
+                    ).toFixed(0),
+                    income_difference_by_income: Number(
+                      income_after_tax - rent / 0.3
+                    ).toFixed(0),
                   });
                 })
               );
@@ -107,71 +137,108 @@ module.exports = {
       await Promise.all(
         provinces.map(async (province) => {
           province = province.province;
-          const multiplierDetails = await Services.multiplierService.getDetail({
-            province,
-          });
           await Promise.all(
             bedroom_type_const.map(async (bedroom_type) => {
-              const rentDetails = await Services.rentService.getDetails({
-                bedroom_type,
-                province,
-                house_type: "Apartment",
-                year: "2021",
-              });
               await Promise.all(
-                rentDetails.map(async (obj) => {
-                  let rent = 0;
-                  const { geography, geography_type } = obj;
-                  if (rent_source === "Realistic") {
-                    rent = Number(multiplierDetails.rent * obj.rent_value);
-                  } else {
-                    rent = Number(obj.rent_value);
-                  }
-                  let marketBasketDetails;
-                  if (source_of_cost === "Poverty") {
-                    if (geography_type === "CMA") {
-                      marketBasketDetails =
-                        await Services.marketBasketMeasureService.getDetail({
-                          province,
-                          year: 2021,
-                          cma: geography,
-                        });
-                    } else {
-                      marketBasketDetails =
-                        await Services.marketBasketMeasureService.getDetail({
-                          province,
-                          year: 2021,
-                          ca: geography,
-                        });
-                    }
-                  } else {
-                    marketBasketDetails =
-                      await Services.householdSpendingService.getDetail({
-                        province,
-                        year: 2021,
-                      });
-                  }
-                  const cost_of_non_shelter_necessity =
-                    marketBasketDetails?.cost || 10000;
-                  const residual_income =
-                    income_after_tax - cost_of_non_shelter_necessity;
-                  all_outcome.push({
-                    geography,
-                    geography_type,
-                    province,
+                house_type_const.map(async (house_type) => {
+                  const rentDetails = await Services.rentService.getDetails({
                     bedroom_type,
-                    house_type: "Apartment",
-                    residual_affordable: residual_income > rent ? true : false,
-                    household_affordable:
-                      rent < household_income_before_tax ? true : false,
-                    optimal_income_after_tax:
-                      rent + cost_of_non_shelter_necessity,
-                    income_surplus_or_deficit_after_tax:
-                      income_after_tax - (rent + cost_of_non_shelter_necessity),
-                    optimal_income_before_tax: rent / 0.3,
-                    income_surplus_or_deficit_before_tax:
-                      income_after_tax - rent / 0.3,
+                    province,
+                    house_type,
+                    year: String(year),
                   });
+                  await Promise.all(
+                    rentDetails.map(async (obj) => {
+                      let rent = 0;
+                      const { cma, ca } = obj;
+                      const multiplierDetails =
+                        await Services.multiplierService.getDetail({
+                          province,
+                          year,
+                          cma,
+                          ca,
+                        });
+                      if (rent_source === "Realistic") {
+                        rent = Number(
+                          (multiplierDetails?.rent ?? 1000) *
+                            obj.rent_value *
+                            (multiplierDetails?.utility ?? 1)
+                        );
+                      } else {
+                        rent = Number(
+                          obj.rent_value * (multiplierDetails?.utility ?? 1)
+                        );
+                      }
+                      let marketBasketDetails;
+                      if (source_of_cost === "Poverty") {
+                        if (cma !== "NA") {
+                          marketBasketDetails =
+                            await Services.marketBasketMeasureService.getDetail(
+                              {
+                                province,
+                                year,
+                                cma,
+                              }
+                            );
+                        } else {
+                          marketBasketDetails =
+                            await Services.marketBasketMeasureService.getDetail(
+                              {
+                                province,
+                                year,
+                                ca,
+                              }
+                            );
+                        }
+                      } else {
+                        if (cma !== "NA") {
+                          marketBasketDetails =
+                            await Services.householdSpendingService.getDetail({
+                              province,
+                              year,
+                              cma,
+                            });
+                        } else {
+                          marketBasketDetails =
+                            await Services.householdSpendingService.getDetail({
+                              province,
+                              year,
+                              ca,
+                            });
+                        }
+                      }
+                      const cost_of_non_shelter_necessity =
+                        marketBasketDetails?.cost ?? 10000;
+                      const residual_income =
+                        income_after_tax - cost_of_non_shelter_necessity;
+                      all_outcome.push({
+                        cma,
+                        ca,
+                        province,
+                        bedroom_type,
+                        house_type,
+                        residual_affordable:
+                          residual_income / 12 > rent ? true : false,
+                        household_affordable:
+                          rent < (household_income_before_tax * 0.3) / 12
+                            ? true
+                            : false,
+                        optimal_income_after_tax: Number(
+                          rent + cost_of_non_shelter_necessity
+                        ).toFixed(0),
+                        optimal_income_before_tax: Number(rent / 0.3).toFixed(
+                          0
+                        ),
+                        income_difference_by_residual: Number(
+                          household_income_before_tax -
+                            (rent + cost_of_non_shelter_necessity)
+                        ).toFixed(0),
+                        income_difference_by_income: Number(
+                          income_after_tax - rent / 0.3
+                        ).toFixed(0),
+                      });
+                    })
+                  );
                 })
               );
             })
