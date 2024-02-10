@@ -120,6 +120,24 @@ module.exports = {
       let result = excelToJson({
         sourceFile: __dirname + "/Sample_Files/Multiplier.xlsx",
       });
+      //result = result["Multiplier"];
+      // let ar = [];
+      // await Promise.all(
+      //   result.map(async (obj) => {
+      //     if (obj["A"] !== "Geography (Province name)") {
+      //       let objj = {
+      //         province: obj["A"],
+      //         cma: obj["B"],
+      //         ca: obj["C"],
+      //         year: obj["D"],
+      //         rent: obj["E"],
+      //         utility: obj["D"],
+      //       };
+      //       ar.push(objj);
+      //     }
+      //   })
+      // );
+      // await Services.multiplierService.bulkCreate(ar);
       result = result["Utility cost"];
       await Promise.all(
         result.map(async (obj) => {
