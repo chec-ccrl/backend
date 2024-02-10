@@ -120,7 +120,7 @@ module.exports = {
       let result = excelToJson({
         sourceFile: __dirname + "/Sample_Files/Multiplier.xlsx",
       });
-      //result = result["Multiplier"];
+      // result = result["Multiplier"];
       // let ar = [];
       // await Promise.all(
       //   result.map(async (obj) => {
@@ -131,7 +131,7 @@ module.exports = {
       //         ca: obj["C"],
       //         year: obj["D"],
       //         rent: obj["E"],
-      //         utility: obj["D"],
+      //         utility: obj["F"],
       //       };
       //       ar.push(objj);
       //     }
