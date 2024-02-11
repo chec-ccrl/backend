@@ -3462,6 +3462,8 @@ module.exports = {
       Object.keys(dataBasedOnType).map((type, type_index) => {
         const house_type = type;
         const dataBasedOnHouseType = organizedAllOutcome[province][house_type];
+        let acount = 0;
+        let rcount = 0;
         Object.keys(dataBasedOnHouseType).map((geo, geo_index) => {
           const cma_ca = geo;
           const dataBasedOnGeography =
@@ -3503,7 +3505,9 @@ module.exports = {
             }
             optimal_income = obj.optimal_income_before_tax;
           });
-          if (house_type === "Apartment") {
+
+          if (house_type === "Apartment" && acount < 28) {
+            acount++;
             rowsHtmlApartment += ` <tr>
                                 <td>${geo_index + 1}</td>
                                 <td>${pl.toUpperCase()}</td>
@@ -3518,7 +3522,8 @@ module.exports = {
               Math.abs(optimal_income / 4)
             )}</td>
                             </tr>`;
-          } else if (house_type === "Row") {
+          } else if (house_type === "Row" && rcount < 28) {
+            rcount++;
             rowsHtmlRow += ` <tr>
                                         <td>${geo_index + 1}</td>
                                         <td>${pl.toUpperCase()}</td>
