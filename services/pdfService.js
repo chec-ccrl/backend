@@ -3736,9 +3736,6 @@ module.exports = {
                       </div>
                       <div  style="height:1500px">
                       <div class="main_first">
-                          <div class="main_first_img">
-                              <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
-                          </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
                               CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROWS
@@ -4102,7 +4099,7 @@ module.exports = {
         text-align: center;
         justify-content: center;
         text-align: center;
-        width: 60%;
+        width: 70%;
     }
 
     .main_first_text_tex1 {
