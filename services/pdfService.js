@@ -3549,7 +3549,7 @@ module.exports = {
           }
         });
       });
-      htmlObj += ` <div class="main_first">
+      htmlObj += ` <div class="main_first" style="height:1500px">
       <div class="main_first_img">
       <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
       </div>
@@ -5037,7 +5037,7 @@ module.exports = {
             </div>
         </div>
         <!-- SECOND PAGE -->
-        <div style="position: relative;">
+        <div style="position: relative;height:1500px">
             <div class="main_first">
                 <div class="main_first_img">
                 <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
@@ -5094,7 +5094,7 @@ module.exports = {
                 </div>
             </div>
         </div>
-            <div class="main_third">
+            <div class="main_third" >
                 <div class="main_third_text">
                     <span>
                         NOTE - B = Bedrooms
