@@ -3436,7 +3436,7 @@ module.exports = {
         if (!organizedAllOutcome[prov][house_type]) {
           organizedAllOutcome[prov][house_type] = {};
         }
-        if (cma) {
+        if (cma !== "NA") {
           if (!organizedAllOutcome[prov][house_type][cma]) {
             organizedAllOutcome[prov][house_type][cma] = [];
           }
