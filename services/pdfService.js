@@ -311,7 +311,7 @@ module.exports = {
               font-style: italic;
               border-radius: 7px;
               padding: 2px 10px;
-              margin-top: 15px;
+              margin-top: 10px;
               color: #09429C;
               margin-bottom: 10px;
               z-index: 1;
@@ -4149,7 +4149,7 @@ module.exports = {
         font-style: italic;
         border-radius: 7px;
         padding: 2px 10px;
-        margin-top: 15px;
+        margin-top: 10px;
         color: white;
         margin-bottom: 10px;
         z-index: 1;
