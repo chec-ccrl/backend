@@ -121,10 +121,10 @@ module.exports = {
       let result = excelToJson({
         sourceFile: __dirname + "/Sample_Files/Market Basket Measure.xlsx",
       });
-      result = result["Market Basket Measure"];
+      result = result["Market Basket Measure (1)"];
       let arr = [];
       result.map((obj) => {
-        if (obj["A"] !== "Geography (Province name)") {
+        if (obj["A"] !== "Province") {
           let data = {
             province: obj["A"],
             cma: obj["B"],
@@ -135,6 +135,7 @@ module.exports = {
           arr.push(data);
         }
       });
+
       await Services.marketBasketMeasureService.bulkCreate(arr);
       return res.json("Done");
     } catch (error) {

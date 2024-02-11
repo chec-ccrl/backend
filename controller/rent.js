@@ -110,7 +110,7 @@ module.exports = {
       let result = excelToJson({
         sourceFile: __dirname + "/Sample_Files/CMHC Rent.xlsx",
       });
-      result = result["Sheet1"];
+      result = result["Sheet2"];
       let arr = [];
       await Promise.all(
         result.map(async (obj) => {

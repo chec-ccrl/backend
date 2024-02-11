@@ -120,11 +120,11 @@ module.exports = {
       let result = excelToJson({
         sourceFile: __dirname + "/Sample_Files/Household Spending.xlsx",
       });
-      result = result["Household spending"];
+      result = result["Household Spending"];
       let arr = [];
       await Promise.all(
         result.map(async (obj) => {
-          if (obj["A"] !== "Geography (Province name)") {
+          if (obj["A"] !== "Province") {
             let data = {
               province: obj["A"],
               cma: obj["B"],
