@@ -3797,6 +3797,7 @@ module.exports = {
         const data = organizedOutcome[geo];
         let rowsRow = ``;
         let rowsApartment = ``;
+        data.sort((a, b) => a.bedroom_type - b.bedroom_type);
         data.map((obj) => {
           const bedroom_type =
             obj.bedroom_type === "0 Bedroom"
