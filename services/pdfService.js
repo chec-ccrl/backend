@@ -18,6 +18,21 @@ const s3 = new AWS.S3();
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+const provincesMap = new Map([
+  ["Newfoundland and Labrador", "NL"],
+  ["Prince Edward Island", "PE"],
+  ["Nova Scotia", "NS"],
+  ["New Brunswick", "NB"],
+  ["Quebec", "QC"],
+  ["Ontario", "ON"],
+  ["Manitoba", "MB"],
+  ["Saskatchewan", "SK"],
+  ["Alberta", "AB"],
+  ["British Columbia", "BC"],
+  ["Yukon", "YT"],
+  ["Northwest Territories", "NT"],
+  ["Nunavut", "NU"],
+]);
 
 module.exports = {
   detailPdfGenerator: async (data) => {
@@ -3513,7 +3528,7 @@ module.exports = {
             acount++;
             rowsHtmlApartment += ` <tr>
                                 <td>${geo_index + 1}</td>
-                                <td>${pl.toUpperCase()}</td>
+                                <td>${provincesMap.get(pl)}</td>
                                 <td>${city}</td>
                                 <td>${b0str}</td>
                                 <td>${b1str}</td>
@@ -3529,7 +3544,7 @@ module.exports = {
             rcount++;
             rowsHtmlRow += ` <tr>
                                         <td>${geo_index + 1}</td>
-                                        <td>${pl.toUpperCase()}</td>
+                                        <td>${provincesMap.get(pl)}</td>
                                         <td>${city}</td>
                                         <td>${b0str}</td>
                                         <td>${b1str}</td>
@@ -3673,7 +3688,7 @@ module.exports = {
             acount++;
             rowsHtmlApartment += ` <tr>
                                   <td>${geo_index + 1}</td>
-                                  <td>${pl.toUpperCase()}</td>
+                                  <td>${provincesMap.get(pl)}</td>
                                   <td>${city}</td>
                                   <td>${b0str}</td>
                                   <td>${b1str}</td>
@@ -3689,7 +3704,7 @@ module.exports = {
             rcount++;
             rowsHtmlRow += ` <tr>
                                           <td>${geo_index + 1}</td>
-                                          <td>${pl.toUpperCase()}</td>
+                                          <td>${provincesMap.get(pl)}</td>
                                           <td>${city}</td>
                                           <td>${b0str}</td>
                                           <td>${b1str}</td>
@@ -3728,7 +3743,7 @@ module.exports = {
                               <table class="main_page2_first_table">
                                   <tr class="main_page2_first_table_tr">
                                       <th class="main_page2_first_table_tr_th">SN</th>
-                                      <th class="main_page2_first_table_tr_th" style="width:30%">Province</th>
+                                      <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                       <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’S</th>
                                       <th class="main_page2_first_table_tr_th">0B</th>
                                       <th class="main_page2_first_table_tr_th">1B</th>
@@ -3763,7 +3778,7 @@ module.exports = {
                           <table class="main_page2_first_table">
                               <tr class="main_page2_first_table_tr">
                                   <th class="main_page2_first_table_tr_th">SN</th>
-                                  <th class="main_page2_first_table_tr_th" style="width:30%">Province</th>
+                                  <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                   <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’S</th>
                                   <th class="main_page2_first_table_tr_th">0B</th>
                                   <th class="main_page2_first_table_tr_th">1B</th>
