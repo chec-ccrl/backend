@@ -3535,8 +3535,8 @@ module.exports = {
                                 <td>${b3str}</td>
                                 <td>${
                                   optimal_income < 0 ? "-" : ""
-                                }$${Math.ceil(
-              Math.abs(optimal_income / 4)
+                                }$${numberWithCommas(
+              Math.ceil(Math.abs(optimal_income / 4))
             )}</td>
                             </tr>`;
           } else if (house_type === "Row" && rcount < 28) {
@@ -3551,8 +3551,8 @@ module.exports = {
                                         <td>${b3str}</td>
                                         <td>${
                                           optimal_income < 0 ? "-" : ""
-                                        }$${Math.ceil(
-              Math.abs(optimal_income / 4)
+                                        }$${numberWithCommas(
+              Math.ceil(Math.abs(optimal_income / 4))
             )}
                                         </td>
                                     </tr>`;
@@ -3581,7 +3581,7 @@ module.exports = {
                         <div class="main_page2_first">
                             <table class="main_page2_first_table">
                                 <tr class="main_page2_first_table_tr">
-                                    <th class="main_page2_first_table_tr_th">SN</th>
+                                    <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                     <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                     <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’S</th>
                                     <th class="main_page2_first_table_tr_th">0B</th>
@@ -3616,7 +3616,7 @@ module.exports = {
                     <div class="main_page2_first">
                         <table class="main_page2_first_table">
                             <tr class="main_page2_first_table_tr">
-                                <th class="main_page2_first_table_tr_th">SN</th>
+                                <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                 <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                 <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’S</th>
                                 <th class="main_page2_first_table_tr_th">0B</th>
@@ -3741,7 +3741,7 @@ module.exports = {
                           <div class="main_page2_first">
                               <table class="main_page2_first_table">
                                   <tr class="main_page2_first_table_tr">
-                                      <th class="main_page2_first_table_tr_th">SN</th>
+                                      <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                       <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                       <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’S</th>
                                       <th class="main_page2_first_table_tr_th">0B</th>
@@ -3776,7 +3776,7 @@ module.exports = {
                       <div class="main_page2_first">
                           <table class="main_page2_first_table">
                               <tr class="main_page2_first_table_tr">
-                                  <th class="main_page2_first_table_tr_th">SN</th>
+                                  <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                   <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                   <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’S</th>
                                   <th class="main_page2_first_table_tr_th">0B</th>
@@ -3895,6 +3895,7 @@ module.exports = {
         const data = organizedOutcome[geo];
         let rowsRow = ``;
         let rowsApartment = ``;
+        data.sort((a, b) => a.bedroom_type - b.bedroom_type);
         data.map((obj) => {
           const bedroom_type =
             obj.bedroom_type === "0 Bedroom"
