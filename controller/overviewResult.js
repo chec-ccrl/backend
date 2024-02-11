@@ -179,6 +179,26 @@ module.exports = {
         })
       );
 
+      all_outcome.sort((a, b) => {
+        let nameA, nameB;
+        if (a.cma !== "NA") {
+          nameA = a.cma.toUpperCase(); // Ignore case for comparison
+        } else {
+          nameA = a.ca.toUpperCase(); // Ignore case for comparison
+        }
+        if (a.cma !== "NA") {
+          nameB = a.cma.toUpperCase(); // Ignore case for comparison
+        } else {
+          nameB = a.ca.toUpperCase(); // Ignore case for comparison
+        }
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0; // Names are equal
+      });
       //*********************END 2nd ALGORITHM***************************/
       const link = await Services.pdfService.simplePdfGenerator({
         province,
