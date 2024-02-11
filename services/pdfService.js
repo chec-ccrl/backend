@@ -4104,7 +4104,7 @@ module.exports = {
         text-align: center;
         letter-spacing: 0.2cap;
         font-size: 25px;
-        margin-top: 15px;
+        margin-top: 5px;
     }
 
     .main_five {
@@ -4175,8 +4175,8 @@ module.exports = {
     }
 
     .main_float_line {
-        height: 1090px;
-        margin-top:10px;
+        height: 1040px;
+        margin-top:60px;
         position: absolute;
         width: 0px;
         border-left: 1.5px dashed black;
