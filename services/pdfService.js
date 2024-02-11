@@ -3414,7 +3414,7 @@ module.exports = {
       all_outcome,
       outcome,
     } = data;
-    province = province.toUpperCase();
+    province;
 
     const organizedOutcome = outcome.reduce((acc, current) => {
       const { cma, ca } = current;
