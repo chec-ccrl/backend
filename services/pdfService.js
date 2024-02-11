@@ -4102,11 +4102,11 @@ module.exports = {
         text-align: center;
         justify-content: center;
         text-align: center;
-        width: 90%;
+        width: 60%;
     }
 
     .main_first_text_tex1 {
-        font-size: 30px;
+        font-size: 25px;
         font-weight: bold;
         letter-spacing: 0.5cap;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
