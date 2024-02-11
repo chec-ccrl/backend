@@ -12,6 +12,15 @@ AWS.config.update({
   secretAccessKey: process.env.S3_AWS_SECRET,
   region: process.env.S3_AWS_REGION,
 });
+function customSort(a, b) {
+  // Extract the numeric part from the string
+  const regex = /\d+/;
+  const aBedrooms = parseInt(a.bedrooms.match(regex)[0]);
+  const bBedrooms = parseInt(b.bedrooms.match(regex)[0]);
+
+  // Compare the extracted numeric parts
+  return aBedrooms - bBedrooms;
+}
 
 // Create an S3 instance
 const s3 = new AWS.S3();
@@ -3797,7 +3806,7 @@ module.exports = {
         const data = organizedOutcome[geo];
         let rowsRow = ``;
         let rowsApartment = ``;
-        data.sort((a, b) => a.bedroom_type - b.bedroom_type);
+        data.sort(customSort);
         data.map((obj) => {
           const bedroom_type =
             obj.bedroom_type === "0 Bedroom"
@@ -3896,7 +3905,7 @@ module.exports = {
         const data = organizedOutcome[geo];
         let rowsRow = ``;
         let rowsApartment = ``;
-        data.sort((a, b) => a.bedroom_type - b.bedroom_type);
+        data.sort(customSort);
         data.map((obj) => {
           const bedroom_type =
             obj.bedroom_type === "0 Bedroom"
