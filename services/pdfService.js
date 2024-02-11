@@ -5112,7 +5112,7 @@ module.exports = {
                 </div>
                 <div class="main_first_text">
                     <div class="main_first_text_tex1">
-                        ${provincesMap.get(province)}
+                        ${province}
                     </div>
                     <div class="main_first_text_tex2">
                         KEY INSIGHTS
@@ -5124,7 +5124,9 @@ module.exports = {
                     <div class="main_second_select1">
                         <label class="label" for="cars">PROVINCE:</label>
                         <select name="cars" id="cars" style="width: 200px;margin-left: 130px;">
-                            <option value="volvo">${province}</option>
+                            <option value="volvo">${provincesMap.get(
+                              province
+                            )}</option>
                         </select>
                     </div>
                     <div class="main_second_select1">
@@ -5210,7 +5212,7 @@ module.exports = {
                 </div>
                 <div class="main_first_text">
                     <div class="main_first_text_tex1">
-                    ${provincesMap.get(province)}
+                    ${province}
                     </div>
                     <div class="main_first_text_tex2">
                         KEY INSIGHTS
@@ -5222,7 +5224,9 @@ module.exports = {
                 <div class="main_second_select1">
                     <label class="label" for="cars">PROVINCE:</label>
                     <select name="cars" id="cars" style="width: 200px;margin-left: 130px;">
-                        <option value="volvo">${province}</option>
+                        <option value="volvo">${provincesMap.get(
+                          province
+                        )}</option>
                     </select>
                 </div>
                 <div class="main_second_select1">
