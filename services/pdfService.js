@@ -15,8 +15,8 @@ AWS.config.update({
 function customSort(a, b) {
   // Extract the numeric part from the string
   const regex = /\d+/;
-  const aBedrooms = parseInt(a.bedrooms.match(regex)[0]);
-  const bBedrooms = parseInt(b.bedrooms.match(regex)[0]);
+  const aBedrooms = parseInt(a.bedroom_type.match(regex)[0]);
+  const bBedrooms = parseInt(b.bedroom_type.match(regex)[0]);
 
   // Compare the extracted numeric parts
   return aBedrooms - bBedrooms;
