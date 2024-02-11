@@ -3487,6 +3487,10 @@ module.exports = {
       let rowsHtmlRow = ``;
       let rowsHtmlApartment29 = ``;
       let rowsHtmlRow29 = ``;
+      let rowsHtmlApartment56 = ``;
+      let rowsHtmlRow56 = ``;
+      let rowsHtmlApartment84 = ``;
+      let rowsHtmlRow84 = ``;
       Object.keys(dataBasedOnType).map((type, type_index) => {
         const house_type = type;
         const dataBasedOnHouseType = organizedAllOutcome[province][house_type];
@@ -3567,7 +3571,7 @@ module.exports = {
             )}
                                         </td>
                                     </tr>`;
-          } else if (house_type === "Row" && rcount > 28) {
+          } else if (house_type === "Row" && rcount >= 28 && rcount < 56) {
             rcount++;
             rowsHtmlRow29 += ` <tr>
                                         <td>${geo_index + 1}</td>
@@ -3584,7 +3588,11 @@ module.exports = {
             )}
                                         </td>
                                     </tr>`;
-          } else if (house_type === "Apartment" && acount > 29) {
+          } else if (
+            house_type === "Apartment" &&
+            acount >= 28 &&
+            rcount < 56
+          ) {
             acount++;
             rowsHtmlApartment29 += ` <tr>
                                 <td>${geo_index + 1}</td>
@@ -3600,6 +3608,76 @@ module.exports = {
               Math.ceil(Math.abs(optimal_income / 4))
             )}</td>
                             </tr>`;
+          } else if (
+            house_type === "Apartment" &&
+            acount >= 56 &&
+            rcount < 84
+          ) {
+            acount++;
+            rowsHtmlApartment56 += ` <tr>
+                                <td>${geo_index + 1}</td>
+                                <td>${provincesMap.get(pl)}</td>
+                                <td>${city}</td>
+                                <td>${b0str}</td>
+                                <td>${b1str}</td>
+                                <td>${b2str}</td>
+                                <td>${b3str}</td>
+                                <td>${
+                                  optimal_income < 0 ? "-" : ""
+                                }$${numberWithCommas(
+              Math.ceil(Math.abs(optimal_income / 4))
+            )}</td>
+                            </tr>`;
+          } else if (house_type === "Apartment" && rcount >= 84) {
+            acount++;
+            rowsHtmlApartment84 += ` <tr>
+                                <td>${geo_index + 1}</td>
+                                <td>${provincesMap.get(pl)}</td>
+                                <td>${city}</td>
+                                <td>${b0str}</td>
+                                <td>${b1str}</td>
+                                <td>${b2str}</td>
+                                <td>${b3str}</td>
+                                <td>${
+                                  optimal_income < 0 ? "-" : ""
+                                }$${numberWithCommas(
+              Math.ceil(Math.abs(optimal_income / 4))
+            )}</td>
+                            </tr>`;
+          } else if (house_type === "Row" && rcount >= 56 && rcount < 84) {
+            rcount++;
+            rowsHtmlRow56 += ` <tr>
+                                        <td>${geo_index + 1}</td>
+                                        <td>${provincesMap.get(pl)}</td>
+                                        <td>${city}</td>
+                                        <td>${b0str}</td>
+                                        <td>${b1str}</td>
+                                        <td>${b2str}</td>
+                                        <td>${b3str}</td>
+                                        <td>${
+                                          optimal_income < 0 ? "-" : ""
+                                        }$${numberWithCommas(
+              Math.ceil(Math.abs(optimal_income / 4))
+            )}
+                                        </td>
+                                    </tr>`;
+          } else if (house_type === "Row" && rcount >= 84) {
+            rcount++;
+            rowsHtmlRow84 += ` <tr>
+                                        <td>${geo_index + 1}</td>
+                                        <td>${provincesMap.get(pl)}</td>
+                                        <td>${city}</td>
+                                        <td>${b0str}</td>
+                                        <td>${b1str}</td>
+                                        <td>${b2str}</td>
+                                        <td>${b3str}</td>
+                                        <td>${
+                                          optimal_income < 0 ? "-" : ""
+                                        }$${numberWithCommas(
+              Math.ceil(Math.abs(optimal_income / 4))
+            )}
+                                        </td>
+                                    </tr>`;
           }
         });
       });
@@ -3676,6 +3754,82 @@ module.exports = {
                     </div>
                 </div>`
                     }
+                    ${
+                      rowsHtmlApartment56 &&
+                      `<div  style="height:1500px">
+                      <div class="main_first">
+                          <div class="main_first_img">
+                              <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                          </div>
+                          <div class="main_first_text">
+                              <div class="main_first_text_tex1">
+                              CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR APARTMENTS
+                              </div>
+                          </div>
+                      </div>
+                      <div class="main_third">
+                          <div class="main_third_line"></div>
+                      </div>
+                      <div class="main_fourth">
+                          <div class="main_fourth_text2">
+                              1] BASED ON 30% BENCHMARK
+                          </div>
+                      </div>
+                      <div class="main_page2_first">
+                          <table class="main_page2_first_table">
+                              <tr class="main_page2_first_table_tr">
+                                  <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                                  <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
+                                  <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’S</th>
+                                  <th class="main_page2_first_table_tr_th">0B</th>
+                                  <th class="main_page2_first_table_tr_th">1B</th>
+                                  <th class="main_page2_first_table_tr_th">2B</th>
+                                  <th class="main_page2_first_table_tr_th">3B+</th>
+                                  <th class="main_page2_first_table_tr_th">OPTIMAL INCOME</th>
+                              </tr>
+                              ${rowsHtmlApartment56}
+                          </table>
+                      </div>
+                  </div>`
+                    }
+                      ${
+                        rowsHtmlApartment84 &&
+                        `<div  style="height:1500px">
+                      <div class="main_first">
+                          <div class="main_first_img">
+                              <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                          </div>
+                          <div class="main_first_text">
+                              <div class="main_first_text_tex1">
+                              CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR APARTMENTS
+                              </div>
+                          </div>
+                      </div>
+                      <div class="main_third">
+                          <div class="main_third_line"></div>
+                      </div>
+                      <div class="main_fourth">
+                          <div class="main_fourth_text2">
+                              1] BASED ON 30% BENCHMARK
+                          </div>
+                      </div>
+                      <div class="main_page2_first">
+                          <table class="main_page2_first_table">
+                              <tr class="main_page2_first_table_tr">
+                                  <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                                  <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
+                                  <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’S</th>
+                                  <th class="main_page2_first_table_tr_th">0B</th>
+                                  <th class="main_page2_first_table_tr_th">1B</th>
+                                  <th class="main_page2_first_table_tr_th">2B</th>
+                                  <th class="main_page2_first_table_tr_th">3B+</th>
+                                  <th class="main_page2_first_table_tr_th">OPTIMAL INCOME</th>
+                              </tr>
+                              ${rowsHtmlApartment84}
+                          </table>
+                      </div>
+                  </div>`
+                      }
                     <div  style="height:1500px">
                         <div class="main_first">
                             <div class="main_first_img">
@@ -3748,7 +3902,82 @@ module.exports = {
                         </table>
                     </div>
                 </div>`
-                    }
+                    } 
+                    ${
+                      rowsHtmlRow56 &&
+                      `<div  style="height:1500px">
+                      <div class="main_first">
+                          <div class="main_first_img">
+                              <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                          </div>
+                          <div class="main_first_text">
+                              <div class="main_first_text_tex1">
+                              CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROWS
+                              </div>
+                          </div>
+                      </div>
+                      <div class="main_third">
+                          <div class="main_third_line"></div>
+                      </div>
+                      <div class="main_fourth">
+                          <div class="main_fourth_text2">
+                              1] BASED ON 30% BENCHMARK
+                          </div>
+                      </div>
+                      <div class="main_page2_first">
+                          <table class="main_page2_first_table">
+                              <tr class="main_page2_first_table_tr">
+                                  <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                                  <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
+                                  <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’S</th>
+                                  <th class="main_page2_first_table_tr_th">0B</th>
+                                  <th class="main_page2_first_table_tr_th">1B</th>
+                                  <th class="main_page2_first_table_tr_th">2B</th>
+                                  <th class="main_page2_first_table_tr_th">3B+</th>
+                                  <th class="main_page2_first_table_tr_th">OPTIMAL INCOME</th>
+                              </tr>
+                              ${rowsHtmlRow56}
+                          </table>
+                      </div>
+                  </div>`
+                    }  ${
+        rowsHtmlRow84 &&
+        `<div  style="height:1500px">
+                      <div class="main_first">
+                          <div class="main_first_img">
+                              <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                          </div>
+                          <div class="main_first_text">
+                              <div class="main_first_text_tex1">
+                              CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROWS
+                              </div>
+                          </div>
+                      </div>
+                      <div class="main_third">
+                          <div class="main_third_line"></div>
+                      </div>
+                      <div class="main_fourth">
+                          <div class="main_fourth_text2">
+                              1] BASED ON 30% BENCHMARK
+                          </div>
+                      </div>
+                      <div class="main_page2_first">
+                          <table class="main_page2_first_table">
+                              <tr class="main_page2_first_table_tr">
+                                  <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                                  <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
+                                  <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’S</th>
+                                  <th class="main_page2_first_table_tr_th">0B</th>
+                                  <th class="main_page2_first_table_tr_th">1B</th>
+                                  <th class="main_page2_first_table_tr_th">2B</th>
+                                  <th class="main_page2_first_table_tr_th">3B+</th>
+                                  <th class="main_page2_first_table_tr_th">OPTIMAL INCOME</th>
+                              </tr>
+                              ${rowsHtmlRow84}
+                          </table>
+                      </div>
+                  </div>`
+      }
   `;
     });
     Object.keys(organizedAllOutcome).map((prov, index) => {
