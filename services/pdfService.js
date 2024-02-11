@@ -3414,34 +3414,39 @@ module.exports = {
       return acc;
     }, {});
     const organizedAllOutcome = all_outcome.reduce((acc, current) => {
-      const { province } = current;
-      if (!acc[province]) {
-        acc[province] = [];
+      const { cma } = current;
+      let keyy = "";
+      if (cma !== "NA") {
+        keyy = "CMA";
+      } else {
+        keyy = "CA";
       }
-      acc[province].push(current);
+      if (!acc[keyy]) {
+        acc[keyy] = [];
+      }
+      acc[keyy].push(current);
       return acc;
     }, {});
     Object.keys(organizedAllOutcome).map((prov, index) => {
       const data = organizedAllOutcome[prov];
       organizedAllOutcome[prov] = {};
       data.map((obj) => {
-        const { cma, ca } = obj;
-        let geography_type = "";
-        let geography = "";
-        if (cma !== "NA") {
-          geography_type = "CMA";
-          geography = cma;
+        const { house_type, cma, ca } = obj;
+
+        if (!organizedAllOutcome[prov][house_type]) {
+          organizedAllOutcome[prov][house_type] = {};
+        }
+        if (cma) {
+          if (!organizedAllOutcome[prov][house_type][cma]) {
+            organizedAllOutcome[prov][house_type][cma] = [];
+          }
+          organizedAllOutcome[prov][house_type][cma].push(obj);
         } else {
-          geography_type = "CA";
-          geography = ca;
+          if (!organizedAllOutcome[prov][house_type][ca]) {
+            organizedAllOutcome[prov][house_type][ca] = [];
+          }
+          organizedAllOutcome[prov][house_type][ca].push(obj);
         }
-        if (!organizedAllOutcome[prov][geography_type]) {
-          organizedAllOutcome[prov][geography_type] = {};
-        }
-        if (!organizedAllOutcome[prov][geography_type][geography]) {
-          organizedAllOutcome[prov][geography_type][geography] = [];
-        }
-        organizedAllOutcome[prov][geography_type][geography].push(obj);
       });
     });
 
@@ -3451,25 +3456,26 @@ module.exports = {
 
     Object.keys(organizedAllOutcome).map((prov, index) => {
       const province = prov;
-      const dataBasedOnProvince = organizedAllOutcome[prov];
-      let rowsHtmlCA30 = ``;
-      let rowsHtmlCMA30 = ``;
-      let rowsHtmlCAResidual = ``;
-      let rowsHtmlCMAResidual = ``;
-      Object.keys(dataBasedOnProvince).map((type, type_index) => {
-        const geography_type = type;
-        const dataBasedOnType = organizedAllOutcome[province][geography_type];
-        Object.keys(dataBasedOnType).map((geo, geo_index) => {
-          const geography = geo;
+      const dataBasedOnType = organizedAllOutcome[province];
+      let rowsHtmlApartment = ``;
+      let rowsHtmlRow = ``;
+      Object.keys(dataBasedOnType).map((type, type_index) => {
+        const house_type = type;
+        const dataBasedOnHouseType = organizedAllOutcome[province][house_type];
+        Object.keys(dataBasedOnHouseType).map((geo, geo_index) => {
+          const cma_ca = geo;
           const dataBasedOnGeography =
-            organizedAllOutcome[province][geography_type][geography];
+            organizedAllOutcome[province][house_type][cma_ca];
           let b0str = ``,
             b1str = ``,
             b2str = ``,
             b3str = ``;
-          let optimal_income = 0,
-            residual_income = 0;
+          let optimal_income = 0;
+          let pl = "";
+          let city = "";
           dataBasedOnGeography.map((obj) => {
+            pl = obj.province;
+            city = obj.cma !== "NA" ? obj.cma : obj.ca;
             if (obj.bedroom_type === "0 Bedroom") {
               b0str = obj.household_affordable
                 ? `<img width="17" height="17"
@@ -3494,58 +3500,40 @@ module.exports = {
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">`
                 : `<img width="17" height="17"
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">`;
-              optimal_income = obj.optimal_income_before_tax;
-              residual_income = obj.optimal_income_after_tax;
             }
+            optimal_income = obj.optimal_income_before_tax;
           });
-          if (geography_type === "CA") {
-            rowsHtmlCA30 += ` <tr>
+          if (house_type === "Apartment") {
+            rowsHtmlApartment += ` <tr>
                                 <td>${geo_index + 1}</td>
-                                <td>${geo.toUpperCase()}</td>
+                                <td>${pl.toUpperCase()}</td>
+                                <td>${city}</td>
                                 <td>${b0str}</td>
                                 <td>${b1str}</td>
                                 <td>${b2str}</td>
                                 <td>${b3str}</td>
                                 <td>${
                                   optimal_income < 0 ? "-" : ""
-                                }$${Math.ceil(Math.abs(optimal_income))}</td>
+                                }$${Math.ceil(
+              Math.abs(optimal_income / 4)
+            )}</td>
                             </tr>`;
-
-            rowsHtmlCAResidual += ` <tr>
-                                <td>${geo_index + 1}</td>
-                                <td>${geo.toUpperCase()}</td>
-                                <td>${b0str}</td>
-                                <td>${b1str}</td>
-                                <td>${b2str}</td>
-                                <td>${b3str}</td>
-                                <td>${
-                                  residual_income < 0 ? "-" : ""
-                                }$${Math.ceil(Math.abs(residual_income))}</td>
-                              </tr>`;
-          } else {
-            rowsHtmlCMA30 += ` <tr>
-                                <td>${geo_index + 1}</td>
-                                <td>${geo.toUpperCase()}</td>
-                                <td>${b0str}</td>
-                                <td>${b1str}</td>
-                                <td>${b2str}</td>
-                                <td>${b3str}</td>
-                                <td>${
-                                  optimal_income < 0 ? "-" : ""
-                                }$${Math.ceil(Math.abs(optimal_income))}</td>
-                            </tr>`;
-
-            rowsHtmlCMAResidual += ` <tr>
-                                <td>${geo_index + 1}</td>
-                                <td>${geo.toUpperCase()}</td>
-                                <td>${b0str}</td>
-                                <td>${b1str}</td>
-                                <td>${b2str}</td>
-                                <td>${b3str}</td>
-                                <td>${
-                                  residual_income < 0 ? "-" : ""
-                                }$${Math.ceil(Math.abs(residual_income))}</td>
-                              </tr>`;
+          } else if (house_type === "Row") {
+            rowsHtmlRow += ` <tr>
+                                        <td>${geo_index + 1}</td>
+                                        <td>${pl.toUpperCase()}</td>
+                                        <td>${city}</td>
+                                        <td>${b0str}</td>
+                                        <td>${b1str}</td>
+                                        <td>${b2str}</td>
+                                        <td>${b3str}</td>
+                                        <td>${
+                                          optimal_income < 0 ? "-" : ""
+                                        }$${Math.ceil(
+              Math.abs(optimal_income / 4)
+            )}
+                                        </td>
+                                    </tr>`;
           }
         });
       });
@@ -3556,12 +3544,7 @@ module.exports = {
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
-                                    PROVINCE ${
-                                      index + 1
-                                    } - ${province.toUpperCase()}
-                                </div>
-                                <div class="main_first_text_tex2">
-                                    KEY INSIGHTS
+                                CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR APARTMENTS
                                 </div>
                             </div>
                         </div>
@@ -3569,7 +3552,6 @@ module.exports = {
                             <div class="main_third_line"></div>
                         </div>
                         <div class="main_fourth">
-                            <div class="main_fourth_text1">LIST OF CMA’S & CA’S & THEIR AFFORDABILITY FOR APARTMENTS</div>
                             <div class="main_fourth_text2">
                                 1] BASED ON 30% BENCHMARK
                             </div>
@@ -3578,6 +3560,7 @@ module.exports = {
                             <table class="main_page2_first_table">
                                 <tr class="main_page2_first_table_tr">
                                     <th class="main_page2_first_table_tr_th">SN</th>
+                                    <th class="main_page2_first_table_tr_th" style="width:30%">Province</th>
                                     <th class="main_page2_first_table_tr_th" style="width:30%">CMA’S</th>
                                     <th class="main_page2_first_table_tr_th">0B</th>
                                     <th class="main_page2_first_table_tr_th">1B</th>
@@ -3585,57 +3568,45 @@ module.exports = {
                                     <th class="main_page2_first_table_tr_th">3B+</th>
                                     <th class="main_page2_first_table_tr_th">OPTIMAL INCOME</th>
                                 </tr>
-                                ${rowsHtmlCMA30}
-                            </table>
-                        </div>
-                        <div class="main_page2_first">
-                            <table class="main_page2_first_table">
-                                <tr class="main_page2_first_table_tr">
-                                    <th class="main_page2_first_table_tr_th">SN</th>
-                                    <th class="main_page2_first_table_tr_th" style="width:30%">CA’S</th>
-                                    <th class="main_page2_first_table_tr_th">0B</th>
-                                    <th class="main_page2_first_table_tr_th">1B</th>
-                                    <th class="main_page2_first_table_tr_th">2B</th>
-                                    <th class="main_page2_first_table_tr_th">3B+</th>
-                                    <th class="main_page2_first_table_tr_th">OPTIMAL INCOME</th>
-                                </tr>
-                                ${rowsHtmlCA30}
-                            </table>
-                        </div>
-                        <div class="main_fourth">
-                            <div class="main_fourth_text2">
-                                2] BASED ON RESIDUAL INCOME
-                            </div>
-                        </div>
-                        <div class="main_page2_first">
-                        <table class="main_page2_first_table">
-                                <tr class="main_page2_first_table_tr">
-                                    <th class="main_page2_first_table_tr_th">SN</th>
-                                    <th class="main_page2_first_table_tr_th" style="width:30%">CMA’S</th>
-                                    <th class="main_page2_first_table_tr_th">0B</th>
-                                    <th class="main_page2_first_table_tr_th">1B</th>
-                                    <th class="main_page2_first_table_tr_th">2B</th>
-                                    <th class="main_page2_first_table_tr_th">3B+</th>
-                                    <th class="main_page2_first_table_tr_th">OPTIMAL INCOME</th>
-                                </tr>
-                                ${rowsHtmlCMAResidual}
-                            </table>
-                        </div>
-                        <div class="main_page2_first">
-                            <table class="main_page2_first_table">
-                                    <tr class="main_page2_first_table_tr">
-                                        <th class="main_page2_first_table_tr_th">SN</th>
-                                        <th class="main_page2_first_table_tr_th" style="width:30%">CA’S</th>
-                                        <th class="main_page2_first_table_tr_th">0B</th>
-                                        <th class="main_page2_first_table_tr_th">1B</th>
-                                        <th class="main_page2_first_table_tr_th">2B</th>
-                                        <th class="main_page2_first_table_tr_th">3B+</th>
-                                        <th class="main_page2_first_table_tr_th">OPTIMAL INCOME</th>
-                                    </tr>
-                                    ${rowsHtmlCAResidual}
+                                ${rowsHtmlApartment}
                             </table>
                         </div>
                     </div>
+                    <div  style="height:1500px">
+                    <div class="main_first">
+                        <div class="main_first_img">
+                            <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                        </div>
+                        <div class="main_first_text">
+                            <div class="main_first_text_tex1">
+                            CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROWS
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main_third">
+                        <div class="main_third_line"></div>
+                    </div>
+                    <div class="main_fourth">
+                        <div class="main_fourth_text2">
+                            1] BASED ON 30% BENCHMARK
+                        </div>
+                    </div>
+                    <div class="main_page2_first">
+                        <table class="main_page2_first_table">
+                            <tr class="main_page2_first_table_tr">
+                                <th class="main_page2_first_table_tr_th">SN</th>
+                                <th class="main_page2_first_table_tr_th" style="width:30%">Province</th>
+                                <th class="main_page2_first_table_tr_th" style="width:30%">CMA’S</th>
+                                <th class="main_page2_first_table_tr_th">0B</th>
+                                <th class="main_page2_first_table_tr_th">1B</th>
+                                <th class="main_page2_first_table_tr_th">2B</th>
+                                <th class="main_page2_first_table_tr_th">3B+</th>
+                                <th class="main_page2_first_table_tr_th">OPTIMAL INCOME</th>
+                            </tr>
+                            ${rowsHtmlRow}
+                        </table>
+                    </div>
+                </div>
   `;
     });
 
