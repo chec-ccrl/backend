@@ -3704,9 +3704,6 @@ module.exports = {
       });
       htmlObj += ` <div  style="height:1500px">
                           <div class="main_first">
-                              <div class="main_first_img">
-                                  <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
-                              </div>
                               <div class="main_first_text">
                                   <div class="main_first_text_tex1">
                                   CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR APARTMENTS
@@ -4105,11 +4102,11 @@ module.exports = {
         text-align: center;
         justify-content: center;
         text-align: center;
-        width: 70%;
+        width: 90%;
     }
 
     .main_first_text_tex1 {
-        font-size: 24px;
+        font-size: 30px;
         font-weight: bold;
         letter-spacing: 0.5cap;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
