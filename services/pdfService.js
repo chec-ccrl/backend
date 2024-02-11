@@ -3591,7 +3591,7 @@ module.exports = {
           } else if (
             house_type === "Apartment" &&
             acount >= 28 &&
-            rcount < 56
+            acount < 56
           ) {
             acount++;
             rowsHtmlApartment29 += ` <tr>
@@ -3611,7 +3611,7 @@ module.exports = {
           } else if (
             house_type === "Apartment" &&
             acount >= 56 &&
-            rcount < 84
+            acount < 84
           ) {
             acount++;
             rowsHtmlApartment56 += ` <tr>
@@ -3628,7 +3628,7 @@ module.exports = {
               Math.ceil(Math.abs(optimal_income / 4))
             )}</td>
                             </tr>`;
-          } else if (house_type === "Apartment" && rcount >= 84) {
+          } else if (house_type === "Apartment" && acount >= 84) {
             acount++;
             rowsHtmlApartment84 += ` <tr>
                                 <td>${geo_index + 1}</td>
