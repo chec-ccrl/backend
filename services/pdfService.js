@@ -5115,13 +5115,17 @@ module.exports = {
                     <div class="main_second_select1">
                         <label class="label" for="cars">INCOME BEFORE TAX:</label>
                         <select name="cars" id="cars" style="width: 200px;">
-                            <option value="volvo">${income_before_tax}</option>
+                            <option value="volvo">$${numberWithCommas(
+                              income_before_tax
+                            )}</option>
                         </select>
                     </div>
                     <div class="main_second_select1">
                     <label class="label" for="cars">INCOME AFTER TAX:</label>
                     <select name="cars" id="cars" style="width: 200px; margin-left: 20px;">
-                        <option value="volvo">${income_after_tax}</option>
+                        <option value="volvo">$${numberWithCommas(
+                          income_after_tax
+                        )}</option>
                     </select>
                 </div>
                 </div>
@@ -5209,13 +5213,17 @@ module.exports = {
                 <div class="main_second_select1">
                     <label class="label" for="cars">INCOME BEFORE TAX:</label>
                     <select name="cars" id="cars" style="width: 200px;">
-                        <option value="volvo">${income_before_tax}</option>
+                        <option value="volvo">$${numberWithCommas(
+                          income_before_tax
+                        )}</option>
                     </select>
                 </div>
                 <div class="main_second_select1" >
                 <label class="label" for="cars">INCOME AFTER TAX:</label>
                 <select name="cars" id="cars" style="width: 200px; margin-left: 20px;">
-                    <option value="volvo">${income_after_tax}</option>
+                    <option value="volvo">$${numberWithCommas(
+                      income_after_tax
+                    )}</option>
                 </select>
             </div>
             </div>
