@@ -3549,89 +3549,93 @@ module.exports = {
           }
         });
       });
-      htmlObj += ` <div class="main_first" style="height:1500px">
-      <div class="main_first_img">
-      <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
-      </div>
-      <div class="main_first_text">
-          <div class="main_first_text_tex1">
-              PROVINCE ${index + 1} - ${province.toUpperCase()}
-          </div>
-          <div class="main_first_text_tex2">
-              KEY INSIGHTS
-          </div>
-      </div>
-  </div>
-  <div class="main_third">
-      <div class="main_third_line"></div>
-  </div>
-  <div class="main_fourth">
-      <div class="main_fourth_text1">LIST OF CMA’S & CA’S & THEIR AFFORDABILITY FOR APARTMENTS</div>
-      <div class="main_fourth_text2">
-          1] BASED ON 30% BENCHMARK
-      </div>
-  </div>
-  <div class="main_page2_first">
-      <table class="main_page2_first_table">
-          <tr class="main_page2_first_table_tr">
-              <th class="main_page2_first_table_tr_th">SN</th>
-              <th class="main_page2_first_table_tr_th" style="width:30%">CMA’S</th>
-              <th class="main_page2_first_table_tr_th">0B</th>
-              <th class="main_page2_first_table_tr_th">1B</th>
-              <th class="main_page2_first_table_tr_th">2B</th>
-              <th class="main_page2_first_table_tr_th">3B+</th>
-              <th class="main_page2_first_table_tr_th">OPTIMAL INCOME</th>
-          </tr>
-          ${rowsHtmlCMA30}
-      </table>
-  </div>
-  <div class="main_page2_first">
-      <table class="main_page2_first_table">
-          <tr class="main_page2_first_table_tr">
-              <th class="main_page2_first_table_tr_th">SN</th>
-              <th class="main_page2_first_table_tr_th" style="width:30%">CA’S</th>
-              <th class="main_page2_first_table_tr_th">0B</th>
-              <th class="main_page2_first_table_tr_th">1B</th>
-              <th class="main_page2_first_table_tr_th">2B</th>
-              <th class="main_page2_first_table_tr_th">3B+</th>
-              <th class="main_page2_first_table_tr_th">OPTIMAL INCOME</th>
-          </tr>
-          ${rowsHtmlCA30}
-      </table>
-  </div>
-  <div class="main_fourth">
-      <div class="main_fourth_text2">
-          2] BASED ON RESIDUAL INCOME
-      </div>
-  </div>
-  <div class="main_page2_first">
-  <table class="main_page2_first_table">
-          <tr class="main_page2_first_table_tr">
-              <th class="main_page2_first_table_tr_th">SN</th>
-              <th class="main_page2_first_table_tr_th" style="width:30%">CMA’S</th>
-              <th class="main_page2_first_table_tr_th">0B</th>
-              <th class="main_page2_first_table_tr_th">1B</th>
-              <th class="main_page2_first_table_tr_th">2B</th>
-              <th class="main_page2_first_table_tr_th">3B+</th>
-              <th class="main_page2_first_table_tr_th">OPTIMAL INCOME</th>
-          </tr>
-          ${rowsHtmlCMAResidual}
-      </table>
-  </div>
-  <div class="main_page2_first">
-      <table class="main_page2_first_table">
-            <tr class="main_page2_first_table_tr">
-                <th class="main_page2_first_table_tr_th">SN</th>
-                <th class="main_page2_first_table_tr_th" style="width:30%">CA’S</th>
-                <th class="main_page2_first_table_tr_th">0B</th>
-                <th class="main_page2_first_table_tr_th">1B</th>
-                <th class="main_page2_first_table_tr_th">2B</th>
-                <th class="main_page2_first_table_tr_th">3B+</th>
-                <th class="main_page2_first_table_tr_th">OPTIMAL INCOME</th>
-            </tr>
-            ${rowsHtmlCAResidual}
-      </table>
-  </div>
+      htmlObj += ` <div>
+                        <div class="main_first" style="height:1500px">
+                            <div class="main_first_img">
+                                <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                            </div>
+                            <div class="main_first_text">
+                                <div class="main_first_text_tex1">
+                                    PROVINCE ${
+                                      index + 1
+                                    } - ${province.toUpperCase()}
+                                </div>
+                                <div class="main_first_text_tex2">
+                                    KEY INSIGHTS
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main_third">
+                            <div class="main_third_line"></div>
+                        </div>
+                        <div class="main_fourth">
+                            <div class="main_fourth_text1">LIST OF CMA’S & CA’S & THEIR AFFORDABILITY FOR APARTMENTS</div>
+                            <div class="main_fourth_text2">
+                                1] BASED ON 30% BENCHMARK
+                            </div>
+                        </div>
+                        <div class="main_page2_first">
+                            <table class="main_page2_first_table">
+                                <tr class="main_page2_first_table_tr">
+                                    <th class="main_page2_first_table_tr_th">SN</th>
+                                    <th class="main_page2_first_table_tr_th" style="width:30%">CMA’S</th>
+                                    <th class="main_page2_first_table_tr_th">0B</th>
+                                    <th class="main_page2_first_table_tr_th">1B</th>
+                                    <th class="main_page2_first_table_tr_th">2B</th>
+                                    <th class="main_page2_first_table_tr_th">3B+</th>
+                                    <th class="main_page2_first_table_tr_th">OPTIMAL INCOME</th>
+                                </tr>
+                                ${rowsHtmlCMA30}
+                            </table>
+                        </div>
+                        <div class="main_page2_first">
+                            <table class="main_page2_first_table">
+                                <tr class="main_page2_first_table_tr">
+                                    <th class="main_page2_first_table_tr_th">SN</th>
+                                    <th class="main_page2_first_table_tr_th" style="width:30%">CA’S</th>
+                                    <th class="main_page2_first_table_tr_th">0B</th>
+                                    <th class="main_page2_first_table_tr_th">1B</th>
+                                    <th class="main_page2_first_table_tr_th">2B</th>
+                                    <th class="main_page2_first_table_tr_th">3B+</th>
+                                    <th class="main_page2_first_table_tr_th">OPTIMAL INCOME</th>
+                                </tr>
+                                ${rowsHtmlCA30}
+                            </table>
+                        </div>
+                        <div class="main_fourth">
+                            <div class="main_fourth_text2">
+                                2] BASED ON RESIDUAL INCOME
+                            </div>
+                        </div>
+                        <div class="main_page2_first">
+                        <table class="main_page2_first_table">
+                                <tr class="main_page2_first_table_tr">
+                                    <th class="main_page2_first_table_tr_th">SN</th>
+                                    <th class="main_page2_first_table_tr_th" style="width:30%">CMA’S</th>
+                                    <th class="main_page2_first_table_tr_th">0B</th>
+                                    <th class="main_page2_first_table_tr_th">1B</th>
+                                    <th class="main_page2_first_table_tr_th">2B</th>
+                                    <th class="main_page2_first_table_tr_th">3B+</th>
+                                    <th class="main_page2_first_table_tr_th">OPTIMAL INCOME</th>
+                                </tr>
+                                ${rowsHtmlCMAResidual}
+                            </table>
+                        </div>
+                        <div class="main_page2_first">
+                            <table class="main_page2_first_table">
+                                    <tr class="main_page2_first_table_tr">
+                                        <th class="main_page2_first_table_tr_th">SN</th>
+                                        <th class="main_page2_first_table_tr_th" style="width:30%">CA’S</th>
+                                        <th class="main_page2_first_table_tr_th">0B</th>
+                                        <th class="main_page2_first_table_tr_th">1B</th>
+                                        <th class="main_page2_first_table_tr_th">2B</th>
+                                        <th class="main_page2_first_table_tr_th">3B+</th>
+                                        <th class="main_page2_first_table_tr_th">OPTIMAL INCOME</th>
+                                    </tr>
+                                    ${rowsHtmlCAResidual}
+                            </table>
+                        </div>
+                    </div>
   `;
     });
 
