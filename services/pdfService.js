@@ -4112,7 +4112,7 @@ module.exports = {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 30px;
+        margin-top: 10px;
     }
 
     .main_five_head {
@@ -4175,8 +4175,8 @@ module.exports = {
     }
 
     .main_float_line {
-        height: 1040px;
-        margin-top:60px;
+        height: 1020px;
+        margin-top:80px;
         position: absolute;
         width: 0px;
         border-left: 1.5px dashed black;
