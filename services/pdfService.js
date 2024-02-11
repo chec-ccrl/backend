@@ -3841,7 +3841,7 @@ module.exports = {
                 <input type="checkbox" id="c1" value="CMHC" class="myinput large">
             </div>`;
     let rentSourceCheckBox2 =
-      rent_source === "Realistic"
+      rent_source === "Realistic Rent"
         ? ` <div>
                 <label for="c2">REALISTIC RENT</label>
                 <input type="checkbox" id="c1" value="CMHC" checked class="myinput large">
@@ -3852,7 +3852,7 @@ module.exports = {
             </div>`;
 
     let sourceOfCostCheckBox1 =
-      source_of_cost === "Average"
+      source_of_cost === "Average Household Expenses"
         ? ` <div>
                 <label for="c3" class="small_label">AVERAGE HOUSEHOLD EXPENSES </label>
                 <input type="checkbox" id="c3" value="CMHC" checked class="myinput large">
@@ -3862,7 +3862,7 @@ module.exports = {
                 <input type="checkbox" id="c3" value="CMHC" class="myinput large">
             </div>`;
     let sourceOfCostCheckBox2 =
-      source_of_cost === "Poverty"
+      source_of_cost === "Poverty Line Expenses"
         ? ` <div>
                 <label for="c3" class="small_label">POVERTY LINE EXPENSES</label>
                 <input type="checkbox" id="c3" value="CMHC" checked class="myinput large">

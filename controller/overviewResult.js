@@ -16,8 +16,8 @@ module.exports = {
         income_before_tax,
         income_after_tax,
         source_of_cost,
-        year,
       } = req.body;
+      const year = "2021";
 
       const outcome = [];
       const household_income_before_tax = income_before_tax;
@@ -29,7 +29,7 @@ module.exports = {
               const rentDetails = await Services.rentService.getDetails({
                 bedroom_type,
                 province,
-                year: String(year),
+                year: "2021",
                 house_type,
               });
               await Promise.all(
@@ -43,7 +43,7 @@ module.exports = {
                       cma,
                       ca,
                     });
-                  if (rent_source === "Realistic") {
+                  if (rent_source === "Realistic Rent") {
                     rent = Number(
                       Number(multiplierDetails?.rent) *
                         Number(obj.rent_value) *
@@ -57,7 +57,7 @@ module.exports = {
                   }
 
                   let marketBasketDetails;
-                  if (source_of_cost === "Poverty") {
+                  if (source_of_cost === "Poverty Line Expenses") {
                     marketBasketDetails =
                       await Services.marketBasketMeasureService.getDetail({
                         province,
@@ -143,7 +143,7 @@ module.exports = {
                           cma,
                           ca,
                         });
-                      if (rent_source === "Realistic") {
+                      if (rent_source === "Realistic Rent") {
                         rent = Number(
                           Number(multiplierDetails?.rent) *
                             Number(obj.rent_value) *
@@ -157,7 +157,7 @@ module.exports = {
                       }
 
                       let marketBasketDetails;
-                      if (source_of_cost === "Poverty") {
+                      if (source_of_cost === "Poverty Line Expenses") {
                         marketBasketDetails =
                           await Services.marketBasketMeasureService.getDetail({
                             province,
