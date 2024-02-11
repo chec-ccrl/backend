@@ -5112,7 +5112,7 @@ module.exports = {
                 </div>
                 <div class="main_first_text">
                     <div class="main_first_text_tex1">
-                        ${province}
+                        ${provincesMap.get(province)}
                     </div>
                     <div class="main_first_text_tex2">
                         KEY INSIGHTS
@@ -5210,7 +5210,7 @@ module.exports = {
                 </div>
                 <div class="main_first_text">
                     <div class="main_first_text_tex1">
-                    ${province}
+                    ${provincesMap.get(province)}
                     </div>
                     <div class="main_first_text_tex2">
                         KEY INSIGHTS
