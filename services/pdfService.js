@@ -3561,7 +3561,7 @@ module.exports = {
                                 <tr class="main_page2_first_table_tr">
                                     <th class="main_page2_first_table_tr_th">SN</th>
                                     <th class="main_page2_first_table_tr_th" style="width:30%">Province</th>
-                                    <th class="main_page2_first_table_tr_th" style="width:30%">CMA’S</th>
+                                    <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’S</th>
                                     <th class="main_page2_first_table_tr_th">0B</th>
                                     <th class="main_page2_first_table_tr_th">1B</th>
                                     <th class="main_page2_first_table_tr_th">2B</th>
@@ -3596,7 +3596,7 @@ module.exports = {
                             <tr class="main_page2_first_table_tr">
                                 <th class="main_page2_first_table_tr_th">SN</th>
                                 <th class="main_page2_first_table_tr_th" style="width:30%">Province</th>
-                                <th class="main_page2_first_table_tr_th" style="width:30%">CMA’S</th>
+                                <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’S</th>
                                 <th class="main_page2_first_table_tr_th">0B</th>
                                 <th class="main_page2_first_table_tr_th">1B</th>
                                 <th class="main_page2_first_table_tr_th">2B</th>
