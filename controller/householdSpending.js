@@ -124,7 +124,7 @@ module.exports = {
       let arr = [];
       await Promise.all(
         result.map(async (obj) => {
-          if (obj["A"] !== "Province") {
+          if (obj["A"] !== "Geography (Province name)") {
             let data = {
               province: obj["A"],
               cma: obj["B"],

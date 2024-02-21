@@ -1,11 +1,4 @@
 const Services = require("../services");
-const bedroom_type_const = [
-  "0 Bedroom",
-  "1 Bedroom",
-  "2 Bedroom",
-  "3 Bedroom +",
-];
-const house_type_const = ["Apartment", "Row"];
 
 module.exports = {
   result: async (req, res, next) => {
