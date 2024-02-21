@@ -3476,7 +3476,14 @@ module.exports = {
       });
     });
 
-    let firstTableHtml = ``;
+    let firstTableHtml1 = ``;
+    let firstTableHtml2 = ``;
+    let firstTableHtml3 = ``;
+    let firstTableHtml4 = ``;
+    let firstTableHtml5 = ``;
+    let firstTableHtml6 = ``;
+    let firstTableHtml7 = ``;
+    let firstTableHtml8 = ``;
     let secondTableHtml = ``;
     let htmlObj = ``;
 
@@ -4482,28 +4489,27 @@ module.exports = {
     });
 
     Object.keys(organizedOutcome).map((geo, index) => {
-      if (index <= 4) {
-        const data = organizedOutcome[geo];
-        let rowsRow = ``;
-        let rowsApartment = ``;
-        data.sort(customSort);
-        data.map((obj) => {
-          const bedroom_type =
-            obj.bedroom_type === "0 Bedroom"
-              ? "0B"
-              : obj.bedroom_type === "1 Bedroom"
-              ? "1B"
-              : obj.bedroom_type === "2 Bedroom"
-              ? "2B"
-              : "3B+";
+      const data = organizedOutcome[geo];
+      let rowsRow = ``;
+      let rowsApartment = ``;
+      data.sort(customSort);
+      data.map((obj) => {
+        const bedroom_type =
+          obj.bedroom_type === "0 Bedroom"
+            ? "0B"
+            : obj.bedroom_type === "1 Bedroom"
+            ? "1B"
+            : obj.bedroom_type === "2 Bedroom"
+            ? "2B"
+            : "3B+";
 
-          if (obj.house_type === "Apartment") {
-            let imgString = obj.household_affordable
-              ? `<img width="17" height="17"
+        if (obj.house_type === "Apartment") {
+          let imgString = obj.household_affordable
+            ? `<img width="17" height="17"
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">`
-              : `<img width="17" height="17"
+            : `<img width="17" height="17"
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">`;
-            rowsApartment += ` <tr>
+          rowsApartment += ` <tr>
                                       <td>${bedroom_type}</td>
                                       <td>${imgString}</td>
                                       <td>${
@@ -4511,39 +4517,40 @@ module.exports = {
                                           ? "-"
                                           : ""
                                       }$${numberWithCommas(
-              Math.ceil(Math.abs(obj.optimal_income_before_tax))
-            )}</td>
+            Math.ceil(Math.abs(obj.optimal_income_before_tax))
+          )}</td>
                                       <td>${
                                         obj.income_difference_by_income < 0
                                           ? "-"
                                           : ""
                                       }$${numberWithCommas(
-              Math.ceil(Math.abs(obj.income_difference_by_income))
-            )}</td>
+            Math.ceil(Math.abs(obj.income_difference_by_income))
+          )}</td>
                                   </tr>`;
-          } else {
-            let imgString = obj.household_affordable
-              ? `<img width="17" height="17"
+        } else {
+          let imgString = obj.household_affordable
+            ? `<img width="17" height="17"
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACw0lEQVQ4jXWUQUxcVRSGv/++mUcHmJGOIixawzTAilbcKLAwxAU2JGpXaBfoqiGa0LT7LrpgY+KOhUFXDQsrq7rAEEwqcVEwLjpYVmBCFyV5I3EMA2XwMfOOi/dmmDbp3d17cr9zzn/+e2VmAJgZkqiE1fzD4M8vNvZ3ru0elYar9TCb8fzDQmdPcaR74MEHvVfu5fxMufWOzAwzw0Brwdb0wvbqfLUeZjGESBJgAhBkPP9wZnBidrx3aFFgQAyJzPTD7m93l54+umPgiIMJAizZKt4gEU31jc1dL7x/10nmANaCrekWQAxPSAams6IwQWTmlp4+urMWbE2bGa4SHucXtlfno0ZmSyjNUkzJESk5LpzLIwkDt7C9On94epL33r3x8Zd//PPXR0qy60yHGJYc+PK43T/JpxdG+fvkgGcnZWpW97v89pL7fX/nE2JxzQHdfo6UHMKswWuTZ7f7J7mSe4uUHOf9joZY2tjfueZ2j0rDyaA0cn7Avh66bjcvXbW0SwkwXx63+id1OXfRAH4OiqyUNhtds3tUGnbVephVIsAbbVml5fFOV59mL31IR6pNLQAtB0V+3FsnwmiMvFoPs5pa++bguBbmJPBwfHZxlKtvvg1gB7VjvZZqB7Dl4LGW9jaImgOPV8bzK67Q2VOMxcZqRNx/ts5KaRNAXekOA2gCErWbBgIrdPYU3XvdAz81vCGgbhH399ZZKW1aGNW0HDxmaW/DIuyF2w0zjHQPPNDBf8/zN9a/3a3Ww1xr2El0pTv49/R50/Uvr4znV74f/argcn57eWZwYlYQNaOCOkb59IhXAQTRzODEbDZ9ruwAxnuHFqf6xuZaQU2bv1Q+8WSiqb6xufHeoUVJKIoiJBGZ6dfgyfR327/Er7iVZY2ZvviKnWRmdvYVxMqKSnj8+sPgyeev/k8u38v57eXW1v4H6J1XumWlI4IAAAAASUVORK5CYIIA">`
-              : `<img width="17" height="17"
+            : `<img width="17" height="17"
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">`;
-            rowsRow += ` <tr>
+          rowsRow += ` <tr>
             <td>${bedroom_type}</td>
             <td>${imgString}</td>
             <td>${
               obj.optimal_income_before_tax < 0 ? "-" : ""
             }$${numberWithCommas(
-              Math.ceil(Math.abs(obj.optimal_income_before_tax))
-            )}</td>
+            Math.ceil(Math.abs(obj.optimal_income_before_tax))
+          )}</td>
             <td>${
               obj.income_difference_by_income < 0 ? "-" : ""
             }$${numberWithCommas(
-              Math.ceil(Math.abs(obj.income_difference_by_income))
-            )}</td>
+            Math.ceil(Math.abs(obj.income_difference_by_income))
+          )}</td>
                             </tr>`;
-          }
-        });
-        firstTableHtml += `<div class="main_five_main">
+        }
+      });
+      if (index < 4)
+        firstTableHtml1 += `<div class="main_five_main">
             <div class="main_five_right_float">
                 ${index + 1}. ${geo}
             </div>
@@ -4578,7 +4585,258 @@ module.exports = {
                 </div>
             </div>
         </div>`;
-      }
+      if (index >= 4 && index < 8)
+        firstTableHtml2 += `<div class="main_five_main">
+            <div class="main_five_right_float">
+                ${index + 1}. ${geo}
+            </div>
+            <div class="main_five_right_left">
+                <div class="main_five_right">
+                    <div class="main_five_right_table">
+                        <table>
+                            <tr>
+                                <th>NUMBER OF BEDROOMS</th>
+                                <th>AFFORDABLE/ UNAFFORDABLE</th>
+                                <th>OPTIMAL INCOME</th>
+                                <th>INCOME SURPLUS / DEFICIT
+                                </th>
+                            </tr>
+                            ${rowsApartment}
+                        </table>
+                    </div>
+                </div>
+                <div class="main_five_right">
+                    <div class="main_five_right_table">
+                        <table>
+                            <tr>
+                                <th>NUMBER OF BEDROOMS</th>
+                                <th>AFFORDABLE/ UNAFFORDABLE</th>
+                                <th>OPTIMAL INCOME</th>
+                                <th>INCOME SURPLUS / DEFICIT
+                                </th>
+                            </tr>
+                            ${rowsRow}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+      if (index >= 8 && index < 12)
+        firstTableHtml3 += `<div class="main_five_main">
+            <div class="main_five_right_float">
+                ${index + 1}. ${geo}
+            </div>
+            <div class="main_five_right_left">
+                <div class="main_five_right">
+                    <div class="main_five_right_table">
+                        <table>
+                            <tr>
+                                <th>NUMBER OF BEDROOMS</th>
+                                <th>AFFORDABLE/ UNAFFORDABLE</th>
+                                <th>OPTIMAL INCOME</th>
+                                <th>INCOME SURPLUS / DEFICIT
+                                </th>
+                            </tr>
+                            ${rowsApartment}
+                        </table>
+                    </div>
+                </div>
+                <div class="main_five_right">
+                    <div class="main_five_right_table">
+                        <table>
+                            <tr>
+                                <th>NUMBER OF BEDROOMS</th>
+                                <th>AFFORDABLE/ UNAFFORDABLE</th>
+                                <th>OPTIMAL INCOME</th>
+                                <th>INCOME SURPLUS / DEFICIT
+                                </th>
+                            </tr>
+                            ${rowsRow}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+      if (index >= 12 && index < 16)
+        firstTableHtml4 += `<div class="main_five_main">
+            <div class="main_five_right_float">
+                ${index + 1}. ${geo}
+            </div>
+            <div class="main_five_right_left">
+                <div class="main_five_right">
+                    <div class="main_five_right_table">
+                        <table>
+                            <tr>
+                                <th>NUMBER OF BEDROOMS</th>
+                                <th>AFFORDABLE/ UNAFFORDABLE</th>
+                                <th>OPTIMAL INCOME</th>
+                                <th>INCOME SURPLUS / DEFICIT
+                                </th>
+                            </tr>
+                            ${rowsApartment}
+                        </table>
+                    </div>
+                </div>
+                <div class="main_five_right">
+                    <div class="main_five_right_table">
+                        <table>
+                            <tr>
+                                <th>NUMBER OF BEDROOMS</th>
+                                <th>AFFORDABLE/ UNAFFORDABLE</th>
+                                <th>OPTIMAL INCOME</th>
+                                <th>INCOME SURPLUS / DEFICIT
+                                </th>
+                            </tr>
+                            ${rowsRow}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+      if (index >= 16 && index < 20)
+        firstTableHtml5 += `<div class="main_five_main">
+            <div class="main_five_right_float">
+                ${index + 1}. ${geo}
+            </div>
+            <div class="main_five_right_left">
+                <div class="main_five_right">
+                    <div class="main_five_right_table">
+                        <table>
+                            <tr>
+                                <th>NUMBER OF BEDROOMS</th>
+                                <th>AFFORDABLE/ UNAFFORDABLE</th>
+                                <th>OPTIMAL INCOME</th>
+                                <th>INCOME SURPLUS / DEFICIT
+                                </th>
+                            </tr>
+                            ${rowsApartment}
+                        </table>
+                    </div>
+                </div>
+                <div class="main_five_right">
+                    <div class="main_five_right_table">
+                        <table>
+                            <tr>
+                                <th>NUMBER OF BEDROOMS</th>
+                                <th>AFFORDABLE/ UNAFFORDABLE</th>
+                                <th>OPTIMAL INCOME</th>
+                                <th>INCOME SURPLUS / DEFICIT
+                                </th>
+                            </tr>
+                            ${rowsRow}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+      if (index >= 20 && index < 24)
+        firstTableHtml6 += `<div class="main_five_main">
+            <div class="main_five_right_float">
+                ${index + 1}. ${geo}
+            </div>
+            <div class="main_five_right_left">
+                <div class="main_five_right">
+                    <div class="main_five_right_table">
+                        <table>
+                            <tr>
+                                <th>NUMBER OF BEDROOMS</th>
+                                <th>AFFORDABLE/ UNAFFORDABLE</th>
+                                <th>OPTIMAL INCOME</th>
+                                <th>INCOME SURPLUS / DEFICIT
+                                </th>
+                            </tr>
+                            ${rowsApartment}
+                        </table>
+                    </div>
+                </div>
+                <div class="main_five_right">
+                    <div class="main_five_right_table">
+                        <table>
+                            <tr>
+                                <th>NUMBER OF BEDROOMS</th>
+                                <th>AFFORDABLE/ UNAFFORDABLE</th>
+                                <th>OPTIMAL INCOME</th>
+                                <th>INCOME SURPLUS / DEFICIT
+                                </th>
+                            </tr>
+                            ${rowsRow}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+      if (index >= 24 && index < 28)
+        firstTableHtml7 += `<div class="main_five_main">
+            <div class="main_five_right_float">
+                ${index + 1}. ${geo}
+            </div>
+            <div class="main_five_right_left">
+                <div class="main_five_right">
+                    <div class="main_five_right_table">
+                        <table>
+                            <tr>
+                                <th>NUMBER OF BEDROOMS</th>
+                                <th>AFFORDABLE/ UNAFFORDABLE</th>
+                                <th>OPTIMAL INCOME</th>
+                                <th>INCOME SURPLUS / DEFICIT
+                                </th>
+                            </tr>
+                            ${rowsApartment}
+                        </table>
+                    </div>
+                </div>
+                <div class="main_five_right">
+                    <div class="main_five_right_table">
+                        <table>
+                            <tr>
+                                <th>NUMBER OF BEDROOMS</th>
+                                <th>AFFORDABLE/ UNAFFORDABLE</th>
+                                <th>OPTIMAL INCOME</th>
+                                <th>INCOME SURPLUS / DEFICIT
+                                </th>
+                            </tr>
+                            ${rowsRow}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+      if (index >= 28 && index < 32)
+        firstTableHtml8 += `<div class="main_five_main">
+            <div class="main_five_right_float">
+                ${index + 1}. ${geo}
+            </div>
+            <div class="main_five_right_left">
+                <div class="main_five_right">
+                    <div class="main_five_right_table">
+                        <table>
+                            <tr>
+                                <th>NUMBER OF BEDROOMS</th>
+                                <th>AFFORDABLE/ UNAFFORDABLE</th>
+                                <th>OPTIMAL INCOME</th>
+                                <th>INCOME SURPLUS / DEFICIT
+                                </th>
+                            </tr>
+                            ${rowsApartment}
+                        </table>
+                    </div>
+                </div>
+                <div class="main_five_right">
+                    <div class="main_five_right_table">
+                        <table>
+                            <tr>
+                                <th>NUMBER OF BEDROOMS</th>
+                                <th>AFFORDABLE/ UNAFFORDABLE</th>
+                                <th>OPTIMAL INCOME</th>
+                                <th>INCOME SURPLUS / DEFICIT
+                                </th>
+                            </tr>
+                            ${rowsRow}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>`;
     });
     Object.keys(organizedOutcome).map((geo, index) => {
       if (index <= 4) {
@@ -5795,7 +6053,9 @@ module.exports = {
 
 <body>
     <div class="main">
-        <div style="position: relative;height:1500px">
+       ${
+         firstTableHtml1 &&
+         `<div style="position: relative;height:1500px">
             <div class="main_first">
                 <div class="main_first_img">
                 <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
@@ -5891,9 +6151,724 @@ module.exports = {
                         ROW HOUSE
                     </div>
                 </div>
-                ${firstTableHtml}
+                ${firstTableHtml1}
             </div>
-        </div>
+        </div>`
+       }
+       ${
+         firstTableHtml2 &&
+         `<div style="position: relative;height:1500px">
+           <div class="main_first">
+               <div class="main_first_img">
+               <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+               </div>
+               <div class="main_first_text">
+                   <div class="main_first_text_tex1">
+                       ${province}
+                   </div>
+                   <div class="main_first_text_tex2">
+                       KEY INSIGHTS
+                   </div>
+               </div>
+           </div>
+           <div class="main_second">
+               <div class="main_second1">
+                   <div class="main_second_select1">
+                       <label class="label" for="cars">PROVINCE:</label>
+                       <select name="cars" id="cars" style="width: 200px;margin-left: 130px;">
+                           <option value="volvo">${provincesMap.get(
+                             province
+                           )}</option>
+                       </select>
+                   </div>
+                   <div class="main_second_select1">
+                       <label class="label" for="cars">INCOME BEFORE TAX:</label>
+                       <select name="cars" id="cars" style="width: 200px;">
+                           <option value="volvo">$${numberWithCommas(
+                             income_before_tax
+                           )}</option>
+                       </select>
+                   </div>
+                   <div class="main_second_select1">
+                   <label class="label" for="cars">INCOME AFTER TAX:</label>
+                   <select name="cars" id="cars" style="width: 200px; margin-left: 20px;">
+                       <option value="volvo">$${numberWithCommas(
+                         income_after_tax
+                       )}</option>
+                   </select>
+               </div>
+               </div>
+               <div class="main_second2">
+                   <div class="main_second_select1" style="margin-left: 40px;">
+                       <div class="main_second_select1_label label">
+                           RENT SOURCE :
+                       </div>
+                       <div class="main_second_select1_check" style="margin-left: 38px;">
+                          ${rentSourceCheckBox1}
+                           ${rentSourceCheckBox2}
+                       </div>
+                   </div>
+                   <div class="main_second_select1">
+                       <div class="main_second_select1_label label">
+                           NON-SHELTER<br>
+                           NECESSITIES SOURCE :
+                       </div>
+                       <div class="main_second_select1_check">
+                           ${sourceOfCostCheckBox1}
+                           ${sourceOfCostCheckBox2}
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="main_third">
+               <div class="main_third_text">
+                   <span>
+                       NOTE - B = Bedrooms
+                   </span>
+                   <span>
+                       Latest availiable year will be selected by default
+                   </span>
+               </div>
+               <div class="main_third_line">
+
+               </div>
+           </div>
+           <div class="main_fourth">
+               <div class="main_fourth_text1">
+               Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
+               </div>
+               <div class="main_fourth_text2">
+                   BASED ON 30% BENCHMARK
+               </div>
+           </div>
+           <div class="main_float_line">
+
+           </div>
+           <div class="main_five">
+               <div class="main_five_head">
+                   <div class="main_five_right_head">
+                       APARTMENT
+                   </div>
+                   <div class="main_five_right_head">
+                       ROW HOUSE
+                   </div>
+               </div>
+               ${firstTableHtml2}
+           </div>
+       </div>`
+       }
+      ${
+        firstTableHtml3 &&
+        `<div style="position: relative;height:1500px">
+           <div class="main_first">
+               <div class="main_first_img">
+               <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+               </div>
+               <div class="main_first_text">
+                   <div class="main_first_text_tex1">
+                       ${province}
+                   </div>
+                   <div class="main_first_text_tex2">
+                       KEY INSIGHTS
+                   </div>
+               </div>
+           </div>
+           <div class="main_second">
+               <div class="main_second1">
+                   <div class="main_second_select1">
+                       <label class="label" for="cars">PROVINCE:</label>
+                       <select name="cars" id="cars" style="width: 200px;margin-left: 130px;">
+                           <option value="volvo">${provincesMap.get(
+                             province
+                           )}</option>
+                       </select>
+                   </div>
+                   <div class="main_second_select1">
+                       <label class="label" for="cars">INCOME BEFORE TAX:</label>
+                       <select name="cars" id="cars" style="width: 200px;">
+                           <option value="volvo">$${numberWithCommas(
+                             income_before_tax
+                           )}</option>
+                       </select>
+                   </div>
+                   <div class="main_second_select1">
+                   <label class="label" for="cars">INCOME AFTER TAX:</label>
+                   <select name="cars" id="cars" style="width: 200px; margin-left: 20px;">
+                       <option value="volvo">$${numberWithCommas(
+                         income_after_tax
+                       )}</option>
+                   </select>
+               </div>
+               </div>
+               <div class="main_second2">
+                   <div class="main_second_select1" style="margin-left: 40px;">
+                       <div class="main_second_select1_label label">
+                           RENT SOURCE :
+                       </div>
+                       <div class="main_second_select1_check" style="margin-left: 38px;">
+                          ${rentSourceCheckBox1}
+                           ${rentSourceCheckBox2}
+                       </div>
+                   </div>
+                   <div class="main_second_select1">
+                       <div class="main_second_select1_label label">
+                           NON-SHELTER<br>
+                           NECESSITIES SOURCE :
+                       </div>
+                       <div class="main_second_select1_check">
+                           ${sourceOfCostCheckBox1}
+                           ${sourceOfCostCheckBox2}
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="main_third">
+               <div class="main_third_text">
+                   <span>
+                       NOTE - B = Bedrooms
+                   </span>
+                   <span>
+                       Latest availiable year will be selected by default
+                   </span>
+               </div>
+               <div class="main_third_line">
+
+               </div>
+           </div>
+           <div class="main_fourth">
+               <div class="main_fourth_text1">
+               Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
+               </div>
+               <div class="main_fourth_text2">
+                   BASED ON 30% BENCHMARK
+               </div>
+           </div>
+           <div class="main_float_line">
+
+           </div>
+           <div class="main_five">
+               <div class="main_five_head">
+                   <div class="main_five_right_head">
+                       APARTMENT
+                   </div>
+                   <div class="main_five_right_head">
+                       ROW HOUSE
+                   </div>
+               </div>
+               ${firstTableHtml3}
+           </div>
+       </div>`
+      }
+      ${
+        firstTableHtml4 &&
+        `<div style="position: relative;height:1500px">
+           <div class="main_first">
+               <div class="main_first_img">
+               <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+               </div>
+               <div class="main_first_text">
+                   <div class="main_first_text_tex1">
+                       ${province}
+                   </div>
+                   <div class="main_first_text_tex2">
+                       KEY INSIGHTS
+                   </div>
+               </div>
+           </div>
+           <div class="main_second">
+               <div class="main_second1">
+                   <div class="main_second_select1">
+                       <label class="label" for="cars">PROVINCE:</label>
+                       <select name="cars" id="cars" style="width: 200px;margin-left: 130px;">
+                           <option value="volvo">${provincesMap.get(
+                             province
+                           )}</option>
+                       </select>
+                   </div>
+                   <div class="main_second_select1">
+                       <label class="label" for="cars">INCOME BEFORE TAX:</label>
+                       <select name="cars" id="cars" style="width: 200px;">
+                           <option value="volvo">$${numberWithCommas(
+                             income_before_tax
+                           )}</option>
+                       </select>
+                   </div>
+                   <div class="main_second_select1">
+                   <label class="label" for="cars">INCOME AFTER TAX:</label>
+                   <select name="cars" id="cars" style="width: 200px; margin-left: 20px;">
+                       <option value="volvo">$${numberWithCommas(
+                         income_after_tax
+                       )}</option>
+                   </select>
+               </div>
+               </div>
+               <div class="main_second2">
+                   <div class="main_second_select1" style="margin-left: 40px;">
+                       <div class="main_second_select1_label label">
+                           RENT SOURCE :
+                       </div>
+                       <div class="main_second_select1_check" style="margin-left: 38px;">
+                          ${rentSourceCheckBox1}
+                           ${rentSourceCheckBox2}
+                       </div>
+                   </div>
+                   <div class="main_second_select1">
+                       <div class="main_second_select1_label label">
+                           NON-SHELTER<br>
+                           NECESSITIES SOURCE :
+                       </div>
+                       <div class="main_second_select1_check">
+                           ${sourceOfCostCheckBox1}
+                           ${sourceOfCostCheckBox2}
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="main_third">
+               <div class="main_third_text">
+                   <span>
+                       NOTE - B = Bedrooms
+                   </span>
+                   <span>
+                       Latest availiable year will be selected by default
+                   </span>
+               </div>
+               <div class="main_third_line">
+
+               </div>
+           </div>
+           <div class="main_fourth">
+               <div class="main_fourth_text1">
+               Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
+               </div>
+               <div class="main_fourth_text2">
+                   BASED ON 30% BENCHMARK
+               </div>
+           </div>
+           <div class="main_float_line">
+
+           </div>
+           <div class="main_five">
+               <div class="main_five_head">
+                   <div class="main_five_right_head">
+                       APARTMENT
+                   </div>
+                   <div class="main_five_right_head">
+                       ROW HOUSE
+                   </div>
+               </div>
+               ${firstTableHtml4}
+           </div>
+       </div>`
+      }
+      ${
+        firstTableHtml5 &&
+        `<div style="position: relative;height:1500px">
+           <div class="main_first">
+               <div class="main_first_img">
+               <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+               </div>
+               <div class="main_first_text">
+                   <div class="main_first_text_tex1">
+                       ${province}
+                   </div>
+                   <div class="main_first_text_tex2">
+                       KEY INSIGHTS
+                   </div>
+               </div>
+           </div>
+           <div class="main_second">
+               <div class="main_second1">
+                   <div class="main_second_select1">
+                       <label class="label" for="cars">PROVINCE:</label>
+                       <select name="cars" id="cars" style="width: 200px;margin-left: 130px;">
+                           <option value="volvo">${provincesMap.get(
+                             province
+                           )}</option>
+                       </select>
+                   </div>
+                   <div class="main_second_select1">
+                       <label class="label" for="cars">INCOME BEFORE TAX:</label>
+                       <select name="cars" id="cars" style="width: 200px;">
+                           <option value="volvo">$${numberWithCommas(
+                             income_before_tax
+                           )}</option>
+                       </select>
+                   </div>
+                   <div class="main_second_select1">
+                   <label class="label" for="cars">INCOME AFTER TAX:</label>
+                   <select name="cars" id="cars" style="width: 200px; margin-left: 20px;">
+                       <option value="volvo">$${numberWithCommas(
+                         income_after_tax
+                       )}</option>
+                   </select>
+               </div>
+               </div>
+               <div class="main_second2">
+                   <div class="main_second_select1" style="margin-left: 40px;">
+                       <div class="main_second_select1_label label">
+                           RENT SOURCE :
+                       </div>
+                       <div class="main_second_select1_check" style="margin-left: 38px;">
+                          ${rentSourceCheckBox1}
+                           ${rentSourceCheckBox2}
+                       </div>
+                   </div>
+                   <div class="main_second_select1">
+                       <div class="main_second_select1_label label">
+                           NON-SHELTER<br>
+                           NECESSITIES SOURCE :
+                       </div>
+                       <div class="main_second_select1_check">
+                           ${sourceOfCostCheckBox1}
+                           ${sourceOfCostCheckBox2}
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="main_third">
+               <div class="main_third_text">
+                   <span>
+                       NOTE - B = Bedrooms
+                   </span>
+                   <span>
+                       Latest availiable year will be selected by default
+                   </span>
+               </div>
+               <div class="main_third_line">
+
+               </div>
+           </div>
+           <div class="main_fourth">
+               <div class="main_fourth_text1">
+               Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
+               </div>
+               <div class="main_fourth_text2">
+                   BASED ON 30% BENCHMARK
+               </div>
+           </div>
+           <div class="main_float_line">
+
+           </div>
+           <div class="main_five">
+               <div class="main_five_head">
+                   <div class="main_five_right_head">
+                       APARTMENT
+                   </div>
+                   <div class="main_five_right_head">
+                       ROW HOUSE
+                   </div>
+               </div>
+               ${firstTableHtml5}
+           </div>
+       </div>`
+      }
+      ${
+        firstTableHtml6 &&
+        `<div style="position: relative;height:1500px">
+           <div class="main_first">
+               <div class="main_first_img">
+               <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+               </div>
+               <div class="main_first_text">
+                   <div class="main_first_text_tex1">
+                       ${province}
+                   </div>
+                   <div class="main_first_text_tex2">
+                       KEY INSIGHTS
+                   </div>
+               </div>
+           </div>
+           <div class="main_second">
+               <div class="main_second1">
+                   <div class="main_second_select1">
+                       <label class="label" for="cars">PROVINCE:</label>
+                       <select name="cars" id="cars" style="width: 200px;margin-left: 130px;">
+                           <option value="volvo">${provincesMap.get(
+                             province
+                           )}</option>
+                       </select>
+                   </div>
+                   <div class="main_second_select1">
+                       <label class="label" for="cars">INCOME BEFORE TAX:</label>
+                       <select name="cars" id="cars" style="width: 200px;">
+                           <option value="volvo">$${numberWithCommas(
+                             income_before_tax
+                           )}</option>
+                       </select>
+                   </div>
+                   <div class="main_second_select1">
+                   <label class="label" for="cars">INCOME AFTER TAX:</label>
+                   <select name="cars" id="cars" style="width: 200px; margin-left: 20px;">
+                       <option value="volvo">$${numberWithCommas(
+                         income_after_tax
+                       )}</option>
+                   </select>
+               </div>
+               </div>
+               <div class="main_second2">
+                   <div class="main_second_select1" style="margin-left: 40px;">
+                       <div class="main_second_select1_label label">
+                           RENT SOURCE :
+                       </div>
+                       <div class="main_second_select1_check" style="margin-left: 38px;">
+                          ${rentSourceCheckBox1}
+                           ${rentSourceCheckBox2}
+                       </div>
+                   </div>
+                   <div class="main_second_select1">
+                       <div class="main_second_select1_label label">
+                           NON-SHELTER<br>
+                           NECESSITIES SOURCE :
+                       </div>
+                       <div class="main_second_select1_check">
+                           ${sourceOfCostCheckBox1}
+                           ${sourceOfCostCheckBox2}
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="main_third">
+               <div class="main_third_text">
+                   <span>
+                       NOTE - B = Bedrooms
+                   </span>
+                   <span>
+                       Latest availiable year will be selected by default
+                   </span>
+               </div>
+               <div class="main_third_line">
+
+               </div>
+           </div>
+           <div class="main_fourth">
+               <div class="main_fourth_text1">
+               Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
+               </div>
+               <div class="main_fourth_text2">
+                   BASED ON 30% BENCHMARK
+               </div>
+           </div>
+           <div class="main_float_line">
+
+           </div>
+           <div class="main_five">
+               <div class="main_five_head">
+                   <div class="main_five_right_head">
+                       APARTMENT
+                   </div>
+                   <div class="main_five_right_head">
+                       ROW HOUSE
+                   </div>
+               </div>
+               ${firstTableHtml6}
+           </div>
+       </div>`
+      }
+      ${
+        firstTableHtml7 &&
+        `<div style="position: relative;height:1500px">
+           <div class="main_first">
+               <div class="main_first_img">
+               <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+               </div>
+               <div class="main_first_text">
+                   <div class="main_first_text_tex1">
+                       ${province}
+                   </div>
+                   <div class="main_first_text_tex2">
+                       KEY INSIGHTS
+                   </div>
+               </div>
+           </div>
+           <div class="main_second">
+               <div class="main_second1">
+                   <div class="main_second_select1">
+                       <label class="label" for="cars">PROVINCE:</label>
+                       <select name="cars" id="cars" style="width: 200px;margin-left: 130px;">
+                           <option value="volvo">${provincesMap.get(
+                             province
+                           )}</option>
+                       </select>
+                   </div>
+                   <div class="main_second_select1">
+                       <label class="label" for="cars">INCOME BEFORE TAX:</label>
+                       <select name="cars" id="cars" style="width: 200px;">
+                           <option value="volvo">$${numberWithCommas(
+                             income_before_tax
+                           )}</option>
+                       </select>
+                   </div>
+                   <div class="main_second_select1">
+                   <label class="label" for="cars">INCOME AFTER TAX:</label>
+                   <select name="cars" id="cars" style="width: 200px; margin-left: 20px;">
+                       <option value="volvo">$${numberWithCommas(
+                         income_after_tax
+                       )}</option>
+                   </select>
+               </div>
+               </div>
+               <div class="main_second2">
+                   <div class="main_second_select1" style="margin-left: 40px;">
+                       <div class="main_second_select1_label label">
+                           RENT SOURCE :
+                       </div>
+                       <div class="main_second_select1_check" style="margin-left: 38px;">
+                          ${rentSourceCheckBox1}
+                           ${rentSourceCheckBox2}
+                       </div>
+                   </div>
+                   <div class="main_second_select1">
+                       <div class="main_second_select1_label label">
+                           NON-SHELTER<br>
+                           NECESSITIES SOURCE :
+                       </div>
+                       <div class="main_second_select1_check">
+                           ${sourceOfCostCheckBox1}
+                           ${sourceOfCostCheckBox2}
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="main_third">
+               <div class="main_third_text">
+                   <span>
+                       NOTE - B = Bedrooms
+                   </span>
+                   <span>
+                       Latest availiable year will be selected by default
+                   </span>
+               </div>
+               <div class="main_third_line">
+
+               </div>
+           </div>
+           <div class="main_fourth">
+               <div class="main_fourth_text1">
+               Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
+               </div>
+               <div class="main_fourth_text2">
+                   BASED ON 30% BENCHMARK
+               </div>
+           </div>
+           <div class="main_float_line">
+
+           </div>
+           <div class="main_five">
+               <div class="main_five_head">
+                   <div class="main_five_right_head">
+                       APARTMENT
+                   </div>
+                   <div class="main_five_right_head">
+                       ROW HOUSE
+                   </div>
+               </div>
+               ${firstTableHtml7}
+           </div>
+       </div>`
+      }
+      ${
+        firstTableHtml8 &&
+        `<div style="position: relative;height:1500px">
+           <div class="main_first">
+               <div class="main_first_img">
+               <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+               </div>
+               <div class="main_first_text">
+                   <div class="main_first_text_tex1">
+                       ${province}
+                   </div>
+                   <div class="main_first_text_tex2">
+                       KEY INSIGHTS
+                   </div>
+               </div>
+           </div>
+           <div class="main_second">
+               <div class="main_second1">
+                   <div class="main_second_select1">
+                       <label class="label" for="cars">PROVINCE:</label>
+                       <select name="cars" id="cars" style="width: 200px;margin-left: 130px;">
+                           <option value="volvo">${provincesMap.get(
+                             province
+                           )}</option>
+                       </select>
+                   </div>
+                   <div class="main_second_select1">
+                       <label class="label" for="cars">INCOME BEFORE TAX:</label>
+                       <select name="cars" id="cars" style="width: 200px;">
+                           <option value="volvo">$${numberWithCommas(
+                             income_before_tax
+                           )}</option>
+                       </select>
+                   </div>
+                   <div class="main_second_select1">
+                   <label class="label" for="cars">INCOME AFTER TAX:</label>
+                   <select name="cars" id="cars" style="width: 200px; margin-left: 20px;">
+                       <option value="volvo">$${numberWithCommas(
+                         income_after_tax
+                       )}</option>
+                   </select>
+               </div>
+               </div>
+               <div class="main_second2">
+                   <div class="main_second_select1" style="margin-left: 40px;">
+                       <div class="main_second_select1_label label">
+                           RENT SOURCE :
+                       </div>
+                       <div class="main_second_select1_check" style="margin-left: 38px;">
+                          ${rentSourceCheckBox1}
+                           ${rentSourceCheckBox2}
+                       </div>
+                   </div>
+                   <div class="main_second_select1">
+                       <div class="main_second_select1_label label">
+                           NON-SHELTER<br>
+                           NECESSITIES SOURCE :
+                       </div>
+                       <div class="main_second_select1_check">
+                           ${sourceOfCostCheckBox1}
+                           ${sourceOfCostCheckBox2}
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="main_third">
+               <div class="main_third_text">
+                   <span>
+                       NOTE - B = Bedrooms
+                   </span>
+                   <span>
+                       Latest availiable year will be selected by default
+                   </span>
+               </div>
+               <div class="main_third_line">
+
+               </div>
+           </div>
+           <div class="main_fourth">
+               <div class="main_fourth_text1">
+               Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
+               </div>
+               <div class="main_fourth_text2">
+                   BASED ON 30% BENCHMARK
+               </div>
+           </div>
+           <div class="main_float_line">
+
+           </div>
+           <div class="main_five">
+               <div class="main_five_head">
+                   <div class="main_five_right_head">
+                       APARTMENT
+                   </div>
+                   <div class="main_five_right_head">
+                       ROW HOUSE
+                   </div>
+               </div>
+               ${firstTableHtml8}
+           </div>
+       </div>`
+      }
         <!-- SECOND PAGE -->
         <div style="position: relative;height:1500px">
             <div class="main_first">
