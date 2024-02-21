@@ -5443,7 +5443,7 @@ module.exports = {
     .main_third_text {
         display: flex;
         justify-content: space-around;
-        font-size: 13px;
+        font-size: 10px;
     }
 
     .main_third_line {
