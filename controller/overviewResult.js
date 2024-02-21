@@ -192,6 +192,7 @@ module.exports = {
         source_of_cost,
         all_outcome,
         outcome,
+        year,
       });
       return res.json(link);
     } catch (error) {

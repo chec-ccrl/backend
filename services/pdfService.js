@@ -3422,6 +3422,7 @@ module.exports = {
       source_of_cost,
       all_outcome,
       outcome,
+      year,
     } = data;
 
     const organizedOutcome = outcome.reduce((acc, current) => {
@@ -6320,7 +6321,7 @@ module.exports = {
                 </div>
                 <div class="main_first_text">
                     <div class="main_first_text_tex1">
-                        ${province}
+                        ${province} - ${year}
                     </div>
                     <div class="main_first_text_tex2">
                         KEY INSIGHTS
@@ -6379,11 +6380,14 @@ module.exports = {
             <div class="main_third">
                 <div class="main_third_text">
                     <span>
-                        NOTE - B = Bedrooms
-                    </span>
-                    <span>
-                        Latest availiable year will be selected by default
-                    </span>
+                          NOTE 1: B = Bedrooms
+                      </span>
+                      <span>
+                      NOTE 2: Latest availiable year will be selected by default
+                      </span>
+                      <span>
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      </span>
                 </div>
                 <div class="main_third_line">
 
@@ -6422,7 +6426,7 @@ module.exports = {
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
-                       ${province}
+                       ${province} - ${year}
                    </div>
                    <div class="main_first_text_tex2">
                        KEY INSIGHTS
@@ -6481,11 +6485,14 @@ module.exports = {
            <div class="main_third">
                <div class="main_third_text">
                    <span>
-                       NOTE - B = Bedrooms
-                   </span>
-                   <span>
-                       Latest availiable year will be selected by default
-                   </span>
+                          NOTE 1: B = Bedrooms
+                      </span>
+                      <span>
+                      NOTE 2: Latest availiable year will be selected by default
+                      </span>
+                      <span>
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      </span>
                </div>
                <div class="main_third_line">
 
@@ -6524,7 +6531,7 @@ module.exports = {
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
-                       ${province}
+                       ${province} - ${year}
                    </div>
                    <div class="main_first_text_tex2">
                        KEY INSIGHTS
@@ -6583,11 +6590,14 @@ module.exports = {
            <div class="main_third">
                <div class="main_third_text">
                    <span>
-                       NOTE - B = Bedrooms
-                   </span>
-                   <span>
-                       Latest availiable year will be selected by default
-                   </span>
+                          NOTE 1: B = Bedrooms
+                      </span>
+                      <span>
+                      NOTE 2: Latest availiable year will be selected by default
+                      </span>
+                      <span>
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      </span>
                </div>
                <div class="main_third_line">
 
@@ -6626,7 +6636,7 @@ module.exports = {
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
-                       ${province}
+                       ${province} - ${year}
                    </div>
                    <div class="main_first_text_tex2">
                        KEY INSIGHTS
@@ -6685,11 +6695,14 @@ module.exports = {
            <div class="main_third">
                <div class="main_third_text">
                    <span>
-                       NOTE - B = Bedrooms
-                   </span>
-                   <span>
-                       Latest availiable year will be selected by default
-                   </span>
+                          NOTE 1: B = Bedrooms
+                      </span>
+                      <span>
+                      NOTE 2: Latest availiable year will be selected by default
+                      </span>
+                      <span>
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      </span>
                </div>
                <div class="main_third_line">
 
@@ -6728,7 +6741,7 @@ module.exports = {
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
-                       ${province}
+                       ${province} - ${year}
                    </div>
                    <div class="main_first_text_tex2">
                        KEY INSIGHTS
@@ -6787,11 +6800,14 @@ module.exports = {
            <div class="main_third">
                <div class="main_third_text">
                    <span>
-                       NOTE - B = Bedrooms
-                   </span>
-                   <span>
-                       Latest availiable year will be selected by default
-                   </span>
+                          NOTE 1: B = Bedrooms
+                      </span>
+                      <span>
+                      NOTE 2: Latest availiable year will be selected by default
+                      </span>
+                      <span>
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      </span>
                </div>
                <div class="main_third_line">
 
@@ -6830,7 +6846,7 @@ module.exports = {
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
-                       ${province}
+                       ${province} - ${year}
                    </div>
                    <div class="main_first_text_tex2">
                        KEY INSIGHTS
@@ -6889,11 +6905,14 @@ module.exports = {
            <div class="main_third">
                <div class="main_third_text">
                    <span>
-                       NOTE - B = Bedrooms
-                   </span>
-                   <span>
-                       Latest availiable year will be selected by default
-                   </span>
+                          NOTE 1: B = Bedrooms
+                      </span>
+                      <span>
+                      NOTE 2: Latest availiable year will be selected by default
+                      </span>
+                      <span>
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      </span>
                </div>
                <div class="main_third_line">
 
@@ -6932,7 +6951,7 @@ module.exports = {
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
-                       ${province}
+                       ${province} - ${year}
                    </div>
                    <div class="main_first_text_tex2">
                        KEY INSIGHTS
@@ -6990,12 +7009,15 @@ module.exports = {
            </div>
            <div class="main_third">
                <div class="main_third_text">
-                   <span>
-                       NOTE - B = Bedrooms
-                   </span>
-                   <span>
-                       Latest availiable year will be selected by default
-                   </span>
+               <span>
+               NOTE 1: B = Bedrooms
+           </span>
+           <span>
+           NOTE 2: Latest availiable year will be selected by default
+           </span>
+           <span>
+           NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+           </span>
                </div>
                <div class="main_third_line">
 
@@ -7034,7 +7056,7 @@ module.exports = {
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
-                       ${province}
+                       ${province} - ${year}
                    </div>
                    <div class="main_first_text_tex2">
                        KEY INSIGHTS
@@ -7093,11 +7115,14 @@ module.exports = {
            <div class="main_third">
                <div class="main_third_text">
                    <span>
-                       NOTE - B = Bedrooms
-                   </span>
-                   <span>
-                       Latest availiable year will be selected by default
-                   </span>
+                          NOTE 1: B = Bedrooms
+                      </span>
+                      <span>
+                      NOTE 2: Latest availiable year will be selected by default
+                      </span>
+                      <span>
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      </span>
                </div>
                <div class="main_third_line">
 
@@ -7137,7 +7162,7 @@ module.exports = {
                 </div>
                 <div class="main_first_text">
                     <div class="main_first_text_tex1">
-                    ${province}
+                    ${province} - ${year}
                     </div>
                     <div class="main_first_text_tex2">
                         KEY INSIGHTS
@@ -7197,11 +7222,14 @@ module.exports = {
             <div class="main_third" >
                 <div class="main_third_text">
                     <span>
-                        NOTE - B = Bedrooms
-                    </span>
-                    <span>
-                        Latest availiable year will be selected by default
-                    </span>
+                          NOTE 1: B = Bedrooms
+                      </span>
+                      <span>
+                      NOTE 2: Latest availiable year will be selected by default
+                      </span>
+                      <span>
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      </span>
                 </div>
                 <div class="main_third_line">
 
@@ -7240,7 +7268,7 @@ module.exports = {
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
-                      ${province}
+                      ${province} - ${year}
                       </div>
                       <div class="main_first_text_tex2">
                           KEY INSIGHTS
@@ -7299,11 +7327,14 @@ module.exports = {
           
               <div class="main_third" >
                   <div class="main_third_text">
-                      <span>
-                          NOTE - B = Bedrooms
+                       <span>
+                          NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                          Latest availiable year will be selected by default
+                      NOTE 2: Latest availiable year will be selected by default
+                      </span>
+                      <span>
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
                       </span>
                   </div>
                   <div class="main_third_line">
@@ -7343,7 +7374,7 @@ module.exports = {
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
-                      ${province}
+                      ${province} - ${year}
                       </div>
                       <div class="main_first_text_tex2">
                           KEY INSIGHTS
@@ -7402,11 +7433,14 @@ module.exports = {
           
               <div class="main_third" >
                   <div class="main_third_text">
-                      <span>
-                          NOTE - B = Bedrooms
+                       <span>
+                          NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                          Latest availiable year will be selected by default
+                      NOTE 2: Latest availiable year will be selected by default
+                      </span>
+                      <span>
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
                       </span>
                   </div>
                   <div class="main_third_line">
@@ -7446,7 +7480,7 @@ module.exports = {
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
-                      ${province}
+                      ${province} - ${year}
                       </div>
                       <div class="main_first_text_tex2">
                           KEY INSIGHTS
@@ -7505,11 +7539,14 @@ module.exports = {
           
               <div class="main_third" >
                   <div class="main_third_text">
-                      <span>
-                          NOTE - B = Bedrooms
+                       <span>
+                          NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                          Latest availiable year will be selected by default
+                      NOTE 2: Latest availiable year will be selected by default
+                      </span>
+                      <span>
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
                       </span>
                   </div>
                   <div class="main_third_line">
@@ -7549,7 +7586,7 @@ module.exports = {
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
-                      ${province}
+                      ${province} - ${year}
                       </div>
                       <div class="main_first_text_tex2">
                           KEY INSIGHTS
@@ -7608,11 +7645,14 @@ module.exports = {
           
               <div class="main_third" >
                   <div class="main_third_text">
-                      <span>
-                          NOTE - B = Bedrooms
+                       <span>
+                          NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                          Latest availiable year will be selected by default
+                      NOTE 2: Latest availiable year will be selected by default
+                      </span>
+                      <span>
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
                       </span>
                   </div>
                   <div class="main_third_line">
@@ -7652,7 +7692,7 @@ module.exports = {
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
-                      ${province}
+                      ${province} - ${year}
                       </div>
                       <div class="main_first_text_tex2">
                           KEY INSIGHTS
@@ -7711,11 +7751,14 @@ module.exports = {
           
               <div class="main_third" >
                   <div class="main_third_text">
-                      <span>
-                          NOTE - B = Bedrooms
+                       <span>
+                          NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                          Latest availiable year will be selected by default
+                      NOTE 2: Latest availiable year will be selected by default
+                      </span>
+                      <span>
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
                       </span>
                   </div>
                   <div class="main_third_line">
@@ -7755,7 +7798,7 @@ module.exports = {
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
-                      ${province}
+                      ${province} - ${year}
                       </div>
                       <div class="main_first_text_tex2">
                           KEY INSIGHTS
@@ -7814,12 +7857,15 @@ module.exports = {
           
               <div class="main_third" >
                   <div class="main_third_text">
-                      <span>
-                          NOTE - B = Bedrooms
-                      </span>
-                      <span>
-                          Latest availiable year will be selected by default
-                      </span>
+                  <span>
+                  NOTE 1: B = Bedrooms
+              </span>
+              <span>
+              NOTE 2: Latest availiable year will be selected by default
+              </span>
+              <span>
+              NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+              </span>
                   </div>
                   <div class="main_third_line">
   
@@ -7858,7 +7904,7 @@ module.exports = {
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
-                      ${province}
+                      ${province} - ${year}
                       </div>
                       <div class="main_first_text_tex2">
                           KEY INSIGHTS
@@ -7918,10 +7964,13 @@ module.exports = {
               <div class="main_third" >
                   <div class="main_third_text">
                       <span>
-                          NOTE - B = Bedrooms
+                          NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                          Latest availiable year will be selected by default
+                      NOTE 2: Latest availiable year will be selected by default
+                      </span>
+                      <span>
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
                       </span>
                   </div>
                   <div class="main_third_line">
