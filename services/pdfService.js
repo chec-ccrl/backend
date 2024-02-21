@@ -3549,7 +3549,7 @@ module.exports = {
                 : `<img width="17" height="17"
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">`;
             }
-            optimal_income = obj.optimal_income_before_tax;
+            optimal_income += obj.optimal_income_before_tax;
           });
 
           if (house_type === "Apartment" && acount < 28) {
@@ -3851,7 +3851,7 @@ module.exports = {
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
-                                CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROWS
+                                CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROW HOUSES
                                 </div>
                             </div>
                         </div>
@@ -3888,7 +3888,7 @@ module.exports = {
                         </div>
                         <div class="main_first_text">
                             <div class="main_first_text_tex1">
-                            CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROWS
+                            CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROW HOUSES
                             </div>
                         </div>
                     </div>
@@ -3926,7 +3926,7 @@ module.exports = {
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
-                              CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROWS
+                              CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROW HOUSES
                               </div>
                           </div>
                       </div>
@@ -3963,7 +3963,7 @@ module.exports = {
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
-                              CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROWS
+                              CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROW HOUSES
                               </div>
                           </div>
                       </div>
@@ -4049,7 +4049,7 @@ module.exports = {
                 : `<img width="17" height="17"
                       src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4jY1U7UtTURj/7Xr1buqaQ9MSNy5YWX7w7W7DlZSCoOm3oPVBZGGfeqEg+g+iLxHhB2EEkgwx7AWhHIkVqAgNtnuHhRau0Lv5wUlqzpftTrd7+jA27zaUfvDAOc85v995nuec56gIIVBCjknMztuRHsnntcTmeG7/92JNwZmaRabBxKubzF7t9Z4RilHHMkiEkLRFBY9JbK5d8OtBjjKxuXY+KnhMSl56sOnof+Avow+OE0hbGX2w6ei/n+KqCCGQfF7TSsdFNxJxGv+LPDpu+PTVqm4085QsSczaXbszJaC19aJy1AXawGZwaCOLylEXimy9SUciTq/duemUYxKDreHBPmWoUcFDCCFkP7BMlupY4teDLNWzZD+wTAgh5C/vIV7d4f6t4cE+ShI8FuWJq302HARF5BtZVI1PQdPSiqoPU8g3sogERQh2G0IyEJaT+yWf16wKtHJ87JvAZYeeIqYQCYpwd7UhGhTTvlMUUN7E8apfhuJtsrurza5bKoIU3N1t2Jidzqnv6eLCPaqgusafvUAbWVQMDGX46h1D0CgiSyGsKd6lmAaOPyqVSECEu7sNkaCIQiML68epHCH9pcszlJqzeJTO8qcDGQIbs9Nwdx0Kcc43GSIljSZf3pNXr3/sucauJTbWTwJAQpYhMRoI9hvpIsbDWwi53qOo+ixWhl9iZ/57sm7lFaG6F0674sVa3UgkaCB5fSE5J/1sEOvYxNXS9s5JCgDUTWa+7PGzR8ij4wCgo5LXd5zAuXsPn5e2d04mZzldfCHdxV4dyLg2075UV6yuf57oUPJUOf+JJDE770Z6JMFjic0Jpj+LP8+H1UV7+pYrMyWNnGC4ddtBn9BtKzn/AIJagbC5VNI1AAAAAElFTkSuQmCC">`;
             }
-            optimal_income = obj.optimal_income_after_tax;
+            optimal_income += obj.optimal_income_after_tax;
           });
 
           if (house_type === "Apartment" && acount < 28) {
@@ -4351,7 +4351,7 @@ module.exports = {
                               </div>
                               <div class="main_first_text">
                                   <div class="main_first_text_tex1">
-                                  CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROWS
+                                  CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROW HOUSES
                                   </div>
                               </div>
                           </div>
@@ -4388,7 +4388,7 @@ module.exports = {
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
-                              CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROWS
+                              CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROW HOUSES
                               </div>
                           </div>
                       </div>
@@ -4426,7 +4426,7 @@ module.exports = {
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
-                                CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROWS
+                                CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROW HOUSES
                                 </div>
                             </div>
                         </div>
@@ -4463,7 +4463,7 @@ module.exports = {
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
-                                CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROWS
+                                CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROW HOUSES
                                 </div>
                             </div>
                         </div>
