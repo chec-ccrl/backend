@@ -4,21 +4,18 @@ const logger = require("../util/logger");
 const { QueryTypes, Op } = require("sequelize");
 
 module.exports = {
-  create: async (multiplierObj, transaction) => {
+  create: async (multiplierObj) => {
     try {
-      const multiplier = await db.multiplier.create(
-        {
-          id: Common.helper.generateId(),
-          ...multiplierObj,
-        },
-        { transaction }
-      );
+      const multiplier = await db.multiplier.create({
+        id: Common.helper.generateId(),
+        ...multiplierObj,
+      });
       return multiplier.dataValues;
     } catch (error) {
       logger.info(error);
     }
   },
-  getAll: async (multiplierObj, transaction) => {
+  getAll: async (multiplierObj) => {
     try {
       if (multiplierObj.filter) {
         multiplierObj.filter = JSON.parse(multiplierObj.filter);
@@ -52,7 +49,6 @@ module.exports = {
           id: ids,
         },
         order: [["createdAt", "DESC"]],
-        transaction,
       };
       const result = await db.multiplier.findAll(query);
       return { result, count: data[0].total_count };
@@ -60,30 +56,25 @@ module.exports = {
       logger.info(error);
     }
   },
-  delete: async (multiplierDao, transaction) => {
+  delete: async (multiplierDao) => {
     try {
-      const result = await db.multiplier.destroy(
-        { where: multiplierDao },
-        transaction
-      );
+      const result = await db.multiplier.destroy({ where: multiplierDao });
       return result;
     } catch (error) {
       logger.info(error);
     }
   },
-  update: async (multiplierObj, transaction) => {
+  update: async (multiplierObj) => {
     try {
-      const updated = await db.multiplier.update(
-        multiplierObj,
-        { where: { id: multiplierObj.id } },
-        { transaction }
-      );
+      const updated = await db.multiplier.update(multiplierObj, {
+        where: { id: multiplierObj.id },
+      });
       return updated;
     } catch (error) {
       logger.info(error);
     }
   },
-  getDetail: async (multiplierObj, transaction) => {
+  getDetail: async (multiplierObj) => {
     try {
       const result = await db.multiplier.findOne({ where: multiplierObj });
       return result;
@@ -91,7 +82,7 @@ module.exports = {
       logger.info(error);
     }
   },
-  bulkCreate: async (marketObj, transaction) => {
+  bulkCreate: async (marketObj) => {
     try {
       const canadaIncomeSurvey = await db.multiplier.bulkCreate(marketObj);
       return canadaIncomeSurvey;

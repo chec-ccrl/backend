@@ -1,72 +1,55 @@
 const Dao = require("../dao");
 const logger = require("../util/logger");
 module.exports = {
-  create: async (marketObj, transaction) => {
+  create: async (marketObj) => {
     try {
-      const create = await Dao.marketBasketMeasureDao.create(
-        marketObj,
-        transaction
-      );
+      const create = await Dao.marketBasketMeasureDao.create(marketObj);
       return create;
     } catch (error) {
       logger.info(error);
       throw new Error(error);
     }
   },
-  bulkCreate: async (marketObj, transaction) => {
+  bulkCreate: async (marketObj) => {
     try {
-      const bulkCreate = await Dao.marketBasketMeasureDao.bulkCreate(
-        marketObj,
-        transaction
-      );
+      const bulkCreate = await Dao.marketBasketMeasureDao.bulkCreate(marketObj);
       return bulkCreate;
     } catch (error) {
       logger.info(error);
       throw new Error(error);
     }
   },
-  getAll: async (marketObj, transaction) => {
+  getAll: async (marketObj) => {
     try {
-      const market = await Dao.marketBasketMeasureDao.getAll(
-        marketObj,
-        transaction
-      );
+      const market = await Dao.marketBasketMeasureDao.getAll(marketObj);
       return market;
     } catch (error) {
       logger.info(error);
       throw new Error(error);
     }
   },
-  getDetail: async (marketObj, transaction) => {
+  getDetail: async (marketObj) => {
     try {
-      const getDetail = await Dao.marketBasketMeasureDao.getDetail(
-        marketObj,
-        transaction
-      );
+      console.log("g");
+      const getDetail = await Dao.marketBasketMeasureDao.getDetail(marketObj);
       return getDetail;
     } catch (error) {
       logger.info(error);
       throw new Error(error);
     }
   },
-  delete: async (marketObj, transaction) => {
+  delete: async (marketObj) => {
     try {
-      const deletes = await Dao.marketBasketMeasureDao.delete(
-        marketObj,
-        transaction
-      );
+      const deletes = await Dao.marketBasketMeasureDao.delete(marketObj);
       return deletes;
     } catch (error) {
       logger.info(error);
       throw new Error(error);
     }
   },
-  update: async (marketObj, transaction) => {
+  update: async (marketObj) => {
     try {
-      const updates = await Dao.marketBasketMeasureDao.update(
-        marketObj,
-        transaction
-      );
+      const updates = await Dao.marketBasketMeasureDao.update(marketObj);
       return updates;
     } catch (error) {
       logger.info(error);

@@ -1,69 +1,54 @@
 const Dao = require("../dao");
 const logger = require("../util/logger");
 module.exports = {
-  create: async (multiplierObj, transaction) => {
+  create: async (multiplierObj) => {
     try {
-      const create = await Dao.multiplierDao.create(multiplierObj, transaction);
+      const create = await Dao.multiplierDao.create(multiplierObj);
       return create;
     } catch (error) {
       logger.info(error);
       throw new Error(error);
     }
   },
-  getAll: async (multiplierObj, transaction) => {
+  getAll: async (multiplierObj) => {
     try {
-      const multiplier = await Dao.multiplierDao.getAll(
-        multiplierObj,
-        transaction
-      );
+      const multiplier = await Dao.multiplierDao.getAll(multiplierObj);
       return multiplier;
     } catch (error) {
       logger.info(error);
       throw new Error(error);
     }
   },
-  getDetail: async (multiplierObj, transaction) => {
+  getDetail: async (multiplierObj) => {
     try {
-      const getDetail = await Dao.multiplierDao.getDetail(
-        multiplierObj,
-        transaction
-      );
+      const getDetail = await Dao.multiplierDao.getDetail(multiplierObj);
       return getDetail;
     } catch (error) {
       logger.info(error);
       throw new Error(error);
     }
   },
-  delete: async (multiplierObj, transaction) => {
+  delete: async (multiplierObj) => {
     try {
-      const deletes = await Dao.multiplierDao.delete(
-        multiplierObj,
-        transaction
-      );
+      const deletes = await Dao.multiplierDao.delete(multiplierObj);
       return deletes;
     } catch (error) {
       logger.info(error);
       throw new Error(error);
     }
   },
-  update: async (multiplierObj, transaction) => {
+  update: async (multiplierObj) => {
     try {
-      const updates = await Dao.multiplierDao.update(
-        multiplierObj,
-        transaction
-      );
+      const updates = await Dao.multiplierDao.update(multiplierObj);
       return updates;
     } catch (error) {
       logger.info(error);
       throw new Error(error);
     }
   },
-  bulkCreate: async (marketObj, transaction) => {
+  bulkCreate: async (marketObj) => {
     try {
-      const bulkCreate = await Dao.multiplierDao.bulkCreate(
-        marketObj,
-        transaction
-      );
+      const bulkCreate = await Dao.multiplierDao.bulkCreate(marketObj);
       return bulkCreate;
     } catch (error) {
       logger.info(error);

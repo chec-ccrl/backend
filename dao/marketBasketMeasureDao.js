@@ -4,21 +4,18 @@ const logger = require("../util/logger");
 const { QueryTypes, Op } = require("sequelize");
 
 module.exports = {
-  create: async (marketObj, transaction) => {
+  create: async (marketObj) => {
     try {
-      const marketBasketMeasure = await db.marketBasketMeasure.create(
-        {
-          id: Common.helper.generateId(),
-          ...marketObj,
-        },
-        { transaction }
-      );
+      const marketBasketMeasure = await db.marketBasketMeasure.create({
+        id: Common.helper.generateId(),
+        ...marketObj,
+      });
       return marketBasketMeasure.dataValues;
     } catch (error) {
       logger.info(error);
     }
   },
-  bulkCreate: async (marketObj, transaction) => {
+  bulkCreate: async (marketObj) => {
     try {
       const marketBasketMeasure = await db.marketBasketMeasure.bulkCreate(
         marketObj
@@ -28,7 +25,7 @@ module.exports = {
       logger.info(error);
     }
   },
-  getAll: async (marketObj, transaction) => {
+  getAll: async (marketObj) => {
     try {
       if (marketObj.filter) {
         marketObj.filter = JSON.parse(marketObj.filter);
@@ -62,7 +59,6 @@ module.exports = {
           id: ids,
         },
         order: [["createdAt", "DESC"]],
-        transaction,
       };
       const result = await db.marketBasketMeasure.findAll(query);
       return { result, count: data[0].total_count };
@@ -70,32 +66,30 @@ module.exports = {
       logger.info(error);
     }
   },
-  delete: async (multiplierDao, transaction) => {
+  delete: async (multiplierDao) => {
     try {
-      const result = await db.marketBasketMeasure.destroy(
-        { where: multiplierDao },
-        transaction
-      );
+      const result = await db.marketBasketMeasure.destroy({
+        where: multiplierDao,
+      });
       return result;
     } catch (error) {
       logger.info(error);
     }
   },
-  update: async (marketObj, transaction) => {
+  update: async (marketObj) => {
     try {
-      const updated = await db.marketBasketMeasure.update(
-        marketObj,
-        { where: { id: marketObj.id } },
-        { transaction }
-      );
+      const updated = await db.marketBasketMeasure.update(marketObj, {
+        where: { id: marketObj.id },
+      });
       return updated;
     } catch (error) {
       logger.info(error);
     }
   },
-  getDetail: async (marketObj, transaction) => {
+  getDetail: async (marketObj) => {
     try {
       const result = await db.marketBasketMeasure.findOne({ where: marketObj });
+
       return result;
     } catch (error) {
       logger.info(error);

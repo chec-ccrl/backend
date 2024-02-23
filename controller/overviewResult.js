@@ -95,6 +95,7 @@ module.exports = {
 
       //*********************2nd ALGORITHM***************************** */
       const provinces = await Services.provinceListService.getAllProvinces({});
+
       const all_outcome = [];
       await Promise.all(
         provinces.map(async (province) => {
@@ -103,10 +104,12 @@ module.exports = {
             province,
             year: String(year),
           });
+
           await Promise.all(
             rentDetails.map(async (obj) => {
               let rent = 0;
               const { cma, ca } = obj;
+
               const multiplierDetails =
                 await Services.multiplierService.getDetail({
                   province,
@@ -114,6 +117,7 @@ module.exports = {
                   cma,
                   ca,
                 });
+
               if (rent_source === "Realistic Rent") {
                 rent = Number(
                   Number(multiplierDetails?.rent) *
@@ -184,6 +188,7 @@ module.exports = {
         return 0; // Names are equal
       });
       //*********************END 2nd ALGORITHM***************************/
+
       const link = await Services.pdfService.simplePdfGenerator({
         province,
         rent_source,

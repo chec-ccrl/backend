@@ -4,21 +4,18 @@ const logger = require("../util/logger");
 const { QueryTypes, Op } = require("sequelize");
 
 module.exports = {
-  create: async (spendingObj, transaction) => {
+  create: async (spendingObj) => {
     try {
-      const householdSpend = await db.householdSpend.create(
-        {
-          id: Common.helper.generateId(),
-          ...spendingObj,
-        },
-        { transaction }
-      );
+      const householdSpend = await db.householdSpend.create({
+        id: Common.helper.generateId(),
+        ...spendingObj,
+      });
       return householdSpend.dataValues;
     } catch (error) {
       logger.info(error);
     }
   },
-  getAll: async (spendingObj, transaction) => {
+  getAll: async (spendingObj) => {
     try {
       if (spendingObj.filter) {
         spendingObj.filter = JSON.parse(spendingObj.filter);
@@ -52,7 +49,6 @@ module.exports = {
           id: ids,
         },
         order: [["createdAt", "DESC"]],
-        transaction,
       };
       const result = await db.householdSpend.findAll(query);
       return { result, count: data[0].total_count };
@@ -60,30 +56,25 @@ module.exports = {
       logger.info(error);
     }
   },
-  delete: async (spendingObj, transaction) => {
+  delete: async (spendingObj) => {
     try {
-      const result = await db.householdSpend.destroy(
-        { where: spendingObj },
-        transaction
-      );
+      const result = await db.householdSpend.destroy({ where: spendingObj });
       return result;
     } catch (error) {
       logger.info(error);
     }
   },
-  update: async (spendingObj, transaction) => {
+  update: async (spendingObj) => {
     try {
-      const updated = await db.householdSpend.update(
-        spendingObj,
-        { where: { id: spendingObj.id } },
-        { transaction }
-      );
+      const updated = await db.householdSpend.update(spendingObj, {
+        where: { id: spendingObj.id },
+      });
       return updated;
     } catch (error) {
       logger.info(error);
     }
   },
-  getDetail: async (spendingObj, transaction) => {
+  getDetail: async (spendingObj) => {
     try {
       const result = await db.householdSpend.findOne({ where: spendingObj });
       return result;
@@ -91,7 +82,7 @@ module.exports = {
       logger.info(error);
     }
   },
-  bulkCreate: async (marketObj, transaction) => {
+  bulkCreate: async (marketObj) => {
     try {
       const canadaIncomeSurvey = await db.householdSpend.bulkCreate(marketObj);
       return canadaIncomeSurvey;

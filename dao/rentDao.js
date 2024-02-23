@@ -4,21 +4,18 @@ const logger = require("../util/logger");
 const { QueryTypes, Op } = require("sequelize");
 
 module.exports = {
-  create: async (rentObj, transaction) => {
+  create: async (rentObj) => {
     try {
-      const rent = await db.rent.create(
-        {
-          id: Common.helper.generateId(),
-          ...rentObj,
-        },
-        { transaction }
-      );
+      const rent = await db.rent.create({
+        id: Common.helper.generateId(),
+        ...rentObj,
+      });
       return rent.dataValues;
     } catch (error) {
       logger.info(error);
     }
   },
-  getAll: async (rentObj, transaction) => {
+  getAll: async (rentObj) => {
     try {
       if (rentObj.filter) {
         rentObj.filter = JSON.parse(rentObj.filter);
@@ -52,7 +49,6 @@ module.exports = {
           id: ids,
         },
         order: [["createdAt", "DESC"]],
-        transaction,
       };
       const result = await db.rent.findAll(query);
       return { result, count: data[0].total_count };
@@ -60,27 +56,25 @@ module.exports = {
       logger.info(error);
     }
   },
-  delete: async (rentObj, transaction) => {
+  delete: async (rentObj) => {
     try {
-      const result = await db.rent.destroy({ where: rentObj }, transaction);
+      const result = await db.rent.destroy({ where: rentObj });
       return result;
     } catch (error) {
       logger.info(error);
     }
   },
-  update: async (rentObj, transaction) => {
+  update: async (rentObj) => {
     try {
-      const updated = await db.rent.update(
-        rentObj,
-        { where: { id: rentObj.id } },
-        { transaction }
-      );
+      const updated = await db.rent.update(rentObj, {
+        where: { id: rentObj.id },
+      });
       return updated;
     } catch (error) {
       logger.info(error);
     }
   },
-  getDetail: async (rentObj, transaction) => {
+  getDetail: async (rentObj) => {
     try {
       const result = await db.rent.findOne({ where: rentObj });
       return result;
@@ -88,7 +82,7 @@ module.exports = {
       logger.info(error);
     }
   },
-  getDetails: async (rentObj, transaction) => {
+  getDetails: async (rentObj) => {
     try {
       const result = await db.rent.findAll({
         where: rentObj,
@@ -98,7 +92,7 @@ module.exports = {
       logger.info(error);
     }
   },
-  bulkCreate: async (marketObj, transaction) => {
+  bulkCreate: async (marketObj) => {
     try {
       const canadaIncomeSurvey = await db.rent.bulkCreate(marketObj);
       return canadaIncomeSurvey;

@@ -1,26 +1,19 @@
-const ErrorHandler = require("../util/error");
 const Services = require("../services");
-const Validations = require("../validations");
-const logger = require("../util/logger");
-const db = require("../models");
-const Common = require("../common");
-
 const bedroom_type_const = [
-  "No bedrooms",
-  "1 bedroom",
-  "2 bedrooms",
-  "3 bedrooms",
+  "0 Bedroom",
+  "1 Bedroom",
+  "2 Bedroom",
+  "3 Bedroom +",
 ];
+const house_type_const = ["Apartment", "Row"];
 
 module.exports = {
   result: async (req, res, next) => {
     try {
-      const pdfResult = await Services.pdfService.detailPdfGenerator();
-      return res.status(200).json(pdfResult);
       const {
         province,
-        geography,
-        geography_type,
+        cma,
+        ca,
         year,
         affordability,
         source_of_cost_of_non_shelter_necessity,
@@ -28,187 +21,316 @@ module.exports = {
         rent_source,
       } = req.body;
 
-      const multiplierDetails = await Services.multiplierService.getDetails({
+      const multiplier = await Services.multiplierService.getDetails({
         province,
-      });
-      //*************** RANKING ************************** */
-      const rental_ranking_province =
-        await Services.rankingService.rentalProvice({ province });
-      const income_ranking_province =
-        await Services.rankingService.incomeProvice({ province });
-      let rental_ranking_geography, income_ranking_geography;
-      if (geography_type === "CA") {
-        rental_ranking_geography = await Services.rankingService.rentalCA({
-          ca: geography,
-        });
-        income_ranking_geography = await Services.rankingService.incomeCA({
-          ca: geography,
-        });
-      } else if (geography_type === "CMA") {
-        rental_ranking_geography = await Services.rankingService.rentalCMA({
-          ca: geography,
-        });
-        income_ranking_geography = await Services.rankingService.incomeCMA({
-          ca: geography,
-        });
-      }
-
-      //*************** RANKING ENDED ******************** */
-      let total_number_of_houses_by_bedroom_type = [];
-      let total_number_of_houses_constructed_by_bedroom_type = [];
-      let houses_rental_percentage = [];
-      let housing_completion_rental_percentage = [];
-      let vacancy_rate = [];
-      let cost_of_non_shelter_necessity;
-      let median_household_market_income_before_tax;
-      let median_household_total_income_before_tax;
-      let median_household_total_income_after_tax;
-      let affordable_rent_based_on_30_benchmark;
-      let all_rent_by_province;
-      let chmc_rent;
-      await Promise.all(
-        bedroom_type_const.map(async (bedroom_type) => {
-          const raw_total_number_of_houses_by_bedroom_type =
-            await Services.dwellingTypeService.getDetails({
-              year,
-              province,
-              cma: geography_type === "CMA" ? "Y" : "N",
-              ca: geography_type === "CA" ? "Y" : "N",
-              bedroom_type,
-            });
-          let renter = 0,
-            total = 0,
-            owned = 0;
-          raw_total_number_of_houses_by_bedroom_type.map((obj) => {
-            if (obj.intended_market === "Renter") {
-              if (house_type === "Row") {
-                renter += obj.row_house;
-              } else if (house_type === "Apartment") {
-                renter += obj.apartment;
-              } else {
-                renter += obj.apartment + obj.row_house;
-              }
-            } else if (obj.intended_market === "Owner") {
-              if (house_type === "Row") {
-                owned += obj.row_house;
-              } else if (house_type === "Apartment") {
-                owned += obj.apartment;
-              } else {
-                owned += obj.apartment + obj.row_house;
-              }
-            } else if (obj.intended_market === "Total") {
-              if (house_type === "Row") {
-                total += obj.row_house;
-              } else if (house_type === "Apartment") {
-                total += obj.apartment;
-              } else {
-                total += obj.apartment + obj.row_house;
-              }
-            }
-          });
-          houses_rental_percentage.push({
-            bedroom_type,
-            percentage: renter / total,
-          });
-          total_number_of_houses_by_bedroom_type.push(
-            raw_total_number_of_houses_by_bedroom_type
-          );
-        })
-      );
-
-      const raw_total_number_of_houses_constructed_by_bedroom_type =
-        await Services.completeHousingService.getDetails({
-          year,
-          province,
-          geography_type,
-          geography,
-        });
-      let renter = 0,
-        total = 0,
-        owned = 0;
-      raw_total_number_of_houses_constructed_by_bedroom_type.map((obj) => {
-        if (house_type === obj.house_type || house_type === "Both") {
-          if (obj.intended_market === "Rental") {
-            renter += obj.units;
-          } else if (obj.intended_market === "Homeowner") {
-            owned += obj.units;
-          } else if (obj.intended_market === "Total") {
-            total += obj.units;
-          }
-        }
-      });
-      housing_completion_rental_percentage.push({
-        bedroom_type,
-        percentage: renter / total,
-      });
-      total_number_of_houses_constructed_by_bedroom_type.push(
-        raw_total_number_of_houses_constructed_by_bedroom_type
-      );
-
-      await Promise.all(
-        bedroom_type_const.map(async (bedroom_type) => {
-          let searchObj = {
-            year,
-            province,
-            geography_type,
-            geography,
-            bedroom_type,
-          };
-          if (house_type !== "Both") {
-            searchObj.house_type = house_type;
-          } else {
-            searchObj.house_type = {
-              [db.sequelize.Op.or]: ["Apartment", "Row"],
-            };
-          }
-          const raw_vacancy_rate = await Services.vacancyRateService.getDetails(
-            searchObj
-          );
-          vacancy_rate.push(raw_vacancy_rate);
-
-          chmc_rent = await Services.rentService.getDetails(searchObj);
-          chmc_rent.map((obj) => {
-            if (rent_source === "Realistic") {
-              obj.rent_value = obj.rent_value * multiplierDetails.rent;
-            }
-            obj.rent_with_utility = obj.rent_value * multiplierDetails.utility;
-            return obj;
-          });
-        })
-      );
-      if (source_of_cost_of_non_shelter_necessity === "Average") {
-        cost_of_non_shelter_necessity =
-          await Services.householdSpendService.getDetails({ province, year });
-      } else {
-        cost_of_non_shelter_necessity =
-          await Services.marketBasketMeasureService.getDetails({
-            province,
-            year,
-          });
-      }
-
-      const raw_canada_survey =
-        await Services.canadaIncomeSurveyService.getDetails({ province, year });
-
-      median_household_total_income_before_tax =
-        raw_canada_survey[0].median_total_before_tax;
-      median_household_total_income_after_tax =
-        raw_canada_survey[0].median_total_after_tax;
-
-      raw_canada_survey.map((obj) => {
-        if (affordability === "30%") {
-          obj.rent_value = obj.rent_value / 0.3;
-        } else if (affordability === "Residual") {
-          obj.rent_value = obj.rent_value + cost_of_non_shelter_necessity;
-        }
-      });
-      affordable_rent_based_on_30_benchmark =
-        (median_household_total_income_before_tax / 0.3) * 12;
-
-      all_rent_by_province = await Services.rentService.getDetails({
-        province,
+        cma,
+        ca,
         year,
       });
+
+      let marketBasketDetails;
+      if (source_of_cost === "Poverty Line Expenses") {
+        marketBasketDetails =
+          await Services.marketBasketMeasureService.getDetail({
+            province,
+            year,
+            cma,
+            ca,
+          });
+      } else {
+        marketBasketDetails = await Services.householdSpendingService.getDetail(
+          {
+            province,
+            year,
+            ca,
+            cma,
+          }
+        );
+      }
+
+      //*************** START 1.15 ************************** */
+      const cost_of_non_shelter_necessity = marketBasketDetails?.cost;
+      //*************** END 1.15 ************************** */
+
+      const canadaIncomeSurveyDetails =
+        await Services.canadaIncomeSurveyService.getAll({
+          province,
+          year,
+          cma,
+          ca,
+        });
+      //*************** START 1.15 & 1.13 ************************** */
+      const median_household_income_before_tax =
+        canadaIncomeSurveyDetails?.[0]?.median_before_tax;
+      const median_household_income_after_tax =
+        canadaIncomeSurveyDetails?.[0]?.median_after_tax;
+      //*************** END 1.15 & 1.13 ************************** */
+
+      let rentObj = {
+        province,
+        cma,
+        ca,
+        year,
+      };
+
+      if (house_type === "Row House") {
+        rentObj.house_type = "Row";
+      } else if (house_type === "Apartment") {
+        rentObj.house_type = "Apartment";
+      }
+
+      const rentDetails = await Services.rentService.getAll(rentObj);
+
+      const current_shelter_cost = 0;
+
+      await Promise.all(
+        rentDetails.map((ele) => {
+          if (rent_source === "CHMC") {
+            ele.rent_value = ele.rent_value * multiplier?.rent;
+          }
+          ele.shelter_cost = ele.rent_value * multiplier?.utility;
+          current_shelter_cost += ele.shelter_cost;
+        })
+      );
+      //*************** START 1.15 & 1.17 ************************** */
+      current_shelter_cost = current_shelter_cost / rentDetails.length;
+      //*************** END 1.15 & 1.17 ************************** */
+
+      const allRentDetails = await Services.rentService.getAll({
+        year,
+      });
+      const allRentCMAApartment = {};
+      const allRentCMARow = {};
+      const allRentCAApartment = {};
+      const allRentCARow = {};
+      allRentDetails.map((ele) => {
+        const { cma, ca, rent_value, house_type } = ele;
+        if (cma !== "NA") {
+          if (house_type === "Row") {
+            if (allRentCMARow[cma]) {
+              allRentCMARow[cma] += rent_value;
+            } else {
+              allRentCMARow[cma] = rent_value;
+            }
+          } else {
+            if (allRentCMAApartment[cma]) {
+              allRentCMAApartment[cma] += rent_value;
+            } else {
+              allRentCMAApartment[cma] = rent_value;
+            }
+          }
+        } else {
+          if (house_type === "Row") {
+            if (allRentCARow[ca]) {
+              allRentCARow[ca] += rent_value;
+            } else {
+              allRentCARow[ca] = rent_value;
+            }
+          } else {
+            if (allRentCAApartment[ca]) {
+              allRentCAApartment[ca] += rent_value;
+            } else {
+              allRentCAApartment[ca] = rent_value;
+            }
+          }
+        }
+      });
+      const sortedAllRentCMAApartment = Object.entries(
+        allRentCMAApartment
+      ).sort((a, b) => a[1] - b[1]);
+      const sortedAllRentCMARow = Object.entries(allRentCMARow).sort(
+        (a, b) => a[1] - b[1]
+      );
+      const sortedAllRentCAApartment = Object.entries(allRentCAApartment).sort(
+        (a, b) => a[1] - b[1]
+      );
+      const sortedAllRentCARow = Object.entries(allRentCARow).sort(
+        (a, b) => a[1] - b[1]
+      );
+
+      //*************** START 4.4 & 4.5 ************************** */
+      const top5LowestAllRentCMAApartment = sortedAllRentCMAApartment.slice(
+        0,
+        5
+      );
+      const top5HighestAllRentCMAApartment = sortedAllRentCMAApartment
+        .slice(-5)
+        .reverse();
+
+      const top5LowestAllRentCMARow = sortedAllRentCMARow.slice(0, 5);
+      const top5HighestAllRentCMARow = sortedAllRentCMARow.slice(-5).reverse();
+
+      const top5LowestAllRentCAApartment = sortedAllRentCAApartment.slice(0, 5);
+      const top5HighestAllRentCAApartment = sortedAllRentCAApartment
+        .slice(-5)
+        .reverse();
+
+      const top5LowestAllRentCARow = sortedAllRentCARow.slice(0, 5);
+      const top5HighestAllRentCARow = sortedAllRentCARow.slice(-5).reverse();
+
+      //*************** END 4.4 & 4.5 ************************** */
+
+      let arrYear = [];
+      for (let i = 0; i < 6; i += 1) {
+        arrYear.push(Number(year) - i);
+      }
+      //*************** START 4.2 ************************** */
+      const historicalGrowthRow = {};
+      const historicalGrowthApartment = {};
+      //*************** END 4.2 ************************** */
+
+      //*************** START 3.2 & 3.4 ************************** */
+      const median_household_income_after_tax_6_year = {};
+      const median_household_income_before_tax_6_year = {};
+      //*************** END 3.2 & 3.4 ************************** */
+      await Promise.all(
+        arrYear.map(async (year) => {
+          const rentDetailsRow = await Services.rentService.getAll({
+            province,
+            cma,
+            ca,
+            year,
+            house_type: "Row",
+          });
+          let rowval = 0;
+          rentDetailsRow.map((ele) => {
+            rowval += ele.rent_value;
+          });
+          rowval = rowval / rentDetailsRow.length;
+
+          const rentDetailsApa = await Services.rentService.getAll({
+            province,
+            cma,
+            ca,
+            year,
+            house_type: "Apartment",
+          });
+          let apaval = 0;
+          rentDetailsApa.map((ele) => {
+            apaval += ele.rent_value;
+          });
+          apaval = apaval / rentDetailsApa.length;
+          historicalGrowthApartment[String(year)] = apaval;
+          historicalGrowthRow[String(year)] = rowval;
+
+          const canadaIncomeSurveyDetails =
+            await Services.canadaIncomeSurveyService.getAll({
+              province,
+              year,
+              cma,
+              ca,
+            });
+          median_household_income_after_tax_6_year[String(year)] =
+            canadaIncomeSurveyDetails?.[0]?.median_after_tax;
+          median_household_income_before_tax_6_year[String(year)] =
+            canadaIncomeSurveyDetails?.[0]?.median_before_tax;
+        })
+      );
+      //*************** START NO MARKING AVAILABLE ************************** */
+      const affordability_rent_based_30_benchmarch =
+        (median_household_income_before_tax * 0.3) / 12;
+      //*************** END NO MARKING AVAILABLE ************************** */
+
+      //*************** START 1.3 & 3.3 ************************** */
+      const province_income_ranking =
+        await Services.incomeRankingProvinceService.getDetail({
+          year,
+          province,
+        });
+      //*************** END 1.3 & 3.3 ************************** */
+
+      //*************** END START ************************** */
+      let affordability_ranking;
+
+      if (ca !== "NA") {
+        affordability_ranking = await Services.rentalRankingCAService.getDetail(
+          {
+            year,
+            ca,
+          }
+        );
+      } else {
+        affordability_ranking =
+          await Services.rentalRankingCMAService.getDetail({
+            year,
+            cma,
+          });
+      }
+      //*************** END 1.1 ************************** */
+
+      const dwellingDetails = await Services.dwellingTypeService.getAll({
+        province,
+        year,
+        cma,
+        ca,
+      });
+      let rowTotal = 0;
+      let apartmentTotal = 0;
+
+      dwellingDetails.map((ele) => {
+        if (ele.house_type === "Apartment") {
+          apartmentTotal += ele.units;
+        } else {
+          rowTotal += ele.units;
+        }
+      });
+      dwellingDetails.map((ele) => {
+        if (ele.house_type === "Apartment") {
+          ele.units_percentage = ele.units / apartmentTotal;
+        } else {
+          ele.units_percentage = ele.units / rowTotal;
+        }
+      });
+
+      const completeHousing = await Services.completeHousingService.getAll({
+        province,
+        year,
+        cma,
+        ca,
+      });
+
+      completeHousing.map(async (house) => {
+        dwellingDetails.map((dwelling) => {
+          if (
+            dwelling.house_type === house.house_type &&
+            house.intended_market === "Total"
+          ) {
+            dwelling.house_constructed =
+              house.units * dwelling.units_percentage;
+            dwelling.total_houses = house.units;
+          }
+          if (
+            dwelling.house_type === house.house_type &&
+            house.intended_market === "Rental"
+          ) {
+            dwelling.rental_houses = house.units;
+          }
+          if (
+            dwelling.house_type === house.house_type &&
+            house.intended_market === "Owned"
+          ) {
+            dwelling.owned_houses = house.units;
+          }
+        });
+      });
+
+      await Promise.all(
+        dwellingDetails.map(async (ele) => {
+          const vacancyRate = await Services.vacancyRateService.getDetail({
+            province,
+            cma,
+            ca,
+            year,
+            bedroom_type: ele.bedroom_type,
+            house_type: ele.house_type,
+          });
+
+          ele.vacancy_rate = vacancyRate.vacancy_rate;
+        })
+      );
+
+      if (affordability === "30%") {
+      }
     } catch (error) {
       next(error);
     }
