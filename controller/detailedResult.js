@@ -29,7 +29,7 @@ module.exports = {
       });
 
       let marketBasketDetails;
-      if (source_of_cost === "Poverty Line Expenses") {
+      if (source_of_cost_of_non_shelter_necessity === "Poverty Line Expenses") {
         marketBasketDetails =
           await Services.marketBasketMeasureService.getDetail({
             province,
@@ -276,9 +276,9 @@ module.exports = {
       });
       dwellingDetails.map((ele) => {
         if (ele.house_type === "Apartment") {
-          ele.units_percentage = ele.units / apartmentTotal;
+          ele.bedroom_percentage = ele.units / apartmentTotal;
         } else {
-          ele.units_percentage = ele.units / rowTotal;
+          ele.bedroom_percentage = ele.units / rowTotal;
         }
       });
 
@@ -288,31 +288,63 @@ module.exports = {
         cma,
         ca,
       });
-
+      let comrow = 0;
+      let comapa = 0;
+      let comTotalrow = 0;
+      let comTotalapa = 0;
       completeHousing.map(async (house) => {
+        if (
+          house.intended_market === "Rental" &&
+          house.house_type === "Apartment"
+        ) {
+          comapa += house.units;
+        } else if (
+          house.intended_market === "Rental" &&
+          house.house_type === "Row"
+        ) {
+          comrow += house.units;
+        } else if (
+          house.intended_market === "Total" &&
+          house.house_type === "Row"
+        ) {
+          comTotalrow += house.units;
+        } else if (
+          house.intended_market === "Total" &&
+          house.house_type === "Apartment"
+        ) {
+          comTotalapa += house.units;
+        }
         dwellingDetails.map((dwelling) => {
           if (
             dwelling.house_type === house.house_type &&
             house.intended_market === "Total"
           ) {
-            dwelling.house_constructed =
-              house.units * dwelling.units_percentage;
+            dwelling.total_house_constructed =
+              house.units * dwelling.bedroom_percentage;
             dwelling.total_houses = house.units;
           }
           if (
             dwelling.house_type === house.house_type &&
             house.intended_market === "Rental"
           ) {
+            dwelling.rental_house_constructed =
+              house.units * dwelling.bedroom_percentage;
             dwelling.rental_houses = house.units;
           }
           if (
             dwelling.house_type === house.house_type &&
             house.intended_market === "Owned"
           ) {
+            dwelling.owned_house_constructed =
+              house.units * dwelling.bedroom_percentage;
             dwelling.owned_houses = house.units;
           }
         });
       });
+
+      const rental_percentage_of_row_houses = (comrow / comTotalrow) * 100;
+      const rental_percentage_of_apartment_houses =
+        (comapa / comTotalapa) * 100;
 
       await Promise.all(
         dwellingDetails.map(async (ele) => {
@@ -324,13 +356,39 @@ module.exports = {
             bedroom_type: ele.bedroom_type,
             house_type: ele.house_type,
           });
-
           ele.vacancy_rate = vacancyRate.vacancy_rate;
         })
       );
 
-      if (affordability === "30%") {
-      }
+      rentDetails.map((obj) => {
+        dwellingDetails.map((ele) => {
+          if (
+            ele.house_type === obj.house_type &&
+            ele.bedroom_type === obj.bedroom_type
+          ) {
+            ele.rent_value = obj.rent_value;
+            ele.shelter_cost = obj.shelter_cost;
+          }
+        });
+      });
+
+      dwellingDetails.map((ele) => {
+        if (affordability === "30%" || affordability === "Both") {
+          ele.chmc_house_affordable =
+            ele.rent_value < (0.3 * median_household_income_before_tax) / 12
+              ? true
+              : false;
+        }
+        if (affordability === "Residual" || affordability === "Both") {
+          ele.residual_house_affordable =
+            (median_household_income_after_tax -
+              cost_of_non_shelter_necessity) /
+              12 >
+            ele.rent_value
+              ? true
+              : false;
+        }
+      });
     } catch (error) {
       next(error);
     }

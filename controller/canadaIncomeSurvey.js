@@ -154,7 +154,7 @@ module.exports = {
               ca: obj["C"],
               year: obj["D"],
             });
-            if (survey) {
+            if (survey.length > 0) {
               await Promise.all(
                 survey.map(async (sur) => {
                   await Services.canadaIncomeSurveyService.update({

@@ -95,7 +95,7 @@ module.exports = {
   },
   getDetail: async (marketObj, transaction) => {
     try {
-      const result = await db.canadaIncomeSurvey.findOne({ where: marketObj });
+      const result = await db.canadaIncomeSurvey.findAll({ where: marketObj });
       return result;
     } catch (error) {
       logger.info(error);
