@@ -117,10 +117,10 @@ module.exports = {
   },
   addExcelFiles: async (req, res, next) => {
     try {
-      let result = excelToJson({
+      let result1 = excelToJson({
         sourceFile: __dirname + "/Sample_Files/Income Ranking CMA.xlsx",
       });
-      result = result["Sheet1"];
+      let result = result1["Before Tax"];
 
       let arr = [];
       result.map((obj) => {
@@ -128,7 +128,7 @@ module.exports = {
           let data = {
             id: Common.helper.generateId(),
             cma: obj["A"],
-            ranking: Number(obj["B"]),
+            ranking_before_tax: Number(obj["B"]),
           };
           arr.push(data);
         }
