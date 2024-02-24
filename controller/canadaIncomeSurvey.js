@@ -118,32 +118,32 @@ module.exports = {
   },
   addExcelFiles: async (req, res, next) => {
     try {
-      let result = excelToJson({
+      let result1 = excelToJson({
         sourceFile: __dirname + "/Sample_Files/Canadian Income Survey.xlsx",
       });
 
-      // result = result["Percentage of families"];
-      // let arr = [];
-      // await Promise.all(
-      //   result.map(async (obj) => {
-      //     if (obj["A"] !== "Geography (Province name)") {
-      //       let objj = {
-      //         province: obj["A"],
-      //         cma: obj["B"],
-      //         ca: obj["C"],
-      //         income_bracket: obj["D"],
-      //         year: obj["E"],
-      //         percentage_of_family_total_income: obj["F"],
-      //         percentage_of_family_after_tax_income: obj["G"],
-      //         number_of_family_total_income: obj["H"],
-      //         number_of_family_after_tax_income: obj["I"],
-      //       };
-      //       arr.push(objj);
-      //     }
-      //   })
-      // );
-      // await Services.canadaIncomeSurveyService.bulkCreate(arr);
-      result = result["Median Income"];
+      let result = result1["Percentage of families"];
+      let arr = [];
+      await Promise.all(
+        result.map(async (obj) => {
+          if (obj["A"] !== "Geography (Province name)") {
+            let objj = {
+              province: obj["A"],
+              cma: obj["B"],
+              ca: obj["C"],
+              income_bracket: obj["D"],
+              year: obj["E"],
+              percentage_of_family_total_income: obj["F"],
+              percentage_of_family_after_tax_income: obj["G"],
+              number_of_family_total_income: obj["H"],
+              number_of_family_after_tax_income: obj["I"],
+            };
+            arr.push(objj);
+          }
+        })
+      );
+      await Services.canadaIncomeSurveyService.bulkCreate(arr);
+      result = result1["Median Income"];
 
       await Promise.all(
         result.map(async (obj) => {
@@ -155,11 +155,15 @@ module.exports = {
               year: obj["D"],
             });
             if (survey) {
-              await Services.canadaIncomeSurveyService.update({
-                id: survey.id,
-                median_before_tax: obj["E"],
-                median_after_tax: obj["F"],
-              });
+              await Promise.all(
+                survey.map(async (sur) => {
+                  await Services.canadaIncomeSurveyService.update({
+                    id: sur.id,
+                    median_before_tax: obj["E"],
+                    median_after_tax: obj["F"],
+                  });
+                })
+              );
             }
           }
         })
