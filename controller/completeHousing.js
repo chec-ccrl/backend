@@ -132,7 +132,7 @@ module.exports = {
               intended_market: obj["D"],
               house_type: obj["E"],
               year: obj["F"],
-              units: obj["G"],
+              units: obj["G"] === "#N/A" ? 0 : obj["G"],
             };
             arr.push(t);
           }

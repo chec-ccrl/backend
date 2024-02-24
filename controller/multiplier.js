@@ -138,26 +138,25 @@ module.exports = {
         })
       );
       await Services.multiplierService.bulkCreate(ar);
-      // result = result["Utility cost"];
-      // await Promise.all(
-      //   result.map(async (obj) => {
-      //     if (obj["A"] !== "Geography (Province name)") {
-      //       const survey = await Services.multiplierService.getDetail({
-      //         province: obj["A"],
-      //         cma: obj["B"],
-      //         ca: obj["C"],
-      //         year: obj["D"],
-      //       });
-
-      //       if (survey) {
-      //         await Services.multiplierService.update({
-      //           id: survey.id,
-      //           average_utility: obj["E"],
-      //         });
-      //       }
-      //     }
-      //   })
-      // );
+      result = result["Utility cost"];
+      await Promise.all(
+        result.map(async (obj) => {
+          if (obj["A"] !== "Geography (Province name)") {
+            const survey = await Services.multiplierService.getDetail({
+              province: obj["A"],
+              cma: obj["B"],
+              ca: obj["C"],
+              year: obj["D"],
+            });
+            if (survey) {
+              await Services.multiplierService.update({
+                id: survey.id,
+                average_utility: obj["E"],
+              });
+            }
+          }
+        })
+      );
 
       return res.json("Done");
     } catch (error) {

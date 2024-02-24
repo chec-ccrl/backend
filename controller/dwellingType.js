@@ -120,7 +120,7 @@ module.exports = {
         sourceFile:
           __dirname + "/Sample_Files/Structural type of dwelling.xlsx",
       });
-      result = result["Sheet2"];
+      result = result["main"];
       let arr = [];
       await Promise.all(
         result.map(async (obj) => {
@@ -132,7 +132,7 @@ module.exports = {
               house_type: obj["D"],
               bedroom_type: obj["E"],
               year: obj["F"],
-              units: obj["G"],
+              units: obj["G"] === "#N/A" ? 0 : obj["G"],
             };
             arr.push(t);
           }

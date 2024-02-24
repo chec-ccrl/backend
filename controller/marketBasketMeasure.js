@@ -121,10 +121,10 @@ module.exports = {
       let result = excelToJson({
         sourceFile: __dirname + "/Sample_Files/Market Basket Measure.xlsx",
       });
-      result = result["Market Basket Measure (1)"];
+      result = result["Market basket measure"];
       let arr = [];
       result.map((obj) => {
-        if (obj["A"] !== "Province") {
+        if (obj["A"] !== "Geography (Province name)") {
           let data = {
             province: obj["A"],
             cma: obj["B"],
