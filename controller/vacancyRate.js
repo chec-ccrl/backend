@@ -117,7 +117,7 @@ module.exports = {
       let result = excelToJson({
         sourceFile: __dirname + "/Sample_Files/Vacancy Rate.xlsx",
       });
-      result = result["Vacancy rate"];
+      result = result["all data"];
       let arr = [];
       await Promise.all(
         result.map(async (obj) => {
