@@ -6386,7 +6386,7 @@ module.exports = {
                       NOTE 2: Latest availiable year will be selected by default
                       </span>
                       <span>
-                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
                       </span>
                 </div>
                 <div class="main_third_line">
@@ -6491,7 +6491,7 @@ module.exports = {
                       NOTE 2: Latest availiable year will be selected by default
                       </span>
                       <span>
-                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
                       </span>
                </div>
                <div class="main_third_line">
@@ -6596,7 +6596,7 @@ module.exports = {
                       NOTE 2: Latest availiable year will be selected by default
                       </span>
                       <span>
-                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
                       </span>
                </div>
                <div class="main_third_line">
@@ -6701,7 +6701,7 @@ module.exports = {
                       NOTE 2: Latest availiable year will be selected by default
                       </span>
                       <span>
-                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
                       </span>
                </div>
                <div class="main_third_line">
@@ -6806,7 +6806,7 @@ module.exports = {
                       NOTE 2: Latest availiable year will be selected by default
                       </span>
                       <span>
-                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
                       </span>
                </div>
                <div class="main_third_line">
@@ -6911,7 +6911,7 @@ module.exports = {
                       NOTE 2: Latest availiable year will be selected by default
                       </span>
                       <span>
-                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
                       </span>
                </div>
                <div class="main_third_line">
@@ -7016,7 +7016,7 @@ module.exports = {
            NOTE 2: Latest availiable year will be selected by default
            </span>
            <span>
-           NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+           NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
            </span>
                </div>
                <div class="main_third_line">
@@ -7121,7 +7121,7 @@ module.exports = {
                       NOTE 2: Latest availiable year will be selected by default
                       </span>
                       <span>
-                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
                       </span>
                </div>
                <div class="main_third_line">
@@ -7228,7 +7228,7 @@ module.exports = {
                       NOTE 2: Latest availiable year will be selected by default
                       </span>
                       <span>
-                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
                       </span>
                 </div>
                 <div class="main_third_line">
@@ -7334,7 +7334,7 @@ module.exports = {
                       NOTE 2: Latest availiable year will be selected by default
                       </span>
                       <span>
-                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
                       </span>
                   </div>
                   <div class="main_third_line">
@@ -7440,7 +7440,7 @@ module.exports = {
                       NOTE 2: Latest availiable year will be selected by default
                       </span>
                       <span>
-                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
                       </span>
                   </div>
                   <div class="main_third_line">
@@ -7546,7 +7546,7 @@ module.exports = {
                       NOTE 2: Latest availiable year will be selected by default
                       </span>
                       <span>
-                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
                       </span>
                   </div>
                   <div class="main_third_line">
@@ -7652,7 +7652,7 @@ module.exports = {
                       NOTE 2: Latest availiable year will be selected by default
                       </span>
                       <span>
-                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
                       </span>
                   </div>
                   <div class="main_third_line">
@@ -7758,7 +7758,7 @@ module.exports = {
                       NOTE 2: Latest availiable year will be selected by default
                       </span>
                       <span>
-                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
                       </span>
                   </div>
                   <div class="main_third_line">
@@ -7864,7 +7864,7 @@ module.exports = {
               NOTE 2: Latest availiable year will be selected by default
               </span>
               <span>
-              NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+              NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
               </span>
                   </div>
                   <div class="main_third_line">
@@ -7970,7 +7970,7 @@ module.exports = {
                       NOTE 2: Latest availiable year will be selected by default
                       </span>
                       <span>
-                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified.
+                      NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
                       </span>
                   </div>
                   <div class="main_third_line">
