@@ -117,10 +117,10 @@ module.exports = {
   },
   addExcelFiles: async (req, res, next) => {
     try {
-      let result = excelToJson({
+      let result1 = excelToJson({
         sourceFile: __dirname + "/Sample_Files/Multiplier.xlsx",
       });
-      result = result["Multiplier"];
+      let result = result1["Multiplier"];
       let ar = [];
       await Promise.all(
         result.map(async (obj) => {
@@ -138,7 +138,7 @@ module.exports = {
         })
       );
       await Services.multiplierService.bulkCreate(ar);
-      result = result["Utility cost"];
+      result = result1["Utility cost"];
       await Promise.all(
         result.map(async (obj) => {
           if (obj["A"] !== "Geography (Province name)") {
