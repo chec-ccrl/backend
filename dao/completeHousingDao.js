@@ -30,12 +30,13 @@ module.exports = {
       };
 
       let sql = `SELECT id , count(*) over() as "total_count" from "completeHousings" where 
-      (province ilike :province or cma ilike :province or ca ilike :province) and year = :year  and "deletedAt" is null order by "createdAt" desc , "units" desc limit :limit offset :offset`;
+      (province ilike :province or cma ilike :province or ca ilike :province) `;
+      if (marketObj?.filter?.year) {
+        sql += `and  year = ${Number(marketObj.filter.year)} `;
+      }
+      sql += `  and "deletedAt" is null order by "createdAt" desc limit :limit offset :offset`;
       if (completeHousingObj?.filter?.province) {
         replacementObj.province = `%${completeHousingObj.filter.province}%`;
-      }
-      if (marketObj?.filter?.year) {
-        replacementObj.year = `${marketObj.filter.year}`;
       }
 
       const data = await db.sequelize.query(sql, {
