@@ -28,8 +28,8 @@ module.exports = {
       let sql = `SELECT id , count(*) over() as "total_count" from "rents" 
                  where (province ilike :province or cma ilike :province or ca ilike :province) `;
 
-      if (marketObj?.filter?.year) {
-        sql += `and  year = ${Number(marketObj.filter.year)} `;
+      if (rentObj?.filter?.year) {
+        sql += `and  year = ${Number(rentObj.filter.year)} `;
       }
       sql += `  and "deletedAt" is null order by "createdAt" desc limit :limit offset :offset`;
       if (rentObj?.filter?.province) {

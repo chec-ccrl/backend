@@ -31,8 +31,8 @@ module.exports = {
       let sql = `SELECT id , count(*) over() as "total_count" from "vacancyRates" 
                 where (province ilike :province or cma ilike :province or ca ilike :province) `;
 
-      if (marketObj?.filter?.year) {
-        sql += `and  year = ${Number(marketObj.filter.year)} `;
+      if (vacancyObj?.filter?.year) {
+        sql += `and  year = ${Number(vacancyObj.filter.year)} `;
       }
       sql += `  and "deletedAt" is null order by "createdAt" desc limit :limit offset :offset`;
       if (vacancyObj?.filter?.province) {
