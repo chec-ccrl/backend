@@ -30,7 +30,7 @@ module.exports = {
       };
 
       let sql = `SELECT id , count(*) over() as "total_count" from "completeHousings" where 
-                province ilike :province and "deletedAt" is null order by "createdAt" desc , "units" desc limit :limit offset :offset`;
+      (province ilike :province or cma ilike :province or ca ilike :province)  and "deletedAt" is null order by "createdAt" desc , "units" desc limit :limit offset :offset`;
       if (completeHousingObj?.filter?.province) {
         replacementObj.province = `%${completeHousingObj.filter.province}%`;
       }
