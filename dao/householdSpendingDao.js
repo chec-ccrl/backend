@@ -26,9 +26,12 @@ module.exports = {
         province: "%%",
       };
       let sql = `SELECT id , count(*) over() as "total_count" from "householdSpends" 
-                where (province ilike :province or cma ilike :province or ca ilike :province)  and "deletedAt" is null order by "createdAt" desc limit :limit offset :offset`;
+                where (province ilike :province or cma ilike :province or ca ilike :province) and year = :year  and "deletedAt" is null order by "createdAt" desc limit :limit offset :offset`;
       if (spendingObj?.filter?.province) {
         replacementObj.province = `%${spendingObj.filter.province}%`;
+      }
+      if (marketObj?.filter?.year) {
+        replacementObj.year = `${marketObj.filter.year}`;
       }
 
       const data = await db.sequelize.query(sql, {
