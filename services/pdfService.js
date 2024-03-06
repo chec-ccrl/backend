@@ -1035,10 +1035,6 @@ module.exports = {
         width: 30% !important;
       }
       
-      #main_page5_first_one_chart17 {
-        width: 400px;
-      }
-      
       .main_page5_first_one_chart {
         display: flex;
         justify-content: space-between;
@@ -1582,7 +1578,7 @@ module.exports = {
         <div class="main_third_line"></div>
         <div class="main_page3_first">
           <div class="main_page3_first_one">
-            <div class="main_page3_first_one_txt ls-2">
+            <div class="main_page3_first_one_txt ls-2"  style="font-size: 35px">
               AVERAGE <br />
               RENT
             </div>
@@ -1638,21 +1634,21 @@ module.exports = {
           </div>
           <div class="main_page3_first_one_break"></div>
           <div class="main_page3_first_one">
-            <div class="main_page3_first_one_txt ls-2">
+            <div class="main_page3_first_one_txt ls-2" style="font-size: 30px">
               AFFORDABLE SHELTER COST
             </div>
             <span style="font-size: small; letter-spacing: 5px"
               >BASED ON 2 DEFINATIONS</span
             >
-            <div class="main_page3_first_one_txt ls-2">
+            <div class="main_page3_first_one_txt ls-2" style="font-size: 30px">
               VS CURRENT SHELTER COST
             </div>
             <div class="main_page3_first_one_sub">
               MONTHLY
               <canvas
                 id="main_page3_first_one_pichart"
-                width="520"
-                height="260"
+                width="660"
+                height="270"
               ></canvas>
               <p class="ls-1">INCOME CATEGORIES</p>
             </div>
@@ -1669,7 +1665,7 @@ module.exports = {
             <div class="main_page3_first_one_chart">
               <canvas
                 id="main_page3_first_one_chart_main"
-                style="height: 280px; width: 380px"
+                style="height: 300px; width: 140px"
               ></canvas>
             </div>
           </div>
@@ -1678,7 +1674,7 @@ module.exports = {
         <div class="main_third_line"></div>
         <div class="main_page3_third">
           <span style="width: 8%"></span>
-          <div class="main_page3_first_one_txt" style="letter-spacing: 6px">
+          <div class="main_page3_first_one_txt" style="letter-spacing: 6px;font-size: 30px">
             TOTAL RENTAL STOCK :
           </div>
           <div
@@ -1689,7 +1685,7 @@ module.exports = {
           </div>
         </div>
         <p
-          class="text-md fw-light"
+          class="text-md fw-light mt-1"
           style="text-align: center; letter-spacing: 8px"
         >
           ROW HOUSE & APARTMENT
@@ -1707,7 +1703,7 @@ module.exports = {
               <p class="text-2xl ls-1 m-0">AFFORDABLE</p>
               <canvas
                 id="main_page3_first_one_one_main_one_chart29"
-                style="max-width: 200px; margin: auto"
+                style="max-width: 200px; margin: auto;height:200px"
               ></canvas>
               <p class="text-2xl ls-1 m-0">UNAFFORDABLE</p>
             </div>
@@ -1731,7 +1727,7 @@ module.exports = {
                 <div class="main_page4_first_one_one_main_one_chart">
                   <canvas
                     id="main_page3_first_one_one_main_one_chart30"
-                    style="max-width: 150px; margin: auto"
+                    style="max-width: 150px; margin: auto;height:150px"
                   ></canvas>
                 </div>
                 <p class="text-2xl ls-1 m-0">OCCUPIED</p>
@@ -1751,7 +1747,7 @@ module.exports = {
                 <div class="main_page4_first_one_one_main_one_chart">
                   <canvas
                     id="main_page3_first_one_one_main_one_chart31"
-                    style="max-width: 150px; margin: auto"
+                    style="max-width: 150px; margin: auto;height:150px"
                   ></canvas>
                 </div>
                 <p class="text-2xl ls-1 m-0">OCCUPIED</p>
@@ -1771,12 +1767,12 @@ module.exports = {
             <p class="text-2xl ls-1 m-0">AFFORDABLE</p>
             <canvas
               id="main_page3_first_one_one_main_one_chart32"
-              style="max-width: 200px; margin: auto"
+              style="max-width: 200px; margin: auto;height:200px"
             ></canvas>
             <p class="text-2xl ls-1 m-0">UNAFFORDABLE</p>
           </div>
         </div>
-        <div class="main_third_line"></div>
+        <div class="main_third_line" style="margin:20px 0"></div>
   
         <div class="main_page3_third">
           <div class="main_page3_third_one">
@@ -1853,7 +1849,7 @@ module.exports = {
   
       <!-- SIXTH PAGE -->
       <br /><br />
-      <div style="position: relative">
+      <div style="position: relative" style="margin-top:15px">
         <div class="main_first">
           <div class="main_first_img">
             <img
@@ -2746,7 +2742,7 @@ module.exports = {
       <div class="main_page5_first_one_chart">
         <canvas
           id="main_page5_first_one_chart17"
-          style="max-height: 400px; margin: 10px 40px 10px 0px"
+          style="max-height: 400px; margin: 10px 40px 10px 0px; width:1500px !important"
         ></canvas>
       </div>
       <p style="text-align: center; font-weight: 600; font-size: larger">
@@ -3585,7 +3581,7 @@ module.exports = {
               ],
             },
             options: {
-              responsive: true, // Make the chart responsive
+              responsive: false, // Make the chart responsive
               title: {
                 display: false, // Display chart title
                 text: "Sales by Quarter", // Chart title text
@@ -7436,11 +7432,6 @@ module.exports = {
 
     .main_page5_first_one_one4 {
         width: 30% !important;
-    }
-
-
-    #main_page5_first_one_chart17 {
-        width: 400px;
     }
 
     .main_page5_first_one_chart {
