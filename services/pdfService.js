@@ -4952,7 +4952,7 @@ module.exports = {
                                 <tr class="main_page2_first_table_tr">
                                     <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                     <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
-                                    <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’s</th>
+                                    <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                     <th class="main_page2_first_table_tr_th">0B</th>
                                     <th class="main_page2_first_table_tr_th">1B</th>
                                     <th class="main_page2_first_table_tr_th">2B</th>
@@ -4989,7 +4989,7 @@ module.exports = {
                             <tr class="main_page2_first_table_tr">
                                 <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                 <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
-                                <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’s</th>
+                                <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                 <th class="main_page2_first_table_tr_th">0B</th>
                                 <th class="main_page2_first_table_tr_th">1B</th>
                                 <th class="main_page2_first_table_tr_th">2B</th>
@@ -5027,7 +5027,7 @@ module.exports = {
                               <tr class="main_page2_first_table_tr">
                                   <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                   <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
-                                  <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’s</th>
+                                  <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                   <th class="main_page2_first_table_tr_th">0B</th>
                                   <th class="main_page2_first_table_tr_th">1B</th>
                                   <th class="main_page2_first_table_tr_th">2B</th>
@@ -5065,7 +5065,7 @@ module.exports = {
                               <tr class="main_page2_first_table_tr">
                                   <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                   <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
-                                  <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’s</th>
+                                  <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                   <th class="main_page2_first_table_tr_th">0B</th>
                                   <th class="main_page2_first_table_tr_th">1B</th>
                                   <th class="main_page2_first_table_tr_th">2B</th>
@@ -5101,7 +5101,7 @@ module.exports = {
                                 <tr class="main_page2_first_table_tr">
                                     <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                     <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
-                                    <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’s</th>
+                                    <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                     <th class="main_page2_first_table_tr_th">0B</th>
                                     <th class="main_page2_first_table_tr_th">1B</th>
                                     <th class="main_page2_first_table_tr_th">2B</th>
@@ -5138,7 +5138,7 @@ module.exports = {
                             <tr class="main_page2_first_table_tr">
                                 <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                 <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
-                                <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’s</th>
+                                <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                 <th class="main_page2_first_table_tr_th">0B</th>
                                 <th class="main_page2_first_table_tr_th">1B</th>
                                 <th class="main_page2_first_table_tr_th">2B</th>
@@ -5176,7 +5176,7 @@ module.exports = {
                               <tr class="main_page2_first_table_tr">
                                   <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                   <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
-                                  <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’s</th>
+                                  <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                   <th class="main_page2_first_table_tr_th">0B</th>
                                   <th class="main_page2_first_table_tr_th">1B</th>
                                   <th class="main_page2_first_table_tr_th">2B</th>
@@ -5213,7 +5213,7 @@ module.exports = {
                               <tr class="main_page2_first_table_tr">
                                   <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                   <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
-                                  <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’s</th>
+                                  <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                   <th class="main_page2_first_table_tr_th">0B</th>
                                   <th class="main_page2_first_table_tr_th">1B</th>
                                   <th class="main_page2_first_table_tr_th">2B</th>
@@ -5444,7 +5444,7 @@ module.exports = {
                           </div>
                           <div class="main_fourth">
                               <div class="main_fourth_text2">
-                                  1] BASED ON RESIDUAL INCOME
+                                  1] AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                               </div>
                           </div>
                           <div class="main_page2_first">
@@ -5452,7 +5452,7 @@ module.exports = {
                                   <tr class="main_page2_first_table_tr">
                                       <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                       <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
-                                      <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’s</th>
+                                      <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                       <th class="main_page2_first_table_tr_th">0B</th>
                                       <th class="main_page2_first_table_tr_th">1B</th>
                                       <th class="main_page2_first_table_tr_th">2B</th>
@@ -5481,7 +5481,7 @@ module.exports = {
                       </div>
                       <div class="main_fourth">
                           <div class="main_fourth_text2">
-                              1] BASED ON RESIDUAL INCOME
+                              1] AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                           </div>
                       </div>
                       <div class="main_page2_first">
@@ -5489,7 +5489,7 @@ module.exports = {
                               <tr class="main_page2_first_table_tr">
                                   <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                   <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
-                                  <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’s</th>
+                                  <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                   <th class="main_page2_first_table_tr_th">0B</th>
                                   <th class="main_page2_first_table_tr_th">1B</th>
                                   <th class="main_page2_first_table_tr_th">2B</th>
@@ -5519,7 +5519,7 @@ module.exports = {
                         </div>
                         <div class="main_fourth">
                             <div class="main_fourth_text2">
-                                1] BASED ON RESIDUAL INCOME
+                                1] AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                             </div>
                         </div>
                         <div class="main_page2_first">
@@ -5527,7 +5527,7 @@ module.exports = {
                                 <tr class="main_page2_first_table_tr">
                                     <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                     <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
-                                    <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’s</th>
+                                    <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                     <th class="main_page2_first_table_tr_th">0B</th>
                                     <th class="main_page2_first_table_tr_th">1B</th>
                                     <th class="main_page2_first_table_tr_th">2B</th>
@@ -5557,7 +5557,7 @@ module.exports = {
                         </div>
                         <div class="main_fourth">
                             <div class="main_fourth_text2">
-                                1] BASED ON RESIDUAL INCOME
+                                1] AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                             </div>
                         </div>
                         <div class="main_page2_first">
@@ -5565,7 +5565,7 @@ module.exports = {
                                 <tr class="main_page2_first_table_tr">
                                     <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                     <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
-                                    <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’s</th>
+                                    <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                     <th class="main_page2_first_table_tr_th">0B</th>
                                     <th class="main_page2_first_table_tr_th">1B</th>
                                     <th class="main_page2_first_table_tr_th">2B</th>
@@ -5593,7 +5593,7 @@ module.exports = {
                           </div>
                           <div class="main_fourth">
                               <div class="main_fourth_text2">
-                                  1] BASED ON RESIDUAL INCOME
+                                  1] AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                               </div>
                           </div>
                           <div class="main_page2_first">
@@ -5601,7 +5601,7 @@ module.exports = {
                                   <tr class="main_page2_first_table_tr">
                                       <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                       <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
-                                      <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’s</th>
+                                      <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                       <th class="main_page2_first_table_tr_th">0B</th>
                                       <th class="main_page2_first_table_tr_th">1B</th>
                                       <th class="main_page2_first_table_tr_th">2B</th>
@@ -5630,7 +5630,7 @@ module.exports = {
                       </div>
                       <div class="main_fourth">
                           <div class="main_fourth_text2">
-                              1] BASED ON RESIDUAL INCOME
+                              1] AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                           </div>
                       </div>
                       <div class="main_page2_first">
@@ -5638,7 +5638,7 @@ module.exports = {
                               <tr class="main_page2_first_table_tr">
                                   <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                   <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
-                                  <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’s</th>
+                                  <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                   <th class="main_page2_first_table_tr_th">0B</th>
                                   <th class="main_page2_first_table_tr_th">1B</th>
                                   <th class="main_page2_first_table_tr_th">2B</th>
@@ -5668,7 +5668,7 @@ module.exports = {
                         </div>
                         <div class="main_fourth">
                             <div class="main_fourth_text2">
-                                1] BASED ON RESIDUAL INCOME
+                                1] AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                             </div>
                         </div>
                         <div class="main_page2_first">
@@ -5676,7 +5676,7 @@ module.exports = {
                                 <tr class="main_page2_first_table_tr">
                                     <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                     <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
-                                    <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’s</th>
+                                    <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                     <th class="main_page2_first_table_tr_th">0B</th>
                                     <th class="main_page2_first_table_tr_th">1B</th>
                                     <th class="main_page2_first_table_tr_th">2B</th>
@@ -5705,7 +5705,7 @@ module.exports = {
                         </div>
                         <div class="main_fourth">
                             <div class="main_fourth_text2">
-                                1] BASED ON RESIDUAL INCOME
+                                1] AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                             </div>
                         </div>
                         <div class="main_page2_first">
@@ -5713,7 +5713,7 @@ module.exports = {
                                 <tr class="main_page2_first_table_tr">
                                     <th class="main_page2_first_table_tr_th">Sr. No.</th>
                                     <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
-                                    <th class="main_page2_first_table_tr_th" style="width:30%">${prov}’s</th>
+                                    <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                     <th class="main_page2_first_table_tr_th">0B</th>
                                     <th class="main_page2_first_table_tr_th">1B</th>
                                     <th class="main_page2_first_table_tr_th">2B</th>
@@ -7548,7 +7548,7 @@ module.exports = {
                 </div>
                 <div class="main_first_text">
                     <div class="main_first_text_tex1">
-                        ${province} - ${year}
+                        ${province}
                     </div>
                     <div class="main_first_text_tex2">
                         AFFORDABILITY REPORT
@@ -7621,9 +7621,7 @@ module.exports = {
                 </div>
             </div>
             <div class="main_fourth">
-                <div class="main_fourth_text1">
-                Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
-                </div>
+                
                 <div class="main_fourth_text2">
                     BASED ON 30% BENCHMARK
                 </div>
@@ -7653,7 +7651,7 @@ module.exports = {
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
-                       ${province} - ${year}
+                       ${province}
                    </div>
                    <div class="main_first_text_tex2">
                    AFFORDABILITY REPORT
@@ -7726,9 +7724,7 @@ module.exports = {
                </div>
            </div>
            <div class="main_fourth">
-               <div class="main_fourth_text1">
-               Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
-               </div>
+              
                <div class="main_fourth_text2">
                    BASED ON 30% BENCHMARK
                </div>
@@ -7758,7 +7754,7 @@ module.exports = {
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
-                       ${province} - ${year}
+                       ${province}
                    </div>
                    <div class="main_first_text_tex2">
                    AFFORDABILITY REPORT
@@ -7831,9 +7827,7 @@ module.exports = {
                </div>
            </div>
            <div class="main_fourth">
-               <div class="main_fourth_text1">
-               Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
-               </div>
+              
                <div class="main_fourth_text2">
                    BASED ON 30% BENCHMARK
                </div>
@@ -7863,7 +7857,7 @@ module.exports = {
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
-                       ${province} - ${year}
+                       ${province}
                    </div>
                    <div class="main_first_text_tex2">
                    AFFORDABILITY REPORT
@@ -7936,9 +7930,7 @@ module.exports = {
                </div>
            </div>
            <div class="main_fourth">
-               <div class="main_fourth_text1">
-               Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
-               </div>
+              
                <div class="main_fourth_text2">
                    BASED ON 30% BENCHMARK
                </div>
@@ -7968,7 +7960,7 @@ module.exports = {
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
-                       ${province} - ${year}
+                       ${province}
                    </div>
                    <div class="main_first_text_tex2">
                    AFFORDABILITY REPORT
@@ -8041,9 +8033,7 @@ module.exports = {
                </div>
            </div>
            <div class="main_fourth">
-               <div class="main_fourth_text1">
-               Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
-               </div>
+              
                <div class="main_fourth_text2">
                    BASED ON 30% BENCHMARK
                </div>
@@ -8073,7 +8063,7 @@ module.exports = {
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
-                       ${province} - ${year}
+                       ${province}
                    </div>
                    <div class="main_first_text_tex2">
                    AFFORDABILITY REPORT
@@ -8146,9 +8136,7 @@ module.exports = {
                </div>
            </div>
            <div class="main_fourth">
-               <div class="main_fourth_text1">
-               Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
-               </div>
+              
                <div class="main_fourth_text2">
                    BASED ON 30% BENCHMARK
                </div>
@@ -8178,7 +8166,7 @@ module.exports = {
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
-                       ${province} - ${year}
+                       ${province}
                    </div>
                    <div class="main_first_text_tex2">
                    AFFORDABILITY REPORT
@@ -8251,9 +8239,7 @@ module.exports = {
                </div>
            </div>
            <div class="main_fourth">
-               <div class="main_fourth_text1">
-               Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
-               </div>
+              
                <div class="main_fourth_text2">
                    BASED ON 30% BENCHMARK
                </div>
@@ -8283,7 +8269,7 @@ module.exports = {
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
-                       ${province} - ${year}
+                       ${province}
                    </div>
                    <div class="main_first_text_tex2">
                    AFFORDABILITY REPORT
@@ -8356,9 +8342,7 @@ module.exports = {
                </div>
            </div>
            <div class="main_fourth">
-               <div class="main_fourth_text1">
-               Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
-               </div>
+              
                <div class="main_fourth_text2">
                    BASED ON 30% BENCHMARK
                </div>
@@ -8389,7 +8373,7 @@ module.exports = {
                 </div>
                 <div class="main_first_text">
                     <div class="main_first_text_tex1">
-                    ${province} - ${year}
+                    ${province}
                     </div>
                     <div class="main_first_text_tex2">
                     AFFORDABILITY REPORT
@@ -8463,11 +8447,9 @@ module.exports = {
                 </div>
             </div>
             <div class="main_fourth">
-                <div class="main_fourth_text1">
-                Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
-                </div>
+                
                 <div class="main_fourth_text2">
-                    BASED ON RESIDUAL INCOME
+                  AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                 </div>
             </div>
             <div class="main_float_line">
@@ -8495,7 +8477,7 @@ module.exports = {
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
-                      ${province} - ${year}
+                      ${province}
                       </div>
                       <div class="main_first_text_tex2">
                       AFFORDABILITY REPORT
@@ -8568,12 +8550,9 @@ module.exports = {
   
                   </div>
               </div>
-              <div class="main_fourth">
-                  <div class="main_fourth_text1">
-                  Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
-                  </div>
+              <div class="main_fourth">             
                   <div class="main_fourth_text2">
-                      BASED ON RESIDUAL INCOME
+                  AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                   </div>
               </div>
               <div class="main_float_line">
@@ -8601,7 +8580,7 @@ module.exports = {
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
-                      ${province} - ${year}
+                      ${province}
                       </div>
                       <div class="main_first_text_tex2">
                       AFFORDABILITY REPORT
@@ -8675,11 +8654,9 @@ module.exports = {
                   </div>
               </div>
               <div class="main_fourth">
-                  <div class="main_fourth_text1">
-                  Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
-                  </div>
+                 
                   <div class="main_fourth_text2">
-                      BASED ON RESIDUAL INCOME
+                    AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                   </div>
               </div>
               <div class="main_float_line">
@@ -8707,7 +8684,7 @@ module.exports = {
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
-                      ${province} - ${year}
+                      ${province}
                       </div>
                       <div class="main_first_text_tex2">
                       AFFORDABILITY REPORT
@@ -8781,11 +8758,9 @@ module.exports = {
                   </div>
               </div>
               <div class="main_fourth">
-                  <div class="main_fourth_text1">
-                  Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
-                  </div>
+                 
                   <div class="main_fourth_text2">
-                      BASED ON RESIDUAL INCOME
+                    AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                   </div>
               </div>
               <div class="main_float_line">
@@ -8813,7 +8788,7 @@ module.exports = {
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
-                      ${province} - ${year}
+                      ${province}
                       </div>
                       <div class="main_first_text_tex2">
                       AFFORDABILITY REPORT
@@ -8887,11 +8862,9 @@ module.exports = {
                   </div>
               </div>
               <div class="main_fourth">
-                  <div class="main_fourth_text1">
-                  Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
-                  </div>
+                 
                   <div class="main_fourth_text2">
-                      BASED ON RESIDUAL INCOME
+                    AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                   </div>
               </div>
               <div class="main_float_line">
@@ -8919,7 +8892,7 @@ module.exports = {
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
-                      ${province} - ${year}
+                      ${province}
                       </div>
                       <div class="main_first_text_tex2">
                       AFFORDABILITY REPORT
@@ -8993,11 +8966,9 @@ module.exports = {
                   </div>
               </div>
               <div class="main_fourth">
-                  <div class="main_fourth_text1">
-                  Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
-                  </div>
+                 
                   <div class="main_fourth_text2">
-                      BASED ON RESIDUAL INCOME
+                    AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                   </div>
               </div>
               <div class="main_float_line">
@@ -9025,7 +8996,7 @@ module.exports = {
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
-                      ${province} - ${year}
+                      ${province}
                       </div>
                       <div class="main_first_text_tex2">
                       AFFORDABILITY REPORT
@@ -9099,11 +9070,9 @@ module.exports = {
                   </div>
               </div>
               <div class="main_fourth">
-                  <div class="main_fourth_text1">
-                  Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
-                  </div>
+                 
                   <div class="main_fourth_text2">
-                      BASED ON RESIDUAL INCOME
+                    AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                   </div>
               </div>
               <div class="main_float_line">
@@ -9131,7 +9100,7 @@ module.exports = {
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
-                      ${province} - ${year}
+                      ${province}
                       </div>
                       <div class="main_first_text_tex2">
                       AFFORDABILITY REPORT
@@ -9205,11 +9174,9 @@ module.exports = {
                   </div>
               </div>
               <div class="main_fourth">
-                  <div class="main_fourth_text1">
-                  Based on your income, below is the distribution of all the affordable & unaffordable type of house as  per different CMAs (Census Metropolitan Areas) & CAs (Census Areas)
-                  </div>
+                 
                   <div class="main_fourth_text2">
-                      BASED ON RESIDUAL INCOME
+                    AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                   </div>
               </div>
               <div class="main_float_line">
