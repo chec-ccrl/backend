@@ -4788,7 +4788,7 @@ module.exports = {
           if (house_type === "Apartment" && acount < 28) {
             acount++;
             rowsHtmlApartment += ` <tr>
-                                <td>${geo_index + 1}</td>
+                             
                                 <td>${provincesMap.get(pl)}</td>
                                 <td>${city}</td>
                                 <td>${b0str}</td>
@@ -4804,7 +4804,7 @@ module.exports = {
           } else if (house_type === "Row" && rcount < 28) {
             rcount++;
             rowsHtmlRow += ` <tr>
-                                        <td>${geo_index + 1}</td>
+                                        
                                         <td>${provincesMap.get(pl)}</td>
                                         <td>${city}</td>
                                         <td>${b0str}</td>
@@ -4821,7 +4821,7 @@ module.exports = {
           } else if (house_type === "Row" && rcount >= 28 && rcount < 56) {
             rcount++;
             rowsHtmlRow29 += ` <tr>
-                                        <td>${geo_index + 1}</td>
+                                     
                                         <td>${provincesMap.get(pl)}</td>
                                         <td>${city}</td>
                                         <td>${b0str}</td>
@@ -4842,7 +4842,7 @@ module.exports = {
           ) {
             acount++;
             rowsHtmlApartment29 += ` <tr>
-                                <td>${geo_index + 1}</td>
+                              
                                 <td>${provincesMap.get(pl)}</td>
                                 <td>${city}</td>
                                 <td>${b0str}</td>
@@ -4862,7 +4862,7 @@ module.exports = {
           ) {
             acount++;
             rowsHtmlApartment56 += ` <tr>
-                                <td>${geo_index + 1}</td>
+                             
                                 <td>${provincesMap.get(pl)}</td>
                                 <td>${city}</td>
                                 <td>${b0str}</td>
@@ -4878,7 +4878,7 @@ module.exports = {
           } else if (house_type === "Apartment" && acount >= 84) {
             acount++;
             rowsHtmlApartment84 += ` <tr>
-                                <td>${geo_index + 1}</td>
+                                
                                 <td>${provincesMap.get(pl)}</td>
                                 <td>${city}</td>
                                 <td>${b0str}</td>
@@ -4894,7 +4894,7 @@ module.exports = {
           } else if (house_type === "Row" && rcount >= 56 && rcount < 84) {
             rcount++;
             rowsHtmlRow56 += ` <tr>
-                                        <td>${geo_index + 1}</td>
+                                       
                                         <td>${provincesMap.get(pl)}</td>
                                         <td>${city}</td>
                                         <td>${b0str}</td>
@@ -4911,7 +4911,7 @@ module.exports = {
           } else if (house_type === "Row" && rcount >= 84) {
             rcount++;
             rowsHtmlRow84 += ` <tr>
-                                        <td>${geo_index + 1}</td>
+                                    
                                         <td>${provincesMap.get(pl)}</td>
                                         <td>${city}</td>
                                         <td>${b0str}</td>
@@ -4950,7 +4950,7 @@ module.exports = {
                         <div class="main_page2_first">
                             <table class="main_page2_first_table">
                                 <tr class="main_page2_first_table_tr">
-                                    <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                                 
                                     <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                     <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                     <th class="main_page2_first_table_tr_th">0B</th>
@@ -4987,7 +4987,7 @@ module.exports = {
                     <div class="main_page2_first">
                         <table class="main_page2_first_table">
                             <tr class="main_page2_first_table_tr">
-                                <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                              
                                 <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                 <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                 <th class="main_page2_first_table_tr_th">0B</th>
@@ -5025,7 +5025,7 @@ module.exports = {
                       <div class="main_page2_first">
                           <table class="main_page2_first_table">
                               <tr class="main_page2_first_table_tr">
-                                  <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                               
                                   <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                   <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                   <th class="main_page2_first_table_tr_th">0B</th>
@@ -5063,7 +5063,7 @@ module.exports = {
                       <div class="main_page2_first">
                           <table class="main_page2_first_table">
                               <tr class="main_page2_first_table_tr">
-                                  <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                               
                                   <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                   <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                   <th class="main_page2_first_table_tr_th">0B</th>
@@ -5099,7 +5099,7 @@ module.exports = {
                         <div class="main_page2_first">
                             <table class="main_page2_first_table">
                                 <tr class="main_page2_first_table_tr">
-                                    <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                                 
                                     <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                     <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                     <th class="main_page2_first_table_tr_th">0B</th>
@@ -5136,7 +5136,7 @@ module.exports = {
                     <div class="main_page2_first">
                         <table class="main_page2_first_table">
                             <tr class="main_page2_first_table_tr">
-                                <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                              
                                 <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                 <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                 <th class="main_page2_first_table_tr_th">0B</th>
@@ -5174,7 +5174,7 @@ module.exports = {
                       <div class="main_page2_first">
                           <table class="main_page2_first_table">
                               <tr class="main_page2_first_table_tr">
-                                  <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                                
                                   <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                   <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                   <th class="main_page2_first_table_tr_th">0B</th>
@@ -5211,7 +5211,7 @@ module.exports = {
                       <div class="main_page2_first">
                           <table class="main_page2_first_table">
                               <tr class="main_page2_first_table_tr">
-                                  <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                                
                                   <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                   <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                   <th class="main_page2_first_table_tr_th">0B</th>
@@ -5288,7 +5288,7 @@ module.exports = {
           if (house_type === "Apartment" && acount < 28) {
             acount++;
             rowsHtmlApartment += ` <tr>
-                                  <td>${geo_index + 1}</td>
+                              
                                   <td>${provincesMap.get(pl)}</td>
                                   <td>${city}</td>
                                   <td>${b0str}</td>
@@ -5304,7 +5304,7 @@ module.exports = {
           } else if (house_type === "Row" && rcount < 28) {
             rcount++;
             rowsHtmlRow += ` <tr>
-                                          <td>${geo_index + 1}</td>
+                                      
                                           <td>${provincesMap.get(pl)}</td>
                                           <td>${city}</td>
                                           <td>${b0str}</td>
@@ -5321,7 +5321,7 @@ module.exports = {
           } else if (house_type === "Row" && rcount >= 28 && rcount < 56) {
             rcount++;
             rowsHtmlRow29 += ` <tr>
-                                          <td>${geo_index + 1}</td>
+                                        
                                           <td>${provincesMap.get(pl)}</td>
                                           <td>${city}</td>
                                           <td>${b0str}</td>
@@ -5342,7 +5342,7 @@ module.exports = {
           ) {
             acount++;
             rowsHtmlApartment29 += ` <tr>
-                                  <td>${geo_index + 1}</td>
+                               
                                   <td>${provincesMap.get(pl)}</td>
                                   <td>${city}</td>
                                   <td>${b0str}</td>
@@ -5362,7 +5362,7 @@ module.exports = {
           ) {
             acount++;
             rowsHtmlApartment56 += ` <tr>
-                                  <td>${geo_index + 1}</td>
+                                
                                   <td>${provincesMap.get(pl)}</td>
                                   <td>${city}</td>
                                   <td>${b0str}</td>
@@ -5378,7 +5378,7 @@ module.exports = {
           } else if (house_type === "Apartment" && acount >= 84) {
             acount++;
             rowsHtmlApartment84 += ` <tr>
-                                  <td>${geo_index + 1}</td>
+                                
                                   <td>${provincesMap.get(pl)}</td>
                                   <td>${city}</td>
                                   <td>${b0str}</td>
@@ -5394,7 +5394,7 @@ module.exports = {
           } else if (house_type === "Row" && rcount >= 56 && rcount < 84) {
             rcount++;
             rowsHtmlRow56 += ` <tr>
-                                          <td>${geo_index + 1}</td>
+                                         
                                           <td>${provincesMap.get(pl)}</td>
                                           <td>${city}</td>
                                           <td>${b0str}</td>
@@ -5411,7 +5411,7 @@ module.exports = {
           } else if (house_type === "Row" && rcount >= 84) {
             rcount++;
             rowsHtmlRow84 += ` <tr>
-                                          <td>${geo_index + 1}</td>
+                                         
                                           <td>${provincesMap.get(pl)}</td>
                                           <td>${city}</td>
                                           <td>${b0str}</td>
@@ -5450,7 +5450,7 @@ module.exports = {
                           <div class="main_page2_first">
                               <table class="main_page2_first_table">
                                   <tr class="main_page2_first_table_tr">
-                                      <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                                     
                                       <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                       <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                       <th class="main_page2_first_table_tr_th">0B</th>
@@ -5487,7 +5487,7 @@ module.exports = {
                       <div class="main_page2_first">
                           <table class="main_page2_first_table">
                               <tr class="main_page2_first_table_tr">
-                                  <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                                 
                                   <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                   <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                   <th class="main_page2_first_table_tr_th">0B</th>
@@ -5525,7 +5525,7 @@ module.exports = {
                         <div class="main_page2_first">
                             <table class="main_page2_first_table">
                                 <tr class="main_page2_first_table_tr">
-                                    <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                                  
                                     <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                     <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                     <th class="main_page2_first_table_tr_th">0B</th>
@@ -5563,7 +5563,7 @@ module.exports = {
                         <div class="main_page2_first">
                             <table class="main_page2_first_table">
                                 <tr class="main_page2_first_table_tr">
-                                    <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                                   
                                     <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                     <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                     <th class="main_page2_first_table_tr_th">0B</th>
@@ -5599,7 +5599,7 @@ module.exports = {
                           <div class="main_page2_first">
                               <table class="main_page2_first_table">
                                   <tr class="main_page2_first_table_tr">
-                                      <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                                     
                                       <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                       <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                       <th class="main_page2_first_table_tr_th">0B</th>
@@ -5636,7 +5636,7 @@ module.exports = {
                       <div class="main_page2_first">
                           <table class="main_page2_first_table">
                               <tr class="main_page2_first_table_tr">
-                                  <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                                
                                   <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                   <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                   <th class="main_page2_first_table_tr_th">0B</th>
@@ -5674,7 +5674,7 @@ module.exports = {
                         <div class="main_page2_first">
                             <table class="main_page2_first_table">
                                 <tr class="main_page2_first_table_tr">
-                                    <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                                   
                                     <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                     <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                     <th class="main_page2_first_table_tr_th">0B</th>
@@ -5711,7 +5711,7 @@ module.exports = {
                         <div class="main_page2_first">
                             <table class="main_page2_first_table">
                                 <tr class="main_page2_first_table_tr">
-                                    <th class="main_page2_first_table_tr_th">Sr. No.</th>
+                                  
                                     <th class="main_page2_first_table_tr_th" style="width:15%">Province</th>
                                     <th class="main_page2_first_table_tr_th" style="width:30%">Location</th>
                                     <th class="main_page2_first_table_tr_th">0B</th>
