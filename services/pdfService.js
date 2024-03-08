@@ -4935,7 +4935,7 @@ module.exports = {
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
-                                CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR APARTMENTS
+                                CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000
                                 </div>
                             </div>
                         </div>
@@ -4972,7 +4972,7 @@ module.exports = {
                         </div>
                         <div class="main_first_text">
                             <div class="main_first_text_tex1">
-                            CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR APARTMENTS
+                            CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000
                             </div>
                         </div>
                     </div>
@@ -5010,7 +5010,7 @@ module.exports = {
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
-                              CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR APARTMENTS
+                              CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000
                               </div>
                           </div>
                       </div>
@@ -5048,7 +5048,7 @@ module.exports = {
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
-                              CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR APARTMENTS
+                              CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000
                               </div>
                           </div>
                       </div>
@@ -5084,7 +5084,7 @@ module.exports = {
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
-                                CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROW HOUSES
+                                CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000
                                 </div>
                             </div>
                         </div>
@@ -5121,7 +5121,7 @@ module.exports = {
                         </div>
                         <div class="main_first_text">
                             <div class="main_first_text_tex1">
-                            CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROW HOUSES
+                            CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000
                             </div>
                         </div>
                     </div>
@@ -5159,7 +5159,7 @@ module.exports = {
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
-                              CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROW HOUSES
+                              CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000
                               </div>
                           </div>
                       </div>
@@ -5196,7 +5196,7 @@ module.exports = {
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
-                              CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROW HOUSES
+                              CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000
                               </div>
                           </div>
                       </div>
@@ -5435,7 +5435,7 @@ module.exports = {
                               </div>
                               <div class="main_first_text">
                                   <div class="main_first_text_tex1">
-                                  CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR APARTMENTS
+                                  CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000
                                   </div>
                               </div>
                           </div>
@@ -5472,7 +5472,7 @@ module.exports = {
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
-                              CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR APARTMENTS
+                              CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000
                               </div>
                           </div>
                       </div>
@@ -5510,7 +5510,7 @@ module.exports = {
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
-                                CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR APARTMENTS
+                                CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000
                                 </div>
                             </div>
                         </div>
@@ -5548,7 +5548,7 @@ module.exports = {
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
-                                CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR APARTMENTS
+                                CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000
                                 </div>
                             </div>
                         </div>
@@ -5584,7 +5584,7 @@ module.exports = {
                               </div>
                               <div class="main_first_text">
                                   <div class="main_first_text_tex1">
-                                  CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROW HOUSES
+                                  CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000
                                   </div>
                               </div>
                           </div>
@@ -5621,7 +5621,7 @@ module.exports = {
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
-                              CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROW HOUSES
+                              CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000
                               </div>
                           </div>
                       </div>
@@ -5659,7 +5659,7 @@ module.exports = {
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
-                                CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROW HOUSES
+                                CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000
                                 </div>
                             </div>
                         </div>
@@ -5696,7 +5696,7 @@ module.exports = {
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
-                                CANADA - ${prov}’S AFFORDABILITY OVERVIEW FOR ROW HOUSES
+                                CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000
                                 </div>
                             </div>
                         </div>
@@ -6570,7 +6570,7 @@ module.exports = {
     }
 
     .main_first_text_tex1 {
-        font-size: 24px;
+        font-size: 20px;
         font-weight: bold;
         letter-spacing: 0.5cap;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
