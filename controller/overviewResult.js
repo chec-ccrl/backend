@@ -30,7 +30,7 @@ module.exports = {
             cma,
             ca,
           });
-          if (rent_source === "Realistic Rent") {
+          if (rent_source === "Average Listing Rent") {
             rent = Number(
               Number(multiplierDetails?.rent) *
                 Number(obj.rent_value) *
@@ -118,7 +118,7 @@ module.exports = {
                   ca,
                 });
 
-              if (rent_source === "Realistic Rent") {
+              if (rent_source === "Average Listing Rent") {
                 rent = Number(
                   Number(multiplierDetails?.rent) *
                     Number(obj.rent_value) *
