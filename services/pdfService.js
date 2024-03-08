@@ -4944,7 +4944,7 @@ module.exports = {
                         </div>
                         <div class="main_fourth">
                             <div class="main_fourth_text2">
-                                1] AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                                AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                             </div>
                         </div>
                         <div class="main_page2_first">
@@ -4981,7 +4981,7 @@ module.exports = {
                     </div>
                     <div class="main_fourth">
                         <div class="main_fourth_text2">
-                            1] AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                            AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                         </div>
                     </div>
                     <div class="main_page2_first">
@@ -5019,7 +5019,7 @@ module.exports = {
                       </div>
                       <div class="main_fourth">
                           <div class="main_fourth_text2">
-                              1] AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                              AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                           </div>
                       </div>
                       <div class="main_page2_first">
@@ -5057,7 +5057,7 @@ module.exports = {
                       </div>
                       <div class="main_fourth">
                           <div class="main_fourth_text2">
-                              1] AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                              AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                           </div>
                       </div>
                       <div class="main_page2_first">
@@ -5093,7 +5093,7 @@ module.exports = {
                         </div>
                         <div class="main_fourth">
                             <div class="main_fourth_text2">
-                                1] AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                                AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                             </div>
                         </div>
                         <div class="main_page2_first">
@@ -5130,7 +5130,7 @@ module.exports = {
                     </div>
                     <div class="main_fourth">
                         <div class="main_fourth_text2">
-                            1] AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                            AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                         </div>
                     </div>
                     <div class="main_page2_first">
@@ -5168,7 +5168,7 @@ module.exports = {
                       </div>
                       <div class="main_fourth">
                           <div class="main_fourth_text2">
-                              1] AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                              AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                           </div>
                       </div>
                       <div class="main_page2_first">
@@ -5205,7 +5205,7 @@ module.exports = {
                       </div>
                       <div class="main_fourth">
                           <div class="main_fourth_text2">
-                              1] AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                              AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                           </div>
                       </div>
                       <div class="main_page2_first">
@@ -5444,7 +5444,7 @@ module.exports = {
                           </div>
                           <div class="main_fourth">
                               <div class="main_fourth_text2">
-                                  1] AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
+                                  AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                               </div>
                           </div>
                           <div class="main_page2_first">
@@ -5481,7 +5481,7 @@ module.exports = {
                       </div>
                       <div class="main_fourth">
                           <div class="main_fourth_text2">
-                              1] AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
+                              AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                           </div>
                       </div>
                       <div class="main_page2_first">
@@ -5519,7 +5519,7 @@ module.exports = {
                         </div>
                         <div class="main_fourth">
                             <div class="main_fourth_text2">
-                                1] AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
+                                AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                             </div>
                         </div>
                         <div class="main_page2_first">
@@ -5557,7 +5557,7 @@ module.exports = {
                         </div>
                         <div class="main_fourth">
                             <div class="main_fourth_text2">
-                                1] AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
+                                AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                             </div>
                         </div>
                         <div class="main_page2_first">
@@ -5593,7 +5593,7 @@ module.exports = {
                           </div>
                           <div class="main_fourth">
                               <div class="main_fourth_text2">
-                                  1] AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
+                                  AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                               </div>
                           </div>
                           <div class="main_page2_first">
@@ -5630,7 +5630,7 @@ module.exports = {
                       </div>
                       <div class="main_fourth">
                           <div class="main_fourth_text2">
-                              1] AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
+                              AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                           </div>
                       </div>
                       <div class="main_page2_first">
@@ -5668,7 +5668,7 @@ module.exports = {
                         </div>
                         <div class="main_fourth">
                             <div class="main_fourth_text2">
-                                1] AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
+                                AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                             </div>
                         </div>
                         <div class="main_page2_first">
@@ -5705,7 +5705,7 @@ module.exports = {
                         </div>
                         <div class="main_fourth">
                             <div class="main_fourth_text2">
-                                1] AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
+                                AFFORDABILITY BY AREA USING INCOME AFTER TAX AND EXPENSES (Excluding Rent)
                             </div>
                         </div>
                         <div class="main_page2_first">
@@ -6704,7 +6704,7 @@ module.exports = {
         font-weight: bold;
         text-align: center;
         letter-spacing: 0.2cap;
-        font-size: 25px;
+        font-size: 20px;
         margin-top: 5px;
     }
 
