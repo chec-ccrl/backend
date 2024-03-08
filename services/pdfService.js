@@ -284,7 +284,7 @@ module.exports = {
         font-weight: bold;
         text-align: center;
         letter-spacing: 0.2cap;
-        font-size: 25px;
+        font-size: 20px;
         margin-top: 5px;
       }
       
@@ -4944,7 +4944,7 @@ module.exports = {
                         </div>
                         <div class="main_fourth">
                             <div class="main_fourth_text2">
-                                1] BASED ON 30% BENCHMARK
+                                1] AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                             </div>
                         </div>
                         <div class="main_page2_first">
@@ -4981,7 +4981,7 @@ module.exports = {
                     </div>
                     <div class="main_fourth">
                         <div class="main_fourth_text2">
-                            1] BASED ON 30% BENCHMARK
+                            1] AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                         </div>
                     </div>
                     <div class="main_page2_first">
@@ -5019,7 +5019,7 @@ module.exports = {
                       </div>
                       <div class="main_fourth">
                           <div class="main_fourth_text2">
-                              1] BASED ON 30% BENCHMARK
+                              1] AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                           </div>
                       </div>
                       <div class="main_page2_first">
@@ -5057,7 +5057,7 @@ module.exports = {
                       </div>
                       <div class="main_fourth">
                           <div class="main_fourth_text2">
-                              1] BASED ON 30% BENCHMARK
+                              1] AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                           </div>
                       </div>
                       <div class="main_page2_first">
@@ -5093,7 +5093,7 @@ module.exports = {
                         </div>
                         <div class="main_fourth">
                             <div class="main_fourth_text2">
-                                1] BASED ON 30% BENCHMARK
+                                1] AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                             </div>
                         </div>
                         <div class="main_page2_first">
@@ -5130,7 +5130,7 @@ module.exports = {
                     </div>
                     <div class="main_fourth">
                         <div class="main_fourth_text2">
-                            1] BASED ON 30% BENCHMARK
+                            1] AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                         </div>
                     </div>
                     <div class="main_page2_first">
@@ -5168,7 +5168,7 @@ module.exports = {
                       </div>
                       <div class="main_fourth">
                           <div class="main_fourth_text2">
-                              1] BASED ON 30% BENCHMARK
+                              1] AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                           </div>
                       </div>
                       <div class="main_page2_first">
@@ -5205,7 +5205,7 @@ module.exports = {
                       </div>
                       <div class="main_fourth">
                           <div class="main_fourth_text2">
-                              1] BASED ON 30% BENCHMARK
+                              1] AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                           </div>
                       </div>
                       <div class="main_page2_first">
@@ -7623,7 +7623,7 @@ module.exports = {
             <div class="main_fourth">
                 
                 <div class="main_fourth_text2">
-                    BASED ON 30% BENCHMARK
+                    AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                 </div>
             </div>
             <div class="main_float_line">
@@ -7726,7 +7726,7 @@ module.exports = {
            <div class="main_fourth">
               
                <div class="main_fourth_text2">
-                   BASED ON 30% BENCHMARK
+                   AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                </div>
            </div>
            <div class="main_float_line">
@@ -7829,7 +7829,7 @@ module.exports = {
            <div class="main_fourth">
               
                <div class="main_fourth_text2">
-                   BASED ON 30% BENCHMARK
+                   AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                </div>
            </div>
            <div class="main_float_line">
@@ -7932,7 +7932,7 @@ module.exports = {
            <div class="main_fourth">
               
                <div class="main_fourth_text2">
-                   BASED ON 30% BENCHMARK
+                   AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                </div>
            </div>
            <div class="main_float_line">
@@ -8035,7 +8035,7 @@ module.exports = {
            <div class="main_fourth">
               
                <div class="main_fourth_text2">
-                   BASED ON 30% BENCHMARK
+                   AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                </div>
            </div>
            <div class="main_float_line">
@@ -8138,7 +8138,7 @@ module.exports = {
            <div class="main_fourth">
               
                <div class="main_fourth_text2">
-                   BASED ON 30% BENCHMARK
+                   AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                </div>
            </div>
            <div class="main_float_line">
@@ -8241,7 +8241,7 @@ module.exports = {
            <div class="main_fourth">
               
                <div class="main_fourth_text2">
-                   BASED ON 30% BENCHMARK
+                   AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                </div>
            </div>
            <div class="main_float_line">
@@ -8344,7 +8344,7 @@ module.exports = {
            <div class="main_fourth">
               
                <div class="main_fourth_text2">
-                   BASED ON 30% BENCHMARK
+                   AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
                </div>
            </div>
            <div class="main_float_line">
