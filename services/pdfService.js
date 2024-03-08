@@ -6502,7 +6502,7 @@ module.exports = {
     });
 
     let rentSourceCheckBox1 =
-      rent_source === "CMHC"
+      rent_source === "Rental Market Survey"
         ? ` <div>
                 <label for="c1">CMHC</label>
                 <input type="checkbox" id="c1" value="CMHC" checked class="myinput large">
@@ -6512,7 +6512,7 @@ module.exports = {
                 <input type="checkbox" id="c1" value="CMHC" class="myinput large">
             </div>`;
     let rentSourceCheckBox2 =
-      rent_source === "Realistic Rent"
+      rent_source === "Average Listing Rent"
         ? ` <div>
                 <label for="c2">REALISTIC RENT</label>
                 <input type="checkbox" id="c1" value="CMHC" checked class="myinput large">
