@@ -402,7 +402,7 @@ module.exports = {
         border: 1.5px solid black;
         padding: 10px 4px;
         background-color: #c7ddef;
-        font-size: 18px;
+        font-size: 115px
       }
       
       .main_page2_first_table td {
@@ -7657,7 +7657,7 @@ module.exports = {
                         <div class="main_second_select1_label label">
                             RENT :
                         </div>
-                        <div class="main_second_select1_check" style="margin-left: 95px; margin-right:20px">
+                        <div class="main_second_select1_check" style="margin-left: 115px;">
                            ${rentSourceCheckBox1}
                             ${rentSourceCheckBox2}
                         </div>
@@ -7760,7 +7760,7 @@ module.exports = {
                         <div class="main_second_select1_label label">
                             RENT SOURCE :
                         </div>
-                        <div class="main_second_select1_check" style="margin-left: 18px;">
+                        <div class="main_second_select1_check" style="margin-left: 115px">
                            ${rentSourceCheckBox1}
                             ${rentSourceCheckBox2}
                         </div>
@@ -7863,7 +7863,7 @@ module.exports = {
                         <div class="main_second_select1_label label">
                             RENT SOURCE :
                         </div>
-                        <div class="main_second_select1_check" style="margin-left: 18px;">
+                        <div class="main_second_select1_check" style="margin-left: 115px">
                            ${rentSourceCheckBox1}
                             ${rentSourceCheckBox2}
                         </div>
@@ -7966,7 +7966,7 @@ module.exports = {
                         <div class="main_second_select1_label label">
                             RENT SOURCE :
                         </div>
-                        <div class="main_second_select1_check" style="margin-left: 18px;">
+                        <div class="main_second_select1_check" style="margin-left: 115px">
                            ${rentSourceCheckBox1}
                             ${rentSourceCheckBox2}
                         </div>
@@ -8069,7 +8069,7 @@ module.exports = {
                         <div class="main_second_select1_label label">
                             RENT SOURCE :
                         </div>
-                        <div class="main_second_select1_check" style="margin-left: 18px;">
+                        <div class="main_second_select1_check" style="margin-left: 115px">
                            ${rentSourceCheckBox1}
                             ${rentSourceCheckBox2}
                         </div>
@@ -8172,7 +8172,7 @@ module.exports = {
                         <div class="main_second_select1_label label">
                             RENT SOURCE :
                         </div>
-                        <div class="main_second_select1_check" style="margin-left: 18px;">
+                        <div class="main_second_select1_check" style="margin-left: 115px">
                            ${rentSourceCheckBox1}
                             ${rentSourceCheckBox2}
                         </div>
@@ -8275,7 +8275,7 @@ module.exports = {
                         <div class="main_second_select1_label label">
                             RENT SOURCE :
                         </div>
-                        <div class="main_second_select1_check" style="margin-left: 18px;">
+                        <div class="main_second_select1_check" style="margin-left: 115px">
                            ${rentSourceCheckBox1}
                             ${rentSourceCheckBox2}
                         </div>
@@ -8378,7 +8378,7 @@ module.exports = {
                         <div class="main_second_select1_label label">
                             RENT SOURCE :
                         </div>
-                        <div class="main_second_select1_check" style="margin-left: 18px;">
+                        <div class="main_second_select1_check" style="margin-left: 115px">
                            ${rentSourceCheckBox1}
                             ${rentSourceCheckBox2}
                         </div>
@@ -8482,7 +8482,7 @@ module.exports = {
                         <div class="main_second_select1_label label">
                             RENT SOURCE :
                         </div>
-                        <div class="main_second_select1_check" style="margin-left: 18px;">
+                        <div class="main_second_select1_check" style="margin-left: 115px">
                            ${rentSourceCheckBox1}
                             ${rentSourceCheckBox2}
                         </div>
@@ -8586,7 +8586,7 @@ module.exports = {
                         <div class="main_second_select1_label label">
                             RENT SOURCE :
                         </div>
-                        <div class="main_second_select1_check" style="margin-left: 18px;">
+                        <div class="main_second_select1_check" style="margin-left: 115px">
                            ${rentSourceCheckBox1}
                             ${rentSourceCheckBox2}
                         </div>
@@ -8689,7 +8689,7 @@ module.exports = {
                         <div class="main_second_select1_label label">
                             RENT SOURCE :
                         </div>
-                        <div class="main_second_select1_check" style="margin-left: 18px;">
+                        <div class="main_second_select1_check" style="margin-left: 115px">
                            ${rentSourceCheckBox1}
                             ${rentSourceCheckBox2}
                         </div>
@@ -8793,7 +8793,7 @@ module.exports = {
                         <div class="main_second_select1_label label">
                             RENT SOURCE :
                         </div>
-                        <div class="main_second_select1_check" style="margin-left: 18px;">
+                        <div class="main_second_select1_check" style="margin-left: 115px">
                            ${rentSourceCheckBox1}
                             ${rentSourceCheckBox2}
                         </div>
@@ -8897,7 +8897,7 @@ module.exports = {
                         <div class="main_second_select1_label label">
                             RENT SOURCE :
                         </div>
-                        <div class="main_second_select1_check" style="margin-left: 18px;">
+                        <div class="main_second_select1_check" style="margin-left: 115px">
                            ${rentSourceCheckBox1}
                             ${rentSourceCheckBox2}
                         </div>
@@ -9001,7 +9001,7 @@ module.exports = {
                         <div class="main_second_select1_label label">
                             RENT SOURCE :
                         </div>
-                        <div class="main_second_select1_check" style="margin-left: 18px;">
+                        <div class="main_second_select1_check" style="margin-left: 115px">
                            ${rentSourceCheckBox1}
                             ${rentSourceCheckBox2}
                         </div>
@@ -9105,7 +9105,7 @@ module.exports = {
                         <div class="main_second_select1_label label">
                             RENT SOURCE :
                         </div>
-                        <div class="main_second_select1_check" style="margin-left: 18px;">
+                        <div class="main_second_select1_check" style="margin-left: 115px">
                            ${rentSourceCheckBox1}
                             ${rentSourceCheckBox2}
                         </div>
@@ -9209,7 +9209,7 @@ module.exports = {
                         <div class="main_second_select1_label label">
                             RENT SOURCE :
                         </div>
-                        <div class="main_second_select1_check" style="margin-left: 18px;">
+                        <div class="main_second_select1_check" style="margin-left: 115px">
                            ${rentSourceCheckBox1}
                             ${rentSourceCheckBox2}
                         </div>
