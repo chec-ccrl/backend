@@ -7594,8 +7594,8 @@ module.exports = {
                     </div>
                     <div class="main_second_select1">
                         <div class="main_second_select1_label label">
-                            NON-SHELTER<br>
-                            NECESSITIES SOURCE :
+                            EXPENSES<br>
+                            (EXCLUDING RENT) :
                         </div>
                         <div class="main_second_select1_check">
                             ${sourceOfCostCheckBox1}
@@ -7697,8 +7697,8 @@ module.exports = {
                    </div>
                    <div class="main_second_select1">
                        <div class="main_second_select1_label label">
-                           NON-SHELTER<br>
-                           NECESSITIES SOURCE :
+                       EXPENSES<br>
+                       (EXCLUDING RENT) :
                        </div>
                        <div class="main_second_select1_check">
                            ${sourceOfCostCheckBox1}
@@ -7800,8 +7800,8 @@ module.exports = {
                    </div>
                    <div class="main_second_select1">
                        <div class="main_second_select1_label label">
-                           NON-SHELTER<br>
-                           NECESSITIES SOURCE :
+                           EXPENSES<br>
+                            (EXCLUDING RENT) :
                        </div>
                        <div class="main_second_select1_check">
                            ${sourceOfCostCheckBox1}
@@ -7903,8 +7903,8 @@ module.exports = {
                    </div>
                    <div class="main_second_select1">
                        <div class="main_second_select1_label label">
-                           NON-SHELTER<br>
-                           NECESSITIES SOURCE :
+                           EXPENSES<br>
+                            (EXCLUDING RENT) :
                        </div>
                        <div class="main_second_select1_check">
                            ${sourceOfCostCheckBox1}
@@ -8006,8 +8006,8 @@ module.exports = {
                    </div>
                    <div class="main_second_select1">
                        <div class="main_second_select1_label label">
-                           NON-SHELTER<br>
-                           NECESSITIES SOURCE :
+                           EXPENSES<br>
+                            (EXCLUDING RENT) :
                        </div>
                        <div class="main_second_select1_check">
                            ${sourceOfCostCheckBox1}
@@ -8109,8 +8109,8 @@ module.exports = {
                    </div>
                    <div class="main_second_select1">
                        <div class="main_second_select1_label label">
-                           NON-SHELTER<br>
-                           NECESSITIES SOURCE :
+                           EXPENSES<br>
+                            (EXCLUDING RENT) :
                        </div>
                        <div class="main_second_select1_check">
                            ${sourceOfCostCheckBox1}
@@ -8212,8 +8212,8 @@ module.exports = {
                    </div>
                    <div class="main_second_select1">
                        <div class="main_second_select1_label label">
-                           NON-SHELTER<br>
-                           NECESSITIES SOURCE :
+                           EXPENSES<br>
+                            (EXCLUDING RENT) :
                        </div>
                        <div class="main_second_select1_check">
                            ${sourceOfCostCheckBox1}
@@ -8315,8 +8315,8 @@ module.exports = {
                    </div>
                    <div class="main_second_select1">
                        <div class="main_second_select1_label label">
-                           NON-SHELTER<br>
-                           NECESSITIES SOURCE :
+                           EXPENSES<br>
+                            (EXCLUDING RENT) :
                        </div>
                        <div class="main_second_select1_check">
                            ${sourceOfCostCheckBox1}
@@ -8523,8 +8523,8 @@ module.exports = {
                   </div>
                   <div class="main_second_select1">
                       <div class="main_second_select1_label label">
-                          NON-SHELTER<br>
-                          NECESSITIES SOURCE :
+                           EXPENSES<br>
+                            (EXCLUDING RENT) :
                       </div>
                       <div class="main_second_select1_check">
                           ${sourceOfCostCheckBox1}
@@ -8626,8 +8626,8 @@ module.exports = {
                   </div>
                   <div class="main_second_select1">
                       <div class="main_second_select1_label label">
-                          NON-SHELTER<br>
-                          NECESSITIES SOURCE :
+                           EXPENSES<br>
+                            (EXCLUDING RENT) :
                       </div>
                       <div class="main_second_select1_check">
                           ${sourceOfCostCheckBox1}
@@ -8730,8 +8730,8 @@ module.exports = {
                   </div>
                   <div class="main_second_select1">
                       <div class="main_second_select1_label label">
-                          NON-SHELTER<br>
-                          NECESSITIES SOURCE :
+                           EXPENSES<br>
+                            (EXCLUDING RENT) :
                       </div>
                       <div class="main_second_select1_check">
                           ${sourceOfCostCheckBox1}
@@ -8834,8 +8834,8 @@ module.exports = {
                   </div>
                   <div class="main_second_select1">
                       <div class="main_second_select1_label label">
-                          NON-SHELTER<br>
-                          NECESSITIES SOURCE :
+                           EXPENSES<br>
+                            (EXCLUDING RENT) :
                       </div>
                       <div class="main_second_select1_check">
                           ${sourceOfCostCheckBox1}
@@ -8938,8 +8938,8 @@ module.exports = {
                   </div>
                   <div class="main_second_select1">
                       <div class="main_second_select1_label label">
-                          NON-SHELTER<br>
-                          NECESSITIES SOURCE :
+                           EXPENSES<br>
+                            (EXCLUDING RENT) :
                       </div>
                       <div class="main_second_select1_check">
                           ${sourceOfCostCheckBox1}
@@ -9042,8 +9042,8 @@ module.exports = {
                   </div>
                   <div class="main_second_select1">
                       <div class="main_second_select1_label label">
-                          NON-SHELTER<br>
-                          NECESSITIES SOURCE :
+                           EXPENSES<br>
+                            (EXCLUDING RENT) :
                       </div>
                       <div class="main_second_select1_check">
                           ${sourceOfCostCheckBox1}
@@ -9146,8 +9146,8 @@ module.exports = {
                   </div>
                   <div class="main_second_select1">
                       <div class="main_second_select1_label label">
-                          NON-SHELTER<br>
-                          NECESSITIES SOURCE :
+                           EXPENSES<br>
+                            (EXCLUDING RENT) :
                       </div>
                       <div class="main_second_select1_check">
                           ${sourceOfCostCheckBox1}
