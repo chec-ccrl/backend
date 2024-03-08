@@ -4935,7 +4935,15 @@ module.exports = {
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
-                                CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000
+                                ${
+                                  prov === "CA" &&
+                                  "CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000"
+                                }
+                                ${
+                                  prov === "CMA" &&
+                                  "CANADA – APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000"
+                                }
+                               
                                 </div>
                             </div>
                         </div>
@@ -4944,7 +4952,7 @@ module.exports = {
                         </div>
                         <div class="main_fourth">
                             <div class="main_fourth_text2">
-                                AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                                AFFORDABILITY BY AREA BASED ON 30% OF INCOME BEFORE TAX
                             </div>
                         </div>
                         <div class="main_page2_first">
@@ -4972,7 +4980,14 @@ module.exports = {
                         </div>
                         <div class="main_first_text">
                             <div class="main_first_text_tex1">
-                            CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000
+                            ${
+                              prov === "CA" &&
+                              "CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000"
+                            }
+                            ${
+                              prov === "CMA" &&
+                              "CANADA – APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000"
+                            }
                             </div>
                         </div>
                     </div>
@@ -4981,7 +4996,7 @@ module.exports = {
                     </div>
                     <div class="main_fourth">
                         <div class="main_fourth_text2">
-                            AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                            AFFORDABILITY BY AREA BASED ON 30% OF INCOME BEFORE TAX
                         </div>
                     </div>
                     <div class="main_page2_first">
@@ -5010,7 +5025,14 @@ module.exports = {
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
-                              CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000
+                              ${
+                                prov === "CA" &&
+                                "CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000"
+                              }
+                              ${
+                                prov === "CMA" &&
+                                "CANADA – APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000"
+                              }
                               </div>
                           </div>
                       </div>
@@ -5019,7 +5041,7 @@ module.exports = {
                       </div>
                       <div class="main_fourth">
                           <div class="main_fourth_text2">
-                              AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                              AFFORDABILITY BY AREA BASED ON 30% OF INCOME BEFORE TAX
                           </div>
                       </div>
                       <div class="main_page2_first">
@@ -5048,7 +5070,14 @@ module.exports = {
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
-                              CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000
+                              ${
+                                prov === "CA" &&
+                                "CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000"
+                              }
+                              ${
+                                prov === "CMA" &&
+                                "CANADA – APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000"
+                              }
                               </div>
                           </div>
                       </div>
@@ -5057,7 +5086,7 @@ module.exports = {
                       </div>
                       <div class="main_fourth">
                           <div class="main_fourth_text2">
-                              AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                              AFFORDABILITY BY AREA BASED ON 30% OF INCOME BEFORE TAX
                           </div>
                       </div>
                       <div class="main_page2_first">
@@ -5084,7 +5113,14 @@ module.exports = {
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
-                                CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000
+                                ${
+                                  prov === "CA" &&
+                                  "CANADA - ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000"
+                                }
+                                ${
+                                  prov === "CMA" &&
+                                  "CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000"
+                                }
                                 </div>
                             </div>
                         </div>
@@ -5093,7 +5129,7 @@ module.exports = {
                         </div>
                         <div class="main_fourth">
                             <div class="main_fourth_text2">
-                                AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                                AFFORDABILITY BY AREA BASED ON 30% OF INCOME BEFORE TAX
                             </div>
                         </div>
                         <div class="main_page2_first">
@@ -5121,7 +5157,14 @@ module.exports = {
                         </div>
                         <div class="main_first_text">
                             <div class="main_first_text_tex1">
-                            CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000
+                            ${
+                              prov === "CA" &&
+                              "CANADA - ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000"
+                            }
+                            ${
+                              prov === "CMA" &&
+                              "CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000"
+                            }
                             </div>
                         </div>
                     </div>
@@ -5130,7 +5173,7 @@ module.exports = {
                     </div>
                     <div class="main_fourth">
                         <div class="main_fourth_text2">
-                            AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                            AFFORDABILITY BY AREA BASED ON 30% OF INCOME BEFORE TAX
                         </div>
                     </div>
                     <div class="main_page2_first">
@@ -5159,7 +5202,14 @@ module.exports = {
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
-                              CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000
+                              ${
+                                prov === "CA" &&
+                                "CANADA - ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000"
+                              }
+                              ${
+                                prov === "CMA" &&
+                                "CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000"
+                              }
                               </div>
                           </div>
                       </div>
@@ -5168,7 +5218,7 @@ module.exports = {
                       </div>
                       <div class="main_fourth">
                           <div class="main_fourth_text2">
-                              AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                              AFFORDABILITY BY AREA BASED ON 30% OF INCOME BEFORE TAX
                           </div>
                       </div>
                       <div class="main_page2_first">
@@ -5196,7 +5246,14 @@ module.exports = {
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
-                              CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000
+                              ${
+                                prov === "CA" &&
+                                "CANADA - ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000"
+                              }
+                              ${
+                                prov === "CMA" &&
+                                "CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000"
+                              }
                               </div>
                           </div>
                       </div>
@@ -5205,7 +5262,7 @@ module.exports = {
                       </div>
                       <div class="main_fourth">
                           <div class="main_fourth_text2">
-                              AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                              AFFORDABILITY BY AREA BASED ON 30% OF INCOME BEFORE TAX
                           </div>
                       </div>
                       <div class="main_page2_first">
@@ -5435,7 +5492,14 @@ module.exports = {
                               </div>
                               <div class="main_first_text">
                                   <div class="main_first_text_tex1">
-                                  CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000
+                                  ${
+                                    prov === "CA" &&
+                                    "CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000"
+                                  }
+                                  ${
+                                    prov === "CMA" &&
+                                    "CANADA – APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000"
+                                  }
                                   </div>
                               </div>
                           </div>
@@ -5472,7 +5536,14 @@ module.exports = {
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
-                              CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000
+                              ${
+                                prov === "CA" &&
+                                "CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000"
+                              }
+                              ${
+                                prov === "CMA" &&
+                                "CANADA – APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000"
+                              }
                               </div>
                           </div>
                       </div>
@@ -5510,7 +5581,14 @@ module.exports = {
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
-                                CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000
+                                ${
+                                  prov === "CA" &&
+                                  "CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000"
+                                }
+                                ${
+                                  prov === "CMA" &&
+                                  "CANADA – APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000"
+                                }
                                 </div>
                             </div>
                         </div>
@@ -5548,7 +5626,14 @@ module.exports = {
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
-                                CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000
+                                ${
+                                  prov === "CA" &&
+                                  "CANADA - APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000"
+                                }
+                                ${
+                                  prov === "CMA" &&
+                                  "CANADA – APARTMENT AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000"
+                                }
                                 </div>
                             </div>
                         </div>
@@ -5584,7 +5669,14 @@ module.exports = {
                               </div>
                               <div class="main_first_text">
                                   <div class="main_first_text_tex1">
-                                  CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000
+                                  ${
+                                    prov === "CA" &&
+                                    "CANADA - ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000"
+                                  }
+                                  ${
+                                    prov === "CMA" &&
+                                    "CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000"
+                                  }
                                   </div>
                               </div>
                           </div>
@@ -5621,7 +5713,14 @@ module.exports = {
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
-                              CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000
+                              ${
+                                prov === "CA" &&
+                                "CANADA - ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000"
+                              }
+                              ${
+                                prov === "CMA" &&
+                                "CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000"
+                              }
                               </div>
                           </div>
                       </div>
@@ -5659,7 +5758,14 @@ module.exports = {
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
-                                CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000
+                                ${
+                                  prov === "CA" &&
+                                  "CANADA - ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000"
+                                }
+                                ${
+                                  prov === "CMA" &&
+                                  "CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000"
+                                }
                                 </div>
                             </div>
                         </div>
@@ -5696,7 +5802,14 @@ module.exports = {
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
-                                CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000
+                                ${
+                                  prov === "CA" &&
+                                  "CANADA - ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS UNDER 100,000 AND AT LEAST 10,000"
+                                }
+                                ${
+                                  prov === "CMA" &&
+                                  "CANADA – ROW HOUSE AFFORDABILITY BY COMMUNITIES WITH POPULATIONS OF AT LEAST 100,000"
+                                }
                                 </div>
                             </div>
                         </div>
@@ -7623,7 +7736,7 @@ module.exports = {
             <div class="main_fourth">
                 
                 <div class="main_fourth_text2">
-                    AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                    AFFORDABILITY BY AREA BASED ON 30% OF INCOME BEFORE TAX
                 </div>
             </div>
             <div class="main_float_line">
@@ -7726,7 +7839,7 @@ module.exports = {
            <div class="main_fourth">
               
                <div class="main_fourth_text2">
-                   AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                   AFFORDABILITY BY AREA BASED ON 30% OF INCOME BEFORE TAX
                </div>
            </div>
            <div class="main_float_line">
@@ -7829,7 +7942,7 @@ module.exports = {
            <div class="main_fourth">
               
                <div class="main_fourth_text2">
-                   AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                   AFFORDABILITY BY AREA BASED ON 30% OF INCOME BEFORE TAX
                </div>
            </div>
            <div class="main_float_line">
@@ -7932,7 +8045,7 @@ module.exports = {
            <div class="main_fourth">
               
                <div class="main_fourth_text2">
-                   AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                   AFFORDABILITY BY AREA BASED ON 30% OF INCOME BEFORE TAX
                </div>
            </div>
            <div class="main_float_line">
@@ -8035,7 +8148,7 @@ module.exports = {
            <div class="main_fourth">
               
                <div class="main_fourth_text2">
-                   AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                   AFFORDABILITY BY AREA BASED ON 30% OF INCOME BEFORE TAX
                </div>
            </div>
            <div class="main_float_line">
@@ -8138,7 +8251,7 @@ module.exports = {
            <div class="main_fourth">
               
                <div class="main_fourth_text2">
-                   AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                   AFFORDABILITY BY AREA BASED ON 30% OF INCOME BEFORE TAX
                </div>
            </div>
            <div class="main_float_line">
@@ -8241,7 +8354,7 @@ module.exports = {
            <div class="main_fourth">
               
                <div class="main_fourth_text2">
-                   AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                   AFFORDABILITY BY AREA BASED ON 30% OF INCOME BEFORE TAX
                </div>
            </div>
            <div class="main_float_line">
@@ -8344,7 +8457,7 @@ module.exports = {
            <div class="main_fourth">
               
                <div class="main_fourth_text2">
-                   AFFORDABILITY BY AREA BASED ON 30% OF GROSS INCOME
+                   AFFORDABILITY BY AREA BASED ON 30% OF INCOME BEFORE TAX
                </div>
            </div>
            <div class="main_float_line">
