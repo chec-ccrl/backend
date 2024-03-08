@@ -2816,7 +2816,7 @@ module.exports = {
             <div class="main_page5_first_one_chart">
               <canvas
                 id="main_page5_first_one_chart19"
-                style="width: 600px"
+                style="width: 550px"
               ></canvas>
             </div>
           </div>
@@ -2827,7 +2827,7 @@ module.exports = {
             <div class="main_page5_first_one_chart">
               <canvas
                 id="main_page5_first_one_chart20"
-                style="width: 600px"
+                style="width: 550px"
               ></canvas>
             </div>
           </div>
@@ -4075,7 +4075,7 @@ module.exports = {
               ],
             },
             options: {
-              responsive: true, // Make the chart responsive
+              responsive: false, // Make the chart responsive
               title: {
                 display: false, // Display chart title
                 text: "Sales by Quarter", // Chart title text
@@ -4136,7 +4136,7 @@ module.exports = {
               ],
             },
             options: {
-              responsive: true, // Make the chart responsive
+              responsive: false, // Make the chart responsive
               title: {
                 display: false, // Display chart title
                 text: "Sales by Quarter", // Chart title text
@@ -4661,9 +4661,9 @@ module.exports = {
       const { cma, ca } = current;
       let keyy = "";
       if (cma !== "NA") {
-        keyy = cma.toUpperCase() + " - [ CMA ]";
+        keyy = cma.toUpperCase();
       } else {
-        keyy = ca.toUpperCase() + " - [ CA ]";
+        keyy = ca.toUpperCase();
       }
 
       if (!acc[keyy]) {
@@ -7551,7 +7551,7 @@ module.exports = {
                         ${province} - ${year}
                     </div>
                     <div class="main_first_text_tex2">
-                        KEY INSIGHTS
+                        AFFORDABILITY REPORT
                     </div>
                 </div>
             </div>
@@ -7610,7 +7610,7 @@ module.exports = {
                           NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                      NOTE 2: Latest availiable year will be selected by default
+                      NOTE 2: Year - 2021
                       </span>
                       <span>
                       NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
@@ -7656,7 +7656,7 @@ module.exports = {
                        ${province} - ${year}
                    </div>
                    <div class="main_first_text_tex2">
-                       KEY INSIGHTS
+                   AFFORDABILITY REPORT
                    </div>
                </div>
            </div>
@@ -7690,7 +7690,7 @@ module.exports = {
                <div class="main_second2">
                    <div class="main_second_select1" style="margin-left: 40px;">
                        <div class="main_second_select1_label label">
-                           RENT SOURCE :
+                           RENT :
                        </div>
                        <div class="main_second_select1_check" style="margin-left: 38px;">
                           ${rentSourceCheckBox1}
@@ -7715,7 +7715,7 @@ module.exports = {
                           NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                      NOTE 2: Latest availiable year will be selected by default
+                      NOTE 2: Year - 2021
                       </span>
                       <span>
                       NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
@@ -7761,7 +7761,7 @@ module.exports = {
                        ${province} - ${year}
                    </div>
                    <div class="main_first_text_tex2">
-                       KEY INSIGHTS
+                   AFFORDABILITY REPORT
                    </div>
                </div>
            </div>
@@ -7795,7 +7795,7 @@ module.exports = {
                <div class="main_second2">
                    <div class="main_second_select1" style="margin-left: 40px;">
                        <div class="main_second_select1_label label">
-                           RENT SOURCE :
+                           RENT :
                        </div>
                        <div class="main_second_select1_check" style="margin-left: 38px;">
                           ${rentSourceCheckBox1}
@@ -7820,7 +7820,7 @@ module.exports = {
                           NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                      NOTE 2: Latest availiable year will be selected by default
+                      NOTE 2: Year - 2021
                       </span>
                       <span>
                       NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
@@ -7866,7 +7866,7 @@ module.exports = {
                        ${province} - ${year}
                    </div>
                    <div class="main_first_text_tex2">
-                       KEY INSIGHTS
+                   AFFORDABILITY REPORT
                    </div>
                </div>
            </div>
@@ -7900,7 +7900,7 @@ module.exports = {
                <div class="main_second2">
                    <div class="main_second_select1" style="margin-left: 40px;">
                        <div class="main_second_select1_label label">
-                           RENT SOURCE :
+                           RENT :
                        </div>
                        <div class="main_second_select1_check" style="margin-left: 38px;">
                           ${rentSourceCheckBox1}
@@ -7925,7 +7925,7 @@ module.exports = {
                           NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                      NOTE 2: Latest availiable year will be selected by default
+                      NOTE 2: Year - 2021
                       </span>
                       <span>
                       NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
@@ -7971,7 +7971,7 @@ module.exports = {
                        ${province} - ${year}
                    </div>
                    <div class="main_first_text_tex2">
-                       KEY INSIGHTS
+                   AFFORDABILITY REPORT
                    </div>
                </div>
            </div>
@@ -8005,7 +8005,7 @@ module.exports = {
                <div class="main_second2">
                    <div class="main_second_select1" style="margin-left: 40px;">
                        <div class="main_second_select1_label label">
-                           RENT SOURCE :
+                           RENT :
                        </div>
                        <div class="main_second_select1_check" style="margin-left: 38px;">
                           ${rentSourceCheckBox1}
@@ -8030,7 +8030,7 @@ module.exports = {
                           NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                      NOTE 2: Latest availiable year will be selected by default
+                      NOTE 2: Year - 2021
                       </span>
                       <span>
                       NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
@@ -8076,7 +8076,7 @@ module.exports = {
                        ${province} - ${year}
                    </div>
                    <div class="main_first_text_tex2">
-                       KEY INSIGHTS
+                   AFFORDABILITY REPORT
                    </div>
                </div>
            </div>
@@ -8110,7 +8110,7 @@ module.exports = {
                <div class="main_second2">
                    <div class="main_second_select1" style="margin-left: 40px;">
                        <div class="main_second_select1_label label">
-                           RENT SOURCE :
+                           RENT :
                        </div>
                        <div class="main_second_select1_check" style="margin-left: 38px;">
                           ${rentSourceCheckBox1}
@@ -8135,7 +8135,7 @@ module.exports = {
                           NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                      NOTE 2: Latest availiable year will be selected by default
+                      NOTE 2: Year - 2021
                       </span>
                       <span>
                       NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
@@ -8181,7 +8181,7 @@ module.exports = {
                        ${province} - ${year}
                    </div>
                    <div class="main_first_text_tex2">
-                       KEY INSIGHTS
+                   AFFORDABILITY REPORT
                    </div>
                </div>
            </div>
@@ -8215,7 +8215,7 @@ module.exports = {
                <div class="main_second2">
                    <div class="main_second_select1" style="margin-left: 40px;">
                        <div class="main_second_select1_label label">
-                           RENT SOURCE :
+                           RENT :
                        </div>
                        <div class="main_second_select1_check" style="margin-left: 38px;">
                           ${rentSourceCheckBox1}
@@ -8240,7 +8240,7 @@ module.exports = {
                NOTE 1: B = Bedrooms
            </span>
            <span>
-           NOTE 2: Latest availiable year will be selected by default
+           NOTE 2: Year - 2021
            </span>
            <span>
            NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
@@ -8286,7 +8286,7 @@ module.exports = {
                        ${province} - ${year}
                    </div>
                    <div class="main_first_text_tex2">
-                       KEY INSIGHTS
+                   AFFORDABILITY REPORT
                    </div>
                </div>
            </div>
@@ -8320,7 +8320,7 @@ module.exports = {
                <div class="main_second2">
                    <div class="main_second_select1" style="margin-left: 40px;">
                        <div class="main_second_select1_label label">
-                           RENT SOURCE :
+                           RENT :
                        </div>
                        <div class="main_second_select1_check" style="margin-left: 38px;">
                           ${rentSourceCheckBox1}
@@ -8345,7 +8345,7 @@ module.exports = {
                           NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                      NOTE 2: Latest availiable year will be selected by default
+                      NOTE 2: Year - 2021
                       </span>
                       <span>
                       NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
@@ -8392,7 +8392,7 @@ module.exports = {
                     ${province} - ${year}
                     </div>
                     <div class="main_first_text_tex2">
-                        KEY INSIGHTS
+                    AFFORDABILITY REPORT
                     </div>
                 </div>
             </div>
@@ -8426,7 +8426,7 @@ module.exports = {
             <div class="main_second2">
                 <div class="main_second_select1" style="margin-left: 40px;">
                     <div class="main_second_select1_label label">
-                        RENT SOURCE :
+                        RENT :
                     </div>
                     <div class="main_second_select1_check" style="margin-left: 38px;">
                        ${rentSourceCheckBox1}
@@ -8452,7 +8452,7 @@ module.exports = {
                           NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                      NOTE 2: Latest availiable year will be selected by default
+                      NOTE 2: Year - 2021
                       </span>
                       <span>
                       NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
@@ -8498,7 +8498,7 @@ module.exports = {
                       ${province} - ${year}
                       </div>
                       <div class="main_first_text_tex2">
-                          KEY INSIGHTS
+                      AFFORDABILITY REPORT
                       </div>
                   </div>
               </div>
@@ -8532,7 +8532,7 @@ module.exports = {
               <div class="main_second2">
                   <div class="main_second_select1" style="margin-left: 40px;">
                       <div class="main_second_select1_label label">
-                          RENT SOURCE :
+                          RENT :
                       </div>
                       <div class="main_second_select1_check" style="margin-left: 38px;">
                          ${rentSourceCheckBox1}
@@ -8558,7 +8558,7 @@ module.exports = {
                           NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                      NOTE 2: Latest availiable year will be selected by default
+                      NOTE 2: Year - 2021
                       </span>
                       <span>
                       NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
@@ -8604,7 +8604,7 @@ module.exports = {
                       ${province} - ${year}
                       </div>
                       <div class="main_first_text_tex2">
-                          KEY INSIGHTS
+                      AFFORDABILITY REPORT
                       </div>
                   </div>
               </div>
@@ -8638,7 +8638,7 @@ module.exports = {
               <div class="main_second2">
                   <div class="main_second_select1" style="margin-left: 40px;">
                       <div class="main_second_select1_label label">
-                          RENT SOURCE :
+                          RENT :
                       </div>
                       <div class="main_second_select1_check" style="margin-left: 38px;">
                          ${rentSourceCheckBox1}
@@ -8664,7 +8664,7 @@ module.exports = {
                           NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                      NOTE 2: Latest availiable year will be selected by default
+                      NOTE 2: Year - 2021
                       </span>
                       <span>
                       NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
@@ -8710,7 +8710,7 @@ module.exports = {
                       ${province} - ${year}
                       </div>
                       <div class="main_first_text_tex2">
-                          KEY INSIGHTS
+                      AFFORDABILITY REPORT
                       </div>
                   </div>
               </div>
@@ -8744,7 +8744,7 @@ module.exports = {
               <div class="main_second2">
                   <div class="main_second_select1" style="margin-left: 40px;">
                       <div class="main_second_select1_label label">
-                          RENT SOURCE :
+                          RENT :
                       </div>
                       <div class="main_second_select1_check" style="margin-left: 38px;">
                          ${rentSourceCheckBox1}
@@ -8770,7 +8770,7 @@ module.exports = {
                           NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                      NOTE 2: Latest availiable year will be selected by default
+                      NOTE 2: Year - 2021
                       </span>
                       <span>
                       NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
@@ -8816,7 +8816,7 @@ module.exports = {
                       ${province} - ${year}
                       </div>
                       <div class="main_first_text_tex2">
-                          KEY INSIGHTS
+                      AFFORDABILITY REPORT
                       </div>
                   </div>
               </div>
@@ -8850,7 +8850,7 @@ module.exports = {
               <div class="main_second2">
                   <div class="main_second_select1" style="margin-left: 40px;">
                       <div class="main_second_select1_label label">
-                          RENT SOURCE :
+                          RENT :
                       </div>
                       <div class="main_second_select1_check" style="margin-left: 38px;">
                          ${rentSourceCheckBox1}
@@ -8876,7 +8876,7 @@ module.exports = {
                           NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                      NOTE 2: Latest availiable year will be selected by default
+                      NOTE 2: Year - 2021
                       </span>
                       <span>
                       NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
@@ -8922,7 +8922,7 @@ module.exports = {
                       ${province} - ${year}
                       </div>
                       <div class="main_first_text_tex2">
-                          KEY INSIGHTS
+                      AFFORDABILITY REPORT
                       </div>
                   </div>
               </div>
@@ -8956,7 +8956,7 @@ module.exports = {
               <div class="main_second2">
                   <div class="main_second_select1" style="margin-left: 40px;">
                       <div class="main_second_select1_label label">
-                          RENT SOURCE :
+                          RENT :
                       </div>
                       <div class="main_second_select1_check" style="margin-left: 38px;">
                          ${rentSourceCheckBox1}
@@ -8982,7 +8982,7 @@ module.exports = {
                           NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                      NOTE 2: Latest availiable year will be selected by default
+                      NOTE 2: Year - 2021
                       </span>
                       <span>
                       NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
@@ -9028,7 +9028,7 @@ module.exports = {
                       ${province} - ${year}
                       </div>
                       <div class="main_first_text_tex2">
-                          KEY INSIGHTS
+                      AFFORDABILITY REPORT
                       </div>
                   </div>
               </div>
@@ -9062,7 +9062,7 @@ module.exports = {
               <div class="main_second2">
                   <div class="main_second_select1" style="margin-left: 40px;">
                       <div class="main_second_select1_label label">
-                          RENT SOURCE :
+                          RENT :
                       </div>
                       <div class="main_second_select1_check" style="margin-left: 38px;">
                          ${rentSourceCheckBox1}
@@ -9088,7 +9088,7 @@ module.exports = {
                   NOTE 1: B = Bedrooms
               </span>
               <span>
-              NOTE 2: Latest availiable year will be selected by default
+              NOTE 2: Year - 2021
               </span>
               <span>
               NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
@@ -9134,7 +9134,7 @@ module.exports = {
                       ${province} - ${year}
                       </div>
                       <div class="main_first_text_tex2">
-                          KEY INSIGHTS
+                      AFFORDABILITY REPORT
                       </div>
                   </div>
               </div>
@@ -9168,7 +9168,7 @@ module.exports = {
               <div class="main_second2">
                   <div class="main_second_select1" style="margin-left: 40px;">
                       <div class="main_second_select1_label label">
-                          RENT SOURCE :
+                          RENT :
                       </div>
                       <div class="main_second_select1_check" style="margin-left: 38px;">
                          ${rentSourceCheckBox1}
@@ -9194,7 +9194,7 @@ module.exports = {
                           NOTE 1: B = Bedrooms
                       </span>
                       <span>
-                      NOTE 2: Latest availiable year will be selected by default
+                      NOTE 2: Year - 2021
                       </span>
                       <span>
                       NOTE 3: All figures mentioned in this report are presented on an annual basis unless otherwise specified
