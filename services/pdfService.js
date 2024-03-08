@@ -7587,7 +7587,7 @@ module.exports = {
                         <div class="main_second_select1_label label">
                             RENT SOURCE :
                         </div>
-                        <div class="main_second_select1_check" style="margin-left: 38px;">
+                        <div class="main_second_select1_check" style="margin-left: 28px;">
                            ${rentSourceCheckBox1}
                             ${rentSourceCheckBox2}
                         </div>
