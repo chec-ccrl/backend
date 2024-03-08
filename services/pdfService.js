@@ -7686,26 +7686,26 @@ module.exports = {
                </div>
                </div>
                <div class="main_second2">
-                   <div class="main_second_select1" style="margin-left: 40px;">
-                       <div class="main_second_select1_label label">
-                           RENT :
-                       </div>
-                       <div class="main_second_select1_check" style="margin-left: 38px;">
-                          ${rentSourceCheckBox1}
-                           ${rentSourceCheckBox2}
-                       </div>
-                   </div>
-                   <div class="main_second_select1">
-                       <div class="main_second_select1_label label">
-                       EXPENSES<br>
-                       (EXCLUDING RENT) :
-                       </div>
-                       <div class="main_second_select1_check">
-                           ${sourceOfCostCheckBox1}
-                           ${sourceOfCostCheckBox2}
-                       </div>
-                   </div>
-               </div>
+                    <div class="main_second_select1" style="margin-left: 40px;">
+                        <div class="main_second_select1_label label">
+                            RENT SOURCE :
+                        </div>
+                        <div class="main_second_select1_check" style="margin-left: 38px;">
+                           ${rentSourceCheckBox1}
+                            ${rentSourceCheckBox2}
+                        </div>
+                    </div>
+                    <div class="main_second_select1">
+                        <div class="main_second_select1_label label">
+                            EXPENSES<br>
+                            (EXCLUDING RENT) :
+                        </div>
+                        <div class="main_second_select1_check">
+                            ${sourceOfCostCheckBox1}
+                            ${sourceOfCostCheckBox2}
+                        </div>
+                    </div>
+                </div>
            </div>
            <div class="main_third">
                <div class="main_third_text">
@@ -7789,26 +7789,26 @@ module.exports = {
                </div>
                </div>
                <div class="main_second2">
-                   <div class="main_second_select1" style="margin-left: 40px;">
-                       <div class="main_second_select1_label label">
-                           RENT :
-                       </div>
-                       <div class="main_second_select1_check" style="margin-left: 38px;">
-                          ${rentSourceCheckBox1}
-                           ${rentSourceCheckBox2}
-                       </div>
-                   </div>
-                   <div class="main_second_select1">
-                       <div class="main_second_select1_label label">
-                           EXPENSES<br>
+                    <div class="main_second_select1" style="margin-left: 40px;">
+                        <div class="main_second_select1_label label">
+                            RENT SOURCE :
+                        </div>
+                        <div class="main_second_select1_check" style="margin-left: 38px;">
+                           ${rentSourceCheckBox1}
+                            ${rentSourceCheckBox2}
+                        </div>
+                    </div>
+                    <div class="main_second_select1">
+                        <div class="main_second_select1_label label">
+                            EXPENSES<br>
                             (EXCLUDING RENT) :
-                       </div>
-                       <div class="main_second_select1_check">
-                           ${sourceOfCostCheckBox1}
-                           ${sourceOfCostCheckBox2}
-                       </div>
-                   </div>
-               </div>
+                        </div>
+                        <div class="main_second_select1_check">
+                            ${sourceOfCostCheckBox1}
+                            ${sourceOfCostCheckBox2}
+                        </div>
+                    </div>
+                </div>
            </div>
            <div class="main_third">
                <div class="main_third_text">
@@ -7892,26 +7892,26 @@ module.exports = {
                </div>
                </div>
                <div class="main_second2">
-                   <div class="main_second_select1" style="margin-left: 40px;">
-                       <div class="main_second_select1_label label">
-                           RENT :
-                       </div>
-                       <div class="main_second_select1_check" style="margin-left: 38px;">
-                          ${rentSourceCheckBox1}
-                           ${rentSourceCheckBox2}
-                       </div>
-                   </div>
-                   <div class="main_second_select1">
-                       <div class="main_second_select1_label label">
-                           EXPENSES<br>
+                    <div class="main_second_select1" style="margin-left: 40px;">
+                        <div class="main_second_select1_label label">
+                            RENT SOURCE :
+                        </div>
+                        <div class="main_second_select1_check" style="margin-left: 38px;">
+                           ${rentSourceCheckBox1}
+                            ${rentSourceCheckBox2}
+                        </div>
+                    </div>
+                    <div class="main_second_select1">
+                        <div class="main_second_select1_label label">
+                            EXPENSES<br>
                             (EXCLUDING RENT) :
-                       </div>
-                       <div class="main_second_select1_check">
-                           ${sourceOfCostCheckBox1}
-                           ${sourceOfCostCheckBox2}
-                       </div>
-                   </div>
-               </div>
+                        </div>
+                        <div class="main_second_select1_check">
+                            ${sourceOfCostCheckBox1}
+                            ${sourceOfCostCheckBox2}
+                        </div>
+                    </div>
+                </div>
            </div>
            <div class="main_third">
                <div class="main_third_text">
@@ -7995,26 +7995,26 @@ module.exports = {
                </div>
                </div>
                <div class="main_second2">
-                   <div class="main_second_select1" style="margin-left: 40px;">
-                       <div class="main_second_select1_label label">
-                           RENT :
-                       </div>
-                       <div class="main_second_select1_check" style="margin-left: 38px;">
-                          ${rentSourceCheckBox1}
-                           ${rentSourceCheckBox2}
-                       </div>
-                   </div>
-                   <div class="main_second_select1">
-                       <div class="main_second_select1_label label">
-                           EXPENSES<br>
+                    <div class="main_second_select1" style="margin-left: 40px;">
+                        <div class="main_second_select1_label label">
+                            RENT SOURCE :
+                        </div>
+                        <div class="main_second_select1_check" style="margin-left: 38px;">
+                           ${rentSourceCheckBox1}
+                            ${rentSourceCheckBox2}
+                        </div>
+                    </div>
+                    <div class="main_second_select1">
+                        <div class="main_second_select1_label label">
+                            EXPENSES<br>
                             (EXCLUDING RENT) :
-                       </div>
-                       <div class="main_second_select1_check">
-                           ${sourceOfCostCheckBox1}
-                           ${sourceOfCostCheckBox2}
-                       </div>
-                   </div>
-               </div>
+                        </div>
+                        <div class="main_second_select1_check">
+                            ${sourceOfCostCheckBox1}
+                            ${sourceOfCostCheckBox2}
+                        </div>
+                    </div>
+                </div>
            </div>
            <div class="main_third">
                <div class="main_third_text">
@@ -8098,26 +8098,26 @@ module.exports = {
                </div>
                </div>
                <div class="main_second2">
-                   <div class="main_second_select1" style="margin-left: 40px;">
-                       <div class="main_second_select1_label label">
-                           RENT :
-                       </div>
-                       <div class="main_second_select1_check" style="margin-left: 38px;">
-                          ${rentSourceCheckBox1}
-                           ${rentSourceCheckBox2}
-                       </div>
-                   </div>
-                   <div class="main_second_select1">
-                       <div class="main_second_select1_label label">
-                           EXPENSES<br>
+                    <div class="main_second_select1" style="margin-left: 40px;">
+                        <div class="main_second_select1_label label">
+                            RENT SOURCE :
+                        </div>
+                        <div class="main_second_select1_check" style="margin-left: 38px;">
+                           ${rentSourceCheckBox1}
+                            ${rentSourceCheckBox2}
+                        </div>
+                    </div>
+                    <div class="main_second_select1">
+                        <div class="main_second_select1_label label">
+                            EXPENSES<br>
                             (EXCLUDING RENT) :
-                       </div>
-                       <div class="main_second_select1_check">
-                           ${sourceOfCostCheckBox1}
-                           ${sourceOfCostCheckBox2}
-                       </div>
-                   </div>
-               </div>
+                        </div>
+                        <div class="main_second_select1_check">
+                            ${sourceOfCostCheckBox1}
+                            ${sourceOfCostCheckBox2}
+                        </div>
+                    </div>
+                </div>
            </div>
            <div class="main_third">
                <div class="main_third_text">
@@ -8201,26 +8201,26 @@ module.exports = {
                </div>
                </div>
                <div class="main_second2">
-                   <div class="main_second_select1" style="margin-left: 40px;">
-                       <div class="main_second_select1_label label">
-                           RENT :
-                       </div>
-                       <div class="main_second_select1_check" style="margin-left: 38px;">
-                          ${rentSourceCheckBox1}
-                           ${rentSourceCheckBox2}
-                       </div>
-                   </div>
-                   <div class="main_second_select1">
-                       <div class="main_second_select1_label label">
-                           EXPENSES<br>
+                    <div class="main_second_select1" style="margin-left: 40px;">
+                        <div class="main_second_select1_label label">
+                            RENT SOURCE :
+                        </div>
+                        <div class="main_second_select1_check" style="margin-left: 38px;">
+                           ${rentSourceCheckBox1}
+                            ${rentSourceCheckBox2}
+                        </div>
+                    </div>
+                    <div class="main_second_select1">
+                        <div class="main_second_select1_label label">
+                            EXPENSES<br>
                             (EXCLUDING RENT) :
-                       </div>
-                       <div class="main_second_select1_check">
-                           ${sourceOfCostCheckBox1}
-                           ${sourceOfCostCheckBox2}
-                       </div>
-                   </div>
-               </div>
+                        </div>
+                        <div class="main_second_select1_check">
+                            ${sourceOfCostCheckBox1}
+                            ${sourceOfCostCheckBox2}
+                        </div>
+                    </div>
+                </div>
            </div>
            <div class="main_third">
                <div class="main_third_text">
@@ -8304,26 +8304,26 @@ module.exports = {
                </div>
                </div>
                <div class="main_second2">
-                   <div class="main_second_select1" style="margin-left: 40px;">
-                       <div class="main_second_select1_label label">
-                           RENT :
-                       </div>
-                       <div class="main_second_select1_check" style="margin-left: 38px;">
-                          ${rentSourceCheckBox1}
-                           ${rentSourceCheckBox2}
-                       </div>
-                   </div>
-                   <div class="main_second_select1">
-                       <div class="main_second_select1_label label">
-                           EXPENSES<br>
+                    <div class="main_second_select1" style="margin-left: 40px;">
+                        <div class="main_second_select1_label label">
+                            RENT SOURCE :
+                        </div>
+                        <div class="main_second_select1_check" style="margin-left: 38px;">
+                           ${rentSourceCheckBox1}
+                            ${rentSourceCheckBox2}
+                        </div>
+                    </div>
+                    <div class="main_second_select1">
+                        <div class="main_second_select1_label label">
+                            EXPENSES<br>
                             (EXCLUDING RENT) :
-                       </div>
-                       <div class="main_second_select1_check">
-                           ${sourceOfCostCheckBox1}
-                           ${sourceOfCostCheckBox2}
-                       </div>
-                   </div>
-               </div>
+                        </div>
+                        <div class="main_second_select1_check">
+                            ${sourceOfCostCheckBox1}
+                            ${sourceOfCostCheckBox2}
+                        </div>
+                    </div>
+                </div>
            </div>
            <div class="main_third">
                <div class="main_third_text">
@@ -8408,26 +8408,26 @@ module.exports = {
             </div>
             </div>
             <div class="main_second2">
-                <div class="main_second_select1" style="margin-left: 40px;">
-                    <div class="main_second_select1_label label">
-                        RENT :
+                    <div class="main_second_select1" style="margin-left: 40px;">
+                        <div class="main_second_select1_label label">
+                            RENT SOURCE :
+                        </div>
+                        <div class="main_second_select1_check" style="margin-left: 38px;">
+                           ${rentSourceCheckBox1}
+                            ${rentSourceCheckBox2}
+                        </div>
                     </div>
-                    <div class="main_second_select1_check" style="margin-left: 38px;">
-                       ${rentSourceCheckBox1}
-                        ${rentSourceCheckBox2}
+                    <div class="main_second_select1">
+                        <div class="main_second_select1_label label">
+                            EXPENSES<br>
+                            (EXCLUDING RENT) :
+                        </div>
+                        <div class="main_second_select1_check">
+                            ${sourceOfCostCheckBox1}
+                            ${sourceOfCostCheckBox2}
+                        </div>
                     </div>
                 </div>
-                <div class="main_second_select1">
-                    <div class="main_second_select1_label label">
-                        NON-SHELTER<br>
-                        NECESSITIES SOURCE :
-                    </div>
-                    <div class="main_second_select1_check">
-                        ${sourceOfCostCheckBox1}
-                        ${sourceOfCostCheckBox2}
-                    </div>
-                </div>
-            </div>
         </div>
         
             <div class="main_third" >
@@ -8512,26 +8512,26 @@ module.exports = {
               </div>
               </div>
               <div class="main_second2">
-                  <div class="main_second_select1" style="margin-left: 40px;">
-                      <div class="main_second_select1_label label">
-                          RENT :
-                      </div>
-                      <div class="main_second_select1_check" style="margin-left: 38px;">
-                         ${rentSourceCheckBox1}
-                          ${rentSourceCheckBox2}
-                      </div>
-                  </div>
-                  <div class="main_second_select1">
-                      <div class="main_second_select1_label label">
-                           EXPENSES<br>
+                    <div class="main_second_select1" style="margin-left: 40px;">
+                        <div class="main_second_select1_label label">
+                            RENT SOURCE :
+                        </div>
+                        <div class="main_second_select1_check" style="margin-left: 38px;">
+                           ${rentSourceCheckBox1}
+                            ${rentSourceCheckBox2}
+                        </div>
+                    </div>
+                    <div class="main_second_select1">
+                        <div class="main_second_select1_label label">
+                            EXPENSES<br>
                             (EXCLUDING RENT) :
-                      </div>
-                      <div class="main_second_select1_check">
-                          ${sourceOfCostCheckBox1}
-                          ${sourceOfCostCheckBox2}
-                      </div>
-                  </div>
-              </div>
+                        </div>
+                        <div class="main_second_select1_check">
+                            ${sourceOfCostCheckBox1}
+                            ${sourceOfCostCheckBox2}
+                        </div>
+                    </div>
+                </div>
           </div>
           
               <div class="main_third" >
@@ -8615,26 +8615,26 @@ module.exports = {
               </div>
               </div>
               <div class="main_second2">
-                  <div class="main_second_select1" style="margin-left: 40px;">
-                      <div class="main_second_select1_label label">
-                          RENT :
-                      </div>
-                      <div class="main_second_select1_check" style="margin-left: 38px;">
-                         ${rentSourceCheckBox1}
-                          ${rentSourceCheckBox2}
-                      </div>
-                  </div>
-                  <div class="main_second_select1">
-                      <div class="main_second_select1_label label">
-                           EXPENSES<br>
+                    <div class="main_second_select1" style="margin-left: 40px;">
+                        <div class="main_second_select1_label label">
+                            RENT SOURCE :
+                        </div>
+                        <div class="main_second_select1_check" style="margin-left: 38px;">
+                           ${rentSourceCheckBox1}
+                            ${rentSourceCheckBox2}
+                        </div>
+                    </div>
+                    <div class="main_second_select1">
+                        <div class="main_second_select1_label label">
+                            EXPENSES<br>
                             (EXCLUDING RENT) :
-                      </div>
-                      <div class="main_second_select1_check">
-                          ${sourceOfCostCheckBox1}
-                          ${sourceOfCostCheckBox2}
-                      </div>
-                  </div>
-              </div>
+                        </div>
+                        <div class="main_second_select1_check">
+                            ${sourceOfCostCheckBox1}
+                            ${sourceOfCostCheckBox2}
+                        </div>
+                    </div>
+                </div>
           </div>
           
               <div class="main_third" >
@@ -8719,26 +8719,26 @@ module.exports = {
               </div>
               </div>
               <div class="main_second2">
-                  <div class="main_second_select1" style="margin-left: 40px;">
-                      <div class="main_second_select1_label label">
-                          RENT :
-                      </div>
-                      <div class="main_second_select1_check" style="margin-left: 38px;">
-                         ${rentSourceCheckBox1}
-                          ${rentSourceCheckBox2}
-                      </div>
-                  </div>
-                  <div class="main_second_select1">
-                      <div class="main_second_select1_label label">
-                           EXPENSES<br>
+                    <div class="main_second_select1" style="margin-left: 40px;">
+                        <div class="main_second_select1_label label">
+                            RENT SOURCE :
+                        </div>
+                        <div class="main_second_select1_check" style="margin-left: 38px;">
+                           ${rentSourceCheckBox1}
+                            ${rentSourceCheckBox2}
+                        </div>
+                    </div>
+                    <div class="main_second_select1">
+                        <div class="main_second_select1_label label">
+                            EXPENSES<br>
                             (EXCLUDING RENT) :
-                      </div>
-                      <div class="main_second_select1_check">
-                          ${sourceOfCostCheckBox1}
-                          ${sourceOfCostCheckBox2}
-                      </div>
-                  </div>
-              </div>
+                        </div>
+                        <div class="main_second_select1_check">
+                            ${sourceOfCostCheckBox1}
+                            ${sourceOfCostCheckBox2}
+                        </div>
+                    </div>
+                </div>
           </div>
           
               <div class="main_third" >
@@ -8823,26 +8823,26 @@ module.exports = {
               </div>
               </div>
               <div class="main_second2">
-                  <div class="main_second_select1" style="margin-left: 40px;">
-                      <div class="main_second_select1_label label">
-                          RENT :
-                      </div>
-                      <div class="main_second_select1_check" style="margin-left: 38px;">
-                         ${rentSourceCheckBox1}
-                          ${rentSourceCheckBox2}
-                      </div>
-                  </div>
-                  <div class="main_second_select1">
-                      <div class="main_second_select1_label label">
-                           EXPENSES<br>
+                    <div class="main_second_select1" style="margin-left: 40px;">
+                        <div class="main_second_select1_label label">
+                            RENT SOURCE :
+                        </div>
+                        <div class="main_second_select1_check" style="margin-left: 38px;">
+                           ${rentSourceCheckBox1}
+                            ${rentSourceCheckBox2}
+                        </div>
+                    </div>
+                    <div class="main_second_select1">
+                        <div class="main_second_select1_label label">
+                            EXPENSES<br>
                             (EXCLUDING RENT) :
-                      </div>
-                      <div class="main_second_select1_check">
-                          ${sourceOfCostCheckBox1}
-                          ${sourceOfCostCheckBox2}
-                      </div>
-                  </div>
-              </div>
+                        </div>
+                        <div class="main_second_select1_check">
+                            ${sourceOfCostCheckBox1}
+                            ${sourceOfCostCheckBox2}
+                        </div>
+                    </div>
+                </div>
           </div>
           
               <div class="main_third" >
@@ -8927,26 +8927,26 @@ module.exports = {
               </div>
               </div>
               <div class="main_second2">
-                  <div class="main_second_select1" style="margin-left: 40px;">
-                      <div class="main_second_select1_label label">
-                          RENT :
-                      </div>
-                      <div class="main_second_select1_check" style="margin-left: 38px;">
-                         ${rentSourceCheckBox1}
-                          ${rentSourceCheckBox2}
-                      </div>
-                  </div>
-                  <div class="main_second_select1">
-                      <div class="main_second_select1_label label">
-                           EXPENSES<br>
+                    <div class="main_second_select1" style="margin-left: 40px;">
+                        <div class="main_second_select1_label label">
+                            RENT SOURCE :
+                        </div>
+                        <div class="main_second_select1_check" style="margin-left: 38px;">
+                           ${rentSourceCheckBox1}
+                            ${rentSourceCheckBox2}
+                        </div>
+                    </div>
+                    <div class="main_second_select1">
+                        <div class="main_second_select1_label label">
+                            EXPENSES<br>
                             (EXCLUDING RENT) :
-                      </div>
-                      <div class="main_second_select1_check">
-                          ${sourceOfCostCheckBox1}
-                          ${sourceOfCostCheckBox2}
-                      </div>
-                  </div>
-              </div>
+                        </div>
+                        <div class="main_second_select1_check">
+                            ${sourceOfCostCheckBox1}
+                            ${sourceOfCostCheckBox2}
+                        </div>
+                    </div>
+                </div>
           </div>
           
               <div class="main_third" >
@@ -9031,26 +9031,26 @@ module.exports = {
               </div>
               </div>
               <div class="main_second2">
-                  <div class="main_second_select1" style="margin-left: 40px;">
-                      <div class="main_second_select1_label label">
-                          RENT :
-                      </div>
-                      <div class="main_second_select1_check" style="margin-left: 38px;">
-                         ${rentSourceCheckBox1}
-                          ${rentSourceCheckBox2}
-                      </div>
-                  </div>
-                  <div class="main_second_select1">
-                      <div class="main_second_select1_label label">
-                           EXPENSES<br>
+                    <div class="main_second_select1" style="margin-left: 40px;">
+                        <div class="main_second_select1_label label">
+                            RENT SOURCE :
+                        </div>
+                        <div class="main_second_select1_check" style="margin-left: 38px;">
+                           ${rentSourceCheckBox1}
+                            ${rentSourceCheckBox2}
+                        </div>
+                    </div>
+                    <div class="main_second_select1">
+                        <div class="main_second_select1_label label">
+                            EXPENSES<br>
                             (EXCLUDING RENT) :
-                      </div>
-                      <div class="main_second_select1_check">
-                          ${sourceOfCostCheckBox1}
-                          ${sourceOfCostCheckBox2}
-                      </div>
-                  </div>
-              </div>
+                        </div>
+                        <div class="main_second_select1_check">
+                            ${sourceOfCostCheckBox1}
+                            ${sourceOfCostCheckBox2}
+                        </div>
+                    </div>
+                </div>
           </div>
           
               <div class="main_third" >
@@ -9135,26 +9135,26 @@ module.exports = {
               </div>
               </div>
               <div class="main_second2">
-                  <div class="main_second_select1" style="margin-left: 40px;">
-                      <div class="main_second_select1_label label">
-                          RENT :
-                      </div>
-                      <div class="main_second_select1_check" style="margin-left: 38px;">
-                         ${rentSourceCheckBox1}
-                          ${rentSourceCheckBox2}
-                      </div>
-                  </div>
-                  <div class="main_second_select1">
-                      <div class="main_second_select1_label label">
-                           EXPENSES<br>
+                    <div class="main_second_select1" style="margin-left: 40px;">
+                        <div class="main_second_select1_label label">
+                            RENT SOURCE :
+                        </div>
+                        <div class="main_second_select1_check" style="margin-left: 38px;">
+                           ${rentSourceCheckBox1}
+                            ${rentSourceCheckBox2}
+                        </div>
+                    </div>
+                    <div class="main_second_select1">
+                        <div class="main_second_select1_label label">
+                            EXPENSES<br>
                             (EXCLUDING RENT) :
-                      </div>
-                      <div class="main_second_select1_check">
-                          ${sourceOfCostCheckBox1}
-                          ${sourceOfCostCheckBox2}
-                      </div>
-                  </div>
-              </div>
+                        </div>
+                        <div class="main_second_select1_check">
+                            ${sourceOfCostCheckBox1}
+                            ${sourceOfCostCheckBox2}
+                        </div>
+                    </div>
+                </div>
           </div>
           
               <div class="main_third" >
