@@ -6504,21 +6504,21 @@ module.exports = {
     let rentSourceCheckBox1 =
       rent_source === "Rental Market Survey"
         ? ` <div>
-                <label for="c1">CMHC</label>
-                <input type="checkbox" id="c1" value="CMHC" checked class="myinput large">
+                <label for="c1" class="small_label">RENTAL MARKET SURVEY</label>
+                <input type="checkbox" id="c1" value="RENTAL MARKET SURVEY" checked class="myinput large">
             </div>`
         : ` <div>
-                <label for="c1"> CMHC</label>
-                <input type="checkbox" id="c1" value="CMHC" class="myinput large">
+                <label for="c1" class="small_label">RENTAL MARKET SURVEY</label>
+                <input type="checkbox" id="c1" value="RENTAL MARKET SURVEY" class="myinput large">
             </div>`;
     let rentSourceCheckBox2 =
       rent_source === "Average Listing Rent"
         ? ` <div>
-                <label for="c2">REALISTIC RENT</label>
+                <label for="c2" class="small_label">AVERAGE LISTING RENT</label>
                 <input type="checkbox" id="c1" value="CMHC" checked class="myinput large">
             </div>`
         : ` <div>
-                <label for="c2">REALISTIC RENT</label>
+                <label for="c2" class="small_label">AVERAGE LISTING RENT</label>
                 <input type="checkbox" id="c1" value="CMHC" class="myinput large">
             </div>`;
 
