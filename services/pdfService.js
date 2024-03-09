@@ -1366,7 +1366,7 @@ module.exports = {
         <div class="main_first">
           <div class="main_first_img">
             <img
-              src="https://i.ibb.co/WxYF57b/logo-1.png"
+              src="/2.png"
               style="height: 125px; width: 125px; margin-left: 10px"
               alt=""
             />
@@ -1853,7 +1853,7 @@ module.exports = {
         <div class="main_first">
           <div class="main_first_img">
             <img
-              src="https://i.ibb.co/WxYF57b/logo-1.png"
+              src="/2.png"
               style="height: 125px; width: 125px; margin-top: -30%"
               alt=""
             />
@@ -2679,7 +2679,7 @@ module.exports = {
       <div class="main_first">
         <div class="main_first_img">
           <img
-            src="https://i.ibb.co/WxYF57b/logo-1.png"
+            src="/2.png"
             style="height: 125px; width: 125px; margin-bottom: -25px"
             alt=""
           />
@@ -2839,7 +2839,7 @@ module.exports = {
       <div class="main_first">
         <div class="main_first_img">
           <img
-            src="https://i.ibb.co/WxYF57b/logo-1.png"
+            src="/2.png"
             style="height: 125px; width: 125px; margin-top: -15px"
             alt=""
           />
@@ -4931,7 +4931,7 @@ module.exports = {
       htmlObj += ` <div  style="height:1500px">
                         <div class="main_first">
                             <div class="main_first_img">
-                                <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                                <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
@@ -4973,7 +4973,7 @@ module.exports = {
                       `<div  style="height:1500px">
                     <div class="main_first">
                         <div class="main_first_img">
-                            <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                            <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                         </div>
                         <div class="main_first_text">
                             <div class="main_first_text_tex1">
@@ -5015,7 +5015,7 @@ module.exports = {
                       `<div  style="height:1500px">
                       <div class="main_first">
                           <div class="main_first_img">
-                              <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                              <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
@@ -5057,7 +5057,7 @@ module.exports = {
                         `<div  style="height:1500px">
                       <div class="main_first">
                           <div class="main_first_img">
-                              <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                              <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
@@ -5097,7 +5097,7 @@ module.exports = {
                     <div  style="height:1500px">
                         <div class="main_first">
                             <div class="main_first_img">
-                                <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                                <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
@@ -5138,7 +5138,7 @@ module.exports = {
                       `<div  style="height:1500px">
                     <div class="main_first">
                         <div class="main_first_img">
-                            <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                            <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                         </div>
                         <div class="main_first_text">
                             <div class="main_first_text_tex1">
@@ -5180,7 +5180,7 @@ module.exports = {
                       `<div  style="height:1500px">
                       <div class="main_first">
                           <div class="main_first_img">
-                              <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                              <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
@@ -5221,7 +5221,7 @@ module.exports = {
         `<div  style="height:1500px">
                       <div class="main_first">
                           <div class="main_first_img">
-                              <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                              <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
@@ -5464,7 +5464,7 @@ module.exports = {
       htmlObj += ` <div  style="height:1500px">
                           <div class="main_first">
                               <div class="main_first_img">
-                                  <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                                  <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                               </div>
                               <div class="main_first_text">
                                   <div class="main_first_text_tex1">
@@ -5505,7 +5505,7 @@ module.exports = {
                         `<div  style="height:1500px">
                       <div class="main_first">
                           <div class="main_first_img">
-                              <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                              <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
@@ -5547,7 +5547,7 @@ module.exports = {
                         `<div  style="height:1500px">
                         <div class="main_first">
                             <div class="main_first_img">
-                                <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                                <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
@@ -5589,7 +5589,7 @@ module.exports = {
                           `<div  style="height:1500px">
                         <div class="main_first">
                             <div class="main_first_img">
-                                <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                                <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
@@ -5630,7 +5630,7 @@ module.exports = {
                       <div  style="height:1500px">
                           <div class="main_first">
                               <div class="main_first_img">
-                                  <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                                  <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                               </div>
                               <div class="main_first_text">
                                   <div class="main_first_text_tex1">
@@ -5672,7 +5672,7 @@ module.exports = {
                         `<div  style="height:1500px">
                       <div class="main_first">
                           <div class="main_first_img">
-                              <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                              <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                           </div>
                           <div class="main_first_text">
                               <div class="main_first_text_tex1">
@@ -5715,7 +5715,7 @@ module.exports = {
                         `<div  style="height:1500px">
                         <div class="main_first">
                             <div class="main_first_img">
-                                <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                                <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
@@ -5757,7 +5757,7 @@ module.exports = {
         `<div  style="height:1500px">
                         <div class="main_first">
                             <div class="main_first_img">
-                                <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                                <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                             </div>
                             <div class="main_first_text">
                                 <div class="main_first_text_tex1">
@@ -6557,7 +6557,6 @@ module.exports = {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="/style.css"> -->
 </head>
 
 <style>
@@ -7614,7 +7613,7 @@ module.exports = {
          `<div style="position: relative;height:1500px">
             <div class="main_first">
                 <div class="main_first_img">
-                <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                 </div>
                 <div class="main_first_text">
                     <div class="main_first_text_tex1">
@@ -7717,7 +7716,7 @@ module.exports = {
          `<div style="position: relative;height:1500px">
            <div class="main_first">
                <div class="main_first_img">
-               <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+               <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
@@ -7820,7 +7819,7 @@ module.exports = {
         `<div style="position: relative;height:1500px">
            <div class="main_first">
                <div class="main_first_img">
-               <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+               <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
@@ -7923,7 +7922,7 @@ module.exports = {
         `<div style="position: relative;height:1500px">
            <div class="main_first">
                <div class="main_first_img">
-               <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+               <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
@@ -8026,7 +8025,7 @@ module.exports = {
         `<div style="position: relative;height:1500px">
            <div class="main_first">
                <div class="main_first_img">
-               <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+               <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
@@ -8129,7 +8128,7 @@ module.exports = {
         `<div style="position: relative;height:1500px">
            <div class="main_first">
                <div class="main_first_img">
-               <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+               <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
@@ -8232,7 +8231,7 @@ module.exports = {
         `<div style="position: relative;height:1500px">
            <div class="main_first">
                <div class="main_first_img">
-               <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+               <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
@@ -8335,7 +8334,7 @@ module.exports = {
         `<div style="position: relative;height:1500px">
            <div class="main_first">
                <div class="main_first_img">
-               <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+               <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                </div>
                <div class="main_first_text">
                    <div class="main_first_text_tex1">
@@ -8439,7 +8438,7 @@ module.exports = {
           `<div style="position: relative;height:1500px">
             <div class="main_first">
                 <div class="main_first_img">
-                <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                 </div>
                 <div class="main_first_text">
                     <div class="main_first_text_tex1">
@@ -8543,7 +8542,7 @@ module.exports = {
           `<div style="position: relative;height:1500px">
               <div class="main_first">
                   <div class="main_first_img">
-                  <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                  <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
@@ -8646,7 +8645,7 @@ module.exports = {
             `<div style="position: relative;height:1500px">
               <div class="main_first">
                   <div class="main_first_img">
-                  <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                  <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
@@ -8750,7 +8749,7 @@ module.exports = {
             `<div style="position: relative;height:1500px">
               <div class="main_first">
                   <div class="main_first_img">
-                  <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                  <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
@@ -8854,7 +8853,7 @@ module.exports = {
             `<div style="position: relative;height:1500px">
               <div class="main_first">
                   <div class="main_first_img">
-                  <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                  <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
@@ -8958,7 +8957,7 @@ module.exports = {
             `<div style="position: relative;height:1500px">
               <div class="main_first">
                   <div class="main_first_img">
-                  <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                  <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
@@ -9062,7 +9061,7 @@ module.exports = {
             `<div style="position: relative;height:1500px">
               <div class="main_first">
                   <div class="main_first_img">
-                  <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                  <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
@@ -9166,7 +9165,7 @@ module.exports = {
             `<div style="position: relative;height:1500px">
               <div class="main_first">
                   <div class="main_first_img">
-                  <img src="https://i.ibb.co/WxYF57b/logo-1.png" alt="" style="height: 125px;width: 125px;">
+                  <img src="/2.png" alt="" style="height: 125px;width: 125px;">
                   </div>
                   <div class="main_first_text">
                       <div class="main_first_text_tex1">
