@@ -7613,7 +7613,7 @@ module.exports = {
          `<div style="position: relative;height:1500px">
             <div class="main_first">
                 <div class="main_first_img">
-                <img src="https://i.ibb.co/v3ht5Zc/logo.png" alt="" style="height: 125px;width: 105px;">
+                <img src="https://i.ibb.co/v3ht5Zc/logo.png" alt="" style="height: 125px;width: 115px;">
                 </div>
                 <div class="main_first_text">
                     <div class="main_first_text_tex1">
