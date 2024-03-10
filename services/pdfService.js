@@ -178,7 +178,7 @@ module.exports = {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          align-items: center;
+          align-items: start;
           width: 30%;
         }
       
@@ -187,7 +187,7 @@ module.exports = {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          width: 30%;
+          width: 25%;
           z-index: 2;
         }
 
@@ -196,10 +196,11 @@ module.exports = {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          align-items: center;
-          width: 40%;
+          align-items: end;
+          width: 45%;
           z-index: 2;
         }
+        
       
         .main_second2 label {
           font-weight: 100;
@@ -458,14 +459,14 @@ module.exports = {
           flex-direction: column;
           justify-content: space-between;
           align-items: center;
-          width: 22%;
+          width: 24%;
         }
         .main_page3_first_two {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           align-items: center;
-          width: 58%;
+          width: 56%;
         }
         .main_page3_first_three {
           display: flex;
@@ -820,7 +821,7 @@ module.exports = {
           background-color: white;
           border-radius: 10px;
           padding: 8px 12px;
-          margin-bottom: 20px;
+          margin-bottom: 10px;
         }
       
         .main_page4_first_one_one_main {
@@ -839,7 +840,7 @@ module.exports = {
         }
       
         .main_page4_first_one_one_main_one_head {
-          font-size: 18px;
+          font-size: 16px;
           text-decoration: underline;
           font-weight: bold;
           letter-spacing: 0.3cap;
@@ -1141,7 +1142,8 @@ module.exports = {
           flex-direction: row;
           justify-content: space-between;
           align-items: flex-start;
-          width: 90%;
+          width: 100%;
+          margin:0px 10px;
         }
       
         .main_page6_first_one_charts_one canvas {
@@ -1172,7 +1174,7 @@ module.exports = {
       
         .main_float_line2 {
           top: 83px !important;
-          height: 1560px !important;
+          height: 1490px !important;
         }
       
         .main_float_line3 {
@@ -1448,11 +1450,11 @@ module.exports = {
                   </select>
                 </div>
                 <div class="main_second_select1">
-                  <label class="label" for="cars">TYPE OF <br />HOUSE:</label>
+                  <label class="label" for="cars" >HOUSE:</label>
                   <select
                     name="cars"
                     id="cars"
-                    style="width: 200px; margin-left: 50px"
+                    style="width: 200px; margin-left: 60px"
                   >
                     <option value="volvo">New Brunswick</option>
                   </select>
@@ -1508,7 +1510,7 @@ module.exports = {
                 <div class="main_second_select1">
                   <div
                     class="main_second_select1_label label"
-                    style="margin-left: -20px"
+                  
                   >
                     AFFORDABILITY <br />
                     DEFINITION :
@@ -1516,12 +1518,12 @@ module.exports = {
                   <select
                     name="cars"
                     id="cars"
-                    style="width: 200px; margin-left: 30px"
+                    style="width: 200px; margin-left: 30px;margin-right:27px"
                   >
                     <option value="volvo">USE BOTH</option>
                   </select>
                 </div>
-                <div class="main_second_select1" style="margin-left:30px">
+                <div class="main_second_select1" style="margin-left:30px;">
                   <div
                     class="main_second_select1_label label"
                     style="margin-left: -40px;margin-top:5px"
@@ -1633,7 +1635,7 @@ module.exports = {
             <div class="main_third_line"></div>
             <div class="main_page3_first">
               <div class="main_page3_first_one">
-                <div class="main_page3_first_one_txt ls-2" style="font-size: 35px">
+                <div class="main_page3_first_one_txt ls-2" style="font-size: 30px">
                   AVERAGE <br />
                   RENT
                 </div>
@@ -1885,7 +1887,7 @@ module.exports = {
               </div>
               <div
                 class="main_page3_first_one_main_head_sub_two mr-2"
-                style="padding: 4px; letter-spacing: 3px; margin-left: -60px"
+                style="padding: 4px; letter-spacing: 3px; margin-left: -50px"
               >
                 $60,000
               </div>
@@ -2063,7 +2065,7 @@ module.exports = {
                         ><br />
                         <span
                           class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                          >OWNED</span
+                          >RENTAL</span
                         >
                       </div>
                     </div>
@@ -2125,7 +2127,7 @@ module.exports = {
                         ><br />
                         <span
                           class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                          >OWNED</span
+                          >RENTAL</span
                         >
                       </div>
                     </div>
@@ -2151,7 +2153,7 @@ module.exports = {
                       <div
                         class="main_page4_first_one_one_main_one_head fw-light ls-1"
                       >
-                        OWNED / RENTALSHARE
+                        OWNED / RENTAL SHARE
                       </div>
                       <br />
       
@@ -2208,7 +2210,7 @@ module.exports = {
                             ><br />
                             <span
                               class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                              >OWNED</span
+                              >RENTAL</span
                             >
                           </div>
                         </div>
@@ -2247,7 +2249,7 @@ module.exports = {
                       <div
                         class="main_page4_first_one_one_main_one_head fw-light ls-1"
                       >
-                        OWNED / RENTALSHARE
+                        OWNED / RENTAL SHARE
                       </div>
       
                       <br />
@@ -2304,7 +2306,7 @@ module.exports = {
                             ><br />
                             <span
                               class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                              >OWNED</span
+                              >RENTAL</span
                             >
                           </div>
                         </div>
@@ -2763,7 +2765,7 @@ module.exports = {
                 alt=""
               />
             </div>
-            <div class="main_first_text" style="margin-top: 80px">
+            <div class="main_first_text" style="margin-top: 20px">
               <div class="main_first_text_tex1">NEW BRUNSWICK - MONCTON</div>
               <div class="main_first_text_tex2">INCOME ANALYSIS</div>
             </div>
@@ -2828,7 +2830,7 @@ module.exports = {
               "
             ></canvas>
           </div>
-          <p style="text-align: center; font-weight: 600; font-size: larger">
+          <p style="text-align: center; font-weight: 600; font-size: larger" class="mt-0 mb-1">
             DIFFERENT INCOME RANGES
           </p>
           <div class="main_third_line"></div>
@@ -2888,9 +2890,9 @@ module.exports = {
             </div>
           </div>
           <div class="main_third_line"></div>
-          <h1 style="text-align: center; text-decoration: underline" class="ls-2">
+          <h2 style="text-align: center; text-decoration: underline" class="ls-2 mb-0 mt-1">
             MEDIAN HOUSEHOLD INCOME
-          </h1>
+          </h2>
           <div class="main_page6_first_one">
             <div class="main_page6_first">
               <div class="main_page6_first_one_charts">
@@ -2916,24 +2918,18 @@ module.exports = {
               </div>
             </div>
           </div>
-      
-          <br />
           <!-- LAST PAGE -->
-          <div class="main_first">
-            <div class="main_first_img">
+          <div class="main_first" >
+            <div class="main_first_img" >
               <img
                 src="https://i.ibb.co/v3ht5Zc/logo.png"
-                style="height: 100px; width: 105px; margin-top: 20px"
+                style="height: 100px; width: 105px; margin-bottom: -25px"
                 alt=""
               />
             </div>
-            <div class="main_first_text">
-              <div class="main_page5_first_one_txt text-3xl mt-0">
-                NEW BRUNSWICK - MONCTON
-              </div>
-              <p class="fw-md ls-1 my-0" style="color: orange; font-size: 40px">
-                SHELTER COST ANALYSIS
-              </p>
+            <div class="main_first_text" style="margin-top: 20px">
+              <div class="main_first_text_tex1">NEW BRUNSWICK - MONCTON</div>
+              <div class="main_first_text_tex2">SHELTER COST ANALYSIS</div>
             </div>
           </div>
           <div class="main_third">
@@ -2943,14 +2939,14 @@ module.exports = {
           <div class="main_page6_first">
             <div class="main_page6_first_one">
               <div class="main_page6_first_one_charts">
-                <div class="main_page4_first_one_one_head text-3xl">
+                <div class="main_page4_first_one_one_head text-2xl ml-3">
                   APARTMENT OVERVIEW
                 </div>
-                <div class="main_page4_first_one_one_head text-3xl">
+                <div class="main_page4_first_one_one_head text-2xl mr-3">
                   ROW HOUSE OVERVIEW
                 </div>
               </div>
-              <div class="main_page6_first_one_head text-3xl">AVERAGE RENT</div>
+              <div class="main_page6_first_one_head text-2xl mb-0">AVERAGE RENT</div>
       
               <div class="main_page6_first_one_charts">
                 <div class="main_page6_first_one_charts_one">
@@ -3214,8 +3210,8 @@ module.exports = {
           const chart7 = JSC.chart("chartDiv", {
             type: "pyramidInverted",
             legend_visible: false,
-            width: 560,
-            height: 360,
+            width: 530,
+            height: 270,
             yAxis: { label_text: "Cost", formatString: "c" },
             backgroundColor: "#f1f3f9",
             defaultSeries: {
@@ -3226,7 +3222,7 @@ module.exports = {
                   placement: "auto",
                   align: "left", // Add this line to set the alignment to left
                   style: {
-                    fontSize: "16px", // Adjust the font size as needed
+                    fontSize: "14px", // Adjust the font size as needed
                   },
                 },
               },
@@ -3894,7 +3890,7 @@ module.exports = {
               ],
             },
             options: {
-              responsive: true, // Make the chart responsive
+              responsive: false, // Make the chart responsive
               title: {
                 display: false, // Display chart title
                 text: "Sales by Quarter", // Chart title text
@@ -3954,7 +3950,7 @@ module.exports = {
               ],
             },
             options: {
-              responsive: true, // Make the chart responsive
+              responsive: false, // Make the chart responsive
               title: {
                 display: false, // Display chart title
                 text: "Sales by Quarter", // Chart title text
@@ -4256,6 +4252,9 @@ module.exports = {
                     categoryPercentage: 0.5, // Adjust bar spacing
                     ticks: {
                       beginAtZero: true, // Start y-axis at zero
+                      callback: function (value, index, values) {
+                        return "$" + value; // Add dollar sign to tick labels
+                      }, 
                     },
                   },
                 ],
@@ -4304,7 +4303,10 @@ module.exports = {
                   {
                     categoryPercentage: 0.5, // Adjust bar spacing
                     ticks: {
-                      beginAtZero: true, // Start y-axis at zero
+                      beginAtZero: true, 
+                      callback: function (value, index, values) {
+                        return "$" + value; // Add dollar sign to tick labels
+                      }, 
                     },
                   },
                 ],
@@ -4605,6 +4607,9 @@ module.exports = {
                     categoryPercentage: 0.5, // Adjust bar spacing
                     ticks: {
                       beginAtZero: true, // Start y-axis at zero
+                      callback: function (value, index, values) {
+                        return "$" + value; // Add dollar sign to tick labels
+                      }, 
                     },
                   },
                 ],
@@ -4653,6 +4658,9 @@ module.exports = {
                     categoryPercentage: 0.5, // Adjust bar spacing
                     ticks: {
                       beginAtZero: true, // Start y-axis at zero
+                      callback: function (value, index, values) {
+                        return "$" + value; // Add dollar sign to tick labels
+                      }, 
                     },
                   },
                 ],
@@ -6959,7 +6967,6 @@ module.exports = {
         flex-direction: row;
         justify-content: center;
         align-items: flex-start;
-        margin-top: 5px;
         width: 100%;
         text-align: center;
     }
@@ -7277,7 +7284,7 @@ module.exports = {
         background-color: white;
         border-radius: 10px;
         padding: 5px 7px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 
     .main_page4_first_one_one_main {
