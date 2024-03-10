@@ -68,15 +68,16 @@ module.exports = {
           margin: auto;
           background-color: #f0f3f8;
           padding: 3px;
-          font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+          font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+            sans-serif;
         }
-        
+      
         input {
           border: 1px solid black;
           border-radius: 10px;
           background: transparent;
         }
-        
+      
         select {
           background: transparent;
           border: 1px solid black;
@@ -87,42 +88,42 @@ module.exports = {
           width: 200px;
           text-align: center;
         }
-        
+      
         table {
           border-collapse: collapse;
         }
-        
+      
         table td,
         table th {
           border: 1.5px black;
           border-style: dashed;
           font-size: 13px;
         }
-        
+      
         table tr:first-child th {
           border-top: 0;
         }
-        
+      
         table tr:last-child td {
           border-bottom: 0;
         }
-        
+      
         table tr td:first-child,
         table tr th:first-child {
           border-left: 0;
         }
-        
+      
         table tr td:last-child,
         table tr th:last-child {
           border-right: 0;
         }
-        
+      
         .main {
           display: flex;
           flex-direction: column;
           width: 100%;
         }
-        
+      
         .main_first {
           display: flex;
           flex-direction: row;
@@ -131,15 +132,15 @@ module.exports = {
           width: 100%;
           z-index: 1;
         }
-        
+      
         .main_first_img {
           width: 200px;
         }
-        
+      
         .main_first_img img {
           width: 100%;
         }
-        
+      
         .main_first_text {
           display: flex;
           flex-direction: column;
@@ -148,21 +149,23 @@ module.exports = {
           text-align: center;
           width: 70%;
         }
-        
+      
         .main_first_text_tex1 {
           font-size: 24px;
           font-weight: bold;
           letter-spacing: 0.5cap;
-          font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+          font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+            sans-serif;
         }
-        
+      
         .main_first_text_tex2 {
           font-size: 44px;
           font-weight: bolder;
           color: #f44d2d;
-          font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+          font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+            sans-serif;
         }
-        
+      
         .main_second {
           display: flex;
           justify-content: center;
@@ -170,58 +173,80 @@ module.exports = {
           font-size: 20px;
           font-weight: bold;
         }
-        
+      
         .main_second1 {
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          width: 50%;
+          width: 30%;
         }
-        
+      
         .main_second2 {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          align-items: self-start;
-          width: 50%;
+          align-items: center;
+          width: 30%;
           z-index: 2;
         }
-        
+
+
+        .main_second3 {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 40%;
+          z-index: 2;
+        }
+      
         .main_second2 label {
           font-weight: 100;
-          border: 1.5px solid black;
-          padding: 5px 6px;
-          font-weight: 600;
+          border: 0.5px solid black;
+          padding: 2px 6px;
+          font-weight: 400;
           border-radius: 6px;
           text-align: center;
           width: 186px;
           text-align: center;
         }
-        
+
+        .main_second3 label {
+          font-weight: 100;
+          border: 0.5px solid black;
+          padding: 2px 6px;
+          font-weight: 400;
+          border-radius: 6px;
+          text-align: center;
+          width: 186px;
+          text-align: center;
+        }
+      
         /* FOR SMALL LABEL ON UPPER PART OF PDF */
         .small_label {
           font-size: 12px;
+          font-weight: 400;
         }
-        
+      
         .main_second_select1 {
           display: flex;
           margin-bottom: 10px;
           text-align: center;
           align-items: flex-start;
         }
-        
+      
         .main_second_select1_check {
           display: flex;
           flex-direction: column;
         }
-        
+      
         .myinput.large {
           height: 22px;
           width: 22px;
           background-color: transparent;
         }
-        
+      
         .myinput.large[type="checkbox"]:before {
           width: 20px;
           height: 20px;
@@ -230,7 +255,7 @@ module.exports = {
           border: 1px solid #808080;
           background: #fff;
         }
-        
+      
         .myinput.large[type="checkbox"]:after {
           top: -20px;
           width: 16px;
@@ -238,40 +263,40 @@ module.exports = {
           position: relative;
           display: block;
         }
-        
+      
         .main_second_select1_check div {
           margin-bottom: 10px;
           margin-left: 10px;
           display: flex;
         }
-        
+      
         .main_third {
           display: flex;
           flex-direction: column;
           width: 95%;
           margin: auto;
         }
-        
+      
         .main_third_text {
           display: flex;
           justify-content: space-around;
           font-size: 13px;
         }
-        
+      
         .main_third_line {
           width: 100%;
           height: 1.5px;
           background-color: #7ed957;
-          margin: 15px auto;
+          margin: 0px auto 0px auto;
         }
-        
+      
         .main_fourth {
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
         }
-        
+      
         .main_fourth_text1 {
           text-align: center;
           letter-spacing: 0.3cap;
@@ -279,7 +304,7 @@ module.exports = {
           font-size: 20px;
           padding: 0px 7px;
         }
-        
+      
         .main_fourth_text2 {
           font-weight: bold;
           text-align: center;
@@ -287,7 +312,7 @@ module.exports = {
           font-size: 20px;
           margin-top: 5px;
         }
-        
+      
         .main_five {
           display: flex;
           flex-direction: column;
@@ -295,7 +320,7 @@ module.exports = {
           align-items: center;
           margin-top: 30px;
         }
-        
+      
         .main_five_head {
           display: flex;
           flex-direction: row;
@@ -303,7 +328,7 @@ module.exports = {
           align-items: center;
           width: 100%;
         }
-        
+      
         .main_five_right_head {
           font-size: 27px;
           font-weight: bolder;
@@ -313,14 +338,14 @@ module.exports = {
           border-radius: 40px;
           padding: 7px 10px;
         }
-        
+      
         .main_five_main {
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
         }
-        
+      
         .main_five_right_float {
           font-size: 29px;
           font-weight: bolder;
@@ -334,7 +359,7 @@ module.exports = {
           margin-bottom: 10px;
           z-index: 1;
         }
-        
+      
         .main_five_right_left {
           display: flex;
           width: 90%;
@@ -343,7 +368,7 @@ module.exports = {
           align-items: center;
           margin: auto;
         }
-        
+      
         .main_five_right {
           display: flex;
           flex-direction: column;
@@ -353,7 +378,7 @@ module.exports = {
           font-weight: bold;
           width: 45%;
         }
-        
+      
         .main_float_line {
           height: 1100px;
           position: absolute;
@@ -363,14 +388,14 @@ module.exports = {
           transform: translateX(-50%);
           top: 400px;
         }
-        
+      
         .page1_footer {
           font-size: 10px;
           letter-spacing: 1.3cap;
           text-align: center;
           padding: 3px 3px;
         }
-        
+      
         .main_page2_first {
           display: flex;
           justify-content: center;
@@ -378,14 +403,14 @@ module.exports = {
           flex-direction: column;
           margin-top: 10px;
         }
-        
+      
         .main_page2_first_table {
           border: 1.5px solid black;
           width: 90%;
           margin: auto;
           text-align: center;
         }
-        
+      
         .main_page2_first_table:first-child {
           border: 1.5px solid black;
           width: 90%;
@@ -393,24 +418,24 @@ module.exports = {
           text-align: center;
           margin-bottom: 180px;
         }
-        
+      
         .main_page2_first_table tr {
           border: 1.5px solid black;
         }
-        
+      
         .main_page2_first_table th {
           border: 1.5px solid black;
           padding: 10px 4px;
           background-color: #c7ddef;
-          font-size: 115px
+          font-size: 115px;
         }
-        
+      
         .main_page2_first_table td {
           border: 1.5px solid black;
           padding: 10px 4px;
           font-size: 18px;
         }
-        
+      
         .main_page3_first {
           display: flex;
           flex-direction: row;
@@ -420,22 +445,43 @@ module.exports = {
           width: 100%;
           text-align: center;
         }
-        
+        .main_page3_first_second_one {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          width: 50%;
+        }
+      
         .main_page3_first_one {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           align-items: center;
-          /* width: 31%; */
+          width: 22%;
         }
-        
+        .main_page3_first_two {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          width: 58%;
+        }
+        .main_page3_first_three {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          width: 20%;
+        }
+      
         .main_page3_first_one_txt {
           font-weight: bold;
           letter-spacing: 0.3cap;
           text-decoration: underline;
-          font-size: 21px;
+          font-size: 15px;
         }
-        
+      
         .main_page3_first_one_content {
           display: flex;
           flex-direction: column;
@@ -450,14 +496,14 @@ module.exports = {
           align-items: baseline;
           margin-top: 10px;
         }
-        
+      
         .main_page3_first_one_content_one {
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
         }
-        
+      
         .main_page3_first_one_content_one_head {
           font-weight: bold;
           font-size: 21px;
@@ -467,7 +513,7 @@ module.exports = {
           text-align: center;
           border-radius: 4px;
         }
-        
+      
         .main_page3_first_one_content_one_buttons {
           display: flex;
           flex-direction: row;
@@ -477,7 +523,7 @@ module.exports = {
           margin: 10px 0px;
           font-size: 19px;
         }
-        
+      
         .main_page3_first_one_content_one_buttons_button {
           display: flex;
           text-align: center;
@@ -486,29 +532,29 @@ module.exports = {
           background-color: #c2a36fc9;
           width: 100px;
           margin: 4px;
+          font-size: 23px;
           padding: 2px 7px;
           border-radius: 10px;
           color: white;
           font-weight: 500;
         }
-        
+      
         .main_page3_first_one_content_one_buttons_button span {
           margin: 0px 15px 0px 0px !important;
         }
-        
+      
         .main_page3_first_one_sub {
           font-size: 10px;
           margin: 3px 0px;
           text-align: center;
         }
-        
+      
         .main_page3_first_one_chart canvas {
           max-width: 100%;
         }
-        
+      
         .main_page3_first_one_break {
           align-self: stretch;
-          width: 5px;
           border-left: 1.5px solid gray;
           margin-left: 10px;
           margin-right: 10px;
@@ -524,15 +570,15 @@ module.exports = {
           align-items: flex-start;
           width: 100%;
         }
-        
+      
         .main_page3_second_one {
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          width: 60%;
+          width: 70%;
         }
-        
+      
         .main_page3_first_one_other {
           display: flex;
           flex-direction: row;
@@ -540,14 +586,14 @@ module.exports = {
           align-items: center;
           width: 90%;
         }
-        
+      
         .main_page3_first_one_other_one {
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
         }
-        
+      
         .main_page3_first_one_other_one_main {
           width: 150px;
           height: 150px;
@@ -561,29 +607,29 @@ module.exports = {
           justify-content: center;
           align-items: center;
         }
-        
+      
         .main_page3_first_one_other_one_text {
           text-align: center;
           font-size: 15px;
           font-weight: bold;
           letter-spacing: 0.3cap;
         }
-        
+      
         .main_page3_first_one_other_one_sub {
           font-size: 10px;
           color: gray;
         }
-        
+      
         .main_page3_second_two {
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-content: center;
-          width: 35%;
+          width: 30%;
           padding: 2px 15px;
           text-align: center;
         }
-        
+      
         .main_page3_third {
           display: flex;
           flex-direction: row;
@@ -592,8 +638,17 @@ module.exports = {
           text-align: center;
           width: 100%;
         }
-        
+      
         .main_page3_third_one {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 55%;
+          padding: 0px 5px;
+        }
+
+        .main_page3_third_two {
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -601,14 +656,15 @@ module.exports = {
           width: 45%;
           padding: 0px 5px;
         }
-        
+      
+      
         .main_page3_first_one_sub2 {
           font-size: 12px;
           font-style: italic;
           font-weight: bold;
           margin: 4px 0px;
         }
-        
+      
         .main_page3_first_one_main {
           display: flex;
           flex-direction: column;
@@ -616,7 +672,7 @@ module.exports = {
           align-items: flex-end;
           width: 100%;
         }
-        
+      
         .main_page3_first_one_main_head {
           display: flex;
           flex-direction: row;
@@ -627,11 +683,11 @@ module.exports = {
           width: 100%;
           margin: 5px 0;
         }
-        
+      
         .main_page3_first_one_main_head_head:first-child {
           margin-right: 25px;
         }
-        
+      
         .main_page3_first_one_main_head_sub {
           display: flex;
           justify-content: space-between;
@@ -641,7 +697,7 @@ module.exports = {
           width: 100%;
           margin-bottom: 10px;
         }
-        
+      
         .main_page3_first_one_main_head_sub_two {
           color: white;
           padding: 3px 10px;
@@ -652,7 +708,7 @@ module.exports = {
           border-radius: 10px;
           font-style: italic;
         }
-        
+      
         .main_page3_first_one_one {
           display: flex;
           flex-direction: row;
@@ -661,7 +717,7 @@ module.exports = {
           width: 95%;
           /* margin-top: 20px; */
         }
-        
+      
         .main_page3_first_one_one_one {
           display: flex;
           flex-direction: column;
@@ -673,32 +729,32 @@ module.exports = {
           border-radius: 20px;
           padding: 3px 15px;
         }
-        
+      
         .main_page3_first_one_one_num {
           font-size: 28px;
         }
-        
+      
         .main_page3_first_one_two {
           margin-top: 20px;
         }
-        
+      
         .main_page3_first_one_two table {
           font-size: 14px;
         }
-        
+      
         .main_page3_first_one_two th {
           padding: 0px 10px;
         }
-        
+      
         .main_page3_first_one_two td {
           padding: 10px 10px;
           font-weight: bold;
         }
-        
+      
         .bigtd {
           font-size: 30px;
         }
-        
+      
         .main_page3_four {
           display: flex;
           flex-direction: row;
@@ -707,30 +763,30 @@ module.exports = {
           width: 100%;
           text-align: center;
         }
-        
+      
         .main_page3_four_one:first-child {
           width: 45%;
         }
-        
+      
         .main_page3_four_one:last-child {
           width: 50%;
         }
-        
+      
         .main_page3_first_one_txt_chart {
           width: 100%;
         }
-        
+      
         .main_page3_first_one_txt_chart canvas {
           width: 50%;
           max-width: 400px;
         }
-        
+      
         .main_page3_first_one_tri {
           display: flex;
           justify-content: center;
           align-items: center;
         }
-        
+      
         .main_page4_first {
           display: flex;
           flex-direction: column;
@@ -739,7 +795,7 @@ module.exports = {
           text-align: center;
           width: 100%;
         }
-        
+      
         .main_page4_first_one {
           display: flex;
           flex-direction: row;
@@ -747,14 +803,14 @@ module.exports = {
           align-items: flex-start;
           width: 90%;
         }
-        
+      
         .main_page4_first_one_one {
           display: flex;
           justify-content: center;
           align-items: center;
           flex-direction: column;
         }
-        
+      
         .main_page4_first_one_one_head {
           font-size: 20px;
           font-weight: bold;
@@ -766,14 +822,14 @@ module.exports = {
           padding: 8px 12px;
           margin-bottom: 20px;
         }
-        
+      
         .main_page4_first_one_one_main {
           display: flex;
           flex-direction: row;
           justify-content: center;
           align-items: flex-start;
         }
-        
+      
         .main_page4_first_one_one_main_one {
           display: flex;
           flex-direction: column;
@@ -781,60 +837,60 @@ module.exports = {
           align-items: center;
           text-align: center;
         }
-        
+      
         .main_page4_first_one_one_main_one_head {
           font-size: 18px;
           text-decoration: underline;
           font-weight: bold;
           letter-spacing: 0.3cap;
         }
-        
+      
         .main_page4_first_one_one_main_one_sub {
           font-size: 18px;
           letter-spacing: 0.3cap;
           font-weight: bold;
         }
-        
+      
         .main_page4_first_one_one_main_one_chart canvas {
           max-width: 200px;
           display: block;
           height: 200px;
           width: 200px;
         }
-        
+      
         #main_page4_first_one_one_main_one_chart12 {
           width: 100%;
           height: 500px;
           max-width: 400px;
         }
-        
+      
         #main_page4_first_one_one_main_one_chart13 {
           width: 100%;
           height: 500px;
           max-width: 400px;
         }
-        
+      
         .main_page4_first_one:nth-child(2) {
           width: 100% !important;
         }
-        
+      
         .main_page4_first_one:nth-child(2) .main_page4_first_one_one {
           width: 50% !important;
         }
-        
+      
         .main_page4_first_one_one_main_one_chart {
           display: flex;
           justify-content: center;
           align-items: flex-start;
         }
-        
+      
         .main_page4_first_one_one_main_one_chart_bar {
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
         }
-        
+      
         .main_page4_first_one_one_main_one_chart_bar_big {
           width: 130px;
           height: 80px;
@@ -848,7 +904,7 @@ module.exports = {
           margin-right: 15px;
           padding-bottom: 10px;
         }
-        
+      
         .main_page4_first_one_one_main_one_chart_bar_small {
           width: 130px;
           height: 50px;
@@ -863,7 +919,7 @@ module.exports = {
           margin-right: 15px;
           padding-bottom: 10px;
         }
-        
+      
         .main_page4_first_one_one_main_one_chart_bar_other {
           display: flex;
           flex-direction: column;
@@ -871,30 +927,30 @@ module.exports = {
           align-items: center;
           text-align: center;
         }
-        
+      
         .main_page4_first_one_one_main_one_chart_bar_other_head {
           font-size: 12px;
           text-decoration: underline;
           font-style: italic;
         }
-        
+      
         .main_page4_first_one_one_main_one_chart_bar_other_rate_num {
           /* margin: 0 !important; */
           font-size: 20px;
           font-weight: bold;
         }
-        
+      
         .main_page4_first_one_one_main_one_chart_bar_other_rate {
           font-style: italic;
           margin-top: 7px;
         }
-        
+      
         .main_page4_first_one_one_main_one_chart_bar_other_rate_who {
           margin: 0 !important;
           font-size: 10px;
           font-weight: bold;
         }
-        
+      
         .main_page4_first_one_one_main2 {
           display: flex;
           justify-content: space-between;
@@ -903,43 +959,43 @@ module.exports = {
           text-align: center;
           width: 100%;
         }
-        
+      
         .main_page4_first_one_one_main_numone_num {
           font-size: 50px;
           font-weight: bolder;
         }
-        
+      
         .main_page4_first_one_one_main_numone_txt {
           font-size: 12px;
           font-weight: bold;
           margin-top: 4px;
         }
-        
+      
         .main_page4_first_one2 {
           justify-content: space-between !important;
           /* width: 100% !important; */
           width: 90%;
         }
-        
+      
         .main_page4_first_one2 .main_page4_first_one_one {
           width: 45%;
         }
-        
+      
         .main_page4_first_one_one_main_one_border {
           border-right: 1.8px dashed black;
           margin-right: 5px;
         }
-        
+      
         .main_third_line_new {
           width: 95% !important;
           margin-top: 5px;
         }
-        
+      
         #main_page5_first_one_chart19,
         #main_page5_first_one_chart20 {
           width: 400px;
         }
-        
+      
         .main_page5_first {
           display: flex;
           flex-direction: column;
@@ -947,7 +1003,7 @@ module.exports = {
           align-items: center;
           width: 95%;
         }
-        
+      
         .main_page5_first_one {
           display: flex;
           justify-content: space-between;
@@ -955,7 +1011,7 @@ module.exports = {
           text-align: center;
           width: 100%;
         }
-        
+      
         .main_page5_first_one_one {
           display: flex;
           flex-direction: column;
@@ -963,7 +1019,7 @@ module.exports = {
           align-items: center;
           width: 40%;
         }
-        
+      
         .main_page5_first_one_one_num {
           font-size: 28px;
           font-weight: bolder;
@@ -971,7 +1027,7 @@ module.exports = {
           padding: 1px 7px;
           border-radius: 19px;
         }
-        
+      
         .main_page5_first_one_one_txt {
           font-size: 17px;
           font-weight: bold;
@@ -979,62 +1035,61 @@ module.exports = {
           letter-spacing: 0.3cap;
           margin-top: 10px;
         }
-        
+      
         .main_page5_first_one_two {
           display: flex;
           flex-direction: row;
           justify-content: center;
           align-items: center;
         }
-        
+      
         .main_page5_first_one_one_chart canvas {
           max-width: 100px;
           height: 100px;
           width: 100%;
         }
-        
+      
         .main_page5_first_one:nth-child(2) {
           flex-direction: column;
           justify-content: center;
           align-items: center;
           margin-top: 20px;
         }
-        
+      
         .main_page5_first_one_txt {
           font-size: 20px;
           font-weight: bolder;
           text-decoration: underline;
           letter-spacing: 0.3cap;
           margin-top: 20px;
-          margin-bottom: 20px;
         }
-        
+      
         .main_page5_first_one_chart canvas {
           margin-top: 30px;
         }
-        
+      
         .main_page5_first_one_one2 {
           width: 65%;
         }
-        
+      
         .main_page5_first_one_one2 canvas {
           width: 500px;
         }
-        
+      
         .main_page5_first_one_one3 {
           width: 45%;
         }
-        
+      
         .main_page5_first_one_one4 {
           width: 30% !important;
         }
-        
+      
         .main_page5_first_one_chart {
           display: flex;
           justify-content: space-between;
           align-items: center;
         }
-        
+      
         .main_page5_first_one_chart_other {
           display: flex;
           flex-direction: row;
@@ -1055,7 +1110,7 @@ module.exports = {
           width: 300px;
           max-width: 500px;
         }
-        
+      
         .main_page6_first {
           display: flex;
           flex-direction: column;
@@ -1063,7 +1118,7 @@ module.exports = {
           align-items: center;
           width: 100%;
         }
-        
+      
         .main_page6_first_one {
           display: flex;
           flex-direction: column;
@@ -1071,7 +1126,7 @@ module.exports = {
           align-items: center;
           width: 100%;
         }
-        
+      
         .main_page6_first_one_head {
           font-size: 24px;
           font-weight: bolder;
@@ -1080,7 +1135,7 @@ module.exports = {
           margin-bottom: 30px;
           margin-top: 20px;
         }
-        
+      
         .main_page6_first_one_charts {
           display: flex;
           flex-direction: row;
@@ -1088,20 +1143,20 @@ module.exports = {
           align-items: flex-start;
           width: 90%;
         }
-        
+      
         .main_page6_first_one_charts_one canvas {
           width: 500px;
         }
-        
+      
         .main_page6_first_one_charts_two {
           margin-left: 5px;
         }
-        
+      
         .main_page6_first_one_charts_two canvas {
           width: 400px;
           margin-left: 5px;
         }
-        
+      
         .main_page6_first_one_flex {
           display: flex;
           flex-direction: row;
@@ -1110,29 +1165,29 @@ module.exports = {
           align-items: flex-start;
           text-align: center;
         }
-        
+      
         .main_page6_first_one_charts_three canvas {
           width: 400px;
         }
-        
+      
         .main_float_line2 {
-          top: 120px !important;
-          height: 1600px !important;
+          top: 83px !important;
+          height: 1560px !important;
         }
-        
+      
         .main_float_line3 {
           height: 1150px !important;
           top: 715% !important;
           z-index: 0;
           left: 53%;
         }
-        
+      
         .main_page4_first_one_one_main_pluse_growth {
           display: flex;
           justify-content: space-between;
           align-items: center;
         }
-        
+      
         .flex {
           display: flex;
         }
@@ -1195,6 +1250,9 @@ module.exports = {
           margin-top: 1rem;
           margin-bottom: 1rem;
         }
+        input[type="checkbox"] {
+          accent-color: black;
+        }
         .mt-0 {
           margin-top: 0;
         }
@@ -1210,7 +1268,7 @@ module.exports = {
         .mb-0 {
           margin-bottom: 0;
         }
-        .mb-1{
+        .mb-1 {
           margin-bottom: 0.25rem;
         }
         .mb-2 {
@@ -1297,7 +1355,7 @@ module.exports = {
         .fixed {
           position: fixed;
         }
-        
+      
         .ls-1 {
           letter-spacing: 0.25rem;
         }
@@ -1313,12 +1371,12 @@ module.exports = {
         .half_width_table {
           line-height: 2.2rem;
           td {
-            font-size: 18px;
+            font-size: 23px;
           }
         }
         .tableheading {
           td {
-            font-size: 15px;
+            font-size: 23px;
             line-height: 1.2rem !important;
           }
         }
@@ -1352,1659 +1410,1669 @@ module.exports = {
         .bg-brown {
           background-color: brown;
         }
-      
       </style>
       <html>
-      <body>
-      <!-- Main ELEMENT FOR COMPLETE PDF -->
-      <div class="main">
-        <!-- FIFTH PAGE -->
-        <div class="main_first">
-          <div class="main_first_img">
-            <img
-              src="https://i.ibb.co/v3ht5Zc/logo.png"
-              style="height: 100px; width:105px; margin-left: 10px"
-              alt=""
-            />
-          </div>
-          <div class="main_first_text">
-            <div class="main_first_text_tex1">NEW BRUNSWICK - MONCTON</div>
-            <div class="main_first_text_tex2 fw-md">KEY INSIGHTS</div>
-          </div>
-        </div>
-        <div class="main_second">
-        <div class="main_second1">
-          <div class="main_second_select1">
-            <label class="label" for="cars">PROVINCE:</label>
-            <select
-              name="cars"
-              id="cars"
-              style="width: 200px; margin-left: 25px"
-            >
-              <option value="volvo">New Brunswick</option>
-            </select>
-          </div>
-          <div class="main_second_select1">
-            <label class="label" for="cars">CMA OR CA:</label>
-            <select name="cars" id="cars" style="width: 200px">
-              <option value="volvo">New Brunswick</option>
-            </select>
-          </div>
-          <div class="main_second_select1">
-            <label class="label" for="cars">TYPE OF <br />HOUSE:</label>
-            <select
-              name="cars"
-              id="cars"
-              style="width: 200px; margin-left: 50px"
-            >
-              <option value="volvo">New Brunswick</option>
-            </select>
-          </div>
-        </div>
-        <div class="main_second2">
-          <div class="main_second_select1">
-            <div
-              class="main_second_select1_label label"
-              style="margin-left: 15px"
-            >
-              YEAR:
-            </div>
-            <select
-              name="cars"
-              id="cars"
-              style="width: 200px; margin-left: 50px"
-            >
-              <option value="volvo">2022</option>
-            </select>
-          </div>
-          <div class="main_second_select1">
-            <div
-              class="main_second_select1_label label"
-              style="margin-left: 15px"
-            >
-              RENT:
-            </div>
-            <div class="main_second_select1_check" style="margin-left: 35px">
-              <div>
-                <label for="c3" class="small_label">CMHC </label>
-                <input
-                  type="checkbox"
-                  id="c3"
-                  value="CMHC"
-                  checked
-                  class="myinput large"
+        <body>
+          <!-- Main ELEMENT FOR COMPLETE PDF -->
+          <div class="main">
+            <!-- FIFTH PAGE -->
+            <div class="main_first">
+              <div class="main_first_img">
+                <img
+                  src="https://i.ibb.co/v3ht5Zc/logo.png"
+                  style="height: 100px; width: 105px; margin-left: 10px"
+                  alt=""
                 />
               </div>
-              <div>
-                <label for="c3" class="small_label">REALISTIC RENT </label>
-                <input
-                  type="checkbox"
-                  id="c3"
-                  value="CMHC"
-                  class="myinput large"
-                />
+              <div class="main_first_text">
+                <div class="main_first_text_tex1">NEW BRUNSWICK - MONCTON</div>
+                <div class="main_first_text_tex2 fw-md">KEY INSIGHTS</div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="main_second2">
-          <div class="main_second_select1">
-            <div
-              class="main_second_select1_label label"
-              style="margin-left: -20px"
-            >
-              AFFORDABILITY <br />
-              DEFINITION :
-            </div>
-            <select
-              name="cars"
-              id="cars"
-              style="width: 200px; margin-left: 30px"
-            >
-              <option value="volvo">USE BOTH</option>
-            </select>
-          </div>
-          <div class="main_second_select1">
-            <div
-              class="main_second_select1_label label"
-              style="margin-left: -40px"
-            >
-              EXPENSES <br />
-              (EXCLUDING RENT):
-            </div>
-            <div class="main_second_select1_check">
-              <div>
-                <label for="c3" class="small_label"
-                  >AVERAGE HOUSEHOLD EXPENSES
-                </label>
-                <input
-                  type="checkbox"
-                  id="c3"
-                  value="CMHC"
-                  checked
-                  class="myinput large"
-                />
-              </div>
-              <div>
-                <label for="c3" class="small_label"
-                  >POVERTY LINE EXPENSES
-                </label>
-                <input
-                  type="checkbox"
-                  id="c3"
-                  value="CMHC"
-                  class="myinput large"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-        <div class="main_third">
-          <div class="main_third_text">
-            <span> NOTE 1: B = Bedrooms </span>
-            <span>
-              Note 2: All figures mentioned in this report are presented on an
-              annual basis unless otherwise specified
-            </span>
-          </div>
-          <div class="main_third_line"></div>
-        </div>
-        <div class="main_page3_second">
-          <div class="main_page3_second_one">
-            <div class="main_page3_first_one_txt">RANKING</div>
-            <div class="main_page3_first_one_other">
-              <div class="main_page3_first_one_other_one">
-                <div class="main_page3_first_one_other_one_main">
-                  <!-- 12 -->
+            <div class="main_second">
+              <div class="main_second1">
+                <div class="main_second_select1">
+                  <label class="label" for="cars">PROVINCE:</label>
+                  <select
+                    name="cars"
+                    id="cars"
+                    style="width: 200px; margin-left: 25px"
+                  >
+                    <option value="volvo">New Brunswick</option>
+                  </select>
                 </div>
-                <div class="main_page3_first_one_other_one_text">
-                  AFFORDABILITY<br />
-                  (BY RENT)
+                <div class="main_second_select1">
+                  <label class="label" for="cars">CMA OR CA:</label>
+                  <select name="cars" id="cars" style="width: 200px">
+                    <option value="volvo">New Brunswick</option>
+                  </select>
                 </div>
-                <div class="main_page3_first_one_other_one_sub">
-                  *Places with the lowest rent have the highest ranking
+                <div class="main_second_select1">
+                  <label class="label" for="cars">TYPE OF <br />HOUSE:</label>
+                  <select
+                    name="cars"
+                    id="cars"
+                    style="width: 200px; margin-left: 50px"
+                  >
+                    <option value="volvo">New Brunswick</option>
+                  </select>
                 </div>
               </div>
-              <div class="main_page3_first_one_other_one">
-                <div class="main_page3_first_one_other_one_main">
-                  <!-- 12 -->
-                </div>
-                <div class="main_page3_first_one_other_one_text">
-                  AFFORDABILITY<br />
-                  (BY AFFORDABLE UNITS)
-                </div>
-              </div>
-              <div class="main_page3_first_one_other_one">
-                <div class="main_page3_first_one_other_one_main">
-                  <!-- 12 -->
-                </div>
-                <div class="main_page3_first_one_other_one_text">
-                  MEDIAN<br />
-                  INCOME
-                </div>
-                <div class="main_page3_first_one_other_one_sub">*Before Tax</div>
-              </div>
-            </div>
-          </div>
-          <div class="main_page3_first_one_break"></div>
-          <div class="main_page3_second_two">
-            <div class="flex align-center justify-between">
-              <div class="main_page3_first_one_txt" style="width: 75%">
-                AVERAGE OPTIMAL INCOME BEFORE TAX
-              </div>
-              <div class="main_page3_first_one_main_head_sub_two">$40,000</div>
-            </div>
-            <div class="flex justify-center align-center">
-            <div
-            class="main_page3_first_one_main_head_sub_two"
-            style="
-              height: 100px;
-              width: 150px;
-              margin-top: 30px;
-              border-radius: 40%;
-            "
-          >
-            <div style="margin-top: 20px; font-size: 50px">40%</div>
-          </div>
-              <div class="main_page3_first_one_txt">
-                FAMILIES UNDER OPTIMAL INCOME
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="main_third_line"></div>
-        <div class="main_page3_first">
-          <div class="main_page3_first_one">
-            <div class="main_page3_first_one_txt ls-2"  style="font-size: 35px">
-              AVERAGE <br />
-              RENT
-            </div>
-            <span class="m-0">Monthly</span>
-            <div class="main_page3_first_one_content">
-              <div class="main_page3_first_one_content_one">
-                <div
-                  class="main_page3_first_one_content_one_head fw-light ls-1 my-4"
-                >
-                  ROW HOUSE
-                </div>
-                <div class="main_page3_first_one_content_one_buttons my-0">
-                  <div class="main_page3_first_one_content_one_buttons_button">
-                    <span>0B</span> $900
+              <div class="main_second2">
+                <div class="main_second_select1">
+                  <div
+                    class="main_second_select1_label label"
+                    style="margin-left: 15px"
+                  >
+                    YEAR:
                   </div>
-                  <div class="main_page3_first_one_content_one_buttons_button">
-                    <span>1B</span> $1010
-                  </div>
+                  <select
+                    name="cars"
+                    id="cars"
+                    style="width: 200px; margin-left: 15px"
+                  >
+                    <option value="volvo">2022</option>
+                  </select>
                 </div>
-                <div class="main_page3_first_one_content_one_buttons my-0">
-                  <div class="main_page3_first_one_content_one_buttons_button">
-                    <span>2B</span> $1120
+                <div class="main_second_select1" style="margin-left:28px">
+                  <div
+                    class="main_second_select1_label label"
+                    style="margin-left: 15px;margin-top:20px"
+                  >
+                    RENT:
                   </div>
-                  <div class="main_page3_first_one_content_one_buttons_button">
-                    <span>3B+</span> $1500
+                  <div class="main_second_select1_check" style="margin-left: 5px">
+                    <div>
+                      <label for="c3" class="label">CMHC </label>
+                      <input
+                        type="checkbox"
+                        id="c3"
+                        value="CMHC"
+                        checked
+                        class="myinput large"
+                      />
+                    </div>
+                    <div>
+                      <label for="c3" class="label">REALISTIC RENT </label>
+                      <input
+                        type="checkbox"
+                        id="c3"
+                        value="CMHC"
+                        class="myinput large"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="main_page3_first_one_content_one">
-                <div
-                  class="main_page3_first_one_content_one_head fw-light ls-1 my-4"
-                >
-                  APARTMENT
+              <div class="main_second3">
+                <div class="main_second_select1">
+                  <div
+                    class="main_second_select1_label label"
+                    style="margin-left: -20px"
+                  >
+                    AFFORDABILITY <br />
+                    DEFINITION :
+                  </div>
+                  <select
+                    name="cars"
+                    id="cars"
+                    style="width: 200px; margin-left: 30px"
+                  >
+                    <option value="volvo">USE BOTH</option>
+                  </select>
                 </div>
-                <div class="main_page3_first_one_content_one_buttons my-0">
-                  <div class="main_page3_first_one_content_one_buttons_button">
-                    <span>0B</span> $900
+                <div class="main_second_select1" style="margin-left:30px">
+                  <div
+                    class="main_second_select1_label label"
+                    style="margin-left: -40px;margin-top:5px"
+                  >
+                    EXPENSES <br />
+                    (EXCLUDING RENT):
                   </div>
-                  <div class="main_page3_first_one_content_one_buttons_button">
-                    <span>1B</span> $1010
-                  </div>
-                </div>
-                <div class="main_page3_first_one_content_one_buttons my-0">
-                  <div class="main_page3_first_one_content_one_buttons_button">
-                    <span>2B</span> $1120
-                  </div>
-                  <div class="main_page3_first_one_content_one_buttons_button">
-                    <span>3B+</span> $1500
+                  <div class="main_second_select1_check">
+                    <div>
+                      <label for="c3" class="small_label" style="padding-top: 6px"
+                        >AVERAGE HOUSEHOLD EXPENSES
+                      </label>
+                      <input
+                        type="checkbox"
+                        id="c3"
+                        value="CMHC"
+                        checked
+                        class="myinput large"
+                      />
+                    </div>
+                    <div>
+                      <label for="c3" class="small_label" style="padding-top: 6px"
+                        >POVERTY LINE EXPENSES
+                      </label>
+                      <input
+                        type="checkbox"
+                        id="c3"
+                        value="CMHC"
+                        class="myinput large"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="main_page3_first_one_break"></div>
-          <div class="main_page3_first_one">
-            <div class="main_page3_first_one_txt ls-2" style="font-size: 30px">
-              AFFORDABLE SHELTER COST
-            </div>
-            <span style="font-size: small; letter-spacing: 5px"
-              >BASED ON 2 DEFINATIONS</span
-            >
-            <div class="main_page3_first_one_txt ls-2" style="font-size: 30px">
-              VS CURRENT SHELTER COST
-            </div>
-            <div class="main_page3_first_one_sub">
-              MONTHLY
-              <canvas
-                id="main_page3_first_one_pichart"
-                width="660"
-                height="270"
-              ></canvas>
-              <p class="ls-1">INCOME CATEGORIES</p>
-            </div>
-          </div>
-          <div class="main_page3_first_one_break"></div>
-          <div class="main_page3_first_one">
-            <div class="main_page3_first_one_txt ls-2">
-              RENTAL <br />
-              SUPPLY
-            </div>
-            <div class="main_page3_first_one_sub text-sm">
-              8% of New stock is added this Year
-            </div>
-            <div class="main_page3_first_one_chart">
-              <canvas
-                id="main_page3_first_one_chart_main"
-                style="height: 340px; width: 140px"
-              ></canvas>
-            </div>
-          </div>
-        </div>
-        <!-- SECOND PAGE -->
-        <div class="main_third_line"></div>
-        <div class="main_page3_third">
-          <span style="width: 8%"></span>
-          <div class="main_page3_first_one_txt" style="letter-spacing: 6px;font-size: 30px">
-            TOTAL RENTAL STOCK :
-          </div>
-          <div
-            class="main_page3_first_one_main_head_sub_two ml-4"
-            style="letter-spacing: 8px"
-          >
-            4,100
-          </div>
-        </div>
-        <p
-          class="text-md fw-light mt-1"
-          style="text-align: center; letter-spacing: 8px"
-        >
-          ROW HOUSE & APARTMENT
-        </p>
-  
-        <div class="flex justify-between">
-          <div class="main_page4_first_one_one_main">
-            <div class="main_page3_first_one_sub">
-              <div class="main_page3_first_one_txt" style="letter-spacing: 6px">
-                AFFORDABILITY OVERVIEW
+            <div class="main_third">
+              <div class="main_third_text">
+                <span> NOTE 1: B = Bedrooms </span>
+                <span>
+                  Note 2: All figures mentioned in this report are presented on an
+                  annual basis unless otherwise specified
+                </span>
               </div>
-              <p class="text-sm fw-light m-0">
-                Out of a total supply of 4,100 units, 2,250 are affordable.
-              </p>
-              <p class="text-2xl ls-1 m-0">AFFORDABLE</p>
-              <canvas
-                id="main_page3_first_one_one_main_one_chart29"
-                style="max-width: 200px; margin: auto;height:200px"
-              ></canvas>
-              <p class="text-2xl ls-1 m-0">UNAFFORDABLE</p>
+              <div class="main_third_line"></div>
             </div>
-          </div>
-          <div class="main_page3_first_one_break"></div>
-          <div class="px-4">
-            <div class="main_page3_first_one_sub" style="letter-spacing: 6px">
-              <h1 class="ml-12 mt-0">AVAILABLE STOCK OVERVIEW</h1>
-            </div>
-            <div class="main_page4_first_one_one_main w-fit">
-              <div class="main_page3_first_one_sub mr-2">
-                <div class="main_page4_first_one_one_main_one_head mx-2">
-                  AFFORDABLE STOCKS
+            <div class="main_page3_second">
+              <div class="main_page3_second_one">
+                <div class="main_page3_first_one_txt">RANKING</div>
+                <div class="main_page3_first_one_other">
+                  <div class="main_page3_first_one_other_one">
+                    <div class="main_page3_first_one_other_one_main">
+                      <!-- 12 -->
+                    </div>
+                    <div class="main_page3_first_one_other_one_text">
+                      AFFORDABILITY<br />
+                      (BY RENT)
+                    </div>
+                    <div class="main_page3_first_one_other_one_sub">
+                      *Places with the lowest rent have the highest ranking
+                    </div>
+                  </div>
+                  <div class="main_page3_first_one_other_one">
+                    <div class="main_page3_first_one_other_one_main">
+                      <!-- 12 -->
+                    </div>
+                    <div class="main_page3_first_one_other_one_text">
+                      AFFORDABILITY<br />
+                      (BY AFFORDABLE UNITS)
+                    </div>
+                  </div>
+                  <div class="main_page3_first_one_other_one">
+                    <div class="main_page3_first_one_other_one_main">
+                      <!-- 12 -->
+                    </div>
+                    <div class="main_page3_first_one_other_one_text" style="margin-top:7px">
+                      MEDIAN<br />
+                      INCOME
+                    </div>
+                    <div class="main_page3_first_one_other_one_sub">*Before Tax</div>
+                  </div>
                 </div>
-                <p class="text-sm fw-light m-0">
-                  Out of a total affordable supply of 2,250 units, 1,125 are
-                  available.
-                </p>
-                <p class="text-2xl ls-1 m-0">AVAILABLE</p>
-  
-                <div class="main_page4_first_one_one_main_one_chart">
-                  <canvas
-                    id="main_page3_first_one_one_main_one_chart30"
-                    style="max-width: 150px; margin: auto;height:150px"
-                  ></canvas>
-                </div>
-                <p class="text-2xl ls-1 m-0">OCCUPIED</p>
               </div>
               <div class="main_page3_first_one_break"></div>
-  
-              <div class="main_page3_first_one_sub ml-2">
-                <div class="main_page4_first_one_one_main_one_head">
-                  UNAFFORDABLE STOCKS
+              <div class="main_page3_second_two">
+                <div class="flex align-center justify-between">
+                  <div class="main_page3_first_one_txt" style="width: 75%">
+                    AVERAGE OPTIMAL INCOME BEFORE TAX
+                  </div>
+                  <div class="main_page3_first_one_main_head_sub_two">$40,000</div>
                 </div>
-                <p class="text-sm fw-light m-0">
-                  Out of a total unaffordable supply of 1,850 units, 610 are
-                  available.
-                </p>
-                <p class="text-2xl ls-1 m-0">AVAILABLE</p>
-  
-                <div class="main_page4_first_one_one_main_one_chart">
+                <div class="flex justify-center align-center" style="margin-top:20px">
+                  <div
+                    class="main_page3_first_one_main_head_sub_two"
+                    style="
+                    height: 50px;
+                    width: 110px;
+                    margin-top: 30px;
+                    border-radius: 30%;
+                    "
+                  >
+                    <div style="margin-top:-5px;font-size: 50px">40%</div>
+                  </div>
+                  <div class="main_page3_first_one_txt" style="margin-top:20px;font-size:16px">
+                    FAMILIES UNDER <br /> OPTIMAL INCOME
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="main_third_line"></div>
+            <div class="main_page3_first">
+              <div class="main_page3_first_one">
+                <div class="main_page3_first_one_txt ls-2" style="font-size: 35px">
+                  AVERAGE <br />
+                  RENT
+                </div>
+                <span class="m-0">Monthly</span>
+                <div class="main_page3_first_one_content">
+                  <div class="main_page3_first_one_content_one">
+                    <div
+                      class="main_page3_first_one_content_one_head fw-light ls-1 my-4"
+                    >
+                      ROW HOUSE
+                    </div>
+                    <div class="main_page3_first_one_content_one_buttons my-0">
+                      <div class="main_page3_first_one_content_one_buttons_button">
+                        <span>0B</span> $900
+                      </div>
+                      <div class="main_page3_first_one_content_one_buttons_button">
+                        <span>1B</span> $1010
+                      </div>
+                    </div>
+                    <div class="main_page3_first_one_content_one_buttons my-0">
+                      <div class="main_page3_first_one_content_one_buttons_button">
+                        <span>2B</span> $1120
+                      </div>
+                      <div class="main_page3_first_one_content_one_buttons_button">
+                        <span>3B+</span> $1500
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main_page3_first_one_content_one">
+                    <div
+                      class="main_page3_first_one_content_one_head fw-light ls-1 my-4"
+                    >
+                      APARTMENT
+                    </div>
+                    <div class="main_page3_first_one_content_one_buttons my-0">
+                      <div class="main_page3_first_one_content_one_buttons_button">
+                        <span>0B</span> $900
+                      </div>
+                      <div class="main_page3_first_one_content_one_buttons_button">
+                        <span>1B</span> $1010
+                      </div>
+                    </div>
+                    <div class="main_page3_first_one_content_one_buttons my-0">
+                      <div class="main_page3_first_one_content_one_buttons_button">
+                        <span>2B</span> $1120
+                      </div>
+                      <div class="main_page3_first_one_content_one_buttons_button">
+                        <span>3B+</span> $1500
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="main_page3_first_one_break"></div>
+              <div class="main_page3_first_two">
+                <div class="main_page3_first_one_txt ls-2" style="font-size: 28px">
+                  AFFORDABLE SHELTER COST
+                </div>
+                <span style="font-size: small; letter-spacing: 5px"
+                  >BASED ON 2 DEFINATIONS</span
+                >
+                <div class="main_page3_first_one_txt ls-2" style="font-size: 28px">
+                  VS CURRENT SHELTER COST
+                </div>
+                <div class="main_page3_first_one_sub">
+                  MONTHLY
                   <canvas
-                    id="main_page3_first_one_one_main_one_chart31"
-                    style="max-width: 150px; margin: auto;height:150px"
+                    id="main_page3_first_one_pichart"
+                    width="660"
+                    height="270"main_third_line
+                  ></canvas>
+                  <p class="ls-1">INCOME CATEGORIES</p>
+                </div>
+              </div>
+              <div class="main_page3_first_one_break"></div>
+              <div class="main_page3_first_three">
+                <div class="main_page3_first_one_txt ls-2" style="font-size:30px">
+                  RENTAL <br />
+                  SUPPLY
+                </div>
+                <div class="main_page3_first_one_sub text-sm">
+                  8% of New stock is added this Year
+                </div>
+                <div class="main_page3_first_one_chart">
+                  <canvas
+                    id="main_page3_first_one_chart_main"
+                    style="height: 270px; width: 155px"
                   ></canvas>
                 </div>
-                <p class="text-2xl ls-1 m-0">OCCUPIED</p>
               </div>
             </div>
-          </div>
-          <div class="main_page3_first_one_break"></div>
-  
-          <div class="main_page3_first_one_sub h-max">
-            <div class="main_page3_first_one_txt" style="letter-spacing: 6px">
-              NEW UNITS CONSTRUCTED
+            <!-- SECOND PAGE -->
+            <div class="main_third_line"></div>
+            <div class="main_page3_third">
+              <span style="width: 8%"></span>
+              <div
+                class="main_page3_first_one_txt"
+                style="letter-spacing: 6px; font-size: 30px"
+              >
+                TOTAL RENTAL STOCK :
+              </div>
+              <div
+                class="main_page3_first_one_main_head_sub_two ml-4"
+                style="letter-spacing: 8px;margin-top: 3px"
+              >
+                4,100
+              </div>
             </div>
-            <p class="text-sm fw-light m-0">
-              A total of 350 new units were constructed this year, with 210 being
-              affordable
+            <p
+              class="text-md fw-light mt-1"
+              style="text-align: center; letter-spacing: 8px;margin-bottom:0px"
+            >
+              ROW HOUSE & APARTMENT
             </p>
-            <p class="text-2xl ls-1 m-0">AFFORDABLE</p>
-            <canvas
-              id="main_page3_first_one_one_main_one_chart32"
-              style="max-width: 200px; margin: auto;height:200px"
-            ></canvas>
-            <p class="text-2xl ls-1 m-0">UNAFFORDABLE</p>
-          </div>
-        </div>
-        <div class="main_third_line" style="margin:20px 0"></div>
-  
-        <div class="main_page3_third">
-          <div class="main_page3_third_one">
-            <div class="main_page3_first_one_txt"  style="margin-right: 20px">PROVINCIAL AVERAGE INCOME</div>
-            <div class="main_page3_first_one_sub2 text-xl fw-light ls-2">
-              BEFORE TAX
+      
+            <div class="flex justify-between">
+              <div class="main_page4_first_one_one_main">
+                <div class="main_page3_first_one_sub">
+                  <div class="main_page3_first_one_txt" style="letter-spacing: 6px">
+                    AFFORDABILITY OVERVIEW
+                  </div>
+                  <p class="text-sm fw-light m-0">
+                    Out of a total supply of 4,100 units, 2,250 are affordable.
+                  </p>
+                  <p class="text-2xl ls-1 m-0">AFFORDABLE</p>
+                  <canvas
+                    id="main_page3_first_one_one_main_one_chart29"
+                    style="max-width: 200px; margin: auto; height: 200px"
+                  ></canvas>
+                  <p class="text-2xl ls-1 m-0">UNAFFORDABLE</p>
+                </div>
+              </div>
+              <div class="main_page3_first_one_break"></div>
+              <div class="px-4">
+                <div class="main_page3_first_one_sub" style="letter-spacing: 6px">
+                  <h1 class="mt-0">AVAILABLE STOCK OVERVIEW</h1>
+                </div>
+                <div class="main_page4_first_one_one_main w-fit">
+                  <div class="main_page3_first_one_sub mr-2">
+                    <div class="main_page4_first_one_one_main_one_head mx-2">
+                      AFFORDABLE STOCKS
+                    </div>
+                    <p class="text-sm fw-light m-0">
+                      Out of a total affordable supply of 2,250 units, 1,125 are
+                      available.
+                    </p>
+                    <p class="text-2xl ls-1 m-0">AVAILABLE</p>
+      
+                    <div class="main_page4_first_one_one_main_one_chart">
+                      <canvas
+                        id="main_page3_first_one_one_main_one_chart30"
+                        style="max-width: 150px; margin: auto; height: 150px"
+                      ></canvas>
+                    </div>
+                    <p class="text-2xl ls-1 m-0">OCCUPIED</p>
+                  </div>
+                  <div class="main_page3_first_one_break"></div>
+      
+                  <div class="main_page3_first_one_sub ml-2">
+                    <div class="main_page4_first_one_one_main_one_head">
+                      UNAFFORDABLE STOCKS
+                    </div>
+                    <p class="text-sm fw-light m-0">
+                      Out of a total unaffordable supply of 1,850 units, 610 are
+                      available.
+                    </p>
+                    <p class="text-2xl ls-1 m-0">AVAILABLE</p>
+      
+                    <div class="main_page4_first_one_one_main_one_chart">
+                      <canvas
+                        id="main_page3_first_one_one_main_one_chart31"
+                        style="max-width: 150px; margin: auto; height: 150px"
+                      ></canvas>
+                    </div>
+                    <p class="text-2xl ls-1 m-0">OCCUPIED</p>
+                  </div>
+                </div>
+              </div>
+              <div class="main_page3_first_one_break"></div>
+      
+              <div class="main_page3_first_one_sub h-max">
+                <div class="main_page3_first_one_txt" style="letter-spacing: 6px">
+                  NEW UNITS CONSTRUCTED
+                </div>
+                <p class="text-sm fw-light m-0">
+                  A total of 350 new units were constructed this year, with 210 being
+                  affordable
+                </p>
+                <p class="text-2xl ls-1 m-0">AFFORDABLE</p>
+                <canvas
+                  id="main_page3_first_one_one_main_one_chart32"
+                  style="max-width: 200px; margin: auto; height: 200px"
+                ></canvas>
+                <p class="text-2xl ls-1 m-0">UNAFFORDABLE</p>
+              </div>
             </div>
-            <div class="m-auto">
-              <table class="fw-bold half_width_table">
-                <tr
-                  style="font-weight: 500; letter-spacing: 3px"
-                  class="tableheading"
-                >
-                  <td>NO. OF BEDROOMS</td>
-                  <td>OPTIMAL INCOME</td>
-                  <td>INCOME DIFFRENCE</td>
-                  <td>OPTICAL INCOME</td>
-                  <td>INCOME DIFFRENCE</td>
-                </tr>
-                <tr>
-                  <td>0 B</td>
-                  <td>$41,000</td>
-                  <td><span class="btn-green">$19,000</span></td>
-                  <td>$40,000</td>
-                  <td><span class="btn-green">$19,000</span></td>
-                </tr>
-                <tr>
-                  <td>1 B</td>
-                  <td>$54,000</td>
-                  <td><span class="btn-green">$6,000</span></td>
-                  <td>$51,000</td>
-                  <td><span class="btn-green">$6,000</span></td>
-                </tr>
-                <tr>
-                  <td>2 B</td>
-                  <td>$61,000</td>
-                  <td><span class="btn-red">$1,000</span></td>
-                  <td>$63,000</td>
-                  <td><span class="btn-red">$1,000</span></td>
-                </tr>
-                <tr>
-                  <td>3 B +</td>
-                  <td>$65,000</td>
-                  <td><span class="btn-red">$5,000</span></td>
-                  <td>$64,000</td>
-                  <td><span class="btn-red">$5,000</span></td>
-                </tr>
-              </table>
+            <div class="main_third_line" style="margin: 2px 0"></div>
+      
+            <div class="main_page3_third">
+              <div class="main_page3_third_one">
+                <div class="main_page3_first_one_txt" style="margin-right: 30px;font-size:20px">
+                  PROVINCIAL AVERAGE INCOME
+                </div>
+                <div class="main_page3_first_one_sub2 text-xl fw-light ls-2">
+                  BEFORE TAX
+                </div>
+                <div  style="margin-left:30px">
+                  <table class="fw-bold half_width_table">
+                    <tr
+                      style="font-weight: 500; letter-spacing: 4px"
+                      class="tableheading"
+                    >
+                      <td>NO. OF BEDROOMS</td>
+                      <td>OPTIMAL INCOME</td>
+                      <td>INCOME DIFFRENCE</td>
+                      <td>OPTICAL INCOME</td>
+                      <td>INCOME DIFFRENCE</td>
+                    </tr>
+                    <tr>
+                      <td>0 B</td>
+                      <td>$41,000</td>
+                      <td><span class="btn-green">$19,000</span></td>
+                      <td>$40,000</td>
+                      <td><span class="btn-green">$19,000</span></td>
+                    </tr>
+                    <tr>
+                      <td>1 B</td>
+                      <td>$54,000</td>
+                      <td><span class="btn-green">$6,000</span></td>
+                      <td>$51,000</td>
+                      <td><span class="btn-green">$6,000</span></td>
+                    </tr>
+                    <tr>
+                      <td>2 B</td>
+                      <td>$61,000</td>
+                      <td><span class="btn-red">$1,000</span></td>
+                      <td>$63,000</td>
+                      <td><span class="btn-red">$1,000</span></td>
+                    </tr>
+                    <tr>
+                      <td>3 B +</td>
+                      <td>$65,000</td>
+                      <td><span class="btn-red">$5,000</span></td>
+                      <td>$64,000</td>
+                      <td><span class="btn-red">$5,000</span></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div
+                class="main_page3_first_one_main_head_sub_two mr-2"
+                style="padding: 4px; letter-spacing: 3px; margin-left: -60px"
+              >
+                $60,000
+              </div>
+      
+              <div class="main_page3_first_one_break" ></div>
+      
+              <div class="main_page3_third_two">
+                <div class="main_page3_first_one_txt ls-2" style="font-size:20px">DISCRETIONARY INCOME</div>
+                <div class="main_page3_four_one">
+                  <div class="main_page3_first_one_tri">
+                    <div
+                      id="chartDiv"
+                      style="background: transparent !important; margin-top: 5px"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="main_page3_four"></div>
+          </div>
+      
+          <!-- SIXTH PAGE -->
+          <br /><br />
+          <div style="position: relative">
+            <div class="main_first" >
+              <div class="main_first_img">
+                <img
+                  src="https://i.ibb.co/v3ht5Zc/logo.png"
+                  style="height: 100px; width: 105px; margin-top: -20%"
+                  alt=""
+                />
+              </div>
+              <div class="main_first_text" style="margin-top: -25px">
+                <div class="main_first_text_tex1">NEW BRUNSWICK - MONCTON</div>
+                <div class="main_first_text_tex2">SUPPLY ANALYSIS</div>
+              </div>
+            </div>
+            <div class="main_third">
+              <span> NOTE - B = Bedrooms </span>
+              <div class="main_third_line" style="margin: 0"></div>
+            </div>
+            <div class="main_page4_first">
+              <div class="main_page4_first_one">
+                <div class="main_page4_first_one_one">
+                  <div class="main_page4_first_one_one_head text-2xl mt-1">
+                    APARTMENT OVERVIEW
+                  </div>
+                  <div class="main_page3_third mb-2">
+                    <div class="main_page3_first_one_txt">TOTAL RENTAL UNITS</div>
+                    <div
+                      class="main_page3_first_one_main_head_sub_two ml-2"
+                      style="padding: 4px 12px; letter-spacing: 3px; margin-top: -10px"
+                    >
+                      2,100
+                    </div>
+                  </div>
+                  <div class="main_page4_first_one_one_main">
+                    <div class="main_page4_first_one_one_main_one">
+                      <div class="main_page4_first_one_one_main_one_head mr-2">
+                        HOUSES AVAILABLE
+                      </div>
+                      <div class="main_page4_first_one_one_main_one_chart">
+                        <canvas
+                          id="main_page4_first_one_one_main_one_chart8"
+                          style="min-width: 250px; min-height: 250px"
+                        ></canvas>
+                      </div>
+                    </div>
+                    <div class="main_page3_first_one_break b-l-dashed"></div>
+                    <div class="main_page4_first_one_one_main_one">
+                      <div class="main_page4_first_one_one_main_one_head ml-2">
+                        TYPE OF BEDROOM
+                      </div>
+                      <div class="main_page4_first_one_one_main_one_chart">
+                        <canvas
+                          id="main_page4_first_one_one_main_one_chart9"
+                        ></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="main_page4_first_one_one">
+                  <div class="main_page4_first_one_one_head text-2xl mt-1">
+                    ROW HOUSE OVERVIEW
+                  </div>
+                  <div class="main_page3_third mb-2">
+                    <div class="main_page3_first_one_txt">TOTAL RENTAL UNITS</div>
+                    <div
+                      class="main_page3_first_one_main_head_sub_two ml-2"
+                      style="padding: 4px 12px; letter-spacing: 3px; margin-top: -10px"
+                    >
+                      5,100
+                    </div>
+                  </div>
+                  <div class="main_page4_first_one_one_main">
+                    <div class="main_page4_first_one_one_main_one">
+                      <div class="main_page4_first_one_one_main_one_head">
+                        TOTAL UNITS
+                      </div>
+                      <div class="main_page4_first_one_one_main_one_chart">
+                        <canvas
+                          id="main_page4_first_one_one_main_one_chart10"
+                          style="min-width: 250px; min-height: 250px"
+                        ></canvas>
+                      </div>
+                    </div>
+                    <div class="main_page3_first_one_break b-l-dashed"></div>
+                    <div class="main_page4_first_one_one_main_one ml-2">
+                      <div class="main_page4_first_one_one_main_one_head">
+                        TYPE OF BEDROOM
+                      </div>
+                      <div class="main_page4_first_one_one_main_one_chart">
+                        <canvas
+                          id="main_page4_first_one_one_main_one_chart11"
+                        ></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="main_page4_first_one">
+                <div class="main_page4_first_one_one">
+                  <div class="main_third_line main_third_line_new"></div>
+                  <div
+                    class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-2xl"
+                  >
+                    HISTORICAL RENTAL STOCK
+                  </div>
+                  <div
+                    class="main_page4_first_one_one_main main_page4_first_one_one_main_pluse_growth"
+                  >
+                    <div class="main_page4_first_one_one_main_one">
+                      <div class="main_page4_first_one_one_main_one_chart">
+                        <canvas
+                          id="main_page4_first_one_one_main_one_chart12"
+                          style="min-width: 450px"
+                        ></canvas>
+                      </div>
+                    </div>
+                    <div
+                      class="main_page4_first_one_one_main_one_chart_bar_other ml-2"
+                    >
+                      <div
+                        class="main_page4_first_one_one_main_one_chart_bar_other_head"
+                      >
+                        GROWTH RATE
+                      </div>
+                      <div
+                        class="main_page4_first_one_one_main_one_chart_bar_other_rate"
+                      >
+                        <span
+                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
+                          >1.5%
+                          <img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB3UlEQVQ4jWP4//8/Az584P4Be4keiWeCHYJvD9w/YEdIPeP///8ZcIEvv75w607XvfzgwwNFBgYGBmVB5TuXMi/pcbFyfcelhwmnaQwMDLX7apthhjEwMDDcfX9XpfFgYz0+PThdeOrpKTPLuZbH/v3/x4wszsLE8udUyilTQ0nDC0S78Pff36wpm1JmoxvGwMDA8OffH5bUzalz/vz7gyGH08Cuo11ll19d1sPqdAYGhrPPzxpPODGhAJschpdvvLmhbjDD4MLPvz85cBnIwMDAwMXK9fVy5mVdJUGl+zhd+O//P8a0zWmzCBnGwMDA8O33N+6MLRkz0B2EYuCss7PSDj86bEfIMBjYfW+326KLi+KQxeBefvrpqZTWNK1rn35+4ifWQAYGBgZhTuE317KvaYlxi71GcWH2tuyppBrGwMDA8Pb7W5GCHQUTYHwmBgYGhtVXV4dsvLkxgFTDYGD5leVR229v92RgYGBgfPftnYDWNK3rL768kCDXQAYGBgZ5fvmHV7KuaDO/NXs7+dCjQ0RHBC7w8edHgW+/v3ExinSJvHrz7Y0opQYyMDAwiHGLvWSK0Y1ZysLI8oeNme0XGzPbL1YmVhj+jYxZmFiw4T8wzMrE+ivXLHcyAOYX+EkJeBCMAAAAAElFTkSuQmCC"
+                            width="20"
+                            height="16"
+                        /></span>
+                        <br />
+                        <span
+                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
+                          >OWNED</span
+                        >
+                      </div>
+                      <div
+                        class="main_page4_first_one_one_main_one_chart_bar_other_rate"
+                      >
+                        <span
+                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
+                          >-1%
+                          <img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABpUlEQVQ4jWP8Nn999c/5G+oY/jMwMiADVB4DAwPDf1R5RlTxf/+Z2IJdpjB+8M56+f/9JzEM7WQARgHe10ysrpbLqGEYAwMDA6ut0UbGf1+/83yKqbjy/+VbeYpcJ8T/nHdZpxYTIxfHF67ShExKXcdZFJfLxMv9gYmBgYGB1dJgOyVeZ7E12sDmaLaWgYGBgfH/f2gkvf8k+jmq/Pr/T1+ESTKNm/Mj39JOLSZRwWcMDAwMTDBxJkG+1xy5UUWkuo4zK6IcZhiKgQwMDAxsnjaLWEy0dxNrGLO++iE2f8dZyGIoBjIyMjJwliVlMHCwfSVoGhvrD67ypDRGRkaUBM+Ero5ZWuweR3JQAyHzOBL8m5nlpW6ii2MYyMDAwMAe7tHPrKZwFpdhTMqyl9ijvbuxymETZGRm/stZkZzKwMz0B1MH41+uiuQURhaW30QbyMDAwMCirnCePcKzD12cLdRtEouW8mlc+uDpEBv4/+Mn5+e4qkv/nr5SYWBgYGCUFLnPt7hdl5GTA3ek/f//Hy/+de6a3Xv3tHcffLOf/Tp7zZ6QegDtJaSx3DtD8QAAAABJRU5ErkJgggAA"
+                            width="20"
+                            height="16" /></span
+                        ><br />
+                        <span
+                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
+                          >OWNED</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="main_page4_first_one_one">
+                  <div class="main_third_line main_third_line_new"></div>
+      
+                  <div
+                    class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-2xl"
+                  >
+                    HISTORICAL RENTAL STOCK
+                  </div>
+                  <div
+                    class="main_page4_first_one_one_main main_page4_first_one_one_main_pluse_growth"
+                  >
+                    <div class="main_page4_first_one_one_main_one">
+                      <div class="main_page4_first_one_one_main_one_chart">
+                        <canvas
+                          id="main_page4_first_one_one_main_one_chart13"
+                          style="min-width: 450px"
+                        ></canvas>
+                      </div>
+                    </div>
+                    <div
+                      class="main_page4_first_one_one_main_one_chart_bar_other ml-2"
+                    >
+                      <div
+                        class="main_page4_first_one_one_main_one_chart_bar_other_head"
+                      >
+                        GROWTH RATE
+                      </div>
+                      <div
+                        class="main_page4_first_one_one_main_one_chart_bar_other_rate"
+                      >
+                        <span
+                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
+                          >1.5%
+                          <img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB3UlEQVQ4jWP4//8/Az584P4Be4keiWeCHYJvD9w/YEdIPeP///8ZcIEvv75w607XvfzgwwNFBgYGBmVB5TuXMi/pcbFyfcelhwmnaQwMDLX7apthhjEwMDDcfX9XpfFgYz0+PThdeOrpKTPLuZbH/v3/x4wszsLE8udUyilTQ0nDC0S78Pff36wpm1JmoxvGwMDA8OffH5bUzalz/vz7gyGH08Cuo11ll19d1sPqdAYGhrPPzxpPODGhAJschpdvvLmhbjDD4MLPvz85cBnIwMDAwMXK9fVy5mVdJUGl+zhd+O//P8a0zWmzCBnGwMDA8O33N+6MLRkz0B2EYuCss7PSDj86bEfIMBjYfW+326KLi+KQxeBefvrpqZTWNK1rn35+4ifWQAYGBgZhTuE317KvaYlxi71GcWH2tuyppBrGwMDA8Pb7W5GCHQUTYHwmBgYGhtVXV4dsvLkxgFTDYGD5leVR229v92RgYGBgfPftnYDWNK3rL768kCDXQAYGBgZ5fvmHV7KuaDO/NXs7+dCjQ0RHBC7w8edHgW+/v3ExinSJvHrz7Y0opQYyMDAwiHGLvWSK0Y1ZysLI8oeNme0XGzPbL1YmVhj+jYxZmFiw4T8wzMrE+ivXLHcyAOYX+EkJeBCMAAAAAElFTkSuQmCC"
+                            width="20"
+                            height="16" /></span
+                        ><br />
+                        <span
+                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
+                          >OWNED</span
+                        >
+                      </div>
+                      <div
+                        class="main_page4_first_one_one_main_one_chart_bar_other_rate"
+                      >
+                        <span
+                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
+                          >-1%
+                          <img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABpUlEQVQ4jWP8Nn999c/5G+oY/jMwMiADVB4DAwPDf1R5RlTxf/+Z2IJdpjB+8M56+f/9JzEM7WQARgHe10ysrpbLqGEYAwMDA6ut0UbGf1+/83yKqbjy/+VbeYpcJ8T/nHdZpxYTIxfHF67ShExKXcdZFJfLxMv9gYmBgYGB1dJgOyVeZ7E12sDmaLaWgYGBgfH/f2gkvf8k+jmq/Pr/T1+ESTKNm/Mj39JOLSZRwWcMDAwMTDBxJkG+1xy5UUWkuo4zK6IcZhiKgQwMDAxsnjaLWEy0dxNrGLO++iE2f8dZyGIoBjIyMjJwliVlMHCwfSVoGhvrD67ypDRGRkaUBM+Ero5ZWuweR3JQAyHzOBL8m5nlpW6ii2MYyMDAwMAe7tHPrKZwFpdhTMqyl9ijvbuxymETZGRm/stZkZzKwMz0B1MH41+uiuQURhaW30QbyMDAwMCirnCePcKzD12cLdRtEouW8mlc+uDpEBv4/+Mn5+e4qkv/nr5SYWBgYGCUFLnPt7hdl5GTA3ek/f//Hy/+de6a3Xv3tHcffLOf/Tp7zZ6QegDtJaSx3DtD8QAAAABJRU5ErkJgggAA"
+                            width="20"
+                            height="16" /></span
+                        ><br />
+                        <span
+                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
+                          >OWNED</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="main_third_line main_third_line_new"></div>
+              <div class="main_page4_first_one">
+                <div class="main_page4_first_one_one">
+                  <div class="main_page3_third mb-2">
+                    <div class="main_page3_first_one_txt text-2xl">
+                      NEW UNITS ADDED
+                    </div>
+                    <div
+                      class="main_page3_first_one_main_head_sub_two ml-2"
+                      style="padding: 4px 12px; letter-spacing: 3px"
+                    >
+                      2,100
+                    </div>
+                  </div>
+                  <div class="main_page4_first_one_one_main">
+                    <div class="main_page4_first_one_one_main_one">
+                      <div
+                        class="main_page4_first_one_one_main_one_head fw-light ls-1"
+                      >
+                        OWNED / RENTALSHARE
+                      </div>
+                      <br />
+      
+                      <div class="main_page4_first_one_one_main_one_chart mr-2">
+                        <div class="main_page4_first_one_one_main_one_chart_bar">
+                          <div
+                            class="main_page4_first_one_one_main_one_chart_bar_big"
+                          >
+                            6.0% <br />
+                            OWNED
+                          </div>
+                          <div
+                            class="main_page4_first_one_one_main_one_chart_bar_small"
+                          >
+                            4% <br />
+                            RENTAL
+                          </div>
+                        </div>
+                        <div
+                          class="main_page4_first_one_one_main_one_chart_bar_other"
+                        >
+                          <div
+                            class="main_page4_first_one_one_main_one_chart_bar_other_head"
+                          >
+                            GROWTH RATE
+                          </div>
+                          <div
+                            class="main_page4_first_one_one_main_one_chart_bar_other_rate"
+                          >
+                            <span
+                              class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
+                              >1.5%
+                              <img
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB3UlEQVQ4jWP4//8/Az584P4Be4keiWeCHYJvD9w/YEdIPeP///8ZcIEvv75w607XvfzgwwNFBgYGBmVB5TuXMi/pcbFyfcelhwmnaQwMDLX7apthhjEwMDDcfX9XpfFgYz0+PThdeOrpKTPLuZbH/v3/x4wszsLE8udUyilTQ0nDC0S78Pff36wpm1JmoxvGwMDA8OffH5bUzalz/vz7gyGH08Cuo11ll19d1sPqdAYGhrPPzxpPODGhAJschpdvvLmhbjDD4MLPvz85cBnIwMDAwMXK9fVy5mVdJUGl+zhd+O//P8a0zWmzCBnGwMDA8O33N+6MLRkz0B2EYuCss7PSDj86bEfIMBjYfW+326KLi+KQxeBefvrpqZTWNK1rn35+4ifWQAYGBgZhTuE317KvaYlxi71GcWH2tuyppBrGwMDA8Pb7W5GCHQUTYHwmBgYGhtVXV4dsvLkxgFTDYGD5leVR229v92RgYGBgfPftnYDWNK3rL768kCDXQAYGBgZ5fvmHV7KuaDO/NXs7+dCjQ0RHBC7w8edHgW+/v3ExinSJvHrz7Y0opQYyMDAwiHGLvWSK0Y1ZysLI8oeNme0XGzPbL1YmVhj+jYxZmFiw4T8wzMrE+ivXLHcyAOYX+EkJeBCMAAAAAElFTkSuQmCC"
+                                width="20"
+                                height="16"
+                              /> </span
+                            ><br />
+                            <span
+                              class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
+                              >OWNED</span
+                            >
+                          </div>
+                          <div
+                            class="main_page4_first_one_one_main_one_chart_bar_other_rate"
+                          >
+                            <span
+                              class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
+                              >-1%
+                              <img
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABpUlEQVQ4jWP8Nn999c/5G+oY/jMwMiADVB4DAwPDf1R5RlTxf/+Z2IJdpjB+8M56+f/9JzEM7WQARgHe10ysrpbLqGEYAwMDA6ut0UbGf1+/83yKqbjy/+VbeYpcJ8T/nHdZpxYTIxfHF67ShExKXcdZFJfLxMv9gYmBgYGB1dJgOyVeZ7E12sDmaLaWgYGBgfH/f2gkvf8k+jmq/Pr/T1+ESTKNm/Mj39JOLSZRwWcMDAwMTDBxJkG+1xy5UUWkuo4zK6IcZhiKgQwMDAxsnjaLWEy0dxNrGLO++iE2f8dZyGIoBjIyMjJwliVlMHCwfSVoGhvrD67ypDRGRkaUBM+Ero5ZWuweR3JQAyHzOBL8m5nlpW6ii2MYyMDAwMAe7tHPrKZwFpdhTMqyl9ijvbuxymETZGRm/stZkZzKwMz0B1MH41+uiuQURhaW30QbyMDAwMCirnCePcKzD12cLdRtEouW8mlc+uDpEBv4/+Mn5+e4qkv/nr5SYWBgYGCUFLnPt7hdl5GTA3ek/f//Hy/+de6a3Xv3tHcffLOf/Tp7zZ6QegDtJaSx3DtD8QAAAABJRU5ErkJgggAA"
+                                width="20"
+                                height="16" /></span
+                            ><br />
+                            <span
+                              class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
+                              >OWNED</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="main_page3_first_one_break b-l-dashed"></div>
+                    <div class="main_page4_first_one_one_main_one">
+                      <div
+                        class="main_page4_first_one_one_main_one_head fw-light ls-1"
+                      >
+                        TYPE OF BEDROOM
+                      </div>
+                      <div class="main_page4_first_one_one_main_one_chart">
+                        <canvas
+                          id="main_page4_first_one_one_main_one_chart14"
+                        ></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="main_page4_first_one_one">
+                  <div class="main_page3_third mb-2">
+                    <div class="main_page3_first_one_txt text-2xl">
+                      NEW UNITS ADDED
+                    </div>
+                    <div
+                      class="main_page3_first_one_main_head_sub_two ml-2"
+                      style="padding: 4px 12px; letter-spacing: 3px"
+                    >
+                      2,100
+                    </div>
+                  </div>
+                  <div class="main_page4_first_one_one_main">
+                    <div class="main_page4_first_one_one_main_one">
+                      <div
+                        class="main_page4_first_one_one_main_one_head fw-light ls-1"
+                      >
+                        OWNED / RENTALSHARE
+                      </div>
+      
+                      <br />
+                      <div class="main_page4_first_one_one_main_one_chart">
+                        <div class="main_page4_first_one_one_main_one_chart_bar">
+                          <div
+                            class="main_page4_first_one_one_main_one_chart_bar_big"
+                          >
+                            6.0% <br />
+                            OWNED
+                          </div>
+                          <div
+                            class="main_page4_first_one_one_main_one_chart_bar_small"
+                          >
+                            4% <br />
+                            RENTAL
+                          </div>
+                        </div>
+                        <div
+                          class="main_page4_first_one_one_main_one_chart_bar_other"
+                        >
+                          <div
+                            class="main_page4_first_one_one_main_one_chart_bar_other_head"
+                          >
+                            GROWTH RATE
+                          </div>
+                          <div
+                            class="main_page4_first_one_one_main_one_chart_bar_other_rate"
+                          >
+                            <span
+                              class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
+                              >1.5%
+                              <img
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB3UlEQVQ4jWP4//8/Az584P4Be4keiWeCHYJvD9w/YEdIPeP///8ZcIEvv75w607XvfzgwwNFBgYGBmVB5TuXMi/pcbFyfcelhwmnaQwMDLX7apthhjEwMDDcfX9XpfFgYz0+PThdeOrpKTPLuZbH/v3/x4wszsLE8udUyilTQ0nDC0S78Pff36wpm1JmoxvGwMDA8OffH5bUzalz/vz7gyGH08Cuo11ll19d1sPqdAYGhrPPzxpPODGhAJschpdvvLmhbjDD4MLPvz85cBnIwMDAwMXK9fVy5mVdJUGl+zhd+O//P8a0zWmzCBnGwMDA8O33N+6MLRkz0B2EYuCss7PSDj86bEfIMBjYfW+326KLi+KQxeBefvrpqZTWNK1rn35+4ifWQAYGBgZhTuE317KvaYlxi71GcWH2tuyppBrGwMDA8Pb7W5GCHQUTYHwmBgYGhtVXV4dsvLkxgFTDYGD5leVR229v92RgYGBgfPftnYDWNK3rL768kCDXQAYGBgZ5fvmHV7KuaDO/NXs7+dCjQ0RHBC7w8edHgW+/v3ExinSJvHrz7Y0opQYyMDAwiHGLvWSK0Y1ZysLI8oeNme0XGzPbL1YmVhj+jYxZmFiw4T8wzMrE+ivXLHcyAOYX+EkJeBCMAAAAAElFTkSuQmCC"
+                                width="20"
+                                height="16"
+                              /> </span
+                            ><br />
+                            <span
+                              class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
+                              >OWNED</span
+                            >
+                          </div>
+                          <div
+                            class="main_page4_first_one_one_main_one_chart_bar_other_rate"
+                          >
+                            <span
+                              class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
+                              >-1%
+                              <img
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABpUlEQVQ4jWP8Nn999c/5G+oY/jMwMiADVB4DAwPDf1R5RlTxf/+Z2IJdpjB+8M56+f/9JzEM7WQARgHe10ysrpbLqGEYAwMDA6ut0UbGf1+/83yKqbjy/+VbeYpcJ8T/nHdZpxYTIxfHF67ShExKXcdZFJfLxMv9gYmBgYGB1dJgOyVeZ7E12sDmaLaWgYGBgfH/f2gkvf8k+jmq/Pr/T1+ESTKNm/Mj39JOLSZRwWcMDAwMTDBxJkG+1xy5UUWkuo4zK6IcZhiKgQwMDAxsnjaLWEy0dxNrGLO++iE2f8dZyGIoBjIyMjJwliVlMHCwfSVoGhvrD67ypDRGRkaUBM+Ero5ZWuweR3JQAyHzOBL8m5nlpW6ii2MYyMDAwMAe7tHPrKZwFpdhTMqyl9ijvbuxymETZGRm/stZkZzKwMz0B1MH41+uiuQURhaW30QbyMDAwMCirnCePcKzD12cLdRtEouW8mlc+uDpEBv4/+Mn5+e4qkv/nr5SYWBgYGCUFLnPt7hdl5GTA3ek/f//Hy/+de6a3Xv3tHcffLOf/Tp7zZ6QegDtJaSx3DtD8QAAAABJRU5ErkJgggAA"
+                                width="20"
+                                height="16" /></span
+                            ><br />
+                            <span
+                              class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
+                              >OWNED</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="main_page3_first_one_break b-l-dashed"></div>
+                    <div class="main_page4_first_one_one_main_one">
+                      <div
+                        class="main_page4_first_one_one_main_one_head fw-light ls-1"
+                      >
+                        TYPE OF BEDROOM
+                      </div>
+                      <div class="main_page4_first_one_one_main_one_chart">
+                        <canvas
+                          id="main_page4_first_one_one_main_one_chart15"
+                        ></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="main_third_line"></div>
+              <div class="main_page4_first_one">
+                <div class="main_page4_first_one_one">
+                  <div class="main_page3_first_one_txt text-2xl mb-4">
+                    RENTAL UNITS OVERVIEW
+                  </div>
+                  <div class="main_page3_third">
+                    <div class="main_page3_first_one_txt ls-2 text-md">
+                      TOTAL RENTAL UNITS
+                    </div>
+                    <div
+                      class="main_page3_first_one_main_head_sub_two ml-2 text-md"
+                      style="padding: 8px 12px; letter-spacing: 3px;margin-top:-10px"
+                    >
+                      2,100
+                    </div>
+                    <div
+                      class="main_page3_first_one_main_head_sub_two ml-2 text-md"
+                      style="
+                        padding: 8px 12px;
+                        margin-top: -10px;
+                        letter-spacing: 3px;
+                        background-color: brown;
+                        border-radius: 18px;
+                      "
+                    >
+                      100%
+                    </div>
+                  </div>
+                  <div class="main_page4_first_one_one_main">
+                    <div class="main_page4_first_one_one_main_one">
+                      <div class="main_page4_first_one_one_main_one_chart mt-2">
+                        <p
+                          style="
+                            margin-right: -15px;
+                            letter-spacing: 5px;
+                            font-size: large;
+                          "
+                        >
+                          AFFORDABLE
+                        </p>
+                        <canvas
+                          id="main_page4_first_one_one_main_one_chart34"
+                        ></canvas>
+                        <p
+                          style="
+                            margin-left: -15px;
+                            letter-spacing: 5px;
+                            font-size: large;
+                            margin-top: auto;
+                          "
+                        >
+                          UNAFFORDABLE
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="main_page4_first_one_one">
+                  <div class="main_page3_first_one_txt text-2xl mb-4">
+                    RENTAL UNITS OVERVIEW
+                  </div>
+                  <div class="main_page3_third mb-2 text-md">
+                    <div class="main_page3_first_one_txt ls-2 text-md">
+                      TOTAL RENTAL UNITS
+                    </div>
+                    <div
+                      class="main_page3_first_one_main_head_sub_two ml-2 text-md"
+                      style="padding: 8px 12px; letter-spacing: 3px;margin-top:-10px"
+                    >
+                      5,100
+                    </div>
+                    <div
+                      class="main_page3_first_one_main_head_sub_two ml-2 text-md"
+                      style="
+                        padding:  8px 12px;
+                        margin-top: -10px;
+                        letter-spacing: 3px;
+                        background-color: brown;
+                        border-radius: 18px;
+                      "
+                    >
+                      100%
+                    </div>
+                  </div>
+                  <div class="main_page4_first_one_one_main">
+                    <div class="main_page4_first_one_one_main_one">
+                      <div class="main_page4_first_one_one_main_one_chart">
+                        <p
+                          style="
+                            margin-right: -15px;
+                            letter-spacing: 5px;
+                            font-size: large;
+                          "
+                        >
+                          AFFORDABLE
+                        </p>
+                        <canvas
+                          id="main_page4_first_one_one_main_one_chart33"
+                        ></canvas>
+                        <p
+                          style="
+                            margin-left: -15px;
+                            letter-spacing: 5px;
+                            font-size: large;
+                            margin-top: auto;
+                          "
+                        >
+                          UNAFFORDABLE
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <!-- INSET HERE -->
+      
+              <div class="main_page3_first">
+                <div class="main_page3_first_second_one">
+                  <div class="main_third_line main_third_line_new bg-black"></div>
+                  <div class="main_page3_first_one_txt ls-2 ws-2 text-xl">
+                    AVAILABLE RENTAL STOCK
+                  </div>
+                  <div class="main_page4_first_one_content">
+                    <div class="main_page3_first_one_content_one">
+                      <div class="main_page3_first_one_content_one_buttons">
+                        <div
+                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
+                          style="height: 45px; width: 90px"
+                        >
+                          <span
+                            style="
+                              font-size: 40px;
+                              margin-right: 0px !important;
+                              padding: 5px;
+                            "
+                          >
+                            200
+                          </span>
+                        </div>
+                        <div
+                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
+                          style="margin-top: 20px; width: 40px"
+                        >
+                          <span
+                            style="
+                              font-size: 23px;
+                              margin-right: -5px !important;
+                              padding: 5px;
+                            "
+                          >
+                            5%
+                          </span>
+                        </div>
+                      </div>
+                      <p class="text-lg m-0">AFFORDABLE</p>
+                    </div>
+                    <div class="main_page3_first_one_content_one">
+                      <div class="main_page3_first_one_content_one_buttons">
+                        <div
+                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
+                          style="height: 45px; width: 90px"
+                        >
+                          <span
+                            style="
+                              font-size: 40px;
+                              margin-right: 0px !important;
+                              padding: 5px;
+                            "
+                          >
+                            200
+                          </span>
+                        </div>
+                        <div
+                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
+                          style="margin-top: 20px; width: 40px"
+                        >
+                          <span
+                            style="
+                              font-size: 23px;
+                              margin-right: -5px !important;
+                              padding: 5px;
+                            "
+                          >
+                            5%
+                          </span>
+                        </div>
+                      </div>
+                      <p class="text-lg m-0">UNAFFORDABLE</p>
+                    </div>
+                  </div>
+                  <div class="main_page3_first_one_content_one text-sm">
+                    *AVAILABLE = VACANT
+                  </div>
+                </div>
+                <div class="main_page3_first_second_one">
+                  <div class="main_third_line main_third_line_new bg-black"></div>
+                  <div class="main_page3_first_one_txt ls-2 ws-2 text-xl">
+                    AVAILABLE RENTAL STOCK
+                  </div>
+                  <div class="main_page4_first_one_content">
+                    <div class="main_page3_first_one_content_one">
+                      <div class="main_page3_first_one_content_one_buttons">
+                        <div
+                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
+                          style="height: 45px; width: 90px"
+                        >
+                          <span
+                            style="
+                              font-size: 40px;
+                              margin-right: 0px !important;
+                              padding: 5px;
+                            "
+                          >
+                            200
+                          </span>
+                        </div>
+                        <div
+                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
+                          style="margin-top: 20px; width: 40px"
+                        >
+                          <span
+                            style="
+                              font-size: 23px;
+                              margin-right: -5px !important;
+                              padding: 5px;
+                            "
+                          >
+                            5%
+                          </span>
+                        </div>
+                      </div>
+                      <p class="text-lg m-0">AFFORDABLE</p>
+                    </div>
+                    <div class="main_page3_first_one_content_one">
+                      <div class="main_page3_first_one_content_one_buttons">
+                        <div
+                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
+                          style="height: 45px; width: 90px"
+                        >
+                          <span
+                            style="
+                              font-size: 40px;
+                              margin-right: 0px !important;
+                              padding: 5px;
+                            "
+                          >
+                            200
+                          </span>
+                        </div>
+                        <div
+                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
+                          style="margin-top: 20px; width: 40px"
+                        >
+                          <span
+                            style="
+                              font-size: 23px;
+                              margin-right: -5px !important;
+                              padding: 5px;
+                            "
+                          >
+                            5%
+                          </span>
+                        </div>
+                      </div>
+                      <p class="text-lg m-0">UNAFFORDABLE</p>
+                    </div>
+                  </div>
+                  <div class="main_page3_first_one_content_one text-sm">
+                    *AVAILABLE = VACANT
+                  </div>
+                </div>
+              </div>
+              <div class="main_page3_first">
+                <div class="main_page3_first_second_one">
+                  <div class="main_third_line main_third_line_new bg-black"></div>
+                  <div class="main_page3_first_one_txt ls-2 ws-2 text-xl">
+                    NEW UNITS CONSTRUCTED
+                  </div>
+                  <div class="main_page4_first_one_content">
+                    <div class="main_page3_first_one_content_one">
+                      <div class="main_page3_first_one_content_one_buttons">
+                        <div
+                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
+                          style="height: 45px; width: 90px"
+                        >
+                          <span
+                            style="
+                              font-size: 40px;
+                              margin-right: 0px !important;
+                              padding: 5px;
+                            "
+                          >
+                            200
+                          </span>
+                        </div>
+                        <div
+                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
+                          style="margin-top: 20px; width: 40px"
+                        >
+                          <span
+                            style="
+                              font-size: 23px;
+                              margin-right: -5px !important;
+                              padding: 5px;
+                            "
+                          >
+                            5%
+                          </span>
+                        </div>
+                      </div>
+                      <p class="text-lg m-0">AFFORDABLE</p>
+                    </div>
+                    <div class="main_page3_first_one_content_one">
+                      <div class="main_page3_first_one_content_one_buttons">
+                        <div
+                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
+                          style="height: 45px; width: 90px"
+                        >
+                          <span
+                            style="
+                              font-size: 40px;
+                              margin-right: 0px !important;
+                              padding: 5px;
+                            "
+                          >
+                            200
+                          </span>
+                        </div>
+                        <div
+                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
+                          style="margin-top: 20px; width: 40px"
+                        >
+                          <span
+                            style="
+                              font-size: 23px;
+                              margin-right: -5px !important;
+                              padding: 5px;
+                            "
+                          >
+                            5%
+                          </span>
+                        </div>
+                      </div>
+                      <p class="text-lg m-0">UNAFFORDABLE</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="main_page3_first_second_one">
+                  <div class="main_third_line main_third_line_new bg-black"></div>
+                  <div class="main_page3_first_one_txt ls-2 ws-2 text-xl">
+                    NEW UNITS CONSTRUCTED
+                  </div>
+                  <div class="main_page4_first_one_content">
+                    <div class="main_page3_first_one_content_one">
+                      <div class="main_page3_first_one_content_one_buttons">
+                        <div
+                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
+                          style="height: 45px; width: 90px"
+                        >
+                          <span
+                            style="
+                              font-size: 40px;
+                              margin-right: 0px !important;
+                              padding: 5px;
+                            "
+                          >
+                            200
+                          </span>
+                        </div>
+                        <div
+                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
+                          style="margin-top: 20px; width: 40px"
+                        >
+                          <span
+                            style="
+                              font-size: 23px;
+                              margin-right: -5px !important;
+                              padding: 5px;
+                            "
+                          >
+                            5%
+                          </span>
+                        </div>
+                      </div>
+                      <p class="text-lg m-0">AFFORDABLE</p>
+                    </div>
+                    <div class="main_page3_first_one_content_one">
+                      <div class="main_page3_first_one_content_one_buttons">
+                        <div
+                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
+                          style="height: 45px; width: 90px"
+                        >
+                          <span
+                            style="
+                              font-size: 40px;
+                              margin-right: 0px !important;
+                              padding: 5px;
+                            "
+                          >
+                            200
+                          </span>
+                        </div>
+                        <div
+                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
+                          style="margin-top: 20px; width: 40px"
+                        >
+                          <span
+                            style="
+                              font-size: 23px;
+                              margin-right: -5px !important;
+                              padding: 5px;
+                            "
+                          >
+                            5%
+                          </span>
+                        </div>
+                      </div>
+                      <p class="text-lg m-0">UNAFFORDABLE</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="main_float_line main_float_line2"></div>
+          </div>
+      
+          <!-- SEVENTH PAGE -->
+          <div class="main_first" >
+            <div class="main_first_img" >
+              <img
+                src="https://i.ibb.co/v3ht5Zc/logo.png"
+                style="height: 100px; width: 105px; margin-bottom: -25px"
+                alt=""
+              />
+            </div>
+            <div class="main_first_text" style="margin-top: 80px">
+              <div class="main_first_text_tex1">NEW BRUNSWICK - MONCTON</div>
+              <div class="main_first_text_tex2">INCOME ANALYSIS</div>
             </div>
           </div>
-          <div
-            class="main_page3_first_one_main_head_sub_two mr-2"
-            style="padding: 4px; letter-spacing: 3px; margin-left: -75px"
+      
+          <div class="main_third" style="margin-top: 10px">
+            <span style="margin-left: 5rem" class="text-sm">
+              INCOME IS TAKEN ANUALLY
+            </span>
+            <div class="main_third_line"></div>
+          </div>
+          <h1
+            class="ls-2 mx-auto"
+            style="text-align: center; text-decoration: underline"
           >
-            $60,000
+            POPULATION BELOW & ABOVE OPTIMAL INCOME
+          </h1>
+          <p style="text-align: center; font-weight: 600" class="text-lg">
+            <span class="bg-yellow p-1 px-2" style="border-radius: 5px"
+              >OPTIMAL INCOME : $40,000</span
+            >
+          </p>
+          <div class="flex" style="margin: auto 80px">
+            <p
+              style="
+                width: 46%;
+                text-align: center;
+                border-bottom: 1px solid;
+                position: relative;
+                letter-spacing: 3px;
+              "
+              class="mx-2"
+            >
+              PERCENTAGE OF POPULATION BELOW OPTIMAL INCOME <br />
+              44%
+              <span style="position: absolute; left: -4px; bottom: -9.5px"> < </span>
+              <span style="position: absolute; right: -4px; bottom: -9.5px"> > </span>
+            </p>
+            <p
+              style="
+                width: 55%;
+                text-align: center;
+                border-bottom: 1px solid;
+                position: relative;
+                letter-spacing: 3px;
+              "
+              class="mx-1"
+            >
+              PERCENTAGE OF POPULATION ABOVE OPTIMAL INCOME <br />
+              66%
+              <span style="position: absolute; left: -4px; bottom: -9.5px"> < </span>
+              <span style="position: absolute; right: -4px; bottom: -9.5px"> > </span>
+            </p>
           </div>
-  
-          <div class="main_page3_first_one_break"></div>
-  
-          <div class="main_page3_third_one">
-            <div class="main_page3_first_one_txt ls-2">DISCRETIONARY INCOME</div>
-            <div class="main_page3_four_one">
-              <div class="main_page3_first_one_tri">
-                <div
-                  id="chartDiv"
-                  style="background: transparent !important; margin-top: 5px"
-                ></div>
-              </div>
-            </div>
+          <div class="main_page5_first_one_chart">
+            <canvas
+              id="main_page5_first_one_chart17"
+              style="
+                max-height: 400px;
+                margin: 10px 40px 10px 0px;
+                width: 1500px !important;
+              "
+            ></canvas>
           </div>
-        </div>
-        <div class="main_page3_four"></div>
-      </div>
-  
-      <!-- SIXTH PAGE -->
-      <br /><br />
-      <div style="position: relative">
-        <div class="main_first"  style="margin-top:25px">
-          <div class="main_first_img">
-            <img
-              src="https://i.ibb.co/v3ht5Zc/logo.png"
-              style="height: 100px; width:105px; margin-top: -30%"
-              alt=""
-            />
-          </div>
-          <div class="main_first_text" style="margin-top: -25px">
-            <div class="main_first_text_tex1">NEW BRUNSWICK - MONCTON</div>
-            <div class="main_first_text_tex2">SUPPLY ANALYSIS</div>
-          </div>
-        </div>
-        <div class="main_third">
-          <span> NOTE - B = Bedrooms </span>
-          <div class="main_third_line" style="margin:0;"></div>
-        </div>
-        <div class="main_page4_first">
-          <div class="main_page4_first_one">
-            <div class="main_page4_first_one_one">
-              <div class="main_page4_first_one_one_head text-3xl">
-                APARTMENT OVERVIEW
-              </div>
-              <div class="main_page3_third mb-2">
-                <div class="main_page3_first_one_txt">TOTAL RENTAL UNITS</div>
-                <div
-                  class="main_page3_first_one_main_head_sub_two ml-2"
-                  style="padding: 4px 12px; letter-spacing: 3px;margin-top:-5px"
-                >
-                  2,100
-                </div>
-              </div>
-              <div class="main_page4_first_one_one_main">
-                <div class="main_page4_first_one_one_main_one">
-                  <div class="main_page4_first_one_one_main_one_head mr-2">
-                    HOUSES AVAILABLE
-                  </div>
-                  <div class="main_page4_first_one_one_main_one_chart">
-                    <canvas
-                      id="main_page4_first_one_one_main_one_chart8"
-                      style="min-width: 250px; min-height: 250px"
-                    ></canvas>
-                  </div>
-                </div>
-                <div class="main_page3_first_one_break b-l-dashed"></div>
-                <div class="main_page4_first_one_one_main_one">
-                  <div class="main_page4_first_one_one_main_one_head ml-2">
-                    TYPE OF BEDROOM
-                  </div>
-                  <div class="main_page4_first_one_one_main_one_chart">
-                    <canvas
-                      id="main_page4_first_one_one_main_one_chart9"
-                    ></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="main_page4_first_one_one">
-              <div class="main_page4_first_one_one_head text-3xl">
-                ROW HOUSE OVERVIEW
-              </div>
-              <div class="main_page3_third mb-2">
-                <div class="main_page3_first_one_txt">TOTAL RENTAL UNITS</div>
-                <div
-                  class="main_page3_first_one_main_head_sub_two ml-2"
-                  style="padding: 4px 12px; letter-spacing: 3px;margin-top:-5px"
-                >
-                  5,100
-                </div>
-              </div>
-              <div class="main_page4_first_one_one_main">
-                <div class="main_page4_first_one_one_main_one">
-                  <div class="main_page4_first_one_one_main_one_head">
-                    TOTAL UNITS
-                  </div>
-                  <div class="main_page4_first_one_one_main_one_chart">
-                    <canvas
-                      id="main_page4_first_one_one_main_one_chart10"
-                      style="min-width: 250px; min-height: 250px"
-                    ></canvas>
-                  </div>
-                </div>
-                <div class="main_page3_first_one_break b-l-dashed"></div>
-                <div class="main_page4_first_one_one_main_one ml-2">
-                  <div class="main_page4_first_one_one_main_one_head">
-                    TYPE OF BEDROOM
-                  </div>
-                  <div class="main_page4_first_one_one_main_one_chart">
-                    <canvas
-                      id="main_page4_first_one_one_main_one_chart11"
-                    ></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="main_page4_first_one">
-            <div class="main_page4_first_one_one">
-              <div class="main_third_line main_third_line_new"></div>
+          <p style="text-align: center; font-weight: 600; font-size: larger">
+            DIFFERENT INCOME RANGES
+          </p>
+          <div class="main_third_line"></div>
+      
+          <!-- above this -->
+          <div class="main_page5_first">
+            <div class="main_page5_first_one">
               <div
-                class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-2xl"
+                class="main_page5_first_one_one main_page5_first_one_one2 main_page4_first_one_one_main_one_border"
               >
-                HISTORICAL RENTAL STOCK
-              </div>
-              <div
-                class="main_page4_first_one_one_main main_page4_first_one_one_main_pluse_growth"
-              >
-                <div class="main_page4_first_one_one_main_one">
-                  <div class="main_page4_first_one_one_main_one_chart">
-                    <canvas
-                      id="main_page4_first_one_one_main_one_chart12"
-                      style="min-width: 450px"
-                    ></canvas>
-                  </div>
+                <div class="main_page5_first_one_txt">
+                  DISCRETIONARY INCOME VS <br />
+                  MEDIAN INCOME AFTER TAX/BEFORE TAX
                 </div>
-                <div
-                  class="main_page4_first_one_one_main_one_chart_bar_other ml-2"
-                >
-                  <div
-                    class="main_page4_first_one_one_main_one_chart_bar_other_head"
-                  >
-                    GROWTH RATE
-                  </div>
-                  <div
-                    class="main_page4_first_one_one_main_one_chart_bar_other_rate"
-                  >
-                    <span
-                      class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                      >1.5%
-                      <img
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB3UlEQVQ4jWP4//8/Az584P4Be4keiWeCHYJvD9w/YEdIPeP///8ZcIEvv75w607XvfzgwwNFBgYGBmVB5TuXMi/pcbFyfcelhwmnaQwMDLX7apthhjEwMDDcfX9XpfFgYz0+PThdeOrpKTPLuZbH/v3/x4wszsLE8udUyilTQ0nDC0S78Pff36wpm1JmoxvGwMDA8OffH5bUzalz/vz7gyGH08Cuo11ll19d1sPqdAYGhrPPzxpPODGhAJschpdvvLmhbjDD4MLPvz85cBnIwMDAwMXK9fVy5mVdJUGl+zhd+O//P8a0zWmzCBnGwMDA8O33N+6MLRkz0B2EYuCss7PSDj86bEfIMBjYfW+326KLi+KQxeBefvrpqZTWNK1rn35+4ifWQAYGBgZhTuE317KvaYlxi71GcWH2tuyppBrGwMDA8Pb7W5GCHQUTYHwmBgYGhtVXV4dsvLkxgFTDYGD5leVR229v92RgYGBgfPftnYDWNK3rL768kCDXQAYGBgZ5fvmHV7KuaDO/NXs7+dCjQ0RHBC7w8edHgW+/v3ExinSJvHrz7Y0opQYyMDAwiHGLvWSK0Y1ZysLI8oeNme0XGzPbL1YmVhj+jYxZmFiw4T8wzMrE+ivXLHcyAOYX+EkJeBCMAAAAAElFTkSuQmCC"
-                        width="20"
-                        height="16"
-                    /></span>
-                    <br />
-                    <span
-                      class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                      >OWNED</span
-                    >
-                  </div>
-                  <div
-                    class="main_page4_first_one_one_main_one_chart_bar_other_rate"
-                  >
-                    <span
-                      class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                      >-1%
-                      <img
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABpUlEQVQ4jWP8Nn999c/5G+oY/jMwMiADVB4DAwPDf1R5RlTxf/+Z2IJdpjB+8M56+f/9JzEM7WQARgHe10ysrpbLqGEYAwMDA6ut0UbGf1+/83yKqbjy/+VbeYpcJ8T/nHdZpxYTIxfHF67ShExKXcdZFJfLxMv9gYmBgYGB1dJgOyVeZ7E12sDmaLaWgYGBgfH/f2gkvf8k+jmq/Pr/T1+ESTKNm/Mj39JOLSZRwWcMDAwMTDBxJkG+1xy5UUWkuo4zK6IcZhiKgQwMDAxsnjaLWEy0dxNrGLO++iE2f8dZyGIoBjIyMjJwliVlMHCwfSVoGhvrD67ypDRGRkaUBM+Ero5ZWuweR3JQAyHzOBL8m5nlpW6ii2MYyMDAwMAe7tHPrKZwFpdhTMqyl9ijvbuxymETZGRm/stZkZzKwMz0B1MH41+uiuQURhaW30QbyMDAwMCirnCePcKzD12cLdRtEouW8mlc+uDpEBv4/+Mn5+e4qkv/nr5SYWBgYGCUFLnPt7hdl5GTA3ek/f//Hy/+de6a3Xv3tHcffLOf/Tp7zZ6QegDtJaSx3DtD8QAAAABJRU5ErkJgggAA"
-                        width="20"
-                        height="16" /></span
-                    ><br />
-                    <span
-                      class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                      >OWNED</span
-                    >
-                  </div>
+                <div class="main_page5_first_one_chart">
+                  <canvas
+                    id="main_page5_first_one_chart18"
+                    style="width: max-content; min-height: 300px; min-width: 720px"
+                  ></canvas>
                 </div>
               </div>
-            </div>
-            <div class="main_page4_first_one_one">
-              <div class="main_third_line main_third_line_new"></div>
-  
-              <div
-                class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-2xl"
-              >
-                HISTORICAL RENTAL STOCK
-              </div>
-              <div
-                class="main_page4_first_one_one_main main_page4_first_one_one_main_pluse_growth"
-              >
-                <div class="main_page4_first_one_one_main_one">
-                  <div class="main_page4_first_one_one_main_one_chart">
-                    <canvas
-                      id="main_page4_first_one_one_main_one_chart13"
-                      style="min-width: 450px"
-                    ></canvas>
-                  </div>
+      
+              <div class="main_page5_first_one_one main_page5_first_one_one4">
+                <div class="main_page5_first_one_txt text-2xl">
+                  MEDIAN INCOMCE <br />
+                  RANKING
                 </div>
-                <div
-                  class="main_page4_first_one_one_main_one_chart_bar_other ml-2"
-                >
-                  <div
-                    class="main_page4_first_one_one_main_one_chart_bar_other_head"
-                  >
-                    GROWTH RATE
-                  </div>
-                  <div
-                    class="main_page4_first_one_one_main_one_chart_bar_other_rate"
-                  >
-                    <span
-                      class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                      >1.5%
-                      <img
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB3UlEQVQ4jWP4//8/Az584P4Be4keiWeCHYJvD9w/YEdIPeP///8ZcIEvv75w607XvfzgwwNFBgYGBmVB5TuXMi/pcbFyfcelhwmnaQwMDLX7apthhjEwMDDcfX9XpfFgYz0+PThdeOrpKTPLuZbH/v3/x4wszsLE8udUyilTQ0nDC0S78Pff36wpm1JmoxvGwMDA8OffH5bUzalz/vz7gyGH08Cuo11ll19d1sPqdAYGhrPPzxpPODGhAJschpdvvLmhbjDD4MLPvz85cBnIwMDAwMXK9fVy5mVdJUGl+zhd+O//P8a0zWmzCBnGwMDA8O33N+6MLRkz0B2EYuCss7PSDj86bEfIMBjYfW+326KLi+KQxeBefvrpqZTWNK1rn35+4ifWQAYGBgZhTuE317KvaYlxi71GcWH2tuyppBrGwMDA8Pb7W5GCHQUTYHwmBgYGhtVXV4dsvLkxgFTDYGD5leVR229v92RgYGBgfPftnYDWNK3rL768kCDXQAYGBgZ5fvmHV7KuaDO/NXs7+dCjQ0RHBC7w8edHgW+/v3ExinSJvHrz7Y0opQYyMDAwiHGLvWSK0Y1ZysLI8oeNme0XGzPbL1YmVhj+jYxZmFiw4T8wzMrE+ivXLHcyAOYX+EkJeBCMAAAAAElFTkSuQmCC"
-                        width="20"
-                        height="16" /></span
-                    ><br />
-                    <span
-                      class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                      >OWNED</span
-                    >
-                  </div>
-                  <div
-                    class="main_page4_first_one_one_main_one_chart_bar_other_rate"
-                  >
-                    <span
-                      class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                      >-1%
-                      <img
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABpUlEQVQ4jWP8Nn999c/5G+oY/jMwMiADVB4DAwPDf1R5RlTxf/+Z2IJdpjB+8M56+f/9JzEM7WQARgHe10ysrpbLqGEYAwMDA6ut0UbGf1+/83yKqbjy/+VbeYpcJ8T/nHdZpxYTIxfHF67ShExKXcdZFJfLxMv9gYmBgYGB1dJgOyVeZ7E12sDmaLaWgYGBgfH/f2gkvf8k+jmq/Pr/T1+ESTKNm/Mj39JOLSZRwWcMDAwMTDBxJkG+1xy5UUWkuo4zK6IcZhiKgQwMDAxsnjaLWEy0dxNrGLO++iE2f8dZyGIoBjIyMjJwliVlMHCwfSVoGhvrD67ypDRGRkaUBM+Ero5ZWuweR3JQAyHzOBL8m5nlpW6ii2MYyMDAwMAe7tHPrKZwFpdhTMqyl9ijvbuxymETZGRm/stZkZzKwMz0B1MH41+uiuQURhaW30QbyMDAwMCirnCePcKzD12cLdRtEouW8mlc+uDpEBv4/+Mn5+e4qkv/nr5SYWBgYGCUFLnPt7hdl5GTA3ek/f//Hy/+de6a3Xv3tHcffLOf/Tp7zZ6QegDtJaSx3DtD8QAAAABJRU5ErkJgggAA"
-                        width="20"
-                        height="16" /></span
-                    ><br />
-                    <span
-                      class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                      >OWNED</span
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="main_third_line main_third_line_new"></div>
-          <div class="main_page4_first_one">
-            <div class="main_page4_first_one_one">
-              <div class="main_page3_third mb-2">
-                <div class="main_page3_first_one_txt text-3xl">
-                  NEW UNITS ADDED
-                </div>
-                <div
-                  class="main_page3_first_one_main_head_sub_two ml-2"
-                  style="padding: 4px 12px; letter-spacing: 3px"
-                >
-                  2,100
-                </div>
-              </div>
-              <div class="main_page4_first_one_one_main">
-                <div class="main_page4_first_one_one_main_one">
-                  <div
-                    class="main_page4_first_one_one_main_one_head fw-light ls-1"
-                  >
-                    OWNED / RENTALSHARE
-                  </div>
-                  <br />
-  
-                  <div class="main_page4_first_one_one_main_one_chart mr-2">
-                    <div class="main_page4_first_one_one_main_one_chart_bar">
-                      <div
-                        class="main_page4_first_one_one_main_one_chart_bar_big"
-                      >
-                        6.0% <br />
-                        OWNED
-                      </div>
-                      <div
-                        class="main_page4_first_one_one_main_one_chart_bar_small"
-                      >
-                        4% <br />
-                        RENTAL
-                      </div>
-                    </div>
+                <div class="main_page3_first_one_other">
+                  <div class="main_page3_first_one_other_one">
                     <div
-                      class="main_page4_first_one_one_main_one_chart_bar_other"
+                      class="main_page3_first_one_other_one_main"
+                      style="margin-top: 80px"
                     >
-                      <div
-                        class="main_page4_first_one_one_main_one_chart_bar_other_head"
-                      >
-                        GROWTH RATE
-                      </div>
-                      <div
-                        class="main_page4_first_one_one_main_one_chart_bar_other_rate"
-                      >
-                        <span
-                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                          >1.5%
-                          <img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB3UlEQVQ4jWP4//8/Az584P4Be4keiWeCHYJvD9w/YEdIPeP///8ZcIEvv75w607XvfzgwwNFBgYGBmVB5TuXMi/pcbFyfcelhwmnaQwMDLX7apthhjEwMDDcfX9XpfFgYz0+PThdeOrpKTPLuZbH/v3/x4wszsLE8udUyilTQ0nDC0S78Pff36wpm1JmoxvGwMDA8OffH5bUzalz/vz7gyGH08Cuo11ll19d1sPqdAYGhrPPzxpPODGhAJschpdvvLmhbjDD4MLPvz85cBnIwMDAwMXK9fVy5mVdJUGl+zhd+O//P8a0zWmzCBnGwMDA8O33N+6MLRkz0B2EYuCss7PSDj86bEfIMBjYfW+326KLi+KQxeBefvrpqZTWNK1rn35+4ifWQAYGBgZhTuE317KvaYlxi71GcWH2tuyppBrGwMDA8Pb7W5GCHQUTYHwmBgYGhtVXV4dsvLkxgFTDYGD5leVR229v92RgYGBgfPftnYDWNK3rL768kCDXQAYGBgZ5fvmHV7KuaDO/NXs7+dCjQ0RHBC7w8edHgW+/v3ExinSJvHrz7Y0opQYyMDAwiHGLvWSK0Y1ZysLI8oeNme0XGzPbL1YmVhj+jYxZmFiw4T8wzMrE+ivXLHcyAOYX+EkJeBCMAAAAAElFTkSuQmCC"
-                            width="20"
-                            height="16"
-                          /> </span
-                        ><br />
-                        <span
-                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                          >OWNED</span
-                        >
-                      </div>
-                      <div
-                        class="main_page4_first_one_one_main_one_chart_bar_other_rate"
-                      >
-                        <span
-                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                          >-1%
-                          <img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABpUlEQVQ4jWP8Nn999c/5G+oY/jMwMiADVB4DAwPDf1R5RlTxf/+Z2IJdpjB+8M56+f/9JzEM7WQARgHe10ysrpbLqGEYAwMDA6ut0UbGf1+/83yKqbjy/+VbeYpcJ8T/nHdZpxYTIxfHF67ShExKXcdZFJfLxMv9gYmBgYGB1dJgOyVeZ7E12sDmaLaWgYGBgfH/f2gkvf8k+jmq/Pr/T1+ESTKNm/Mj39JOLSZRwWcMDAwMTDBxJkG+1xy5UUWkuo4zK6IcZhiKgQwMDAxsnjaLWEy0dxNrGLO++iE2f8dZyGIoBjIyMjJwliVlMHCwfSVoGhvrD67ypDRGRkaUBM+Ero5ZWuweR3JQAyHzOBL8m5nlpW6ii2MYyMDAwMAe7tHPrKZwFpdhTMqyl9ijvbuxymETZGRm/stZkZzKwMz0B1MH41+uiuQURhaW30QbyMDAwMCirnCePcKzD12cLdRtEouW8mlc+uDpEBv4/+Mn5+e4qkv/nr5SYWBgYGCUFLnPt7hdl5GTA3ek/f//Hy/+de6a3Xv3tHcffLOf/Tp7zZ6QegDtJaSx3DtD8QAAAABJRU5ErkJgggAA"
-                            width="20"
-                            height="16" /></span
-                        ><br />
-                        <span
-                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                          >OWNED</span
-                        >
-                      </div>
+                      <!-- 12 -->
+                    </div>
+                    <div class="main_page3_first_one_other_one_sub my-2">
+                      Before Tax
+                    </div>
+                    <div class="main_page3_first_one_other_one_text">
+                      MAJOR<br />
+                      CMAS
                     </div>
                   </div>
-                </div>
-                <div class="main_page3_first_one_break b-l-dashed"></div>
-                <div class="main_page4_first_one_one_main_one">
-                  <div
-                    class="main_page4_first_one_one_main_one_head fw-light ls-1"
-                  >
-                    TYPE OF BEDROOM
-                  </div>
-                  <div class="main_page4_first_one_one_main_one_chart">
-                    <canvas
-                      id="main_page4_first_one_one_main_one_chart14"
-                    ></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-  
-            <div class="main_page4_first_one_one">
-              <div class="main_page3_third mb-2">
-                <div class="main_page3_first_one_txt text-3xl">
-                  NEW UNITS ADDED
-                </div>
-                <div
-                  class="main_page3_first_one_main_head_sub_two ml-2"
-                  style="padding: 4px 12px; letter-spacing: 3px"
-                >
-                  2,100
-                </div>
-              </div>
-              <div class="main_page4_first_one_one_main">
-                <div class="main_page4_first_one_one_main_one">
-                  <div
-                    class="main_page4_first_one_one_main_one_head fw-light ls-1"
-                  >
-                    OWNED / RENTALSHARE
-                  </div>
-  
-                  <br />
-                  <div class="main_page4_first_one_one_main_one_chart">
-                    <div class="main_page4_first_one_one_main_one_chart_bar">
-                      <div
-                        class="main_page4_first_one_one_main_one_chart_bar_big"
-                      >
-                        6.0% <br />
-                        OWNED
-                      </div>
-                      <div
-                        class="main_page4_first_one_one_main_one_chart_bar_small"
-                      >
-                        4% <br />
-                        RENTAL
-                      </div>
-                    </div>
+                  <div class="main_page3_first_one_other_one">
                     <div
-                      class="main_page4_first_one_one_main_one_chart_bar_other"
+                      class="main_page3_first_one_other_one_main"
+                      style="margin-top: 70px"
                     >
-                      <div
-                        class="main_page4_first_one_one_main_one_chart_bar_other_head"
-                      >
-                        GROWTH RATE
-                      </div>
-                      <div
-                        class="main_page4_first_one_one_main_one_chart_bar_other_rate"
-                      >
-                        <span
-                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                          >1.5%
-                          <img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB3UlEQVQ4jWP4//8/Az584P4Be4keiWeCHYJvD9w/YEdIPeP///8ZcIEvv75w607XvfzgwwNFBgYGBmVB5TuXMi/pcbFyfcelhwmnaQwMDLX7apthhjEwMDDcfX9XpfFgYz0+PThdeOrpKTPLuZbH/v3/x4wszsLE8udUyilTQ0nDC0S78Pff36wpm1JmoxvGwMDA8OffH5bUzalz/vz7gyGH08Cuo11ll19d1sPqdAYGhrPPzxpPODGhAJschpdvvLmhbjDD4MLPvz85cBnIwMDAwMXK9fVy5mVdJUGl+zhd+O//P8a0zWmzCBnGwMDA8O33N+6MLRkz0B2EYuCss7PSDj86bEfIMBjYfW+326KLi+KQxeBefvrpqZTWNK1rn35+4ifWQAYGBgZhTuE317KvaYlxi71GcWH2tuyppBrGwMDA8Pb7W5GCHQUTYHwmBgYGhtVXV4dsvLkxgFTDYGD5leVR229v92RgYGBgfPftnYDWNK3rL768kCDXQAYGBgZ5fvmHV7KuaDO/NXs7+dCjQ0RHBC7w8edHgW+/v3ExinSJvHrz7Y0opQYyMDAwiHGLvWSK0Y1ZysLI8oeNme0XGzPbL1YmVhj+jYxZmFiw4T8wzMrE+ivXLHcyAOYX+EkJeBCMAAAAAElFTkSuQmCC"
-                            width="20"
-                            height="16"
-                          /> </span
-                        ><br />
-                        <span
-                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                          >OWNED</span
-                        >
-                      </div>
-                      <div
-                        class="main_page4_first_one_one_main_one_chart_bar_other_rate"
-                      >
-                        <span
-                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                          >-1%
-                          <img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABpUlEQVQ4jWP8Nn999c/5G+oY/jMwMiADVB4DAwPDf1R5RlTxf/+Z2IJdpjB+8M56+f/9JzEM7WQARgHe10ysrpbLqGEYAwMDA6ut0UbGf1+/83yKqbjy/+VbeYpcJ8T/nHdZpxYTIxfHF67ShExKXcdZFJfLxMv9gYmBgYGB1dJgOyVeZ7E12sDmaLaWgYGBgfH/f2gkvf8k+jmq/Pr/T1+ESTKNm/Mj39JOLSZRwWcMDAwMTDBxJkG+1xy5UUWkuo4zK6IcZhiKgQwMDAxsnjaLWEy0dxNrGLO++iE2f8dZyGIoBjIyMjJwliVlMHCwfSVoGhvrD67ypDRGRkaUBM+Ero5ZWuweR3JQAyHzOBL8m5nlpW6ii2MYyMDAwMAe7tHPrKZwFpdhTMqyl9ijvbuxymETZGRm/stZkZzKwMz0B1MH41+uiuQURhaW30QbyMDAwMCirnCePcKzD12cLdRtEouW8mlc+uDpEBv4/+Mn5+e4qkv/nr5SYWBgYGCUFLnPt7hdl5GTA3ek/f//Hy/+de6a3Xv3tHcffLOf/Tp7zZ6QegDtJaSx3DtD8QAAAABJRU5ErkJgggAA"
-                            width="20"
-                            height="16" /></span
-                        ><br />
-                        <span
-                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                          >OWNED</span
-                        >
-                      </div>
                     </div>
-                  </div>
-                </div>
-                <div class="main_page3_first_one_break b-l-dashed"></div>
-                <div class="main_page4_first_one_one_main_one">
-                  <div
-                    class="main_page4_first_one_one_main_one_head fw-light ls-1"
-                  >
-                    TYPE OF BEDROOM
-                  </div>
-                  <div class="main_page4_first_one_one_main_one_chart">
-                    <canvas
-                      id="main_page4_first_one_one_main_one_chart15"
-                    ></canvas>
+                    <div class="main_page3_first_one_other_one_sub my-2">
+                      Before Tax
+                    </div>
+                    <div class="main_page3_first_one_other_one_text">PROVINCE</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="main_third_line"></div>
-          <div class="main_page4_first_one">
-            <div class="main_page4_first_one_one">
-              <div class="main_page3_first_one_txt text-xxl mb-4">
-                RENTAL UNITS OVERVIEW
-              </div>
-              <div class="main_page3_third">
-                <div class="main_page3_first_one_txt ls-2 text-md">
-                  TOTAL RENTAL UNITS
-                </div>
-                <div
-                  class="main_page3_first_one_main_head_sub_two ml-2 text-md"
-                  style="padding: 3px 12px; letter-spacing: 3px"
-                >
-                  2,100
-                </div>
-                <div
-                  class="main_page3_first_one_main_head_sub_two ml-2 text-md"
-                  style="
-                    padding: 3px 12px;
-                    letter-spacing: 3px;
-                    background-color: brown;
-                    border-radius: 18px;
-                  "
-                >
-                  100%
-                </div>
-              </div>
-              <div class="main_page4_first_one_one_main">
-                <div class="main_page4_first_one_one_main_one">
-                  <div class="main_page4_first_one_one_main_one_chart mt-2">
-                    <p
-                      style="
-                        margin-right: -15px;
-                        letter-spacing: 5px;
-                        font-size: large;
-                      "
-                    >
-                      AFFORDABLE
-                    </p>
-                    <canvas
-                      id="main_page4_first_one_one_main_one_chart34"
-                    ></canvas>
-                    <p
-                      style="
-                        margin-left: -15px;
-                        letter-spacing: 5px;
-                        font-size: large;
-                        margin-top: auto;
-                      "
-                    >
-                      UNAFFORDABLE
-                    </p>
+          <h1 style="text-align: center; text-decoration: underline" class="ls-2">
+            MEDIAN HOUSEHOLD INCOME
+          </h1>
+          <div class="main_page6_first_one">
+            <div class="main_page6_first">
+              <div class="main_page6_first_one_charts">
+                <div class="main_page6_first_one_charts_one">
+                  <div class="main_page5_first_one_txt" style="text-align: center">
+                    BEFORE RENT
                   </div>
+                  <canvas
+                    id="main_page5_first_one_chart19"
+                    style="width: 550px; height: 320px"
+                  ></canvas>
                 </div>
-              </div>
-            </div>
-            <div class="main_page4_first_one_one">
-              <div class="main_page3_first_one_txt text-xxl mb-4">
-                RENTAL UNITS OVERVIEW
-              </div>
-              <div class="main_page3_third mb-2 text-md">
-                <div class="main_page3_first_one_txt ls-2 text-md">
-                  TOTAL RENTAL UNITS
-                </div>
-                <div
-                  class="main_page3_first_one_main_head_sub_two ml-2 text-md"
-                  style="padding: 3px 12px; letter-spacing: 3px"
-                >
-                  5,100
-                </div>
-                <div
-                  class="main_page3_first_one_main_head_sub_two ml-2 text-md"
-                  style="
-                    padding: 3px 12px;
-                    letter-spacing: 3px;
-                    background-color: brown;
-                    border-radius: 18px;
-                  "
-                >
-                  100%
-                </div>
-              </div>
-              <div class="main_page4_first_one_one_main">
-                <div class="main_page4_first_one_one_main_one">
-                  <div class="main_page4_first_one_one_main_one_chart">
-                    <p
-                      style="
-                        margin-right: -15px;
-                        letter-spacing: 5px;
-                        font-size: large;
-                      "
-                    >
-                      AFFORDABLE
-                    </p>
-                    <canvas
-                      id="main_page4_first_one_one_main_one_chart33"
-                    ></canvas>
-                    <p
-                      style="
-                        margin-left: -15px;
-                        letter-spacing: 5px;
-                        font-size: large;
-                        margin-top: auto;
-                      "
-                    >
-                      UNAFFORDABLE
-                    </p>
+                <div class="main_page3_first_one_break b-l-dashed"></div>
+                <div class="main_page6_first_one_charts_two">
+                  <div class="main_page5_first_one_txt" style="text-align: center">
+                    AFTER RENT
                   </div>
+                  <canvas
+                    id="main_page5_first_one_chart20"
+                    style="width: 550px; height: 320px"
+                  ></canvas>
                 </div>
               </div>
             </div>
           </div>
+      
           <br />
-          <!-- INSET HERE -->
-          
-          <div class="main_page3_first">
-          <div class="main_page3_first_one">
-            <div class="main_third_line main_third_line_new bg-black"></div>
-            <div class="main_page3_first_one_txt ls-2 ws-2 text-2xl">
-              AVAILABLE RENTAL STOCK
+          <!-- LAST PAGE -->
+          <div class="main_first">
+            <div class="main_first_img">
+              <img
+                src="https://i.ibb.co/v3ht5Zc/logo.png"
+                style="height: 100px; width: 105px; margin-top: 20px"
+                alt=""
+              />
             </div>
-            <div class="main_page4_first_one_content">
-              <div class="main_page3_first_one_content_one">
-                <div class="main_page3_first_one_content_one_buttons">
-                  <div
-                    class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
-                    style="height: 45px; width: 90px"
-                  >
-                    <span
-                      style="
-                        font-size: 40px;
-                        margin-right: 0px !important;
-                        padding: 5px;
-                      "
-                    >
-                      200
-                    </span>
-                  </div>
-                  <div
-                    class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                    style="margin-top: 20px; width: 40px"
-                  >
-                    <span
-                      style="
-                        font-size: 23px;
-                        margin-right: -5px !important;
-                        padding: 5px;
-                      "
-                    >
-                      5%
-                    </span>
-                  </div>
-                </div>
-                <p class="text-lg m-0">AFFORDABLE</p>
+            <div class="main_first_text">
+              <div class="main_page5_first_one_txt text-3xl mt-0">
+                NEW BRUNSWICK - MONCTON
               </div>
-              <div class="main_page3_first_one_content_one">
-                <div class="main_page3_first_one_content_one_buttons">
-                  <div
-                    class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
-                    style="height: 45px; width: 90px"
-                  >
-                    <span
-                      style="
-                        font-size: 40px;
-                        margin-right: 0px !important;
-                        padding: 5px;
-                      "
-                    >
-                      200
-                    </span>
-                  </div>
-                  <div
-                    class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                    style="margin-top: 20px; width: 40px"
-                  >
-                    <span
-                      style="
-                        font-size: 23px;
-                        margin-right: -5px !important;
-                        padding: 5px;
-                      "
-                    >
-                      5%
-                    </span>
-                  </div>
-                </div>
-                <p class="text-lg m-0">UNAFFORDABLE</p>
-              </div>
-            </div>
-            <div class="main_page3_first_one_content_one text-sm">
-              *AVAILABLE = VACANT
+              <p class="fw-md ls-1 my-0" style="color: orange; font-size: 40px">
+                SHELTER COST ANALYSIS
+              </p>
             </div>
           </div>
-          <div class="main_page3_first_one">
-            <div class="main_third_line main_third_line_new bg-black"></div>
-            <div class="main_page3_first_one_txt ls-2 ws-2 text-2xl">
-              AVAILABLE RENTAL STOCK
-            </div>
-            <div class="main_page4_first_one_content">
-              <div class="main_page3_first_one_content_one">
-                <div class="main_page3_first_one_content_one_buttons">
-                  <div
-                    class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
-                    style="height: 45px; width: 90px"
-                  >
-                    <span
-                      style="
-                        font-size: 40px;
-                        margin-right: 0px !important;
-                        padding: 5px;
-                      "
-                    >
-                      200
-                    </span>
-                  </div>
-                  <div
-                    class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                    style="margin-top: 20px; width: 40px"
-                  >
-                    <span
-                      style="
-                        font-size: 23px;
-                        margin-right: -5px !important;
-                        padding: 5px;
-                      "
-                    >
-                      5%
-                    </span>
-                  </div>
-                </div>
-                <p class="text-lg m-0">AFFORDABLE</p>
-              </div>
-              <div class="main_page3_first_one_content_one">
-                <div class="main_page3_first_one_content_one_buttons">
-                  <div
-                    class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
-                    style="height: 45px; width: 90px"
-                  >
-                    <span
-                      style="
-                        font-size: 40px;
-                        margin-right: 0px !important;
-                        padding: 5px;
-                      "
-                    >
-                      200
-                    </span>
-                  </div>
-                  <div
-                    class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                    style="margin-top: 20px; width: 40px"
-                  >
-                    <span
-                      style="
-                        font-size: 23px;
-                        margin-right: -5px !important;
-                        padding: 5px;
-                      "
-                    >
-                      5%
-                    </span>
-                  </div>
-                </div>
-                <p class="text-lg m-0">UNAFFORDABLE</p>
-              </div>
-            </div>
-            <div class="main_page3_first_one_content_one text-sm">
-              *AVAILABLE = VACANT
-            </div>
+          <div class="main_third">
+            <span style="margin-left: 50px"> INCOME IS TAKEN ANUALLY </span>
+            <div class="main_third_line"></div>
           </div>
-        </div>
-        <div class="main_page3_first">
-          <div class="main_page3_first_one">
-            <div class="main_third_line main_third_line_new bg-black"></div>
-            <div class="main_page3_first_one_txt ls-2 ws-2 text-2xl">
-              NEW UNITS CONSTRUCTED
-            </div>
-            <div class="main_page4_first_one_content">
-              <div class="main_page3_first_one_content_one">
-                <div class="main_page3_first_one_content_one_buttons">
-                  <div
-                    class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
-                    style="height: 45px; width: 90px"
-                  >
-                    <span
-                      style="
-                        font-size: 40px;
-                        margin-right: 0px !important;
-                        padding: 5px;
-                      "
-                    >
-                      200
-                    </span>
-                  </div>
-                  <div
-                    class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                    style="margin-top: 20px; width: 40px"
-                  >
-                    <span
-                      style="
-                        font-size: 23px;
-                        margin-right: -5px !important;
-                        padding: 5px;
-                      "
-                    >
-                      5%
-                    </span>
-                  </div>
+          <div class="main_page6_first">
+            <div class="main_page6_first_one">
+              <div class="main_page6_first_one_charts">
+                <div class="main_page4_first_one_one_head text-3xl">
+                  APARTMENT OVERVIEW
                 </div>
-                <p class="text-lg m-0">AFFORDABLE</p>
-              </div>
-              <div class="main_page3_first_one_content_one">
-                <div class="main_page3_first_one_content_one_buttons">
-                  <div
-                    class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
-                    style="height: 45px; width: 90px"
-                  >
-                    <span
-                      style="
-                        font-size: 40px;
-                        margin-right: 0px !important;
-                        padding: 5px;
-                      "
-                    >
-                      200
-                    </span>
-                  </div>
-                  <div
-                    class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                    style="margin-top: 20px; width: 40px"
-                  >
-                    <span
-                      style="
-                        font-size: 23px;
-                        margin-right: -5px !important;
-                        padding: 5px;
-                      "
-                    >
-                      5%
-                    </span>
-                  </div>
-                </div>
-                <p class="text-lg m-0">UNAFFORDABLE</p>
-              </div>
-            </div>
-          </div>
-          <div class="main_page3_first_one">
-            <div class="main_third_line main_third_line_new bg-black"></div>
-            <div class="main_page3_first_one_txt ls-2 ws-2 text-2xl">
-              NEW UNITS CONSTRUCTED
-            </div>
-            <div class="main_page4_first_one_content">
-              <div class="main_page3_first_one_content_one">
-                <div class="main_page3_first_one_content_one_buttons">
-                  <div
-                    class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
-                    style="height: 45px; width: 90px"
-                  >
-                    <span
-                      style="
-                        font-size: 40px;
-                        margin-right: 0px !important;
-                        padding: 5px;
-                      "
-                    >
-                      200
-                    </span>
-                  </div>
-                  <div
-                    class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                    style="margin-top: 20px; width: 40px"
-                  >
-                    <span
-                      style="
-                        font-size: 23px;
-                        margin-right: -5px !important;
-                        padding: 5px;
-                      "
-                    >
-                      5%
-                    </span>
-                  </div>
-                </div>
-                <p class="text-lg m-0">AFFORDABLE</p>
-              </div>
-              <div class="main_page3_first_one_content_one">
-                <div class="main_page3_first_one_content_one_buttons">
-                  <div
-                    class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
-                    style="height: 45px; width: 90px"
-                  >
-                    <span
-                      style="
-                        font-size: 40px;
-                        margin-right: 0px !important;
-                        padding: 5px;
-                      "
-                    >
-                      200
-                    </span>
-                  </div>
-                  <div
-                    class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                    style="margin-top: 20px; width: 40px"
-                  >
-                    <span
-                      style="
-                        font-size: 23px;
-                        margin-right: -5px !important;
-                        padding: 5px;
-                      "
-                    >
-                      5%
-                    </span>
-                  </div>
-                </div>
-                <p class="text-lg m-0">UNAFFORDABLE</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-        <div class="main_float_line main_float_line2"></div>
-      </div>
-  
-      <!-- SEVENTH PAGE -->
-      <div class="main_first">
-        <div class="main_first_img">
-          <img
-            src="https://i.ibb.co/v3ht5Zc/logo.png"
-            style="height: 100px; width:105px; margin-bottom: -25px"
-            alt=""
-          />
-        </div>
-        <div class="main_first_text">
-          <div class="main_first_text_tex1">NEW BRUNSWICK - MONCTON</div>
-          <div class="main_first_text_tex2">INCOME ANALYSIS</div>
-        </div>
-      </div>
-  
-      <div class="main_third">
-        <span style="margin-left: 5rem" class="text-sm">
-          INCOME IS TAKEN ANUALLY
-        </span>
-        <div class="main_third_line"></div>
-      </div>
-      <h1
-        class="ls-2 mx-auto"
-        style="text-align: center; text-decoration: underline"
-      >
-        POPULATION BELOW & ABOVE OPTIMAL INCOME
-      </h1>
-      <p style="text-align: center; font-weight: 600" class="text-lg">
-        <span class="bg-yellow p-1 px-2" style="border-radius: 5px"
-          >OPTIMAL INCOME : $40,000</span
-        >
-      </p>
-      <div class="flex" style="margin: auto 80px">
-        <p
-          style="
-            width: 46%;
-            text-align: center;
-            border-bottom: 1px solid;
-            position: relative;
-            letter-spacing: 3px;
-          "
-          class="mx-2"
-        >
-          PERCENTAGE OF POPULATION BELOW OPTIMAL INCOME <br />
-          44%
-          <span style="position: absolute; left: -4px; bottom: -9.5px"> < </span>
-          <span style="position: absolute; right: -4px; bottom: -9.5px"> > </span>
-        </p>
-        <p
-          style="
-            width: 55%;
-            text-align: center;
-            border-bottom: 1px solid;
-            position: relative;
-            letter-spacing: 3px;
-          "
-          class="mx-1"
-        >
-          PERCENTAGE OF POPULATION ABOVE OPTIMAL INCOME <br />
-          66%
-          <span style="position: absolute; left: -4px; bottom: -9.5px"> < </span>
-          <span style="position: absolute; right: -4px; bottom: -9.5px"> > </span>
-        </p>
-      </div>
-      <div class="main_page5_first_one_chart">
-        <canvas
-          id="main_page5_first_one_chart17"
-          style="max-height: 400px; margin: 10px 40px 10px 0px; width:1500px !important"
-        ></canvas>
-      </div>
-      <p style="text-align: center; font-weight: 600; font-size: larger">
-        DIFFERENT INCOME RANGES
-      </p>
-      <div class="main_third_line"></div>
-  
-      <!-- above this -->
-      <div class="main_page5_first">
-        <div class="main_page5_first_one">
-          <div
-            class="main_page5_first_one_one main_page5_first_one_one2 main_page4_first_one_one_main_one_border"
-          >
-            <div class="main_page5_first_one_txt">
-              DISCRETIONARY INCOME VS <br />
-              MEDIAN INCOME AFTER TAX/BEFORE TAX
-            </div>
-            <div class="main_page5_first_one_chart">
-              <canvas
-                id="main_page5_first_one_chart18"
-                style="width: max-content; min-height: 300px; min-width: 720px"
-              ></canvas>
-            </div>
-          </div>
-  
-          <div class="main_page5_first_one_one main_page5_first_one_one4">
-            <div class="main_page5_first_one_txt text-2xl">
-              MEDIAN INCOMCE <br />
-              RANKING
-            </div>
-            <div class="main_page3_first_one_other">
-              <div class="main_page3_first_one_other_one">
-                <div
-                  class="main_page3_first_one_other_one_main"
-                  style="margin-top: 80px"
-                >
-                  <!-- 12 -->
-                </div>
-                <div class="main_page3_first_one_other_one_sub my-2">
-                  Before Tax
-                </div>
-                <div class="main_page3_first_one_other_one_text">
-                  MAJOR<br />
-                  CMAS
+                <div class="main_page4_first_one_one_head text-3xl">
+                  ROW HOUSE OVERVIEW
                 </div>
               </div>
-              <div class="main_page3_first_one_other_one">
-                <div
-                  class="main_page3_first_one_other_one_main"
-                  style="margin-top: 70px"
-                >
-                  <!-- 12 -->
+              <div class="main_page6_first_one_head text-3xl">AVERAGE RENT</div>
+      
+              <div class="main_page6_first_one_charts">
+                <div class="main_page6_first_one_charts_one">
+                  <canvas
+                    id="main_page6_first_one_charts_one_21"
+                    style="width: 550px"
+                  ></canvas>
                 </div>
-                <div class="main_page3_first_one_other_one_sub my-2">
-                  Before Tax
+                <div class="main_page3_first_one_break b-l-dashed"></div>
+                <div class="main_page6_first_one_charts_two">
+                  <canvas
+                    id="main_page6_first_one_charts_two_22"
+                    style="width: 550px"
+                  ></canvas>
                 </div>
-                <div class="main_page3_first_one_other_one_text">PROVINENCE</div>
+              </div>
+            </div>
+            <div class="main_page6_first_one">
+              <div class="main_page6_first_one_head ls-2">
+                HISTORICAL RENT GROWTH RATE
+              </div>
+              <div class="main_page6_first_one_charts">
+                <div class="main_page6_first_one_charts_one">
+                  <canvas
+                    id="main_page6_first_one_charts_one_23"
+                    style="width: 550px"
+                  ></canvas>
+                </div>
+                <div class="main_page3_first_one_break b-l-dashed"></div>
+      
+                <div class="main_page6_first_one_charts_two">
+                  <canvas
+                    id="main_page6_first_one_charts_two_24"
+                    style="width: 550px"
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+      
+            <div class="main_page6_first_one">
+              <div class="main_page6_first_one_head mb-2">
+                UTILITIES VS AFFORDABLE RENT VS AVERAGE RENT
+              </div>
+              <span> Monthly</span>
+      
+              <div class="main_page6_first_one_charts mt-2">
+                <div class="main_page6_first_one_charts_three">
+                  <canvas
+                    id="main_page6_first_one_charts_one_25"
+                    style="width: 550px"
+                  ></canvas>
+                </div>
+                <div class="main_page3_first_one_break b-l-dashed"></div>
+      
+                <div class="main_page6_first_one_charts_three">
+                  <canvas
+                    id="main_page6_first_one_charts_two_26"
+                    style="width: 550px"
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="main_third_line" style="margin: 0px 15px; width: 95%"></div>
+            <!-- <div > -->
+            <div class="main_page6_first_one">
+              <div class="main_page6_first_one_flex">
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                    TOP 5 CMAS - <br />
+                    AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas
+                      id="main_page6_first_one_charts_one_27"
+                      style="height: 220px; max-width: 270px"
+                    ></canvas>
+                  </div>
+                </div>
+                <div class="main_page3_first_one_break b-l-dashed"></div>
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                    BOTTOM 5 CMAS - <br />
+                    AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas
+                      id="main_page6_first_one_charts_two_28"
+                      style="height: 220px; max-width: 270px"
+                    ></canvas>
+                  </div>
+                </div>
+                <div class="main_page3_first_one_break b-l-dashed"></div>
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                    TOP 5 CMAS - <br />
+                    AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas
+                      id="main_page6_first_one_charts_one_35"
+                      style="height: 220px; max-width: 270px"
+                    ></canvas>
+                  </div>
+                </div>
+                <div class="main_page3_first_one_break b-l-dashed"></div>
+      
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                    BOTTOM 5 CMAS - <br />
+                    AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas
+                      id="main_page6_first_one_charts_two_36"
+                      style="height: 220px; max-width: 270px"
+                    ></canvas>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="main_third_line"></div>
-      <h1 style="text-align: center; text-decoration: underline" class="ls-2">
-        MEDIAN HOUSEHOLD INCOME
-      </h1>
-      <div class="main_page5_first_one_txt">
-        <div class="main_page5_first_one">
-          <div class="main_page5_first_one_one main_page5_first_one_one3">
-            <div class="main_page5_first_one_txt">BEFORE TAX</div>
-            <div class="main_page5_first_one_chart">
-              <canvas
-                id="main_page5_first_one_chart19"
-                style="width: 550px"
-              ></canvas>
-            </div>
-          </div>
-          <div class="main_page3_first_one_break b-l-dashed"></div>
-  
-          <div class="main_page5_first_one_one main_page5_first_one_one3">
-            <div class="main_page5_first_one_txt">AFTER TAX</div>
-            <div class="main_page5_first_one_chart">
-              <canvas
-                id="main_page5_first_one_chart20"
-                style="width: 550px"
-              ></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <br />
-      <!-- LAST PAGE -->
-      <div class="main_first">
-        <div class="main_first_img">
-          <img
-            src="https://i.ibb.co/v3ht5Zc/logo.png"
-            style="height: 100px; width:105px; margin-top: -15px"
-            alt=""
-          />
-        </div>
-        <div class="main_first_text">
-          <div class="main_page5_first_one_txt text-3xl mt-0">
-            NEW BRUNSWICK - MONCTON
-          </div>
-          <p class="fw-md ls-1 my-0" style="color: orange; font-size: 40px">
-            SHELTER COST ANALYSIS
-          </p>
-        </div>
-      </div>
-      <div class="main_third">
-        <span style="margin-left: 50px"> INCOME IS TAKEN ANUALLY </span>
-        <div class="main_third_line"></div>
-      </div>
-      <div class="main_page6_first">
-        <div class="main_page6_first_one">
-          <div class="main_page6_first_one_charts">
-            <div class="main_page4_first_one_one_head text-3xl">
-              APARTMENT OVERVIEW
-            </div>
-            <div class="main_page4_first_one_one_head text-3xl">
-              ROW HOUSE OVERVIEW
-            </div>
-          </div>
-          <div class="main_page6_first_one_head text-3xl">AVERAGE RENT</div>
-  
-          <div class="main_page6_first_one_charts">
-            <div class="main_page6_first_one_charts_one">
-              <canvas
-                id="main_page6_first_one_charts_one_21"
-                style="width: 550px"
-              ></canvas>
-            </div>
-            <div class="main_page3_first_one_break b-l-dashed"></div>
-            <div class="main_page6_first_one_charts_two">
-              <canvas
-                id="main_page6_first_one_charts_two_22"
-                style="width: 550px"
-              ></canvas>
-            </div>
-          </div>
-        </div>
-        <div class="main_page6_first_one">
-          <div class="main_page6_first_one_head ls-2">
-            HISTORICAL RENT GROWTH RATE
-          </div>
-          <div class="main_page6_first_one_charts">
-            <div class="main_page6_first_one_charts_one">
-              <canvas
-                id="main_page6_first_one_charts_one_23"
-                style="width: 550px"
-              ></canvas>
-            </div>
-            <div class="main_page3_first_one_break b-l-dashed"></div>
-  
-            <div class="main_page6_first_one_charts_two">
-              <canvas
-                id="main_page6_first_one_charts_two_24"
-                style="width: 550px"
-              ></canvas>
-            </div>
-          </div>
-        </div>
-  
-        <div class="main_page6_first_one">
-          <div class="main_page6_first_one_head mb-2">
-            UTILITIES VS AFFORDABLE RENT VS AVERAGE RENT
-          </div>
-          <span> Monthly</span>
-  
-          <div class="main_page6_first_one_charts mt-2">
-            <div class="main_page6_first_one_charts_three" >
-              <canvas
-                id="main_page6_first_one_charts_one_25"
-                style="width: 600px; height: 380px"
-              ></canvas>
-            </div>
-            <div class="main_page3_first_one_break b-l-dashed"></div>
-  
-            <div class="main_page6_first_one_charts_three" >
-              <canvas
-                id="main_page6_first_one_charts_two_26"
-                style="width: 600px; height: 380px"
-              ></canvas>
-            </div>
-          </div>
-        </div>
-        <div class="main_third_line" style="margin: 0px 15px; width: 95%"></div>
-        <!-- <div > -->
-        <div class="main_page6_first_one">
-          <div class="main_page6_first_one_flex">
-            <div>
-              <div class="main_page6_first_one_head text-lg">
-                TOP 5 CMAS - <br />
-                AVERAGE RENT
-              </div>
-              <div class="main_page6_first_one_charts_three m-auto">
-                <canvas
-                  id="main_page6_first_one_charts_one_27"
-                  style="height: 220px; max-width: 270px"
-                ></canvas>
-              </div>
-            </div>
-            <div class="main_page3_first_one_break b-l-dashed"></div>
-            <div>
-              <div class="main_page6_first_one_head text-lg">
-                BOTTOM 5 CMAS - <br />
-                AVERAGE RENT
-              </div>
-              <div class="main_page6_first_one_charts_three m-auto">
-                <canvas
-                  id="main_page6_first_one_charts_two_28"
-                  style="height: 220px; max-width: 270px"
-                ></canvas>
-              </div>
-            </div>
-            <div class="main_page3_first_one_break b-l-dashed"></div>
-            <div>
-              <div class="main_page6_first_one_head text-lg">
-                TOP 5 CMAS - <br />
-                AVERAGE RENT
-              </div>
-              <div class="main_page6_first_one_charts_three m-auto">
-                <canvas
-                  id="main_page6_first_one_charts_one_35"
-                  style="height: 220px; max-width: 270px"
-                ></canvas>
-              </div>
-            </div>
-            <div class="main_page3_first_one_break b-l-dashed"></div>
-  
-            <div>
-              <div class="main_page6_first_one_head text-lg">
-                BOTTOM 5 CMAS - <br />
-                AVERAGE RENT
-              </div>
-              <div class="main_page6_first_one_charts_three m-auto">
-                <canvas
-                  id="main_page6_first_one_charts_two_36"
-                  style="height: 220px; max-width: 270px"
-                ></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </body>
+        </body>
         <script>
           var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
           var yValues = [55, 49, 44, 24, 15];
@@ -3018,13 +3086,13 @@ module.exports = {
                   label: "Current stock",
                   showInLegend: true,
                   data: [1500, 3000, 5800, 1900],
-                  backgroundColor: "#581845",
+                  backgroundColor: "#683733",
                 },
                 {
                   label: "New Added Stock",
                   showInLegend: true,
                   data: [500, 1000, 2000, 3000],
-                  backgroundColor: "#D9B280",
+                  backgroundColor: "#c2ac7f",
                 },
               ],
             },
@@ -3033,6 +3101,7 @@ module.exports = {
               suffix: "K",
             },
             options: {
+              responsive:false,
               legend: {
                 labels: {
                   boxWidth: 15,
@@ -3077,28 +3146,28 @@ module.exports = {
                 {
                   label: "30% of Income", // Dataset label
                   data: [1000, 1400, 2000, 2050, 2400], // Data values
-                  backgroundColor: "#900C3F", // Bar background color
-                  borderColor: "#900C3F", // Bar border color
+                  backgroundColor: "#683733", // Bar background color
+                  borderColor: "#683733", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
                   label: "Residual Income", // Dataset label
                   data: [1200, 1800, 2400, 2300, 2600], // Data values
-                  backgroundColor: "#E1C98E", // Bar background color
-                  borderColor: "#E1C98E", // Bar border color
+                  backgroundColor: "#c2ac7f", // Bar background color
+                  borderColor: "#c2ac7f", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
                   label: "Current Shelter Cost", // Dataset label
                   data: [1250, 1400, 1800, 2500, 2800], // Data values
-                  backgroundColor: "#577A4F", // Bar background color
-                  borderColor: "#577A4F", // Bar border color
+                  backgroundColor: "#5e6043", // Bar background color
+                  borderColor: "#5e6043", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
               ],
             },
             options: {
-              responsive: true, // Make the chart responsive
+              responsive: false, // Make the chart responsive
               title: {
                 display: false, // Display chart title
                 text: "Sales by Quarter", // Chart title text
@@ -3142,23 +3211,22 @@ module.exports = {
             ctx.fillText("☐ RENTAL", 10, 25);
           };
       
-      
           const chart7 = JSC.chart("chartDiv", {
-            debug: true,
             type: "pyramidInverted",
             legend_visible: false,
-            width: 580,
-            height: 280,
+            width: 560,
+            height: 360,
             yAxis: { label_text: "Cost", formatString: "c" },
+            backgroundColor: "#f1f3f9",
             defaultSeries: {
-              shape_innerPadding: 6,
+              shape_innerPadding: 2,
               defaultPoint: {
                 label: {
                   text: "%name <b>%yValuek</b> (%percentOfSeries%)",
                   placement: "auto",
                   align: "left", // Add this line to set the alignment to left
                   style: {
-                    fontSize: "13px", // Adjust the font size as needed
+                    fontSize: "16px", // Adjust the font size as needed
                   },
                 },
               },
@@ -3171,20 +3239,20 @@ module.exports = {
                   {
                     name: "HOUSEHOLD INCOME <br> BEFORE TAX",
                     y: 60,
-                    color: "#3D1130",
+                    color: "#4c3848",
                   },
-                  { name: "INCOME AFTER TAX", y: 55, color: "#66702A" },
+                  { name: "INCOME AFTER TAX", y: 55, color: "#5e6043" },
                   {
                     name: "COST OF NON SHELTER <br>NECESSITIES",
                     y: 30,
-                    color: "brown",
+                    color: "#683733",
                   },
-                  { name: "RESIDUAL INCOME", y: 15, color: "#A5A604" },
-                  { name: "SHELTER COST", y: 14, color: "#D3BC92" },
+                  { name: "RESIDUAL INCOME", y: 15, color: "#8f7e18" },
+                  { name: "SHELTER COST", y: 14, color: "#c2ac7f" },
                   {
                     name: "<b>DISCRETIONARY INCOME</b>",
                     y: 1,
-                    color: "#A3F483",
+                    color: "green",
                   },
                 ],
               },
@@ -3194,11 +3262,11 @@ module.exports = {
           const chart8 = new Chart(main_page4_first_one_one_main_one_chart8, {
             type: "pie",
             data: {
-              labels: ["RENTAL", "OWNED"],
+              labels: ["AVAILABLE", "OCCUPIED"],
               datasets: [
                 {
                   data: [33.3, 66.7],
-                  backgroundColor: ["#009299", "#003F72"],
+                  backgroundColor: ["#683733", "#c2ac7f"],
                 },
               ],
             },
@@ -3233,7 +3301,7 @@ module.exports = {
               datasets: [
                 {
                   data: [1500, 2500, 3000, 3010],
-                  backgroundColor: ["#00CADC", "#7E80E7", "#65A6FA", "#49C3FB"],
+                  backgroundColor: ["#683733", "#8f7e18", "#5e6043", "#4c3848"],
                 },
               ],
             },
@@ -3264,11 +3332,11 @@ module.exports = {
           const chart10 = new Chart(main_page4_first_one_one_main_one_chart10, {
             type: "pie",
             data: {
-              labels: ["RENTAL", "OWNED"],
+              labels: ["AVAILABLE", "OCCUPIED"],
               datasets: [
                 {
                   data: [33.3, 66.7],
-                  backgroundColor: ["#009299", "#003F72"],
+                  backgroundColor: ["#683733", "#c2ac7f"],
                 },
               ],
             },
@@ -3303,7 +3371,7 @@ module.exports = {
               datasets: [
                 {
                   data: [1500, 2500, 3000, 3010],
-                  backgroundColor: ["#00CADC", "#7E80E7", "#65A6FA", "#49C3FB"],
+                  backgroundColor: ["#683733", "#8f7e18", "#5e6043", "#4c3848"],
                 },
               ],
             },
@@ -3333,11 +3401,11 @@ module.exports = {
           const chart12 = new Chart(main_page4_first_one_one_main_one_chart12, {
             type: "line",
             data: {
-              labels: ["","2017", "2018", "2019", "2020", "2021", "2022"],
+              labels: ["", "2017", "2018", "2019", "2020", "2021", "2022"],
               datasets: [
                 {
                   label: "Value",
-                  data: [,0, 5000, 7500, 8000, 9000, 10000],
+                  data: [, 2500, 5000, 7500, 8000, 9000, 10000],
                   backgroundColor: "transparent",
                   borderColor: "black",
                   borderWidth: 1,
@@ -3389,11 +3457,11 @@ module.exports = {
           const chart13 = new Chart(main_page4_first_one_one_main_one_chart13, {
             type: "line",
             data: {
-              labels: ["","2017", "2018", "2019", "2020", "2021", "2022"],
+              labels: ["", "2017", "2018", "2019", "2020", "2021", "2022"],
               datasets: [
                 {
                   label: "Value",
-                  data: [,0, 5000, 7500, 8000, 9000, 10000],
+                  data: [, 2500, 5000, 7500, 8000, 9000, 10000],
                   backgroundColor: "transparent",
                   borderColor: "black",
                   borderWidth: 1,
@@ -3450,7 +3518,7 @@ module.exports = {
               datasets: [
                 {
                   data: [1500, 2500, 3000, 3010],
-                  backgroundColor: ["#00CADC", "#7E80E7", "#65A6FA", "#49C3FB"],
+                  backgroundColor: ["#683733", "#8f7e18", "#5e6043", "#4c3848"],
                 },
               ],
             },
@@ -3499,7 +3567,7 @@ module.exports = {
               datasets: [
                 {
                   data: [1500, 2500, 3000, 3010],
-                  backgroundColor: ["#00CADC", "#7E80E7", "#65A6FA", "#49C3FB"],
+                  backgroundColor: ["#683733", "#8f7e18", "#5e6043", "#4c3848"],
                 },
               ],
             },
@@ -3547,17 +3615,17 @@ module.exports = {
                   label: "CMA", // Dataset label
                   data: [5, 4, 18, 17, 15, 10, 5, 15, 10], // Data values
                   backgroundColor: [
-                    "#BC1823",
-                    "#BC1823",
-                    "#BC1823",
-                    "#BC1823",
+                    "#bb1823",
+                    "#bb1823",
+                    "#bb1823",
+                    "#bb1823",
                     "green",
                     "green",
                     "green",
                     "green",
                     "green",
                   ], // Bar background color
-                  borderColor: "#BC1823", // Bar border color
+                  borderColor: "#bb1823", // Bar border color
                 },
               ],
             },
@@ -3608,22 +3676,22 @@ module.exports = {
                 {
                   label: "30% of Income", // Dataset label
                   data: [1000, 1400, 2000, 2050, 2400], // Data values
-                  backgroundColor: "#900C3F", // Bar background color
-                  borderColor: "#900C3F", // Bar border color
+                  backgroundColor: "#c2ac7f", // Bar background color
+                  borderColor: "#c2ac7f", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
                   label: "Residual Income", // Dataset label
                   data: [1200, 1800, 2400, 2300, 2600], // Data values
-                  backgroundColor: "#E1C98E", // Bar background color
-                  borderColor: "#E1C98E", // Bar border color
+                  backgroundColor: "#4d2927", // Bar background color
+                  borderColor: "#4d2927", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
                   label: "Current Shelter Cost", // Dataset label
                   data: [1250, 1400, 1800, 2500, 2800], // Data values
-                  backgroundColor: "#577A4F", // Bar background color
-                  borderColor: "#577A4F", // Bar border color
+                  backgroundColor: "#4c3848", // Bar background color
+                  borderColor: "#4c3848", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
               ],
@@ -3669,13 +3737,13 @@ module.exports = {
           const chart19 = new Chart(main_page5_first_one_chart19, {
             type: "line",
             data: {
-              labels: ["","2017", "2018", "2019", "2020", "2021", "2022"],
+              labels: ["", "2017", "2018", "2019", "2020", "2021", "2022"],
               datasets: [
                 {
                   label: "Value",
-                  data: [,0, 4500, 7500, 8000, 9000, 10000],
+                  data: [, 0, 4500, 7500, 8000, 9000, 10000],
                   backgroundColor: "transparent",
-                  borderColor: "black",
+                  borderColor: "#4c3848",
                   borderWidth: 1,
                   borderJoinStyle: "bevel",
                 },
@@ -3733,13 +3801,13 @@ module.exports = {
           const chart20 = new Chart(main_page5_first_one_chart20, {
             type: "line",
             data: {
-              labels: [,"2017", "2018", "2019", "2020", "2021", "2022"],
+              labels: ["", "2017", "2018", "2019", "2020", "2021", "2022"],
               datasets: [
                 {
                   label: "Value",
-                  data: [,0, 61000, 70000, 71000, 90000, 100000],
+                  data: [, 0, 61000, 70000, 71000, 90000, 100000],
                   backgroundColor: "transparent",
-                  borderColor: "black",
+                  borderColor: "#4c3848",
                   borderWidth: 1,
                 },
               ],
@@ -3805,22 +3873,22 @@ module.exports = {
                 {
                   label: "CMA", // Dataset label
                   data: [100, 120, 150, 180], // Data values
-                  backgroundColor: "#009299", // Bar background color
-                  borderColor: "#009299", // Bar border color
+                  backgroundColor: "#683733", // Bar background color
+                  borderColor: "#683733", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
                   label: "Province", // Dataset label
                   data: [200, 120, 150, 180], // Data values
-                  backgroundColor: "#ED7D31", // Bar background color
-                  borderColor: "#ED7D31", // Bar border color
+                  backgroundColor: "#5e6043", // Bar background color
+                  borderColor: "#5e6043", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
                   label: "CANADA", // Dataset label
                   data: [50, 120, 150, 180], // Data values
-                  backgroundColor: "#65A6FA", // Bar background color
-                  borderColor: "#65A6FA", // Bar border color
+                  backgroundColor: "#4c3848", // Bar background color
+                  borderColor: "#4c3848", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
               ],
@@ -3865,22 +3933,22 @@ module.exports = {
                 {
                   label: "CMA", // Dataset label
                   data: [100, 120, 150, 180], // Data values
-                  backgroundColor: "#009299", // Bar background color
-                  borderColor: "#009299", // Bar border color
+                  backgroundColor: "#683733", // Bar background color
+                  borderColor: "#683733", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
                   label: "Province", // Dataset label
                   data: [200, 120, 150, 180], // Data values
-                  backgroundColor: "#ED7D31", // Bar background color
-                  borderColor: "#ED7D31", // Bar border color
+                  backgroundColor: "#5e6043", // Bar background color
+                  borderColor: "#5e6043", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
                   label: "CANADA", // Dataset label
                   data: [50, 120, 150, 180], // Data values
-                  backgroundColor: "#65A6FA", // Bar background color
-                  borderColor: "#65A6FA", // Bar border color
+                  backgroundColor: "#4c3848", // Bar background color
+                  borderColor: "#4c3848", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
               ],
@@ -3920,13 +3988,13 @@ module.exports = {
           const chart23 = new Chart(main_page6_first_one_charts_one_23, {
             type: "line",
             data: {
-              labels: ["2017", "2018", "2019", "2020", "2021", "2022"],
+              labels: ["", "2017", "2018", "2019", "2020", "2021", "2022"],
               datasets: [
                 {
                   label: "Moncton",
-                  data: [2, 3, 4, 1, 1, 5],
+                  data: [, 2, 3, 4, 1, 1, 5],
                   backgroundColor: "transparent",
-                  borderColor: "#4472C4",
+                  borderColor: "#4c3848",
                   borderWidth: 4,
                 },
               ],
@@ -3974,13 +4042,13 @@ module.exports = {
           const chart24 = new Chart(main_page6_first_one_charts_two_24, {
             type: "line",
             data: {
-              labels: ["2017", "2018", "2019", "2020", "2021", "2022"],
+              labels: ["", "2017", "2018", "2019", "2020", "2021", "2022"],
               datasets: [
                 {
                   label: "Moncton",
-                  data: [2, 3, 4, 1, 1, 5],
+                  data: [, 2, 3, 4, 1, 1, 5],
                   backgroundColor: "rgba(0, 0, 0, 0)",
-                  borderColor: "#4472C4",
+                  borderColor: "#4c3848",
                   borderWidth: 4,
                 },
               ],
@@ -4035,22 +4103,22 @@ module.exports = {
                 {
                   label: "CMA", // Dataset label
                   data: [10, 1, 2, 5, 8, 10, 15, 5, 8, 9], // Data values
-                  backgroundColor: "green", // Bar background color
-                  borderColor: "green", // Bar border color
+                  backgroundColor: "#c2ac7f", // Bar background color
+                  borderColor: "#c2ac7f", // Bar border color
                   // borderWidth: 1, // Bar border width
                 },
                 {
                   label: "CMA", // Dataset label
                   data: [15, 2, 3, 7, 8, 10, 13, 6, 16, 20], // Data values
-                  backgroundColor: "brown", // Bar background color
-                  borderColor: "brown", // Bar border color
+                  backgroundColor: "#683733", // Bar background color
+                  borderColor: "#683733", // Bar border color
                   // borderWidth: 1, // Bar border width
                 },
                 {
                   label: "CMA", // Dataset label
                   data: [20, 3, 5, 10, 12, 15, 20, 9, 25, 30], // Data values
-                  backgroundColor: "#MC1827", // Bar background color
-                  borderColor: "#MC1827", // Bar border color
+                  backgroundColor: "#4c3848", // Bar background color
+                  borderColor: "#4c3848", // Bar border color
                   // borderWidth: 1, // Bar border width
                 },
               ],
@@ -4096,22 +4164,22 @@ module.exports = {
                 {
                   label: "CMA", // Dataset label
                   data: [10, 1, 2, 5, 8, 10, 15, 5, 8, 9], // Data values
-                  backgroundColor: "green", // Bar background color
-                  borderColor: "green", // Bar border color
+                  backgroundColor: "#c2ac7f", // Bar background color
+                  borderColor: "#c2ac7f", // Bar border color
                   // borderWidth: 1, // Bar border width
                 },
                 {
                   label: "CMA", // Dataset label
                   data: [15, 2, 3, 7, 8, 10, 13, 6, 16, 20], // Data values
-                  backgroundColor: "brown", // Bar background color
-                  borderColor: "brown", // Bar border color
+                  backgroundColor: "#683733", // Bar background color
+                  borderColor: "#683733", // Bar border color
                   // borderWidth: 1, // Bar border width
                 },
                 {
                   label: "CMA", // Dataset label
                   data: [20, 3, 5, 10, 12, 15, 20, 9, 25, 30], // Data values
-                  backgroundColor: "#MC1827", // Bar background color
-                  borderColor: "#MC1827", // Bar border color
+                  backgroundColor: "#4c3848", // Bar background color
+                  borderColor: "#4c3848", // Bar border color
                   // borderWidth: 1, // Bar border width
                 },
               ],
@@ -4157,8 +4225,8 @@ module.exports = {
                 {
                   label: "CMA", // Dataset label
                   data: [500, 1000, 2500, 1500, 2000], // Data values
-                  backgroundColor: "red", // Bar background color
-                  borderColor: "red", // Bar border color
+                  backgroundColor: "#bb1823", // Bar background color
+                  borderColor: "#bb1823", // Bar border color
                   // borderWidth: 1, // Bar border width
                 },
               ],
@@ -4207,8 +4275,8 @@ module.exports = {
                 {
                   label: "CMA", // Dataset label
                   data: [500, 1000, 2500, 1500, 2000], // Data values
-                  backgroundColor: "green", // Bar background color
-                  borderColor: "green", // Bar border color
+                  backgroundColor: "#008001", // Bar background color
+                  borderColor: "#008001", // Bar border color
                   // borderWidth: 1, // Bar border width
                   borderRadius: 20,
                 },
@@ -4254,7 +4322,7 @@ module.exports = {
               datasets: [
                 {
                   data: [2250, 1850],
-                  backgroundColor: ["#581845", "#D9B280"],
+                  backgroundColor: ["#c2ac7f", "#683733"],
                 },
               ],
             },
@@ -4340,7 +4408,7 @@ module.exports = {
               datasets: [
                 {
                   data: [1125, 1125],
-                  backgroundColor: ["#581845", "#D9B280"],
+                  backgroundColor: ["#c2ac7f", "#683733"],
                 },
               ],
             },
@@ -4372,7 +4440,7 @@ module.exports = {
               datasets: [
                 {
                   data: [610, 1240],
-                  backgroundColor: ["#581845", "#D9B280"],
+                  backgroundColor: ["#c2ac7f", "#683733"],
                 },
               ],
             },
@@ -4409,7 +4477,7 @@ module.exports = {
               datasets: [
                 {
                   data: [210, 140],
-                  backgroundColor: ["#581845", "#D9B280"],
+                  backgroundColor: ["#c2ac7f", "#683733"],
                 },
               ],
             },
@@ -4441,7 +4509,7 @@ module.exports = {
               datasets: [
                 {
                   data: [800, 1200],
-                  backgroundColor: ["#c2a36fc9", "brown"],
+                  backgroundColor: ["#c2ac7f", "#683733"],
                 },
               ],
             },
@@ -4473,7 +4541,7 @@ module.exports = {
               datasets: [
                 {
                   data: [1050, 1050],
-                  backgroundColor: ["#c2a36fc9", "brown"],
+                  backgroundColor: ["#c2ac7f", "#683733"],
                 },
               ],
             },
@@ -4506,8 +4574,8 @@ module.exports = {
                 {
                   label: "CMA", // Dataset label
                   data: [500, 1000, 2500, 1500, 2000], // Data values
-                  backgroundColor: "red", // Bar background color
-                  borderColor: "red", // Bar border color
+                  backgroundColor: "#bb1823", // Bar background color
+                  borderColor: "#bb1823", // Bar border color
                   // borderWidth: 1, // Bar border width
                 },
               ],
@@ -4596,6 +4664,8 @@ module.exports = {
           });
         </script>
       </html>
+      
+      
       `;
       await page.setContent(htmlContent);
       const pdfFilePath = "output.pdf";
@@ -7434,7 +7504,6 @@ module.exports = {
         text-decoration: underline;
         letter-spacing: 0.3cap;
         margin-top: 20px;
-        margin-bottom: 20px;
     }
 
     .main_page5_first_one_chart canvas {
