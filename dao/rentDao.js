@@ -29,7 +29,7 @@ module.exports = {
                  where (province ilike :province or cma ilike :province or ca ilike :province) `;
 
       if (rentObj?.filter?.year) {
-        sql += `and  year = ${Number(rentObj.filter.year)} `;
+        sql += `and  year = ${String(rentObj.filter.year)} `;
       }
       sql += `  and "deletedAt" is null order by "createdAt" desc limit :limit offset :offset`;
       if (rentObj?.filter?.province) {
