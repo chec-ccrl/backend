@@ -119,7 +119,7 @@ module.exports = {
   addExcelFiles: async (req, res, next) => {
     try {
       let result = excelToJson({
-        sourceFile: __dirname + "/Sample_Files/Market Basket Measure.xlsx",
+        sourceFile: __dirname + "/Sample_Files/Market basket measure.xlsx",
       });
       result = result["Market basket measure"];
       let arr = [];
