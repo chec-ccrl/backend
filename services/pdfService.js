@@ -2848,7 +2848,7 @@ module.exports = {
                 <div class="main_page5_first_one_chart">
                   <canvas
                     id="main_page5_first_one_chart18"
-                    style="width: max-content; min-height: 300px; min-width: 720px"
+                    style="width: max-content; min-height: 300px; "
                   ></canvas>
                 </div>
               </div>
@@ -2933,7 +2933,7 @@ module.exports = {
             </div>
           </div>
           <div class="main_third">
-            <span style="margin-left: 50px"> INCOME IS TAKEN ANUALLY </span>
+            <span style="margin-left: 50px;margin-top:10px"> INCOME IS TAKEN ANUALLY </span>
             <div class="main_third_line"></div>
           </div>
           <div class="main_page6_first">
@@ -3712,6 +3712,9 @@ module.exports = {
                     ticks: {
                       beginAtZero: true, // Start y-axis at zero
                       fontColor: "black",
+                      callback: function (value, index, values) {
+                        return "$" + value; // Add dollar sign to tick labels
+                      },
                     },
                   },
                 ],
@@ -3771,6 +3774,9 @@ module.exports = {
                       beginAtZero: true,
                       fontSize: 10,
                       fontColor: "black",
+                      callback: function (value, index, values) {
+                        return "$" + value; // Add dollar sign to tick labels
+                      },
                     },
                     scaleLabel: {
                       display: true,
@@ -3838,6 +3844,9 @@ module.exports = {
                       beginAtZero: true,
                       fontSize: 10,
                       fontColor: "black",
+                      callback: function (value, index, values) {
+                        return "$" + value; // Add dollar sign to tick labels
+                      },
                     },
                     scaleLabel: {
                       display: true,
@@ -3906,6 +3915,9 @@ module.exports = {
                   {
                     ticks: {
                       beginAtZero: true, // Start y-axis at zero
+                      callback: function (value, index, values) {
+                        return "$" + value; // Add dollar sign to tick labels
+                      },
                     },
                   },
                 ],
@@ -3966,6 +3978,9 @@ module.exports = {
                   {
                     ticks: {
                       beginAtZero: true, // Start y-axis at zero
+                      callback: function (value, index, values) {
+                        return "$" + value; // Add dollar sign to tick labels
+                      },
                     },
                   },
                 ],
@@ -4017,6 +4032,9 @@ module.exports = {
                   {
                     ticks: {
                       beginAtZero: true,
+                      callback: function (value, index, values) {
+                        return  value + "%"; // Add dollar sign to tick labels
+                      },
                     },
                   },
                 ],
@@ -4073,6 +4091,9 @@ module.exports = {
                   {
                     ticks: {
                       beginAtZero: true,
+                      callback: function (value, index, values) {
+                        return  value + "%"; // Add dollar sign to tick labels
+                      },
                     },
                   },
                 ],

@@ -110,7 +110,7 @@ module.exports = {
       let result = excelToJson({
         sourceFile: __dirname + "/Sample_Files/CMHC Rent.xlsx",
       });
-      result = result["Sheet2"];
+      result = result["All data"];
       let arr = [];
       await Promise.all(
         result.map(async (obj) => {
@@ -119,8 +119,8 @@ module.exports = {
               province: obj["A"],
               cma: obj["B"],
               ca: obj["C"],
-              house_type:obj["D"],
-              bedroom_type:obj["E"],
+              house_type: obj["D"],
+              bedroom_type: obj["E"],
               year: obj["F"],
               rent_value: obj["G"],
             };

@@ -10,6 +10,8 @@ const house_type_const = ["Apartment", "Row"];
 module.exports = {
   result: async (req, res, next) => {
     try {
+      const link = await Services.pdfService.detailPdfGenerator({});
+      return res.json(link);
       const {
         province,
         cma,
