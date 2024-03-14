@@ -24,7 +24,7 @@ module.exports = {
         rentDetails.map(async (obj) => {
           let rent = 0;
           const { cma, ca } = obj;
-          if (cma !== "NA" && ca !== "NA") {
+          if ((cma !== "NA" && ca === "NA") || (cma === "NA" && ca !== "NA")) {
             const multiplierDetails =
               await Services.multiplierService.getDetail({
                 province,
@@ -112,7 +112,10 @@ module.exports = {
             rentDetails.map(async (obj) => {
               let rent = 0;
               const { cma, ca } = obj;
-              if (cma !== "NA" && ca !== "NA") {
+              if (
+                (cma !== "NA" && ca === "NA") ||
+                (cma === "NA" && ca !== "NA")
+              ) {
                 const multiplierDetails =
                   await Services.multiplierService.getDetail({
                     province,
