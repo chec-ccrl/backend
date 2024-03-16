@@ -1849,9 +1849,17 @@ module.exports = {
       
             <div class="main_page3_third">
               <div class="main_page3_third_one">
+              <div style="display: flex">
                 <div class="main_page3_first_one_txt" style="margin-right: 30px;font-size:20px">
                   PROVINCIAL AVERAGE INCOME
                 </div>
+                <div
+                class="main_page3_first_one_main_head_sub_two mr-2"
+                style="padding: 4px; letter-spacing: 3px; "
+              >
+                $60,000
+              </div>
+              </div>
                 <div class="main_page3_first_one_sub2 text-xl fw-light ls-2">
                   BEFORE TAX
                 </div>
@@ -1898,12 +1906,7 @@ module.exports = {
                   </table>
                 </div>
               </div>
-              <div
-                class="main_page3_first_one_main_head_sub_two mr-2"
-                style="padding: 4px; letter-spacing: 3px; margin-left: -50px"
-              >
-                $60,000
-              </div>
+             
       
               <div class="main_page3_first_one_break" ></div>
       
