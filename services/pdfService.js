@@ -3688,14 +3688,14 @@ module.exports = {
                 },
                 {
                   label: "Residual Income", // Dataset label
-                  data: [1200, 1800, 2400, 2300, 2600,2800], // Data values
+                  data: [1200, 1800, 2400, 2300, 2600,3000], // Data values
                   backgroundColor: "#4d2927", // Bar background color
                   borderColor: "#4d2927", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
                   label: "Current Shelter Cost", // Dataset label
-                  data: [1250, 1400, 1800, 2500, 2800,3000], // Data values
+                  data: [1250, 1400, 1800, 2500, 2800,3200], // Data values
                   backgroundColor: "#4c3848", // Bar background color
                   borderColor: "#4c3848", // Bar border color
                   borderWidth: 2, // Bar border width
@@ -7701,7 +7701,7 @@ module.exports = {
                 <div class="main_second1">
                     <div class="main_second_select1">
                         <label class="label" for="cars">PROVINCE:</label>
-                        <select name="cars" id="cars" style="width: 200px;margin-left: 130px;">
+                        <select name="cars" id="cars" style="width: 200px;margin-left: 130px;margin-right:5px">
                             <option value="volvo">${provincesMap.get(
                               province
                             )}</option>
@@ -7804,7 +7804,7 @@ module.exports = {
                <div class="main_second1">
                    <div class="main_second_select1">
                        <label class="label" for="cars">PROVINCE:</label>
-                       <select name="cars" id="cars" style="width: 200px;margin-left: 130px;">
+                       <select name="cars" id="cars" style="width: 200px;margin-left: 130px;margin-right:5px">
                            <option value="volvo">${provincesMap.get(
                              province
                            )}</option>
@@ -7907,7 +7907,7 @@ module.exports = {
                <div class="main_second1">
                    <div class="main_second_select1">
                        <label class="label" for="cars">PROVINCE:</label>
-                       <select name="cars" id="cars" style="width: 200px;margin-left: 125px;">
+                       <select name="cars" id="cars" style="width: 200px;margin-left: 130px;margin-right:5px">
                            <option value="volvo">${provincesMap.get(
                              province
                            )}</option>
@@ -8010,7 +8010,7 @@ module.exports = {
                <div class="main_second1">
                    <div class="main_second_select1">
                        <label class="label" for="cars">PROVINCE:</label>
-                       <select name="cars" id="cars" style="width: 200px;margin-left: 125px;">
+                       <select name="cars" id="cars" style="width: 200px;margin-left: 130px;margin-right:5px">
                            <option value="volvo">${provincesMap.get(
                              province
                            )}</option>
@@ -8113,7 +8113,7 @@ module.exports = {
                <div class="main_second1">
                    <div class="main_second_select1">
                        <label class="label" for="cars">PROVINCE:</label>
-                       <select name="cars" id="cars" style="width: 200px;margin-left: 125px;">
+                       <select name="cars" id="cars" style="width: 200px;margin-left: 130px;margin-right:5px">
                            <option value="volvo">${provincesMap.get(
                              province
                            )}</option>
@@ -8216,7 +8216,7 @@ module.exports = {
                <div class="main_second1">
                    <div class="main_second_select1">
                        <label class="label" for="cars">PROVINCE:</label>
-                       <select name="cars" id="cars" style="width: 200px;margin-left: 125px;">
+                       <select name="cars" id="cars" style="width: 200px;margin-left: 130px;margin-right:5px">
                            <option value="volvo">${provincesMap.get(
                              province
                            )}</option>
@@ -8319,7 +8319,7 @@ module.exports = {
                <div class="main_second1">
                    <div class="main_second_select1">
                        <label class="label" for="cars">PROVINCE:</label>
-                       <select name="cars" id="cars" style="width: 200px;margin-left: 125px;">
+                       <select name="cars" id="cars" style="width: 200px;margin-left: 130px;margin-right:5px">
                            <option value="volvo">${provincesMap.get(
                              province
                            )}</option>
@@ -8422,7 +8422,7 @@ module.exports = {
                <div class="main_second1">
                    <div class="main_second_select1">
                        <label class="label" for="cars">PROVINCE:</label>
-                       <select name="cars" id="cars" style="width: 200px;margin-left: 125px;">
+                       <select name="cars" id="cars" style="width: 200px;margin-left: 130px;margin-right:5px">
                            <option value="volvo">${provincesMap.get(
                              province
                            )}</option>
@@ -8526,7 +8526,7 @@ module.exports = {
             <div class="main_second1">
                 <div class="main_second_select1">
                     <label class="label" for="cars">PROVINCE:</label>
-                    <select name="cars" id="cars" style="width: 200px;margin-left: 125px;">
+                    <select name="cars" id="cars" style="width: 200px;margin-left: 130px;margin-right:5px">
                         <option value="volvo">${provincesMap.get(
                           province
                         )}</option>
@@ -8630,7 +8630,7 @@ module.exports = {
               <div class="main_second1">
                   <div class="main_second_select1">
                       <label class="label" for="cars">PROVINCE:</label>
-                      <select name="cars" id="cars" style="width: 200px;margin-left: 125px;">
+                      <select name="cars" id="cars" style="width: 200px;margin-left: 130px;margin-right:5px">
                           <option value="volvo">${provincesMap.get(
                             province
                           )}</option>
@@ -8733,7 +8733,7 @@ module.exports = {
               <div class="main_second1">
                   <div class="main_second_select1">
                       <label class="label" for="cars">PROVINCE:</label>
-                      <select name="cars" id="cars" style="width: 200px;margin-left: 125px;">
+                      <select name="cars" id="cars" style="width: 200px;margin-left: 130px;margin-right:5px">
                           <option value="volvo">${provincesMap.get(
                             province
                           )}</option>
@@ -8837,7 +8837,7 @@ module.exports = {
               <div class="main_second1">
                   <div class="main_second_select1">
                       <label class="label" for="cars">PROVINCE:</label>
-                      <select name="cars" id="cars" style="width: 200px;margin-left: 125px;">
+                      <select name="cars" id="cars" style="width: 200px;margin-left: 130px;margin-right:5px">
                           <option value="volvo">${provincesMap.get(
                             province
                           )}</option>
@@ -8941,7 +8941,7 @@ module.exports = {
               <div class="main_second1">
                   <div class="main_second_select1">
                       <label class="label" for="cars">PROVINCE:</label>
-                      <select name="cars" id="cars" style="width: 200px;margin-left: 125px;">
+                      <select name="cars" id="cars" style="width: 200px;margin-left: 130px;margin-right:5px">
                           <option value="volvo">${provincesMap.get(
                             province
                           )}</option>
@@ -9045,7 +9045,7 @@ module.exports = {
               <div class="main_second1">
                   <div class="main_second_select1">
                       <label class="label" for="cars">PROVINCE:</label>
-                      <select name="cars" id="cars" style="width: 200px;margin-left: 125px;">
+                      <select name="cars" id="cars" style="width: 200px;margin-left: 130px;margin-right:5px">
                           <option value="volvo">${provincesMap.get(
                             province
                           )}</option>
@@ -9149,7 +9149,7 @@ module.exports = {
               <div class="main_second1">
                   <div class="main_second_select1">
                       <label class="label" for="cars">PROVINCE:</label>
-                      <select name="cars" id="cars" style="width: 200px;margin-left: 125px;">
+                      <select name="cars" id="cars" style="width: 200px;margin-left: 130px;margin-right:5px">
                           <option value="volvo">${provincesMap.get(
                             province
                           )}</option>
@@ -9253,7 +9253,7 @@ module.exports = {
               <div class="main_second1">
                   <div class="main_second_select1">
                       <label class="label" for="cars">PROVINCE:</label>
-                      <select name="cars" id="cars" style="width: 200px;margin-left: 125px;">
+                      <select name="cars" id="cars" style="width: 200px;margin-left: 130px;margin-right:5px">
                           <option value="volvo">${provincesMap.get(
                             province
                           )}</option>
