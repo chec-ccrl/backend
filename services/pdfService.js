@@ -1495,7 +1495,7 @@ module.exports = {
                 </div>
                 <div class="main_second_select1">
                   <label class="label" for="cars">CMA / CA:</label>
-                  <select name="cars" id="cars" style="width: 200px;margin-left: 25px;font-size:12px;font-weight:400;height:30px">
+                  <select name="cars" id="cars" style="width: 200px;margin-left: 28px;font-size:12px;font-weight:400;height:30px">
                     <option value="volvo">${geography.toUpperCase()}</option>
                   </select>
                 </div>
@@ -1553,7 +1553,7 @@ module.exports = {
                     id="cars"
                     style="width: 200px; margin-left: 30px;margin-right:27px;font-size:12px;font-weight:400;height:30px"
                   >
-                    <option value="volvo">${affordability}</option>
+                    <option value="volvo">${affordability.toUpperCase()}</option>
                   </select>
                 </div>
                 <div class="main_second_select1" style="margin-left:30px;">
