@@ -1449,23 +1449,21 @@ module.exports = {
                     id="cars"
                     style="width: 200px; margin-left: 25px"
                   >
-                    <option value="volvo">>${provincesMap.get(
-                      province
-                    )}</option>
+                    <option value="volvo">${provincesMap.get(province)}</option>
                   </select>
                 </div>
                 <div class="main_second_select1">
                   <label class="label" for="cars">CMA OR CA:</label>
-                  <select name="cars" id="cars" style="width: 200px;margin-left: 10px">
+                  <select name="cars" id="cars" style="width: 200px;margin-left: 17px">
                     <option value="volvo">${geography}</option>
                   </select>
                 </div>
                 <div class="main_second_select1">
-                  <label class="label" for="cars">HOUSE TYPE:</label>
+                  <label class="label" for="cars">TYPE OF <br/> HOUSE:</label>
                   <select
                     name="cars"
                     id="cars"
-                    style="width: 200px; margin-left: 60px"
+                    style="width: 200px; margin-left: 44px"
                   >
                     <option value="volvo">${house_type}</option>
                   </select>
@@ -6747,7 +6745,7 @@ module.exports = {
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 20px;
+        font-size: 18px;
         font-weight: bold;
     }
 
