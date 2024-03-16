@@ -855,10 +855,10 @@ module.exports = {
         }
 
         .main_page6_first_one_charts_one {
-          width: 45%;
+          width: 50%;
         }
         .main_page6_first_one_charts_two {
-          width: 45%;
+          width: 50%;
         }
         
       
