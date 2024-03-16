@@ -1592,7 +1592,7 @@ module.exports = {
                     <div class="main_page3_first_one_other_one_main">
                     <span style="font-size: 30px">12</span>
                     </div>
-                    <div class="main_page3_first_one_other_one_text">
+                    <div class="main_page3_first_one_other_one_text" style="margin-bottom:8px">
                       AFFORDABILITY<br />
                       (BY AFFORDABLE UNITS)
                     </div>
