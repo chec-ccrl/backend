@@ -1854,7 +1854,7 @@ module.exports = {
                 <div class="main_page3_first_one_sub2 text-xl fw-light ls-2">
                   BEFORE TAX
                 </div>
-                <div  style="margin-left:30px">
+                <div>
                   <table class="fw-bold half_width_table">
                     <tr
                       style="font-weight: 500; letter-spacing: 4px"
