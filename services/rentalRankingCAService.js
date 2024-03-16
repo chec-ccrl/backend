@@ -61,4 +61,13 @@ module.exports = {
       throw new Error(error);
     }
   },
+  bulkCreate: async (marketObj) => {
+    try {
+      const bulkCreate = await Dao.rentalRankingCADao.bulkCreate(marketObj);
+      return bulkCreate;
+    } catch (error) {
+      logger.info(error);
+      throw new Error(error);
+    }
+  },
 };

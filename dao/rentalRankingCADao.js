@@ -91,4 +91,12 @@ module.exports = {
       logger.info(error);
     }
   },
+  bulkCreate: async (marketObj) => {
+    try {
+      const canadaIncomeSurvey = await db.rentalRankingCa.bulkCreate(marketObj);
+      return canadaIncomeSurvey;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
 };
