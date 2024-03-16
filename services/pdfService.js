@@ -7357,6 +7357,10 @@ module.exports = {
         width: 200px;
     }
 
+    input[type="checkbox"] {
+      accent-color: black;
+    }
+
     #main_page4_first_one_one_main_one_chart12 {
         width: 100%;
         height: 500px;
