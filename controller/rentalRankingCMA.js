@@ -119,7 +119,7 @@ module.exports = {
   addExcelFiles: async (req, res, next) => {
     try {
       let result1 = excelToJson({
-        sourceFile: __dirname + "/Sample_Files/Rental ranking CA.xlsx",
+        sourceFile: __dirname + "/Sample_Files/Rental ranking CMA.xlsx",
       });
       let result = result1["Sheet1"];
 
@@ -128,7 +128,7 @@ module.exports = {
         if (obj["A"] !== "Geography (CMA name)") {
           let data = {
             id: Common.helper.generateId(),
-            ca: obj["A"],
+            cma: obj["A"],
             year: obj["B"],
             ranking: Number(obj["C"]),
           };
