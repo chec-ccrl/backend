@@ -1601,7 +1601,7 @@ module.exports = {
                     <div class="main_page3_first_one_other_one_main">
                     <span style="font-size: 30px">12</span>
                     </div>
-                    <div class="main_page3_first_one_other_one_text" style="margin-top:7px">
+                    <div class="main_page3_first_one_other_one_text">
                       MEDIAN<br />
                       INCOME
                     </div>
