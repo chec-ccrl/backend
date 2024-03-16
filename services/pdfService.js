@@ -2863,7 +2863,7 @@ module.exports = {
                 <div class="main_page5_first_one_chart">
                   <canvas
                     id="main_page5_first_one_chart18"
-                    style="width: max-content; min-height: 300px; "
+                    style="width: 600px;height:300px "
                   ></canvas>
                 </div>
               </div>
@@ -3707,7 +3707,7 @@ module.exports = {
               ],
             },
             options: {
-              responsive: true, // Make the chart responsive
+              responsive: false, // Make the chart responsive
               title: {
                 display: false, // Display chart title
                 text: "Sales by Quarter", // Chart title text
@@ -7585,11 +7585,6 @@ module.exports = {
         font-size: 28px;
         font-weight: bold;
         text-align: center;
-    }
-
-    #main_page5_first_one_chart18 {
-        width: 300px;
-        max-width: 500px;
     }
 
     .main_page6_first {
