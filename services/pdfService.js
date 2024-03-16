@@ -54,6 +54,11 @@ module.exports = {
         source_of_cost_of_non_shelter_necessity,
         house_type,
         rent_source,
+        affordability_ranking,
+        province_income_ranking,
+        cma_income_ranking,
+        cma,
+        ca,
       } = data;
       let rentSourceCheckBox1 =
         rent_source === "Rental Market Survey"
@@ -1575,7 +1580,9 @@ module.exports = {
                 <div class="main_page3_first_one_other">
                   <div class="main_page3_first_one_other_one" style="margin-right:-20px">
                     <div class="main_page3_first_one_other_one_main">
-                    <span style="font-size: 30px">12</span>
+                    <span style="font-size: 30px">${
+                      affordability_ranking.ranking
+                    }</span>
                     </div>
                     <div class="main_page3_first_one_other_one_text">
                       AFFORDABILITY<br />
@@ -2857,27 +2864,36 @@ module.exports = {
                   RANKING
                 </div>
                 <div class="main_page3_first_one_other">
-                  <div class="main_page3_first_one_other_one">
-                    <div
-                      class="main_page3_first_one_other_one_main"
-                      style="margin-top: 80px"
-                    >
-                    <span style="font-size: 30px">12</span>
-                    </div>
-                    <div class="main_page3_first_one_other_one_sub my-2">
-                      Before Tax
-                    </div>
-                    <div class="main_page3_first_one_other_one_text" style="font-size:20px">
-                      MAJOR<br />
-                      CMAS
-                    </div>
-                  </div>
+                 ${
+                   cma_income_ranking &&
+                   `<div class="main_page3_first_one_other_one">
+                       <div
+                         class="main_page3_first_one_other_one_main"
+                         style="margin-top: 80px"
+                       >
+                         <span style="font-size: 30px">${cma_income_ranking[0].ranking}</span>
+                       </div>
+                       <div class="main_page3_first_one_other_one_sub my-2">
+                         Before Tax
+                       </div>
+                       <div
+                         class="main_page3_first_one_other_one_text"
+                         style="font-size:20px"
+                       >
+                         MAJOR
+                         <br />
+                         CMAS
+                       </div>
+                     </div>`
+                 }
                   <div class="main_page3_first_one_other_one">
                     <div
                       class="main_page3_first_one_other_one_main"
                       style="margin-top: 60px"
                     >
-                    <span style="font-size: 30px">12</span>
+                    <span style="font-size: 30px">${
+                      province_income_ranking[0].ranking_before_tax
+                    }</span>
                     </div>
                     <div class="main_page3_first_one_other_one_sub my-2">
                       Before Tax

@@ -19,6 +19,50 @@ module.exports = {
         house_type,
         rent_source,
       } = req.body;
+      let cma = null;
+      let ca = null;
+      let cma_ca_list = await Services.multiplierService.getAllFr({
+        province,
+        year: 2021,
+        cma: geography,
+      });
+      if (!cma_ca_list) {
+        ca = geography;
+        cma = "NA";
+      } else {
+        cma = geography;
+        ca = "NA";
+      }
+      let affordability_ranking;
+
+      if (ca !== "NA") {
+        affordability_ranking = await Services.rentalRankingCAService.getDetail(
+          {
+            year,
+            ca,
+          }
+        );
+      } else {
+        affordability_ranking =
+          await Services.rentalRankingCMAService.getDetail({
+            year,
+            cma,
+          });
+      }
+      const province_income_ranking =
+        await Services.incomeRankingProvinceService.getDetail({
+          year,
+          province,
+        });
+      let cma_income_ranking = null;
+      if (cma !== "NA") {
+        cma_income_ranking = await Services.incomeRankingCMAService.getDetail({
+          year,
+          province,
+          cma,
+        });
+      }
+
       const link = await Services.pdfService.detailPdfGenerator({
         province,
         geography,
@@ -27,6 +71,11 @@ module.exports = {
         house_type,
         affordability,
         source_of_cost_of_non_shelter_necessity,
+        affordability_ranking,
+        province_income_ranking,
+        cma_income_ranking,
+        cma,
+        ca,
       });
       return res.json(link);
       const multiplier = await Services.multiplierService.getDetails({
@@ -240,30 +289,11 @@ module.exports = {
       //*************** END NO MARKING AVAILABLE ************************** */
 
       //*************** START 1.3 & 3.3 ************************** */
-      const province_income_ranking =
-        await Services.incomeRankingProvinceService.getDetail({
-          year,
-          province,
-        });
+
       //*************** END 1.3 & 3.3 ************************** */
 
       //*************** END START ************************** */
-      let affordability_ranking;
 
-      if (ca !== "NA") {
-        affordability_ranking = await Services.rentalRankingCAService.getDetail(
-          {
-            year,
-            ca,
-          }
-        );
-      } else {
-        affordability_ranking =
-          await Services.rentalRankingCMAService.getDetail({
-            year,
-            cma,
-          });
-      }
       //*************** END 1.1 ************************** */
 
       const dwellingDetails = await Services.dwellingTypeService.getAll({
