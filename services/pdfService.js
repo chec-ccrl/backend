@@ -905,8 +905,8 @@ module.exports = {
         .main_page4_first_one_one_main_one_chart canvas {
           max-width: 200px;
           display: block;
-          height: 200px;
-          width: 200px;
+          height: 220px;
+          width: 220px;
         }
       
         #main_page4_first_one_one_main_one_chart12 {
