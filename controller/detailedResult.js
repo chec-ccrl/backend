@@ -436,7 +436,7 @@ module.exports = {
       const { province, year } = req.query;
       const cma_ca_list = await Services.multiplierService.getAllFr({
         province,
-        year,
+        year: Number(year),
       });
       return res.status(200).json({ result: cma_ca_list });
     } catch (error) {
