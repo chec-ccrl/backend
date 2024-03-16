@@ -38,14 +38,14 @@ module.exports = {
       if (ca !== "NA") {
         affordability_ranking = await Services.rentalRankingCAService.getDetail(
           {
-            year,
+            year: Number(year),
             ca,
           }
         );
       } else {
         affordability_ranking =
           await Services.rentalRankingCMAService.getDetail({
-            year,
+            year: Number(year),
             cma,
           });
       }

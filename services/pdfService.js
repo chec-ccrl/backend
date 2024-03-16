@@ -1581,7 +1581,7 @@ module.exports = {
                   <div class="main_page3_first_one_other_one" style="margin-right:-20px">
                     <div class="main_page3_first_one_other_one_main">
                     <span style="font-size: 30px">${
-                      affordability_ranking.ranking
+                      affordability_ranking?.ranking
                     }</span>
                     </div>
                     <div class="main_page3_first_one_other_one_text">
