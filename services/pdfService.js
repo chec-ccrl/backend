@@ -582,7 +582,7 @@ module.exports = {
           background-color: #c2a36fc9;
           width: 100px;
           margin: 4px;
-          font-size: 23px;
+          font-size: 21px;
           padding: 2px 7px;
           border-radius: 10px;
           color: white;
@@ -2486,7 +2486,7 @@ module.exports = {
                         </div>
                         <div
                           class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                          style="margin-top: 20px; width: 40px"
+                          style="width: 40px"
                         >
                           <span
                             style="
@@ -2519,7 +2519,7 @@ module.exports = {
                         </div>
                         <div
                           class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                          style="margin-top: 20px; width: 40px"
+                          style="width: 40px"
                         >
                           <span
                             style="
@@ -2563,7 +2563,7 @@ module.exports = {
                         </div>
                         <div
                           class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                          style="margin-top: 20px; width: 40px"
+                          style="width: 40px"
                         >
                           <span
                             style="
@@ -2596,7 +2596,7 @@ module.exports = {
                         </div>
                         <div
                           class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                          style="margin-top: 20px; width: 40px"
+                          style="width: 40px"
                         >
                           <span
                             style="
@@ -2642,7 +2642,7 @@ module.exports = {
                         </div>
                         <div
                           class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                          style="margin-top: 20px; width: 40px"
+                          style="width: 40px"
                         >
                           <span
                             style="
@@ -2675,7 +2675,7 @@ module.exports = {
                         </div>
                         <div
                           class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                          style="margin-top: 20px; width: 40px"
+                          style="width: 40px"
                         >
                           <span
                             style="
@@ -2716,7 +2716,7 @@ module.exports = {
                         </div>
                         <div
                           class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                          style="margin-top: 20px; width: 40px"
+                          style="width: 40px"
                         >
                           <span
                             style="
@@ -2749,7 +2749,7 @@ module.exports = {
                         </div>
                         <div
                           class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                          style="margin-top: 20px; width: 40px"
+                          style="width: 40px"
                         >
                           <span
                             style="
