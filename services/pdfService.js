@@ -58,11 +58,11 @@ module.exports = {
       let rentSourceCheckBox1 =
         rent_source === "Rental Market Survey"
           ? ` <div>
-                <label for="c1" class="small_label pt-1">RENTAL MARKET SURVEY</label>
+                <label for="c1" class="small_label pt-1">RENTAL MARKET<br /> SURVEY</label>
                 <input type="checkbox" id="c1" value="RENTAL MARKET SURVEY" checked class="myinput large">
             </div>`
           : ` <div>
-                <label for="c1" class="small_label pt-1">RENTAL MARKET SURVEY</label>
+                <label for="c1" class="small_label pt-1">RENTAL MARKET <br /> SURVEY</label>
                 <input type="checkbox" id="c1" value="RENTAL MARKET SURVEY" class="myinput large">
             </div>`;
       let rentSourceCheckBox2 =
@@ -89,11 +89,11 @@ module.exports = {
       let sourceOfCostCheckBox2 =
         source_of_cost_of_non_shelter_necessity === "Poverty Line Expenses"
           ? ` <div>
-                <label for="c3" class="small_label">POVERTY LINE EXPENSES</label>
+                <label for="c3" class="small_label">POVERTY LINE <br /> EXPENSES</label>
                 <input type="checkbox" id="c3" value="CMHC" checked class="myinput large">
             </div>`
           : ` <div>
-                <label for="c3" class="small_label">POVERTY LINE EXPENSES</label>
+                <label for="c3" class="small_label">POVERTY LINE <br /> EXPENSES</label>
                 <input type="checkbox" id="c3" value="CMHC" class="myinput large">
             </div>`;
       const browser = await puppeteer.launch();
@@ -1495,8 +1495,8 @@ module.exports = {
                 </div>
                 <div class="main_second_select1">
                   <label class="label" for="cars">CMA / CA:</label>
-                  <select name="cars" id="cars" style="width: 200px;margin-left: 8px;font-size:12px;font-weight:400;height:30px">
-                    <option value="volvo">${geography}</option>
+                  <select name="cars" id="cars" style="width: 200px;margin-left: 25px;font-size:12px;font-weight:400;height:30px">
+                    <option value="volvo">${geography.toUpperCase()}</option>
                   </select>
                 </div>
                 <div class="main_second_select1">
@@ -1506,7 +1506,7 @@ module.exports = {
                     id="cars"
                     style="width: 200px; margin-left: 44px;font-size:12px;font-weight:400;height:30px"
                   >
-                    <option value="volvo">${house_type}</option>
+                    <option value="volvo">${house_type.toUpperCase()}</option>
                   </select>
                 </div>
               </div>
