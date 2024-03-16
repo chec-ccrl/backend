@@ -2865,8 +2865,8 @@ module.exports = {
                 </div>
                 <div class="main_page3_first_one_other">
                  ${
-                   cma_income_ranking.length > 0 &&
-                   `<div class="main_page3_first_one_other_one">
+                   cma_income_ranking.length > 0
+                     ? `<div class="main_page3_first_one_other_one">
                        <div
                          class="main_page3_first_one_other_one_main"
                          style="margin-top: 80px"
@@ -2885,6 +2885,7 @@ module.exports = {
                          CMAS
                        </div>
                      </div>`
+                     : ``
                  }
                   <div class="main_page3_first_one_other_one">
                     <div
