@@ -2870,7 +2870,7 @@ module.exports = {
                     <div class="main_page3_first_one_other_one_sub my-2">
                       Before Tax
                     </div>
-                    <div class="main_page3_first_one_other_one_text">
+                    <div class="main_page3_first_one_other_one_text" style="font-size:20px">
                       MAJOR<br />
                       CMAS
                     </div>
@@ -2884,7 +2884,7 @@ module.exports = {
                     <div class="main_page3_first_one_other_one_sub my-2">
                       Before Tax
                     </div>
-                    <div class="main_page3_first_one_other_one_text">PROVINCE</div>
+                    <div class="main_page3_first_one_other_one_text" style="font-size:20px">PROVINCE</div>
                   </div>
                 </div>
               </div>
