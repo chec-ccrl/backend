@@ -1551,9 +1551,9 @@ module.exports = {
                   <select
                     name="cars"
                     id="cars"
-                    style="width: 200px; margin-left: 30px;margin-right:27px;font-size:12px;font-weight:400;padding:5px auto"
+                    style="width: 200px; margin-left: 30px;margin-right:27px;font-size:12px;font-weight:400;"
                   >
-                    <option value="volvo" >${affordability}</option>
+                    <option value="volvo" style="padding:5px auto">${affordability}</option>
                   </select>
                 </div>
                 <div class="main_second_select1" style="margin-left:30px;">
