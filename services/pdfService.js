@@ -1115,10 +1115,6 @@ module.exports = {
           margin-top: 20px;
         }
       
-        .main_page5_first_one_chart canvas {
-          margin-top: 30px;
-        }
-      
         .main_page5_first_one_one2 {
           width: 30%;
         }
