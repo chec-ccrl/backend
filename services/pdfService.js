@@ -859,6 +859,7 @@ module.exports = {
           justify-content: center;
           align-items: center;
           flex-direction: column;
+          width:45%;
         }
       
         .main_page4_first_one_one_head {
