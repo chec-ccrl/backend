@@ -58,11 +58,11 @@ module.exports = {
       let rentSourceCheckBox1 =
         rent_source === "Rental Market Survey"
           ? ` <div>
-                <label for="c1" class="small_label mt-1">RENTAL MARKET SURVEY</label>
+                <label for="c1" class="small_label pt-1">RENTAL MARKET SURVEY</label>
                 <input type="checkbox" id="c1" value="RENTAL MARKET SURVEY" checked class="myinput large">
             </div>`
           : ` <div>
-                <label for="c1" class="small_label mt-1">RENTAL MARKET SURVEY</label>
+                <label for="c1" class="small_label pt-1">RENTAL MARKET SURVEY</label>
                 <input type="checkbox" id="c1" value="RENTAL MARKET SURVEY" class="myinput large">
             </div>`;
       let rentSourceCheckBox2 =
@@ -1551,9 +1551,10 @@ module.exports = {
                   <select
                     name="cars"
                     id="cars"
-                    style="width: 200px; margin-left: 30px;margin-right:27px"
+                    class="pt-1"
+                    style="width: 200px; margin-left: 30px;margin-right:27px;font-size:12px;font-weight:400"
                   >
-                    <option value="volvo">${affordability}</option>
+                    <option value="volvo" >${affordability}</option>
                   </select>
                 </div>
                 <div class="main_second_select1" style="margin-left:30px;">
