@@ -12,7 +12,7 @@ module.exports = {
     try {
       const {
         province,
-        geo,
+        geography,
         year,
         affordability,
         source_of_cost_of_non_shelter_necessity,
@@ -21,7 +21,7 @@ module.exports = {
       } = req.body;
       const link = await Services.pdfService.detailPdfGenerator({
         province,
-        geo,
+        geography,
         year,
         rent_source,
         house_type,
