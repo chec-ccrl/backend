@@ -2871,7 +2871,7 @@ module.exports = {
                          class="main_page3_first_one_other_one_main"
                          style="margin-top: 80px"
                        >
-                         <span style="font-size: 30px">${cma_income_ranking[0].ranking}</span>
+                         <span style="font-size: 30px">${cma_income_ranking[0].ranking_before_tax}</span>
                        </div>
                        <div class="main_page3_first_one_other_one_sub my-2">
                          Before Tax
