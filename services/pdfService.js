@@ -626,7 +626,7 @@ module.exports = {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          width: 60%;
+          width: 70%;
         }
       
         .main_page3_first_one_other {
@@ -675,7 +675,7 @@ module.exports = {
           flex-direction: column;
           justify-content: center;
           align-content: center;
-          width: 40%;
+          width: 30%;
           padding: 2px 15px;
           text-align: center;
         }
@@ -1625,6 +1625,7 @@ module.exports = {
                     width: 110px;
                     margin-top: 30px;
                     border-radius: 30%;
+                    margin-right:20px
                     "
                   >
                     <div style="margin-top:-5px;font-size: 50px">40%</div>
