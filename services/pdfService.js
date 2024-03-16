@@ -2878,8 +2878,9 @@ module.exports = {
                   <div class="main_page3_first_one_other_one">
                     <div
                       class="main_page3_first_one_other_one_main"
-                      style="margin-top: 80px"
+                      style="margin-top: 60px"
                     >
+                    <!-- 12 -->
                     </div>
                     <div class="main_page3_first_one_other_one_sub my-2">
                       Before Tax
