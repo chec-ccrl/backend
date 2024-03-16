@@ -1490,7 +1490,7 @@ module.exports = {
                     id="cars"
                     style="width: 200px; margin-left: 17px;font-size:12px;font-weight:400;height:30px"
                   >
-                    <option value="volvo">${provincesMap.get(province)}</option>
+                    <option value="volvo">${province.toUpperCase()}</option>
                   </select>
                 </div>
                 <div class="main_second_select1">
