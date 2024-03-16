@@ -632,9 +632,9 @@ module.exports = {
         .main_page3_first_one_other {
           display: flex;
           flex-direction: row;
-          justify-content: space-between;
+          justify-content: center;
           align-items: center;
-          width: 100%;
+          width: 118%;
         }
       
         .main_page3_first_one_other_one {
@@ -7091,9 +7091,9 @@ module.exports = {
     .main_page3_first_one_other {
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        width: 118%;
+        width: 90%;
     }
 
     .main_page3_first_one_other_one {
