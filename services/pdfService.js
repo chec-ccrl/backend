@@ -3299,7 +3299,7 @@ module.exports = {
           const chart9 = new Chart(main_page4_first_one_one_main_one_chart9, {
             type: "pie",
             data: {
-              labels: ["0B", "3B+", "2B", "1B"],
+              labels: ["0B:100", "3B+:200", "2B:300", "1B:150"],
               datasets: [
                 {
                   data: [1500, 2500, 3000, 3010],
@@ -3369,7 +3369,7 @@ module.exports = {
           const chart11 = new Chart(main_page4_first_one_one_main_one_chart11, {
             type: "pie",
             data: {
-              labels: ["0B", "3B+", "2B", "1B"],
+              labels: ["0B:100", "3B+:200", "2B:300", "1B:150"],
               datasets: [
                 {
                   data: [1500, 2500, 3000, 3010],
@@ -3648,6 +3648,9 @@ module.exports = {
                       fontSize: 18, // Adjust label font size
                       fontColor: "black", // Change label color
                       fontWeight: "bolder",
+                      callback: function (value, index, values) {
+                        return  value + "%"; // Add dollar sign to tick labels
+                      },
                     },
                   },
                 ],
