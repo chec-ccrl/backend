@@ -1853,7 +1853,7 @@ module.exports = {
                   PROVINCIAL AVERAGE INCOME
                 </div>
                 <div
-                class="main_page3_first_one_main_head_sub_two"
+                class="main_page3_first_one_main_head_sub_two ml-1"
                 style="letter-spacing: 3px;height:30px "
               >
                 $60,000
