@@ -853,13 +853,6 @@ module.exports = {
           align-items: flex-start;
           width: 90%;
         }
-
-        .main_page6_first_one_charts_one {
-          width: 50%;
-        }
-        .main_page6_first_one_charts_two {
-          width: 50%;
-        }
         
       
         .main_page4_first_one_one {
