@@ -1620,7 +1620,7 @@ module.exports = {
                 <div class="flex justify-center align-center" style="margin-top:20px">
                   <div
                     class="main_page3_first_one_main_head_sub_two"
-                    style="margin-top:20px; width:80px"
+                    style="margin-top:20px; width:120px"
                   >
                     40%
                   </div>
@@ -1720,7 +1720,7 @@ module.exports = {
                 <div class="main_page3_first_one_chart">
                   <canvas
                     id="main_page3_first_one_chart_main"
-                    style="height: 300px; width: 165px"
+                    style="height: 300px; width: 160px"
                   ></canvas>
                 </div>
               </div>
