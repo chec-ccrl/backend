@@ -55,6 +55,47 @@ module.exports = {
         house_type,
         rent_source,
       } = data;
+      let rentSourceCheckBox1 =
+        rent_source === "Rental Market Survey"
+          ? ` <div>
+                <label for="c1" class="small_label">RENTAL MARKET SURVEY</label>
+                <input type="checkbox" id="c1" value="RENTAL MARKET SURVEY" checked class="myinput large">
+            </div>`
+          : ` <div>
+                <label for="c1" class="small_label">RENTAL MARKET SURVEY</label>
+                <input type="checkbox" id="c1" value="RENTAL MARKET SURVEY" class="myinput large">
+            </div>`;
+      let rentSourceCheckBox2 =
+        rent_source === "Average Listing Rent"
+          ? ` <div>
+                <label for="c2" class="small_label">AVERAGE LISTING <br /> RENT</label>
+                <input type="checkbox" id="c1" value="CMHC" checked class="myinput large">
+            </div>`
+          : ` <div>
+                <label for="c2" class="small_label">AVERAGE LISTING <br /> RENT</label>
+                <input type="checkbox" id="c1" value="CMHC" class="myinput large">
+            </div>`;
+
+      let sourceOfCostCheckBox1 =
+        source_of_cost_of_non_shelter_necessity === "Average Household Expenses"
+          ? ` <div>
+                <label for="c3" class="small_label">AVERAGE HOUSEHOLD EXPENSES </label>
+                <input type="checkbox" id="c3" value="CMHC" checked class="myinput large">
+            </div>`
+          : ` <div>
+                <label for="c3" class="small_label">AVERAGE HOUSEHOLD EXPENSES </label>
+                <input type="checkbox" id="c3" value="CMHC" class="myinput large">
+            </div>`;
+      let sourceOfCostCheckBox2 =
+        source_of_cost_of_non_shelter_necessity === "Poverty Line Expenses"
+          ? ` <div>
+                <label for="c3" class="small_label">POVERTY LINE EXPENSES</label>
+                <input type="checkbox" id="c3" value="CMHC" checked class="myinput large">
+            </div>`
+          : ` <div>
+                <label for="c3" class="small_label">POVERTY LINE EXPENSES</label>
+                <input type="checkbox" id="c3" value="CMHC" class="myinput large">
+            </div>`;
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
       const htmlContent = `<!DOCTYPE html>
@@ -1454,7 +1495,7 @@ module.exports = {
                 </div>
                 <div class="main_second_select1">
                   <label class="label" for="cars">CMA OR CA:</label>
-                  <select name="cars" id="cars" style="width: 200px;margin-left: 10px">
+                  <select name="cars" id="cars" style="width: 200px;margin-left: 8px">
                     <option value="volvo">${geography}</option>
                   </select>
                 </div>
@@ -1493,25 +1534,8 @@ module.exports = {
                     RENT:
                   </div>
                   <div class="main_second_select1_check" style="margin-left: 5px">
-                    <div>
-                      <label for="c3" class="label">CMHC </label>
-                      <input
-                        type="checkbox"
-                        id="c3"
-                        value="CMHC"
-                        checked
-                        class="myinput large"
-                      />
-                    </div>
-                    <div>
-                      <label for="c3" class="label">REALISTIC RENT </label>
-                      <input
-                        type="checkbox"
-                        id="c3"
-                        value="CMHC"
-                        class="myinput large"
-                      />
-                    </div>
+                  ${rentSourceCheckBox1}
+                  ${rentSourceCheckBox2}
                   </div>
                 </div>
               </div>
@@ -1541,29 +1565,8 @@ module.exports = {
                     (EXCLUDING RENT):
                   </div>
                   <div class="main_second_select1_check">
-                    <div>
-                      <label for="c3" class="small_label" style="padding-top: 6px"
-                        >AVERAGE HOUSEHOLD EXPENSES
-                      </label>
-                      <input
-                        type="checkbox"
-                        id="c3"
-                        value="CMHC"
-                        checked
-                        class="myinput large"
-                      />
-                    </div>
-                    <div>
-                      <label for="c3" class="small_label" style="padding-top: 6px"
-                        >POVERTY LINE EXPENSES
-                      </label>
-                      <input
-                        type="checkbox"
-                        id="c3"
-                        value="CMHC"
-                        class="myinput large"
-                      />
-                    </div>
+                   ${sourceOfCostCheckBox1}
+                   ${sourceOfCostCheckBox2}
                   </div>
                 </div>
               </div>
