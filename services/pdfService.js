@@ -1628,7 +1628,7 @@ module.exports = {
                     margin-right:20px
                     "
                   >
-                    <div style="font-size: 40px">40%</div>
+                    40%
                   </div>
                   <div class="main_page3_first_one_txt" style="margin-top:20px;font-size:13px">
                     FAMILIES UNDER OPTIMAL INCOME
@@ -1726,7 +1726,7 @@ module.exports = {
                 <div class="main_page3_first_one_chart">
                   <canvas
                     id="main_page3_first_one_chart_main"
-                    style="height: 300px; width: 180px"
+                    style="height: 300px; width: 175px"
                   ></canvas>
                 </div>
               </div>
