@@ -3398,7 +3398,9 @@ module.exports = {
           const chart12 = new Chart(main_page4_first_one_one_main_one_chart12, {
             type: "line",
             data: {
-              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${Number(year) - 3}", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
+              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${
+        Number(year) - 3
+      }", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "Value",
@@ -3454,7 +3456,9 @@ module.exports = {
           const chart13 = new Chart(main_page4_first_one_one_main_one_chart13, {
             type: "line",
             data: {
-              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${Number(year) - 3}", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
+              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${
+        Number(year) - 3
+      }", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "Value",
@@ -3671,25 +3675,27 @@ module.exports = {
           const chart18 = new Chart(main_page5_first_one_chart18, {
             type: "bar", // Chart type
             data: {
-              labels: ["${Number(year) - 5}", "${Number(year) - 4}", "${Number(year) - 3}", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
+              labels: ["${Number(year) - 5}", "${Number(year) - 4}", "${
+        Number(year) - 3
+      }", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "30% of Income", // Dataset label
-                  data: [1000, 1400, 2000, 2050, 2400], // Data values
+                  data: [1000, 1400, 2000, 2050, 2400,3600], // Data values
                   backgroundColor: "#c2ac7f", // Bar background color
                   borderColor: "#c2ac7f", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
                   label: "Residual Income", // Dataset label
-                  data: [1200, 1800, 2400, 2300, 2600], // Data values
+                  data: [1200, 1800, 2400, 2300, 2600,2800], // Data values
                   backgroundColor: "#4d2927", // Bar background color
                   borderColor: "#4d2927", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
                   label: "Current Shelter Cost", // Dataset label
-                  data: [1250, 1400, 1800, 2500, 2800], // Data values
+                  data: [1250, 1400, 1800, 2500, 2800,3000], // Data values
                   backgroundColor: "#4c3848", // Bar background color
                   borderColor: "#4c3848", // Bar border color
                   borderWidth: 2, // Bar border width
@@ -3740,7 +3746,9 @@ module.exports = {
           const chart19 = new Chart(main_page5_first_one_chart19, {
             type: "line",
             data: {
-              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${Number(year) - 3}", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
+              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${
+        Number(year) - 3
+      }", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "Value",
@@ -3807,7 +3815,9 @@ module.exports = {
           const chart20 = new Chart(main_page5_first_one_chart20, {
             type: "line",
             data: {
-              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${Number(year) - 3}", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
+              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${
+        Number(year) - 3
+      }", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "Value",
@@ -4003,7 +4013,9 @@ module.exports = {
           const chart23 = new Chart(main_page6_first_one_charts_one_23, {
             type: "line",
             data: {
-              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${Number(year) - 3}", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
+              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${
+        Number(year) - 3
+      }", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "Moncton",
@@ -4060,7 +4072,9 @@ module.exports = {
           const chart24 = new Chart(main_page6_first_one_charts_two_24, {
             type: "line",
             data: {
-              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${Number(year) - 3}", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
+              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${
+        Number(year) - 3
+      }", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "Moncton",
