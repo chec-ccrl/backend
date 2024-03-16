@@ -23,7 +23,7 @@ module.exports = {
       let ca = null;
       let cma_ca_list = await Services.multiplierService.getAllFr({
         province,
-        year: 2021,
+        year,
         cma: geography,
       });
       if (!cma_ca_list) {
@@ -57,7 +57,7 @@ module.exports = {
       let cma_income_ranking = null;
       if (cma !== "NA") {
         cma_income_ranking = await Services.incomeRankingCMAService.getDetail({
-          year,
+          year: Number(year),
           province,
           cma,
         });
