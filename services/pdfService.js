@@ -1488,14 +1488,14 @@ module.exports = {
                   <select
                     name="cars"
                     id="cars"
-                    style="width: 200px; margin-left: 17px"
+                    style="width: 200px; margin-left: 17px;font-size:12px;font-weight:400;height:30px"
                   >
                     <option value="volvo">${provincesMap.get(province)}</option>
                   </select>
                 </div>
                 <div class="main_second_select1">
-                  <label class="label" for="cars">CMA OR CA:</label>
-                  <select name="cars" id="cars" style="width: 200px;margin-left: 8px">
+                  <label class="label" for="cars">CMA / CA:</label>
+                  <select name="cars" id="cars" style="width: 200px;margin-left: 8px;font-size:12px;font-weight:400;height:30px">
                     <option value="volvo">${geography}</option>
                   </select>
                 </div>
@@ -1504,7 +1504,7 @@ module.exports = {
                   <select
                     name="cars"
                     id="cars"
-                    style="width: 200px; margin-left: 44px"
+                    style="width: 200px; margin-left: 44px;font-size:12px;font-weight:400;height:30px"
                   >
                     <option value="volvo">${house_type}</option>
                   </select>
@@ -1521,7 +1521,7 @@ module.exports = {
                   <select
                     name="cars"
                     id="cars"
-                    style="width: 200px; margin-left: 15px"
+                    style="width: 200px; margin-left: 15px;font-size:12px;font-weight:400;height:30px"
                   >
                     <option value="volvo">${year}</option>
                   </select>
