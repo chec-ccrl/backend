@@ -3201,8 +3201,7 @@ module.exports = {
                   {
                     categoryPercentage: 0.5, // Adjust bar spacing
                     ticks: {
-                      minRotation: 45,
-                      fontSize: 8,
+                      fontSize: 12,
                     },
                   },
                 ],
