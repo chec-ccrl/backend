@@ -2869,8 +2869,8 @@ module.exports = {
               </div>
               <div class="main_page3_first_one_break b-l-dashed"></div>
               <div class="main_page5_first_one_one2">
-                <div class="main_page5_first_one_txt text-2xl">
-                  MEDIAN INCOMCE <br />
+                <div class="main_page5_first_one_txt text-2xl" style="width:118%">
+                  MEDIAN INCOME <br />
                   RANKING
                 </div>
                 <div class="main_page3_first_one_other">
@@ -7091,9 +7091,9 @@ module.exports = {
     .main_page3_first_one_other {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        width: 90%;
+        width: 118%;
     }
 
     .main_page3_first_one_other_one {
