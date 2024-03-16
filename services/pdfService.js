@@ -634,7 +634,7 @@ module.exports = {
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
-          width: 90%;
+          width: 100%;
         }
       
         .main_page3_first_one_other_one {
