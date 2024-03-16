@@ -571,7 +571,6 @@ module.exports = {
           justify-content: center;
           align-items: center;
           flex-wrap: wrap;
-          margin: 10px 0px;
           font-size: 19px;
         }
       
