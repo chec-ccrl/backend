@@ -1553,7 +1553,7 @@ module.exports = {
                     id="cars"
                     style="width: 200px; margin-left: 30px;margin-right:27px;font-size:12px;font-weight:400;"
                   >
-                    <option value="volvo" style="padding:5px auto">${affordability}</option>
+                    <option value="volvo" style="height:30px">${affordability}</option>
                   </select>
                 </div>
                 <div class="main_second_select1" style="margin-left:30px;">
