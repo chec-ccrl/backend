@@ -1447,17 +1447,17 @@ module.exports = {
                   <select
                     name="cars"
                     id="cars"
-                    style="width: 200px; margin-left: 20px"
+                    style="width: 200px; margin-left: 18px"
                   >
-                    <option value="volvo" class="small_label">${provincesMap.get(
+                    <option value="volvo" style="font-size:12px;font-weight:400">${provincesMap.get(
                       province
                     )}</option>
                   </select>
                 </div>
                 <div class="main_second_select1">
                   <label class="label" for="cars">CMA OR CA:</label>
-                  <select name="cars" id="cars" style="width: 200px;margin-left: 15px">
-                    <option value="volvo" class="small_label">${geography}</option>
+                  <select name="cars" id="cars" style="width: 200px;margin-left: 13px">
+                    <option value="volvo" style="font-size:12px;font-weight:400">${geography}</option>
                   </select>
                 </div>
                 <div class="main_second_select1">
