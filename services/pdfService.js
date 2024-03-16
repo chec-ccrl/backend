@@ -1850,12 +1850,12 @@ module.exports = {
             <div class="main_page3_third">
               <div class="main_page3_third_one">
               <div style="display: flex">
-                <div class="main_page3_first_one_txt" style="margin-right: 30px;font-size:20px">
+                <div class="main_page3_first_one_txt" style="font-size:20px">
                   PROVINCIAL AVERAGE INCOME
                 </div>
                 <div
                 class="main_page3_first_one_main_head_sub_two mr-2"
-                style="padding: 4px; letter-spacing: 3px; "
+                style="letter-spacing: 3px; "
               >
                 $60,000
               </div>
