@@ -1449,23 +1449,25 @@ module.exports = {
                     id="cars"
                     style="width: 200px; margin-left: 25px"
                   >
-                    <option value="volvo">New Brunswick</option>
+                    <option value="volvo">>${provincesMap.get(
+                      province
+                    )}</option>
                   </select>
                 </div>
                 <div class="main_second_select1">
                   <label class="label" for="cars">CMA OR CA:</label>
-                  <select name="cars" id="cars" style="width: 200px">
-                    <option value="volvo">New Brunswick</option>
+                  <select name="cars" id="cars" style="width: 200px;margin-left: 10px">
+                    <option value="volvo">${geography}</option>
                   </select>
                 </div>
                 <div class="main_second_select1">
-                  <label class="label" for="cars" >HOUSE:</label>
+                  <label class="label" for="cars">HOUSE TYPE:</label>
                   <select
                     name="cars"
                     id="cars"
                     style="width: 200px; margin-left: 60px"
                   >
-                    <option value="volvo">New Brunswick</option>
+                    <option value="volvo">${house_type}</option>
                   </select>
                 </div>
               </div>
@@ -1482,7 +1484,7 @@ module.exports = {
                     id="cars"
                     style="width: 200px; margin-left: 15px"
                   >
-                    <option value="volvo">2022</option>
+                    <option value="volvo">${year}</option>
                   </select>
                 </div>
                 <div class="main_second_select1" style="margin-left:28px">
@@ -1529,7 +1531,7 @@ module.exports = {
                     id="cars"
                     style="width: 200px; margin-left: 30px;margin-right:27px"
                   >
-                    <option value="volvo">USE BOTH</option>
+                    <option value="volvo">${affordability}</option>
                   </select>
                 </div>
                 <div class="main_second_select1" style="margin-left:30px;">
