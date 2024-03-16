@@ -1584,7 +1584,7 @@ module.exports = {
                       AFFORDABILITY<br />
                       (BY RENT)
                     </div>
-                    <div class="main_page3_first_one_other_one_sub">
+                    <div class="main_page3_first_one_other_one_sub" style="margin-top:3px">
                       *Places with the lowest rent have the highest ranking
                     </div>
                   </div>
@@ -1605,7 +1605,7 @@ module.exports = {
                       MEDIAN<br />
                       INCOME
                     </div>
-                    <div class="main_page3_first_one_other_one_sub">*Before Tax</div>
+                    <div class="main_page3_first_one_other_one_sub" style="margin-top:3px">*Before Tax</div>
                   </div>
                 </div>
               </div>
@@ -1628,7 +1628,7 @@ module.exports = {
                     margin-right:20px
                     "
                   >
-                    <div style="margin-top:-5px;font-size: 40px">40%</div>
+                    <div style="font-size: 40px">40%</div>
                   </div>
                   <div class="main_page3_first_one_txt" style="margin-top:20px;font-size:16px">
                     FAMILIES UNDER OPTIMAL INCOME
@@ -2940,7 +2940,7 @@ module.exports = {
             </div>
           </div>
           <div class="main_third">
-            <span style="margin-left: 50px;margin-top:10px"> INCOME IS TAKEN ANUALLY </span>
+            <span style="margin-left: 50px;margin-top:20px"> INCOME IS TAKEN ANUALLY </span>
             <div class="main_third_line"></div>
           </div>
           <div class="main_page6_first">
