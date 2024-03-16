@@ -850,7 +850,7 @@ module.exports = {
           flex-direction: row;
           justify-content: space-between;
           align-items: flex-start;
-          width: 90%;
+          width: 100%;
         }
         
       
