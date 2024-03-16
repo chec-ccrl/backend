@@ -58,11 +58,11 @@ module.exports = {
       let rentSourceCheckBox1 =
         rent_source === "Rental Market Survey"
           ? ` <div>
-                <label for="c1" class="small_label">RENTAL MARKET SURVEY</label>
+                <label for="c1" class="small_label mt-1">RENTAL MARKET SURVEY</label>
                 <input type="checkbox" id="c1" value="RENTAL MARKET SURVEY" checked class="myinput large">
             </div>`
           : ` <div>
-                <label for="c1" class="small_label">RENTAL MARKET SURVEY</label>
+                <label for="c1" class="small_label mt-1">RENTAL MARKET SURVEY</label>
                 <input type="checkbox" id="c1" value="RENTAL MARKET SURVEY" class="myinput large">
             </div>`;
       let rentSourceCheckBox2 =
