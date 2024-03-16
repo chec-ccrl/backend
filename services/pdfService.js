@@ -1720,7 +1720,7 @@ module.exports = {
                 <div class="main_page3_first_one_chart">
                   <canvas
                     id="main_page3_first_one_chart_main"
-                    style="height: 300px; width: 175px"
+                    style="height: 300px; width: 165px"
                   ></canvas>
                 </div>
               </div>
