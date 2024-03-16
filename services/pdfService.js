@@ -1620,13 +1620,7 @@ module.exports = {
                 <div class="flex justify-center align-center" style="margin-top:20px">
                   <div
                     class="main_page3_first_one_main_head_sub_two"
-                    style="
-                    height: 50px;
-                    width: 110px;
-                    margin-top: 30px;
-                    border-radius: 30%;
-                    margin-right:20px
-                    "
+                    style="margin-top:20px; width:80px"
                   >
                     40%
                   </div>
