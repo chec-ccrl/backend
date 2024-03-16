@@ -1628,10 +1628,10 @@ module.exports = {
                     margin-right:20px
                     "
                   >
-                    <div style="margin-top:-5px;font-size: 50px">40%</div>
+                    <div style="margin-top:-5px;font-size: 40px">40%</div>
                   </div>
                   <div class="main_page3_first_one_txt" style="margin-top:20px;font-size:16px">
-                    FAMILIES UNDER <br /> OPTIMAL INCOME
+                    FAMILIES UNDER OPTIMAL INCOME
                   </div>
                 </div>
               </div>
