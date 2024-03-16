@@ -582,7 +582,7 @@ module.exports = {
           background-color: #c2a36fc9;
           width: 100px;
           margin: 4px;
-          font-size: 21px;
+          font-size: 18px;
           padding: 2px 7px;
           border-radius: 10px;
           color: white;
