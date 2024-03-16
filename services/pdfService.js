@@ -754,7 +754,6 @@ module.exports = {
           font-size: 24px;
           font-weight: bolder;
           background-color: #c2a36fc9;
-          padding: 3px 10px;
           border-radius: 10px;
           font-style: italic;
         }
@@ -1850,12 +1849,12 @@ module.exports = {
             <div class="main_page3_third">
               <div class="main_page3_third_one">
               <div style="display: flex">
-                <div class="main_page3_first_one_txt" style="font-size:20px">
+                <div class="main_page3_first_one_txt" style="font-size: 18px;">
                   PROVINCIAL AVERAGE INCOME
                 </div>
                 <div
-                class="main_page3_first_one_main_head_sub_two mr-2"
-                style="letter-spacing: 3px; "
+                class="main_page3_first_one_main_head_sub_two"
+                style="letter-spacing: 3px;height:30px "
               >
                 $60,000
               </div>
