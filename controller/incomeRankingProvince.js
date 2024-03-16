@@ -122,7 +122,7 @@ module.exports = {
 
       let arr = [];
       result.map((obj) => {
-        if (obj["A"] !== "CMA") {
+        if (obj["A"] !== "Geography (Province name)") {
           let data = {
             id: Common.helper.generateId(),
             province: obj["A"],
@@ -138,10 +138,11 @@ module.exports = {
       await Promise.all(
         result.map(async (obj) => {
           if (obj["A"] !== "Geography (Province name)") {
-            const survey = await Services.incomeRankingProvinceService.getDetail({
-              province: obj["A"],
-              year: obj["B"],
-            });
+            const survey =
+              await Services.incomeRankingProvinceService.getDetail({
+                province: obj["A"],
+                year: obj["B"],
+              });
             if (survey.length > 0) {
               await Promise.all(
                 survey.map(async (sur) => {
