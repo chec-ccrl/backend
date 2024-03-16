@@ -46,6 +46,15 @@ const provincesMap = new Map([
 module.exports = {
   detailPdfGenerator: async (data) => {
     try {
+      const {
+        province,
+        geo,
+        year,
+        affordability,
+        source_of_cost_of_non_shelter_necessity,
+        house_type,
+        rent_source,
+      } = data;
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
       const htmlContent = `<!DOCTYPE html>
@@ -1427,7 +1436,7 @@ module.exports = {
                 />
               </div>
               <div class="main_first_text">
-                <div class="main_first_text_tex1">NEW BRUNSWICK - MONCTON</div>
+                <div class="main_first_text_tex1">${province.toUpperCase()} - ${geo.toUpperCase()}</div>
                 <div class="main_first_text_tex2 fw-md">KEY INSIGHTS</div>
               </div>
             </div>
@@ -1921,7 +1930,7 @@ module.exports = {
                 />
               </div>
               <div class="main_first_text" style="margin-top: -25px">
-                <div class="main_first_text_tex1">NEW BRUNSWICK - MONCTON</div>
+              <div class="main_first_text_tex1">${province.toUpperCase()} - ${geo.toUpperCase()}</div>
                 <div class="main_first_text_tex2">SUPPLY ANALYSIS</div>
               </div>
             </div>
@@ -2766,7 +2775,7 @@ module.exports = {
               />
             </div>
             <div class="main_first_text" style="margin-top: 20px">
-              <div class="main_first_text_tex1">NEW BRUNSWICK - MONCTON</div>
+            <div class="main_first_text_tex1">${province.toUpperCase()} - ${geo.toUpperCase()}</div>
               <div class="main_first_text_tex2">INCOME ANALYSIS</div>
             </div>
           </div>
@@ -2928,7 +2937,7 @@ module.exports = {
               />
             </div>
             <div class="main_first_text" style="margin-top: 20px">
-              <div class="main_first_text_tex1">NEW BRUNSWICK - MONCTON</div>
+            <div class="main_first_text_tex1">${province.toUpperCase()} - ${geo.toUpperCase()}</div>
               <div class="main_first_text_tex2">SHELTER COST ANALYSIS</div>
             </div>
           </div>
