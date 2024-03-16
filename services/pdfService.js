@@ -1612,7 +1612,7 @@ module.exports = {
               <div class="main_page3_first_one_break"></div>
               <div class="main_page3_second_two">
                 <div class="flex align-center justify-between">
-                  <div class="main_page3_first_one_txt" style="width: 75%">
+                  <div class="main_page3_first_one_txt" style="width: 75%;font-size:13px">
                     AVERAGE OPTIMAL INCOME BEFORE TAX
                   </div>
                   <div class="main_page3_first_one_main_head_sub_two">$40,000</div>
@@ -1630,7 +1630,7 @@ module.exports = {
                   >
                     <div style="font-size: 40px">40%</div>
                   </div>
-                  <div class="main_page3_first_one_txt" style="margin-top:20px;font-size:16px">
+                  <div class="main_page3_first_one_txt" style="margin-top:20px;font-size:13px">
                     FAMILIES UNDER OPTIMAL INCOME
                   </div>
                 </div>
