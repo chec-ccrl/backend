@@ -1791,7 +1791,7 @@ module.exports = {
                     <div class="main_page4_first_one_one_main_one_chart">
                       <canvas
                         id="main_page3_first_one_one_main_one_chart30"
-                        style="max-width: 150px; margin: auto; height: 150px"
+                        style="max-width: 158px; margin: auto; height: 158px"
                       ></canvas>
                     </div>
                     <p class="text-2xl ls-1 m-0">OCCUPIED</p>
@@ -1811,7 +1811,7 @@ module.exports = {
                     <div class="main_page4_first_one_one_main_one_chart">
                       <canvas
                         id="main_page3_first_one_one_main_one_chart31"
-                        style="max-width: 150px; margin: auto; height: 150px"
+                        style="max-width: 158px; margin: auto; height: 158px"
                       ></canvas>
                     </div>
                     <p class="text-2xl ls-1 m-0">OCCUPIED</p>
