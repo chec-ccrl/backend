@@ -59,6 +59,14 @@ module.exports = {
         cma_income_ranking,
         cma,
         ca,
+        c27l,
+        c27v,
+        c28l,
+        c28v,
+        c35l,
+        c35v,
+        c36l,
+        c36v,
       } = data;
       let rentSourceCheckBox1 =
         rent_source === "Rental Market Survey"
@@ -1581,7 +1589,7 @@ module.exports = {
                   <div class="main_page3_first_one_other_one" style="margin-right:-20px">
                     <div class="main_page3_first_one_other_one_main">
                     <span style="font-size: 30px">${
-                      affordability_ranking?.ranking
+                      affordability_ranking?.ranking ?? 0
                     }</span>
                     </div>
                     <div class="main_page3_first_one_other_one_text">
@@ -3031,7 +3039,7 @@ module.exports = {
               <div class="main_page6_first_one_flex">
                 <div>
                   <div class="main_page6_first_one_head text-lg">
-                    TOP 5 CMAS - <br />
+                    TOP 5 CMAs - <br />
                     AVERAGE RENT
                   </div>
                   <div class="main_page6_first_one_charts_three m-auto">
@@ -3044,7 +3052,7 @@ module.exports = {
                 <div class="main_page3_first_one_break"></div>
                 <div>
                   <div class="main_page6_first_one_head text-lg">
-                    BOTTOM 5 CMAS - <br />
+                    BOTTOM 5 CMAs - <br />
                     AVERAGE RENT
                   </div>
                   <div class="main_page6_first_one_charts_three m-auto">
@@ -3057,7 +3065,7 @@ module.exports = {
                 <div class="main_page3_first_one_break"></div>
                 <div>
                   <div class="main_page6_first_one_head text-lg">
-                    TOP 5 CMAS - <br />
+                    TOP 5 CAs - <br />
                     AVERAGE RENT
                   </div>
                   <div class="main_page6_first_one_charts_three m-auto">
@@ -3071,7 +3079,7 @@ module.exports = {
       
                 <div>
                   <div class="main_page6_first_one_head text-lg">
-                    BOTTOM 5 CMAS - <br />
+                    BOTTOM 5 CAs - <br />
                     AVERAGE RENT
                   </div>
                   <div class="main_page6_first_one_charts_three m-auto">
@@ -4274,18 +4282,17 @@ module.exports = {
               },
             },
           });
-      
+         
           const chart27 = new Chart(main_page6_first_one_charts_one_27, {
             type: "horizontalBar",
             data: {
-              labels: ["CMA1", "CMA2", "CMA3", "CMA4", "CMA5"], // Data labels
+              labels: [${c27l}], // Data labels
               datasets: [
                 {
                   label: "CMA", // Dataset label
-                  data: [500, 1000, 2500, 1500, 2000], // Data values
+                  data:  [${c27v}], // Data values
                   backgroundColor: "#bb1823", // Bar background color
                   borderColor: "#bb1823", // Bar border color
-                  // borderWidth: 1, // Bar border width
                 },
               ],
             },
@@ -4331,11 +4338,11 @@ module.exports = {
             type: "horizontalBar",
       
             data: {
-              labels: ["CMA1", "CMA2", "CMA3", "CMA4", "CMA5"], // Data labels
+              labels: [${c28l}], // Data labels
               datasets: [
                 {
                   label: "CMA", // Dataset label
-                  data: [500, 1000, 2500, 1500, 2000], // Data values
+                  data: [${c28v}], // Data values
                   backgroundColor: "#008001", // Bar background color
                   borderColor: "#008001", // Bar border color
                   // borderWidth: 1, // Bar border width
@@ -4633,11 +4640,11 @@ module.exports = {
           const chart35 = new Chart(main_page6_first_one_charts_one_35, {
             type: "horizontalBar",
             data: {
-              labels: ["CMA1", "CMA2", "CMA3", "CMA4", "CMA5"], // Data labels
+              labels: [${c35l}], // Data labels
               datasets: [
                 {
                   label: "CMA", // Dataset label
-                  data: [500, 1000, 2500, 1500, 2000], // Data values
+                  data: [${c35v}], // Data values
                   backgroundColor: "#bb1823", // Bar background color
                   borderColor: "#bb1823", // Bar border color
                   // borderWidth: 1, // Bar border width
@@ -4685,11 +4692,11 @@ module.exports = {
             type: "horizontalBar",
       
             data: {
-              labels: ["CMA1", "CMA2", "CMA3", "CMA4", "CMA5"], // Data labels
+              labels: [${c36l}], // Data labels
               datasets: [
                 {
                   label: "CMA", // Dataset label
-                  data: [500, 1000, 2500, 1500, 2000], // Data values
+                  data:  [${c36v}], // Data values
                   backgroundColor: "green", // Bar background color
                   borderColor: "green", // Bar border color
                   // borderWidth: 1, // Bar border width

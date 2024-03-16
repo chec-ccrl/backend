@@ -63,6 +63,161 @@ module.exports = {
         });
       }
 
+      const allRentDetails = await Services.rentService.getAll({
+        year,
+        limit: 1000,
+        offset: 0,
+      });
+      const allRentCMAApartment = {};
+      const allRentCMABoth = {};
+      const allRentCMARow = {};
+      const allRentCAApartment = {};
+      const allRentCARow = {};
+      const allRentCABoth = {};
+      allRentDetails.result.map((ele) => {
+        const { cma, ca, rent_value } = ele;
+        const inside_house_type = ele.house_type;
+        if (cma !== "NA" && ca === "NA") {
+          if (house_type === "Row House") {
+            if (inside_house_type === "Row") {
+              if (allRentCMARow[cma]) {
+                allRentCMARow[cma] += rent_value;
+              } else {
+                allRentCMARow[cma] = rent_value;
+              }
+            }
+          } else if (house_type === "Apartment") {
+            if (inside_house_type === "Apartment") {
+              if (allRentCMAApartment[cma]) {
+                allRentCMAApartment[cma] += rent_value;
+              } else {
+                allRentCMAApartment[cma] = rent_value;
+              }
+            }
+          } else {
+            if (allRentCMABoth[cma]) {
+              allRentCMABoth[cma] += rent_value;
+            } else {
+              allRentCMABoth[cma] = rent_value;
+            }
+          }
+        } else if (cma === "NA" && ca !== "NA") {
+          if (house_type === "Row House") {
+            if (inside_house_type === "Row") {
+              if (allRentCARow[ca]) {
+                allRentCARow[ca] += rent_value;
+              } else {
+                allRentCARow[ca] = rent_value;
+              }
+            }
+          } else if (house_type === "Apartment") {
+            if (inside_house_type === "Apartment") {
+              if (allRentCAApartment[ca]) {
+                allRentCAApartment[ca] += rent_value;
+              } else {
+                allRentCAApartment[ca] = rent_value;
+              }
+            }
+          } else {
+            if (allRentCABoth[ca]) {
+              allRentCABoth[ca] += rent_value;
+            } else {
+              allRentCABoth[ca] = rent_value;
+            }
+          }
+        }
+      });
+      const sortedAllRentCMAApartment = Object.entries(
+        allRentCMAApartment
+      ).sort((a, b) => a[1] - b[1]);
+      const sortedAllRentCMARow = Object.entries(allRentCMARow).sort(
+        (a, b) => a[1] - b[1]
+      );
+      const sortedAllRentCAApartment = Object.entries(allRentCAApartment).sort(
+        (a, b) => a[1] - b[1]
+      );
+      const sortedAllRentCARow = Object.entries(allRentCARow).sort(
+        (a, b) => a[1] - b[1]
+      );
+      const sortedAllRentCABoth = Object.entries(allRentCABoth).sort(
+        (a, b) => a[1] - b[1]
+      );
+      const sortedAllRentCMABoth = Object.entries(allRentCMABoth).sort(
+        (a, b) => a[1] - b[1]
+      );
+
+      //*************** START 4.4 & 4.5 ************************** */
+      const top5LowestAllRentCMAApartment = sortedAllRentCMAApartment.slice(
+        0,
+        5
+      );
+      const top5HighestAllRentCMAApartment = sortedAllRentCMAApartment
+        .slice(-5)
+        .reverse();
+
+      const top5LowestAllRentCMARow = sortedAllRentCMARow.slice(0, 5);
+      const top5HighestAllRentCMARow = sortedAllRentCMARow.slice(-5).reverse();
+
+      const top5LowestAllRentCAApartment = sortedAllRentCAApartment.slice(0, 5);
+      const top5HighestAllRentCAApartment = sortedAllRentCAApartment
+        .slice(-5)
+        .reverse();
+
+      const top5LowestAllRentCARow = sortedAllRentCARow.slice(0, 5);
+      const top5HighestAllRentCARow = sortedAllRentCARow.slice(-5).reverse();
+
+      const top5LowestAllRentCABoth = sortedAllRentCABoth.slice(0, 5);
+      const top5HighestAllRentCABoth = sortedAllRentCABoth.slice(-5).reverse();
+      const top5LowestAllRentCMABoth = sortedAllRentCMABoth.slice(0, 5);
+      const top5HighestAllRentCMABoth = sortedAllRentCMABoth
+        .slice(-5)
+        .reverse();
+
+      let highestcma, lowestcma, highestca, lowestca;
+      if (house_type === "Row House") {
+        highestcma = top5HighestAllRentCMARow;
+        lowestcma = top5LowestAllRentCMARow;
+        highestca = top5HighestAllRentCARow;
+        lowestca = top5LowestAllRentCARow;
+      } else if (house_type === "Apartment") {
+        highestcma = top5HighestAllRentCMAApartment;
+        lowestcma = top5LowestAllRentCMAApartment;
+        highestca = top5HighestAllRentCAApartment;
+        lowestca = top5LowestAllRentCAApartment;
+      } else {
+        highestcma = top5HighestAllRentCMABoth;
+        lowestcma = top5LowestAllRentCMABoth;
+        highestca = top5HighestAllRentCABoth;
+        lowestca = top5LowestAllRentCABoth;
+      }
+      let c27l = [];
+      let c27v = [];
+      highestcma.map((ele) => {
+        c27l.push(`"${ele[0]}"`);
+        c27v.push(Math.ceil(ele[1] / 4));
+      });
+
+      let c28l = [];
+      let c28v = [];
+      lowestcma.map((ele) => {
+        c28l.push(`"${ele[0]}"`);
+        c28v.push(Math.ceil(ele[1] / 4));
+      });
+
+      let c35l = [];
+      let c35v = [];
+      highestca.map((ele) => {
+        c35l.push(`"${ele[0]}"`);
+        c35v.push(Math.ceil(ele[1] / 4));
+      });
+
+      let c36l = [];
+      let c36v = [];
+      lowestca.map((ele) => {
+        c36l.push(`"${ele[0]}"`);
+        c36v.push(Math.ceil(ele[1] / 4));
+      });
+
       const link = await Services.pdfService.detailPdfGenerator({
         province,
         geography,
@@ -76,6 +231,14 @@ module.exports = {
         cma_income_ranking,
         cma,
         ca,
+        c27l,
+        c27v,
+        c28l,
+        c28v,
+        c35l,
+        c35v,
+        c36l,
+        c36v,
       });
       return res.json(link);
       const multiplier = await Services.multiplierService.getDetails({
@@ -152,78 +315,6 @@ module.exports = {
       //*************** START 1.15 & 1.17 ************************** */
       current_shelter_cost = current_shelter_cost / rentDetails.length;
       //*************** END 1.15 & 1.17 ************************** */
-
-      const allRentDetails = await Services.rentService.getAll({
-        year,
-      });
-      const allRentCMAApartment = {};
-      const allRentCMARow = {};
-      const allRentCAApartment = {};
-      const allRentCARow = {};
-      allRentDetails.map((ele) => {
-        const { cma, ca, rent_value, house_type } = ele;
-        if (cma !== "NA") {
-          if (house_type === "Row") {
-            if (allRentCMARow[cma]) {
-              allRentCMARow[cma] += rent_value;
-            } else {
-              allRentCMARow[cma] = rent_value;
-            }
-          } else {
-            if (allRentCMAApartment[cma]) {
-              allRentCMAApartment[cma] += rent_value;
-            } else {
-              allRentCMAApartment[cma] = rent_value;
-            }
-          }
-        } else {
-          if (house_type === "Row") {
-            if (allRentCARow[ca]) {
-              allRentCARow[ca] += rent_value;
-            } else {
-              allRentCARow[ca] = rent_value;
-            }
-          } else {
-            if (allRentCAApartment[ca]) {
-              allRentCAApartment[ca] += rent_value;
-            } else {
-              allRentCAApartment[ca] = rent_value;
-            }
-          }
-        }
-      });
-      const sortedAllRentCMAApartment = Object.entries(
-        allRentCMAApartment
-      ).sort((a, b) => a[1] - b[1]);
-      const sortedAllRentCMARow = Object.entries(allRentCMARow).sort(
-        (a, b) => a[1] - b[1]
-      );
-      const sortedAllRentCAApartment = Object.entries(allRentCAApartment).sort(
-        (a, b) => a[1] - b[1]
-      );
-      const sortedAllRentCARow = Object.entries(allRentCARow).sort(
-        (a, b) => a[1] - b[1]
-      );
-
-      //*************** START 4.4 & 4.5 ************************** */
-      const top5LowestAllRentCMAApartment = sortedAllRentCMAApartment.slice(
-        0,
-        5
-      );
-      const top5HighestAllRentCMAApartment = sortedAllRentCMAApartment
-        .slice(-5)
-        .reverse();
-
-      const top5LowestAllRentCMARow = sortedAllRentCMARow.slice(0, 5);
-      const top5HighestAllRentCMARow = sortedAllRentCMARow.slice(-5).reverse();
-
-      const top5LowestAllRentCAApartment = sortedAllRentCAApartment.slice(0, 5);
-      const top5HighestAllRentCAApartment = sortedAllRentCAApartment
-        .slice(-5)
-        .reverse();
-
-      const top5LowestAllRentCARow = sortedAllRentCARow.slice(0, 5);
-      const top5HighestAllRentCARow = sortedAllRentCARow.slice(-5).reverse();
 
       //*************** END 4.4 & 4.5 ************************** */
 

@@ -31,6 +31,9 @@ module.exports = {
       if (rentObj?.filter?.year) {
         sql += `and  year = '${String(rentObj.filter.year)}' `;
       }
+      if (rentObj?.year) {
+        sql += `and  year = '${String(rentObj.year)}' `;
+      }
       sql += `  and "deletedAt" is null order by "createdAt" desc limit :limit offset :offset`;
       if (rentObj?.filter?.province) {
         replacementObj.province = `%${rentObj.filter.province}%`;
