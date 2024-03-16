@@ -1112,7 +1112,6 @@ module.exports = {
           font-weight: bolder;
           text-decoration: underline;
           letter-spacing: 0.3cap;
-          margin-top: 20px;
         }
       
         .main_page5_first_one_one2 {
