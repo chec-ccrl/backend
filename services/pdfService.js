@@ -3398,7 +3398,7 @@ module.exports = {
           const chart12 = new Chart(main_page4_first_one_one_main_one_chart12, {
             type: "line",
             data: {
-              labels: ["", "2017", "2018", "2019", "2020", "2021", "2022"],
+              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${Number(year) - 3}", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "Value",
@@ -3454,7 +3454,7 @@ module.exports = {
           const chart13 = new Chart(main_page4_first_one_one_main_one_chart13, {
             type: "line",
             data: {
-              labels: ["", "2017", "2018", "2019", "2020", "2021", "2022"],
+              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${Number(year) - 3}", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "Value",
@@ -3671,7 +3671,7 @@ module.exports = {
           const chart18 = new Chart(main_page5_first_one_chart18, {
             type: "bar", // Chart type
             data: {
-              labels: ["2017", "2018", "2019", "2020", "2021"], // Data labels
+              labels: ["${Number(year) - 5}", "${Number(year) - 4}", "${Number(year) - 3}", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "30% of Income", // Dataset label
@@ -3740,7 +3740,7 @@ module.exports = {
           const chart19 = new Chart(main_page5_first_one_chart19, {
             type: "line",
             data: {
-              labels: ["", "2017", "2018", "2019", "2020", "2021", "2022"],
+              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${Number(year) - 3}", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "Value",
@@ -3807,7 +3807,7 @@ module.exports = {
           const chart20 = new Chart(main_page5_first_one_chart20, {
             type: "line",
             data: {
-              labels: ["", "2017", "2018", "2019", "2020", "2021", "2022"],
+              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${Number(year) - 3}", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "Value",
@@ -4003,7 +4003,7 @@ module.exports = {
           const chart23 = new Chart(main_page6_first_one_charts_one_23, {
             type: "line",
             data: {
-              labels: ["", "2017", "2018", "2019", "2020", "2021", "2022"],
+              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${Number(year) - 3}", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "Moncton",
@@ -4060,7 +4060,7 @@ module.exports = {
           const chart24 = new Chart(main_page6_first_one_charts_two_24, {
             type: "line",
             data: {
-              labels: ["", "2017", "2018", "2019", "2020", "2021", "2022"],
+              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${Number(year) - 3}", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "Moncton",
