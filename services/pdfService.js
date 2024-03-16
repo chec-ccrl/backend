@@ -68,6 +68,10 @@ module.exports = {
         c36l,
         c36v,
         rentDetails,
+        median_household_income_before_tax_6_year_v,
+        median_household_income_after_tax_6_year_v,
+        historicalGrowthRowFinal,
+        historicalGrowthApartmentFinal,
       } = data;
 
       let obj1, obj2, obj3, obj4;
@@ -3821,7 +3825,7 @@ module.exports = {
               datasets: [
                 {
                   label: "Value",
-                  data: [, 0, 4500, 7500, 8000, 9000, 10000],
+                  data: [,${median_household_income_before_tax_6_year_v}],
                   backgroundColor: "transparent",
                   borderColor: "#4c3848",
                   borderWidth: 1,
@@ -3852,7 +3856,6 @@ module.exports = {
                 yAxes: [
                   {
                     ticks: {
-                      beginAtZero: true,
                       fontSize: 10,
                       fontColor: "black",
                       callback: function (value, index, values) {
@@ -3890,7 +3893,7 @@ module.exports = {
               datasets: [
                 {
                   label: "Value",
-                  data: [, 0, 61000, 70000, 71000, 90000, 100000],
+                  data: [,${median_household_income_after_tax_6_year_v}],
                   backgroundColor: "transparent",
                   borderColor: "#4c3848",
                   borderWidth: 1,
@@ -3924,7 +3927,6 @@ module.exports = {
                 yAxes: [
                   {
                     ticks: {
-                      beginAtZero: true,
                       fontSize: 10,
                       fontColor: "black",
                       callback: function (value, index, values) {
@@ -4087,8 +4089,8 @@ module.exports = {
       }", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
-                  label: "Moncton",
-                  data: [, 2, 3, 4, 1, 1, 5],
+                  label: "${geography}",
+                  data: [, ${historicalGrowthApartmentFinal}],
                   backgroundColor: "transparent",
                   borderColor: "#4c3848",
                   borderWidth: 4,
@@ -4116,7 +4118,6 @@ module.exports = {
                 yAxes: [
                   {
                     ticks: {
-                      beginAtZero: true,
                       callback: function (value, index, values) {
                         return  value + "%"; // Add dollar sign to tick labels
                       },
@@ -4146,8 +4147,8 @@ module.exports = {
       }", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
-                  label: "Moncton",
-                  data: [, 2, 3, 4, 1, 1, 5],
+                  label: "${geography}",
+                  data: [, ${historicalGrowthRowFinal}],
                   backgroundColor: "rgba(0, 0, 0, 0)",
                   borderColor: "#4c3848",
                   borderWidth: 4,
@@ -4177,7 +4178,6 @@ module.exports = {
                 yAxes: [
                   {
                     ticks: {
-                      beginAtZero: true,
                       callback: function (value, index, values) {
                         return  value + "%"; // Add dollar sign to tick labels
                       },

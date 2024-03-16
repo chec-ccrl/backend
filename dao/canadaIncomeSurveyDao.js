@@ -86,6 +86,17 @@ module.exports = {
       logger.info(error);
     }
   },
+  getAlls: async (multiplierDao, transaction) => {
+    try {
+      const result = await db.canadaIncomeSurvey.findAll(
+        { where: multiplierDao },
+        transaction
+      );
+      return result;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
   update: async (marketObj, transaction) => {
     try {
       const updated = await db.canadaIncomeSurvey.update(

@@ -248,6 +248,118 @@ module.exports = {
       current_shelter_cost = current_shelter_cost / rentDetails.length;
       //*************** END 1.15 & 1.17 ************************** */
 
+      let arrYear = [];
+      for (let i = 0; i < 6; i += 1) {
+        arrYear.push(String(Number(year) - i));
+      }
+      //*************** START 4.2 ************************** */
+      let historicalGrowthRow = {};
+      let historicalGrowthApartment = {};
+      //*************** END 4.2 ************************** */
+
+      //*************** START 3.2 & 3.4 ************************** */
+      let median_household_income_after_tax_6_year = {};
+      let median_household_income_before_tax_6_year = {};
+      //*************** END 3.2 & 3.4 ************************** */
+      await Promise.all(
+        arrYear.map(async (year) => {
+          const rentDetailsRow = await Services.rentService.getAlls({
+            province,
+            cma,
+            ca,
+            year,
+            house_type: "Row",
+          });
+          let rowval = 0;
+          rentDetailsRow.map((ele) => {
+            rowval += ele.rent_value;
+          });
+          rowval = rowval / rentDetailsRow.length;
+
+          const rentDetailsApa = await Services.rentService.getAlls({
+            province,
+            cma,
+            ca,
+            year,
+            house_type: "Apartment",
+          });
+          let apaval = 0;
+          rentDetailsApa.map((ele) => {
+            apaval += ele.rent_value;
+          });
+          apaval = apaval / rentDetailsApa.length;
+          historicalGrowthApartment[String(year)] = apaval;
+          historicalGrowthRow[String(year)] = rowval;
+
+          const canadaIncomeSurveyDetails =
+            await Services.canadaIncomeSurveyService.getAlls({
+              province,
+              year,
+              cma,
+              ca,
+            });
+          median_household_income_after_tax_6_year[String(year)] =
+            canadaIncomeSurveyDetails?.[0]?.median_after_tax;
+          median_household_income_before_tax_6_year[String(year)] =
+            canadaIncomeSurveyDetails?.[0]?.median_before_tax;
+        })
+      );
+      let median_household_income_after_tax_6_year_v = [];
+      Object.keys(median_household_income_after_tax_6_year).map((key) => {
+        median_household_income_after_tax_6_year_v.push(
+          median_household_income_after_tax_6_year[key]
+        );
+      });
+      let median_household_income_before_tax_6_year_v = [];
+      Object.keys(median_household_income_before_tax_6_year).map((key) => {
+        median_household_income_before_tax_6_year_v.push(
+          median_household_income_before_tax_6_year[key]
+        );
+      });
+
+      const growthRowData = {};
+      let previousValue = null;
+
+      for (const year in historicalGrowthRow) {
+        if (previousValue === null) {
+          // For the first year, set growth percentage to 0
+          growthRowData[year] = 0;
+        } else {
+          // Calculate growth percentage
+          const growthPercentage =
+            ((historicalGrowthRow[year] - previousValue) / previousValue) * 100;
+          growthRowData[year] = Number(growthPercentage.toFixed(2));
+        }
+        previousValue = historicalGrowthRow[year];
+      }
+
+      const growthApartmentData = {};
+      let previousValuee = null;
+
+      for (const year in historicalGrowthApartment) {
+        if (previousValuee === null) {
+          // For the first year, set growth percentage to 0
+          growthApartmentData[year] = 0;
+        } else {
+          // Calculate growth percentage
+          const growthPercentage =
+            ((historicalGrowthApartment[year] - previousValuee) /
+              previousValuee) *
+            100;
+          growthApartmentData[year] = Number(growthPercentage.toFixed(2));
+        }
+        previousValuee = historicalGrowthApartment[year];
+      }
+
+      let historicalGrowthRowFinal = [];
+      Object.keys(growthRowData).map((key) => {
+        historicalGrowthRowFinal.push(growthRowData[key]);
+      });
+      let historicalGrowthApartmentFinal = [];
+      Object.keys(growthApartmentData).map((key) => {
+        historicalGrowthApartmentFinal.push(growthApartmentData[key]);
+      });
+
       const link = await Services.pdfService.detailPdfGenerator({
         province,
         geography,
@@ -270,6 +382,10 @@ module.exports = {
         c36l,
         c36v,
         rentDetails,
+        median_household_income_before_tax_6_year_v,
+        median_household_income_after_tax_6_year_v,
+        historicalGrowthRowFinal,
+        historicalGrowthApartmentFinal,
       });
 
       return res.json(link);
@@ -312,62 +428,6 @@ module.exports = {
         canadaIncomeSurveyDetails?.[0]?.median_after_tax;
       //*************** END 1.15 & 1.13 ************************** */
 
-      let arrYear = [];
-      for (let i = 0; i < 6; i += 1) {
-        arrYear.push(Number(year) - i);
-      }
-      //*************** START 4.2 ************************** */
-      const historicalGrowthRow = {};
-      const historicalGrowthApartment = {};
-      //*************** END 4.2 ************************** */
-
-      //*************** START 3.2 & 3.4 ************************** */
-      const median_household_income_after_tax_6_year = {};
-      const median_household_income_before_tax_6_year = {};
-      //*************** END 3.2 & 3.4 ************************** */
-      await Promise.all(
-        arrYear.map(async (year) => {
-          const rentDetailsRow = await Services.rentService.getAll({
-            province,
-            cma,
-            ca,
-            year,
-            house_type: "Row",
-          });
-          let rowval = 0;
-          rentDetailsRow.map((ele) => {
-            rowval += ele.rent_value;
-          });
-          rowval = rowval / rentDetailsRow.length;
-
-          const rentDetailsApa = await Services.rentService.getAll({
-            province,
-            cma,
-            ca,
-            year,
-            house_type: "Apartment",
-          });
-          let apaval = 0;
-          rentDetailsApa.map((ele) => {
-            apaval += ele.rent_value;
-          });
-          apaval = apaval / rentDetailsApa.length;
-          historicalGrowthApartment[String(year)] = apaval;
-          historicalGrowthRow[String(year)] = rowval;
-
-          const canadaIncomeSurveyDetails =
-            await Services.canadaIncomeSurveyService.getAll({
-              province,
-              year,
-              cma,
-              ca,
-            });
-          median_household_income_after_tax_6_year[String(year)] =
-            canadaIncomeSurveyDetails?.[0]?.median_after_tax;
-          median_household_income_before_tax_6_year[String(year)] =
-            canadaIncomeSurveyDetails?.[0]?.median_before_tax;
-        })
-      );
       //*************** START NO MARKING AVAILABLE ************************** */
       const affordability_rent_based_30_benchmarch =
         (median_household_income_before_tax * 0.3) / 12;
