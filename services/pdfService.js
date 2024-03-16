@@ -4164,6 +4164,9 @@ module.exports = {
                     ticks: {
                       beginAtZero: true, // Start y-axis at zero
                       fontColor: "black",
+                      callback: function (value, index, values) {
+                        return "$" + value; // Add dollar sign to tick labels
+                      },
                     },
                   },
                 ],
@@ -4224,7 +4227,10 @@ module.exports = {
                   {
                     ticks: {
                       beginAtZero: true, // Start y-axis at zero
-                      fontColor: "black",
+                      fontColor: "black",  
+                      callback: function (value, index, values) {
+                        return "$" + value; // Add dollar sign to tick labels
+                      },
                     },
                   },
                 ],
