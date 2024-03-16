@@ -2878,7 +2878,7 @@ module.exports = {
                   <div class="main_page3_first_one_other_one">
                     <div
                       class="main_page3_first_one_other_one_main"
-                      style="margin-top: 70px"
+                      style="margin-top: 80px"
                     >
                     </div>
                     <div class="main_page3_first_one_other_one_sub my-2">
