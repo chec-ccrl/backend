@@ -605,7 +605,7 @@ module.exports = {
       
         .main_page3_first_one_break {
           align-self: stretch;
-          border-left: 1.5px solid gray;
+          border-left: 1.5px dashed gray;
           margin-left: 10px;
           margin-right: 10px;
         }
@@ -1435,9 +1435,6 @@ module.exports = {
           background-color: red;
           color: white;
         }
-        .b-l-dashed {
-          border-left: dashed;
-        }
         .bg-black {
           background-color: black;
         }
@@ -1835,7 +1832,7 @@ module.exports = {
             <div class="main_page3_third">
               <div class="main_page3_third_one">
               <div style="display: flex">
-                <div class="main_page3_first_one_txt" style="font-size: 18px;">
+                <div class="main_page3_first_one_txt" style="font-size: 18px;margin-top:7px">
                   PROVINCIAL AVERAGE INCOME
                 </div>
                 <div
@@ -1957,7 +1954,7 @@ module.exports = {
                         ></canvas>
                       </div>
                     </div>
-                    <div class="main_page3_first_one_break b-l-dashed"></div>
+                    <div class="main_page3_first_one_break"></div>
                     <div class="main_page4_first_one_one_main_one">
                       <div class="main_page4_first_one_one_main_one_head ml-2">
                         TYPE OF BEDROOM
@@ -1995,7 +1992,7 @@ module.exports = {
                         ></canvas>
                       </div>
                     </div>
-                    <div class="main_page3_first_one_break b-l-dashed"></div>
+                    <div class="main_page3_first_one_break"></div>
                     <div class="main_page4_first_one_one_main_one ml-2">
                       <div class="main_page4_first_one_one_main_one_head">
                         TYPE OF BEDROOM
@@ -2217,7 +2214,7 @@ module.exports = {
                         </div>
                       </div>
                     </div>
-                    <div class="main_page3_first_one_break b-l-dashed"></div>
+                    <div class="main_page3_first_one_break"></div>
                     <div class="main_page4_first_one_one_main_one">
                       <div
                         class="main_page4_first_one_one_main_one_head fw-light ls-1"
@@ -2313,7 +2310,7 @@ module.exports = {
                         </div>
                       </div>
                     </div>
-                    <div class="main_page3_first_one_break b-l-dashed"></div>
+                    <div class="main_page3_first_one_break"></div>
                     <div class="main_page4_first_one_one_main_one">
                       <div
                         class="main_page4_first_one_one_main_one_head fw-light ls-1"
@@ -2853,7 +2850,7 @@ module.exports = {
                   ></canvas>
                 </div>
               </div>
-              <div class="main_page3_first_one_break b-l-dashed"></div>
+              <div class="main_page3_first_one_break"></div>
               <div class="main_page5_first_one_one2">
                 <div class="main_page5_first_one_txt text-2xl" style="width:118%">
                   MEDIAN INCOME <br />
@@ -2907,7 +2904,7 @@ module.exports = {
                     style="width: 550px; height: 320px"
                   ></canvas>
                 </div>
-                <div class="main_page3_first_one_break b-l-dashed"></div>
+                <div class="main_page3_first_one_break"></div>
                 <div class="main_page6_first_one_charts_two">
                   <div class="main_page5_first_one_txt" style="text-align: center">
                     AFTER RENT
@@ -2957,7 +2954,7 @@ module.exports = {
                     style="width: 550px"
                   ></canvas>
                 </div>
-                <div class="main_page3_first_one_break b-l-dashed"></div>
+                <div class="main_page3_first_one_break"></div>
                 <div class="main_page6_first_one_charts_two">
                   <canvas
                     id="main_page6_first_one_charts_two_22"
@@ -2977,7 +2974,7 @@ module.exports = {
                     style="width: 550px"
                   ></canvas>
                 </div>
-                <div class="main_page3_first_one_break b-l-dashed"></div>
+                <div class="main_page3_first_one_break"></div>
       
                 <div class="main_page6_first_one_charts_two">
                   <canvas
@@ -3001,7 +2998,7 @@ module.exports = {
                     style="width: 550px"
                   ></canvas>
                 </div>
-                <div class="main_page3_first_one_break b-l-dashed"></div>
+                <div class="main_page3_first_one_break"></div>
       
                 <div class="main_page6_first_one_charts_three">
                   <canvas
@@ -3027,7 +3024,7 @@ module.exports = {
                     ></canvas>
                   </div>
                 </div>
-                <div class="main_page3_first_one_break b-l-dashed"></div>
+                <div class="main_page3_first_one_break"></div>
                 <div>
                   <div class="main_page6_first_one_head text-lg">
                     BOTTOM 5 CMAS - <br />
@@ -3040,7 +3037,7 @@ module.exports = {
                     ></canvas>
                   </div>
                 </div>
-                <div class="main_page3_first_one_break b-l-dashed"></div>
+                <div class="main_page3_first_one_break"></div>
                 <div>
                   <div class="main_page6_first_one_head text-lg">
                     TOP 5 CMAS - <br />
@@ -3053,7 +3050,7 @@ module.exports = {
                     ></canvas>
                   </div>
                 </div>
-                <div class="main_page3_first_one_break b-l-dashed"></div>
+                <div class="main_page3_first_one_break"></div>
       
                 <div>
                   <div class="main_page6_first_one_head text-lg">
@@ -3181,6 +3178,9 @@ module.exports = {
                   {
                     ticks: {
                       beginAtZero: true, // Start y-axis at zero
+                      callback: function (value, index, values) {
+                        return "$" + value; // Add dollar sign to tick labels
+                      },
                     },
                   },
                 ],
