@@ -1157,10 +1157,6 @@ module.exports = {
         rect {
           fill: #f1f3f9;
         }
-        #main_page5_first_one_chart18 {
-          width: 300px;
-          max-width: 500px;
-        }
       
         .main_page6_first {
           display: flex;
@@ -2863,7 +2859,7 @@ module.exports = {
                 <div class="main_page5_first_one_chart">
                   <canvas
                     id="main_page5_first_one_chart18"
-                    style="width: 1000px;height:300px "
+                    style="width: max-content; min-height: 300px; min-width: 900px"
                   ></canvas>
                 </div>
               </div>
