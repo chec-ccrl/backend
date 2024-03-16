@@ -56,6 +56,18 @@ module.exports = {
       logger.info(error);
     }
   },
+  getAllFr: async (multiplierObj) => {
+    try {
+      let query = {
+        where: multiplierObj,
+        order: [["createdAt", "DESC"]],
+      };
+      const result = await db.multiplier.findAll(query);
+      return { result };
+    } catch (error) {
+      logger.info(error);
+    }
+  },
   delete: async (multiplierDao) => {
     try {
       const result = await db.multiplier.destroy({ where: multiplierDao });

@@ -395,4 +395,16 @@ module.exports = {
       next(error);
     }
   },
+  getGeo: async (req, res, next) => {
+    try {
+      const { province } = req.query;
+      const cma_ca_list = await Services.multiplierService.getAllFr({
+        province,
+        year: 2021,
+      });
+      return res.status(200).json({ result: cma_ca_list });
+    } catch (error) {
+      next(error);
+    }
+  },
 };

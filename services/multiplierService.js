@@ -19,6 +19,15 @@ module.exports = {
       throw new Error(error);
     }
   },
+  getAllFr: async (multiplierObj) => {
+    try {
+      const multiplier = await Dao.multiplierDao.getAllFr(multiplierObj);
+      return multiplier;
+    } catch (error) {
+      logger.info(error);
+      throw new Error(error);
+    }
+  },
   getDetail: async (multiplierObj) => {
     try {
       const getDetail = await Dao.multiplierDao.getDetail(multiplierObj);
