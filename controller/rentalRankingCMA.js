@@ -113,4 +113,29 @@ module.exports = {
       next(error);
     }
   },
+  addExcelFiles: async (req, res, next) => {
+    try {
+      let result1 = excelToJson({
+        sourceFile: __dirname + "/Sample_Files/Rental ranking CA.xlsx",
+      });
+      let result = result1["Sheet1"];
+
+      let arr = [];
+      result.map((obj) => {
+        if (obj["A"] !== "Geography (CMA name)") {
+          let data = {
+            id: Common.helper.generateId(),
+            ca: obj["A"],
+            year: obj["B"],
+            ranking: Number(obj["C"]),
+          };
+          arr.push(data);
+        }
+      });
+      await Services.rentalRankingCMAService.bulkCreate(arr);
+      return res.json("Done");
+    } catch (error) {
+      next(error);
+    }
+  },
 };

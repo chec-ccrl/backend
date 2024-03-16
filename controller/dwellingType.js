@@ -120,7 +120,7 @@ module.exports = {
         sourceFile:
           __dirname + "/Sample_Files/Structural type of dwelling.xlsx",
       });
-      result = result["main"];
+      result = result["All Data"];
       let arr = [];
       await Promise.all(
         result.map(async (obj) => {

@@ -127,13 +127,38 @@ module.exports = {
         if (obj["A"] !== "CMA") {
           let data = {
             id: Common.helper.generateId(),
-            cma: obj["A"],
-            ranking_before_tax: Number(obj["B"]),
+            province: obj["A"],
+            cma: obj["B"],
+            year: obj["C"],
+            ranking_before_tax: Number(obj["D"]),
           };
           arr.push(data);
         }
       });
       await Services.incomeRankingCMAService.bulkCreate(arr);
+      result = result1["After Tax"];
+
+      await Promise.all(
+        result.map(async (obj) => {
+          if (obj["A"] !== "Geography (Province name)") {
+            const survey = await Services.incomeRankingCMAService.getDetail({
+              province: obj["A"],
+              cma: obj["B"],
+              year: obj["C"],
+            });
+            if (survey.length > 0) {
+              await Promise.all(
+                survey.map(async (sur) => {
+                  await Services.incomeRankingCMAService.update({
+                    id: sur.id,
+                    ranking_after_tax: Number(obj["D"]),
+                  });
+                })
+              );
+            }
+          }
+        })
+      );
       return res.json("Done");
     } catch (error) {
       next(error);

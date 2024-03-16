@@ -8,6 +8,9 @@ module.exports = (sequelize, Sequelize) => {
         unique: true,
         defaultValue: Sequelize.UUIDV4,
       },
+      province: {
+        type: Sequelize.STRING,
+      },
       cma: {
         type: Sequelize.STRING,
       },

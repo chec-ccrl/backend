@@ -85,7 +85,7 @@ module.exports = {
   },
   getDetail: async (spendingObj, transaction) => {
     try {
-      const result = await db.incomeRankingCma.findOne({ where: spendingObj });
+      const result = await db.incomeRankingCma.findAll({ where: spendingObj });
       return result;
     } catch (error) {
       logger.info(error);

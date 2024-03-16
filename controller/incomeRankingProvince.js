@@ -115,10 +115,10 @@ module.exports = {
   },
   addExcelFiles: async (req, res, next) => {
     try {
-      let result = excelToJson({
+      let result1 = excelToJson({
         sourceFile: __dirname + "/Sample_Files/Income Ranking Province.xlsx",
       });
-      result = result["Sheet1"];
+      let result = result1["Before Tax"];
 
       let arr = [];
       result.map((obj) => {
@@ -126,12 +126,35 @@ module.exports = {
           let data = {
             id: Common.helper.generateId(),
             province: obj["A"],
-            ranking: Number(obj["B"]),
+            year: obj["B"],
+            ranking_before_tax: Number(obj["C"]),
           };
           arr.push(data);
         }
       });
       await Services.incomeRankingProvinceService.bulkCreate(arr);
+      result = result1["After Tax"];
+
+      await Promise.all(
+        result.map(async (obj) => {
+          if (obj["A"] !== "Geography (Province name)") {
+            const survey = await Services.incomeRankingProvinceService.getDetail({
+              province: obj["A"],
+              year: obj["B"],
+            });
+            if (survey.length > 0) {
+              await Promise.all(
+                survey.map(async (sur) => {
+                  await Services.incomeRankingProvinceService.update({
+                    id: sur.id,
+                    ranking_after_tax: Number(obj["C"]),
+                  });
+                })
+              );
+            }
+          }
+        })
+      );
       return res.json("Done");
     } catch (error) {
       next(error);
