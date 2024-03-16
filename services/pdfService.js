@@ -1068,7 +1068,7 @@ module.exports = {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          width: 40%;
+          width: 70%;
         }
       
         .main_page5_first_one_one_num {
@@ -1120,7 +1120,7 @@ module.exports = {
         }
       
         .main_page5_first_one_one2 {
-          width: 65%;
+          width: 30%;
         }
       
         .main_page5_first_one_one2 canvas {
@@ -2854,7 +2854,7 @@ module.exports = {
           <div class="main_page5_first">
             <div class="main_page5_first_one">
               <div
-                class="main_page5_first_one_one main_page5_first_one_one2 main_page4_first_one_one_main_one_border"
+                class="main_page5_first_one_one"
               >
                 <div class="main_page5_first_one_txt">
                   DISCRETIONARY INCOME VS <br />
@@ -2863,12 +2863,12 @@ module.exports = {
                 <div class="main_page5_first_one_chart">
                   <canvas
                     id="main_page5_first_one_chart18"
-                    style="width: 600px;height:300px "
+                    style="width: 1000px;height:300px "
                   ></canvas>
                 </div>
               </div>
-      
-              <div class="main_page5_first_one_one main_page5_first_one_one4">
+              <div class="main_page3_first_one_break b-l-dashed"></div>
+              <div class="main_page5_first_one_one2">
                 <div class="main_page5_first_one_txt text-2xl">
                   MEDIAN INCOMCE <br />
                   RANKING
