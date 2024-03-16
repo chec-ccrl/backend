@@ -24,7 +24,7 @@ module.exports = {
         geo,
         year,
         rent_source,
-        house,
+        house_type,
         affordability,
         source_of_cost_of_non_shelter_necessity,
       });
