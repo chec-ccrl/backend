@@ -26,7 +26,8 @@ module.exports = {
         year,
         cma: geography,
       });
-      if (!cma_ca_list) {
+
+      if (cma_ca_list.result.length === 0) {
         ca = geography;
         cma = "NA";
       } else {
@@ -63,10 +64,8 @@ module.exports = {
         });
       }
 
-      const allRentDetails = await Services.rentService.getAll({
+      const allRentDetails = await Services.rentService.getAlls({
         year,
-        limit: 1000,
-        offset: 0,
       });
       const allRentCMAApartment = {};
       const allRentCMABoth = {};
@@ -74,7 +73,7 @@ module.exports = {
       const allRentCAApartment = {};
       const allRentCARow = {};
       const allRentCABoth = {};
-      allRentDetails.result.map((ele) => {
+      allRentDetails.map((ele) => {
         const { cma, ca, rent_value } = ele;
         const inside_house_type = ele.house_type;
         if (cma !== "NA" && ca === "NA") {
@@ -218,6 +217,37 @@ module.exports = {
         c36v.push(Math.ceil(ele[1] / 4));
       });
 
+      const multiplier = await Services.multiplierService.getDetail({
+        province,
+        cma,
+        ca,
+        year,
+      });
+
+      let rentObj = {
+        province,
+        cma,
+        ca,
+        year,
+      };
+
+      let rentDetails = await Services.rentService.getAlls(rentObj);
+      let current_shelter_cost = 0;
+
+      rentDetails.forEach((ele) => {
+        if (rent_source === "Average Listing Rent") {
+          ele.rent_value = Math.ceil(ele.rent_value * multiplier?.rent);
+        }
+        ele.dataValues.shelter_cost = Math.ceil(
+          ele.rent_value * multiplier?.utility
+        );
+        current_shelter_cost += ele.shelter_cost;
+      });
+
+      //*************** START 1.15 & 1.17 ************************** */
+      current_shelter_cost = current_shelter_cost / rentDetails.length;
+      //*************** END 1.15 & 1.17 ************************** */
+
       const link = await Services.pdfService.detailPdfGenerator({
         province,
         geography,
@@ -239,14 +269,10 @@ module.exports = {
         c35v,
         c36l,
         c36v,
+        rentDetails,
       });
+
       return res.json(link);
-      const multiplier = await Services.multiplierService.getDetails({
-        province,
-        cma,
-        ca,
-        year,
-      });
 
       let marketBasketDetails;
       if (source_of_cost_of_non_shelter_necessity === "Poverty Line Expenses") {
@@ -285,38 +311,6 @@ module.exports = {
       const median_household_income_after_tax =
         canadaIncomeSurveyDetails?.[0]?.median_after_tax;
       //*************** END 1.15 & 1.13 ************************** */
-
-      let rentObj = {
-        province,
-        cma,
-        ca,
-        year,
-      };
-
-      if (house_type === "Row House") {
-        rentObj.house_type = "Row";
-      } else if (house_type === "Apartment") {
-        rentObj.house_type = "Apartment";
-      }
-
-      const rentDetails = await Services.rentService.getAll(rentObj);
-
-      const current_shelter_cost = 0;
-
-      await Promise.all(
-        rentDetails.map((ele) => {
-          if (rent_source === "CHMC") {
-            ele.rent_value = ele.rent_value * multiplier?.rent;
-          }
-          ele.shelter_cost = ele.rent_value * multiplier?.utility;
-          current_shelter_cost += ele.shelter_cost;
-        })
-      );
-      //*************** START 1.15 & 1.17 ************************** */
-      current_shelter_cost = current_shelter_cost / rentDetails.length;
-      //*************** END 1.15 & 1.17 ************************** */
-
-      //*************** END 4.4 & 4.5 ************************** */
 
       let arrYear = [];
       for (let i = 0; i < 6; i += 1) {
@@ -377,15 +371,6 @@ module.exports = {
       //*************** START NO MARKING AVAILABLE ************************** */
       const affordability_rent_based_30_benchmarch =
         (median_household_income_before_tax * 0.3) / 12;
-      //*************** END NO MARKING AVAILABLE ************************** */
-
-      //*************** START 1.3 & 3.3 ************************** */
-
-      //*************** END 1.3 & 3.3 ************************** */
-
-      //*************** END START ************************** */
-
-      //*************** END 1.1 ************************** */
 
       const dwellingDetails = await Services.dwellingTypeService.getAll({
         province,

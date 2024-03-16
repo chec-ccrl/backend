@@ -24,9 +24,11 @@ module.exports = {
         limit: Number(rentObj.limit),
         offset: Number(rentObj.offset),
         province: "%%",
+        cma: "%%",
+        ca: "%%",
       };
       let sql = `SELECT id , count(*) over() as "total_count" from "rents" 
-                 where (province ilike :province or cma ilike :province or ca ilike :province) `;
+                 where (province ilike :province or cma ilike :cma or ca ilike :ca) `;
 
       if (rentObj?.filter?.year) {
         sql += `and  year = '${String(rentObj.filter.year)}' `;
@@ -34,11 +36,22 @@ module.exports = {
       if (rentObj?.year) {
         sql += `and  year = '${String(rentObj.year)}' `;
       }
+      if (rentObj?.house_type) {
+        sql += ` and  house_type = '${String(rentObj.house_type)}' `;
+      }
       sql += `  and "deletedAt" is null order by "createdAt" desc limit :limit offset :offset`;
       if (rentObj?.filter?.province) {
         replacementObj.province = `%${rentObj.filter.province}%`;
       }
-      console.log(sql);
+      if (rentObj?.province) {
+        replacementObj.province = `%${rentObj.province}%`;
+      }
+      if (rentObj?.ca) {
+        replacementObj.ca = `%${rentObj.ca}%`;
+      }
+      if (rentObj?.cma) {
+        replacementObj.cma = `%${rentObj.cma}%`;
+      }
 
       const data = await db.sequelize.query(sql, {
         replacements: replacementObj,
@@ -61,6 +74,14 @@ module.exports = {
       };
       const result = await db.rent.findAll(query);
       return { result, count: data[0].total_count };
+    } catch (error) {
+      logger.info(error);
+    }
+  },
+  getAlls: async (rentObj) => {
+    try {
+      const result = await db.rent.findAll({ where: rentObj });
+      return result;
     } catch (error) {
       logger.info(error);
     }

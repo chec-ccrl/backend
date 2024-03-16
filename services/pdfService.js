@@ -67,7 +67,81 @@ module.exports = {
         c35v,
         c36l,
         c36v,
+        rentDetails,
       } = data;
+
+      let obj1, obj2, obj3, obj4;
+      rentDetails.map((ele) => {
+        if (ele.bedroom_type === "0 Bedroom" && ele.house_type === "Row") {
+          obj1 = `<div class="main_page3_first_one_content_one_buttons_button">
+          <span>0B</span> $${ele.rent_value}
+        </div>`;
+        } else if (
+          ele.bedroom_type === "1 Bedroom" &&
+          ele.house_type === "Row"
+        ) {
+          obj2 = `<div class="main_page3_first_one_content_one_buttons_button">
+          <span>1B</span> $${ele.rent_value}
+        </div>`;
+        } else if (
+          ele.bedroom_type === "2 Bedroom" &&
+          ele.house_type === "Row"
+        ) {
+          obj3 = `<div class="main_page3_first_one_content_one_buttons_button">
+          <span>2B</span> $${ele.rent_value}
+        </div>`;
+        } else if (ele.house_type === "Row") {
+          obj4 = `<div class="main_page3_first_one_content_one_buttons_button">
+          <span>3B+</span> $${ele.rent_value}
+        </div>`;
+        }
+      });
+      let strRow = `<div class="main_page3_first_one_content_one_buttons my-0">
+      ${obj1}
+      ${obj2}
+        </div>
+        <div class="main_page3_first_one_content_one_buttons my-0">
+        ${obj3}
+        ${obj4}
+        </div>`;
+
+      let abj1, abj2, abj3, abj4;
+      rentDetails.map((ele) => {
+        if (
+          ele.bedroom_type === "0 Bedroom" &&
+          ele.house_type === "Apartment"
+        ) {
+          abj1 = `<div class="main_page3_first_one_content_one_buttons_button">
+          <span>0B</span> $${ele.rent_value}
+        </div>`;
+        } else if (
+          ele.bedroom_type === "1 Bedroom" &&
+          ele.house_type === "Apartment"
+        ) {
+          abj2 = `<div class="main_page3_first_one_content_one_buttons_button">
+          <span>1B</span> $${ele.rent_value}
+        </div>`;
+        } else if (
+          ele.bedroom_type === "2 Bedroom" &&
+          ele.house_type === "Apartment"
+        ) {
+          abj3 = `<div class="main_page3_first_one_content_one_buttons_button">
+          <span>2B</span> $${ele.rent_value}
+        </div>`;
+        } else if (ele.house_type === "Apartment") {
+          abj4 = `<div class="main_page3_first_one_content_one_buttons_button">
+          <span>3B+</span> $${ele.rent_value}
+        </div>`;
+        }
+      });
+      let strApa = `<div class="main_page3_first_one_content_one_buttons my-0">
+     ${abj1}
+     ${abj2}
+      </div>
+      <div class="main_page3_first_one_content_one_buttons my-0">
+      ${abj3}
+      ${abj4}
+      </div>`;
       let rentSourceCheckBox1 =
         rent_source === "Rental Market Survey"
           ? ` <div>
@@ -1651,51 +1725,21 @@ module.exports = {
                 </div>
                 <span class="m-0">Monthly</span>
                 <div class="main_page3_first_one_content">
-                  <div class="main_page3_first_one_content_one">
+                    <div class="main_page3_first_one_content_one">
                     <div
                       class="main_page3_first_one_content_one_head fw-light ls-1 my-4"
                     >
                       ROW HOUSE
                     </div>
-                    <div class="main_page3_first_one_content_one_buttons my-0">
-                      <div class="main_page3_first_one_content_one_buttons_button">
-                        <span>0B</span> $900
-                      </div>
-                      <div class="main_page3_first_one_content_one_buttons_button">
-                        <span>1B</span> $1010
-                      </div>
-                    </div>
-                    <div class="main_page3_first_one_content_one_buttons my-0">
-                      <div class="main_page3_first_one_content_one_buttons_button">
-                        <span>2B</span> $1120
-                      </div>
-                      <div class="main_page3_first_one_content_one_buttons_button">
-                        <span>3B+</span> $1500
-                      </div>
-                    </div>
-                  </div>
-                  <div class="main_page3_first_one_content_one">
-                    <div
-                      class="main_page3_first_one_content_one_head fw-light ls-1 my-4"
-                    >
+                    ${strRow}
+                  </div>               
+                    <div class="main_page3_first_one_content_one">
+                      <div
+                        class="main_page3_first_one_content_one_head fw-light ls-1 my-4"
+                      >
                       APARTMENT
-                    </div>
-                    <div class="main_page3_first_one_content_one_buttons my-0">
-                      <div class="main_page3_first_one_content_one_buttons_button">
-                        <span>0B</span> $900
-                      </div>
-                      <div class="main_page3_first_one_content_one_buttons_button">
-                        <span>1B</span> $1010
-                      </div>
-                    </div>
-                    <div class="main_page3_first_one_content_one_buttons my-0">
-                      <div class="main_page3_first_one_content_one_buttons_button">
-                        <span>2B</span> $1120
-                      </div>
-                      <div class="main_page3_first_one_content_one_buttons_button">
-                        <span>3B+</span> $1500
-                      </div>
-                    </div>
+                     </div>
+                      ${strApa}
                   </div>
                 </div>
               </div>
@@ -2873,7 +2917,7 @@ module.exports = {
                 </div>
                 <div class="main_page3_first_one_other">
                  ${
-                   cma_income_ranking.length > 0
+                   cma_income_ranking?.length > 0
                      ? `<div class="main_page3_first_one_other_one">
                        <div
                          class="main_page3_first_one_other_one_main"

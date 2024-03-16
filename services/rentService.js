@@ -19,6 +19,15 @@ module.exports = {
       throw new Error(error);
     }
   },
+  getAlls: async (rentObj) => {
+    try {
+      const rent = await Dao.rentDao.getAlls(rentObj);
+      return rent;
+    } catch (error) {
+      logger.info(error);
+      throw new Error(error);
+    }
+  },
   getDetail: async (rentObj) => {
     try {
       const getDetail = await Dao.rentDao.getDetail(rentObj);
