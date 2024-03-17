@@ -273,6 +273,7 @@ module.exports = {
       for (let i = 0; i < 6; i += 1) {
         arrYear.push(String(Number(year) - i));
       }
+      arrYear.reverse()
       //*************** START 4.2 ************************** */
       let historicalGrowthRow = {};
       let historicalGrowthApartment = {};
@@ -467,13 +468,18 @@ module.exports = {
           let obj = {
             ...ele.dataValues,
             vacancy_rate: vacancyRate.vacancy_rate,
-            house_constructed_rental:
-              completeHousing?.units * ele.bedroom_percentage,
-            house_constructed_all:
-              completeHousing2?.units * ele.bedroom_percentage,
-            house_constructed_owned:
-              completeHousing3?.units * ele.bedroom_percentage,
-            rental_percentage: completeHousing2?.units / completeHousing?.units,
+            house_constructed_rental: Math.ceil(
+              completeHousing?.units * ele.bedroom_percentage
+            ),
+            house_constructed_all: Math.ceil(
+              completeHousing2?.units * ele.bedroom_percentage
+            ),
+            house_constructed_owned: Math.ceil(
+              completeHousing3?.units * ele.bedroom_percentage
+            ),
+            rental_percentage: Math.ceil(
+              completeHousing2?.units / completeHousing?.units
+            ),
           };
           dwellingDetailss.push(obj);
           if (ele.bedroom_type === "0 Bedroom" && ele.house_type === "Row") {
@@ -597,6 +603,55 @@ module.exports = {
             1) *
             10000
         ) / 100;
+
+      return res.json({
+        province,
+        geography,
+        year,
+        rent_source,
+        house_type,
+        affordability,
+        source_of_cost_of_non_shelter_necessity,
+        affordability_ranking,
+        province_income_ranking,
+        cma_income_ranking,
+        cma,
+        ca,
+        c27l,
+        c27v,
+        c28l,
+        c28v,
+        c35l,
+        c35v,
+        c36l,
+        c36v,
+        rentDetails,
+        median_household_income_before_tax_6_year_v,
+        median_household_income_after_tax_6_year_v,
+        historicalGrowthRowFinal,
+        historicalGrowthApartmentFinal,
+        median_household_income_before_tax,
+        median_household_income_after_tax,
+        rowTotal,
+        apartmentTotal,
+        historical_rental_stock_apartment,
+        historical_rental_stock_row,
+        historical_rental_stock_apartment_growth,
+        historical_rental_stock_row_growth,
+        rowTotalOccupied,
+        apartmentTotalOccupied,
+        rowTotalAva,
+        apartmentTotalAva,
+        apaUnitsAva,
+        rowUnitsAva,
+        cost_of_non_shelter_necessity: Math.ceil(
+          cost_of_non_shelter_necessity / 1000
+        ),
+        apaUnitsAdded,
+        rowUnitsAdded,
+        rowTotalAdded,
+        apartmentTotalAdded,
+      });
 
       const link = await Services.pdfService.detailPdfGenerator({
         province,

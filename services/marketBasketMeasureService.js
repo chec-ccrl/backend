@@ -30,7 +30,6 @@ module.exports = {
   },
   getDetail: async (marketObj) => {
     try {
-      console.log("g");
       const getDetail = await Dao.marketBasketMeasureDao.getDetail(marketObj);
       return getDetail;
     } catch (error) {
