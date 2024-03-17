@@ -72,6 +72,8 @@ module.exports = {
         median_household_income_after_tax_6_year_v,
         historicalGrowthRowFinal,
         historicalGrowthApartmentFinal,
+        median_household_income_before_tax,
+        median_household_income_after_tax,
       } = data;
 
       let obj1, obj2, obj3, obj4;
@@ -1902,7 +1904,7 @@ module.exports = {
                 class="main_page3_first_one_main_head_sub_two ml-1"
                 style="letter-spacing: 3px;height:30px "
               >
-                $60,000
+                $${numberWithCommas(median_household_income_after_tax)}
               </div>
               </div>
                 <div class="main_page3_first_one_sub2 text-xl fw-light ls-2">
@@ -3308,7 +3310,7 @@ module.exports = {
                 points: [
                   {
                     name: "HOUSEHOLD INCOME <br> BEFORE TAX",
-                    y: 60,
+                    y: ${median_household_income_before_tax},
                     color: "#4c3848",
                   },
                   { name: "INCOME AFTER TAX", y: 55, color: "#5e6043" },

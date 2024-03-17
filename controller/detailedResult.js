@@ -360,6 +360,19 @@ module.exports = {
         historicalGrowthApartmentFinal.push(growthApartmentData[key]);
       });
 
+      const canadaIncomeSurveyDetails =
+        await Services.canadaIncomeSurveyService.getAll({
+          province,
+          year,
+          cma,
+          ca,
+        });
+
+      const median_household_income_before_tax =
+        canadaIncomeSurveyDetails?.[0]?.median_before_tax;
+      const median_household_income_after_tax =
+        canadaIncomeSurveyDetails?.[0]?.median_after_tax;
+
       const link = await Services.pdfService.detailPdfGenerator({
         province,
         geography,
@@ -386,6 +399,8 @@ module.exports = {
         median_household_income_after_tax_6_year_v,
         historicalGrowthRowFinal,
         historicalGrowthApartmentFinal,
+        median_household_income_before_tax,
+        median_household_income_after_tax,
       });
 
       return res.json(link);
@@ -414,18 +429,8 @@ module.exports = {
       const cost_of_non_shelter_necessity = marketBasketDetails?.cost;
       //*************** END 1.15 ************************** */
 
-      const canadaIncomeSurveyDetails =
-        await Services.canadaIncomeSurveyService.getAll({
-          province,
-          year,
-          cma,
-          ca,
-        });
       //*************** START 1.15 & 1.13 ************************** */
-      const median_household_income_before_tax =
-        canadaIncomeSurveyDetails?.[0]?.median_before_tax;
-      const median_household_income_after_tax =
-        canadaIncomeSurveyDetails?.[0]?.median_after_tax;
+
       //*************** END 1.15 & 1.13 ************************** */
 
       //*************** START NO MARKING AVAILABLE ************************** */
