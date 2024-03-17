@@ -4119,7 +4119,7 @@ module.exports = {
                   {
                     ticks: {
                       callback: function (value, index, values) {
-                        return  value + "%"; // Add dollar sign to tick labels
+                        return  value.toFixed(2) + "%"; // Add dollar sign to tick labels
                       },
                     },
                   },
@@ -4179,7 +4179,7 @@ module.exports = {
                   {
                     ticks: {
                       callback: function (value, index, values) {
-                        return  value + "%"; // Add dollar sign to tick labels
+                        return  value.toFixed(2) + "%"; // Add dollar sign to tick labels
                       },
                     },
                   },
