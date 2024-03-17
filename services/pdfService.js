@@ -80,6 +80,12 @@ module.exports = {
         historical_rental_stock_row,
         historical_rental_stock_apartment_growth,
         historical_rental_stock_row_growth,
+        rowTotalOccupied,
+        apartmentTotalOccupied,
+        rowTotalAva,
+        apartmentTotalAva,
+        apaUnitsAva,
+        rowUnitsAva,
       } = data;
 
       let obj1, obj2, obj3, obj4;
@@ -3323,10 +3329,10 @@ module.exports = {
           const chart8 = new Chart(main_page4_first_one_one_main_one_chart8, {
             type: "pie",
             data: {
-              labels: ["AVAILABLE", "OCCUPIED"],
+              labels: ["AVAILABLE:${apartmentTotalAva}", "OCCUPIED:${apartmentTotalOccupied}"],
               datasets: [
                 {
-                  data: [33.3, 66.7],
+                  data: [${apartmentTotalAva}, ${apartmentTotalOccupied}],
                   backgroundColor: ["#683733", "#c2ac7f"],
                 },
               ],
@@ -3358,10 +3364,12 @@ module.exports = {
           const chart9 = new Chart(main_page4_first_one_one_main_one_chart9, {
             type: "pie",
             data: {
-              labels: ["0B:100", "3B+:200", "2B:300", "1B:150"],
+              labels: ["0B:${apaUnitsAva[0]}", "1B:${apaUnitsAva[1]}", "2B:${
+        apaUnitsAva[2]
+      }", "3B+:${apaUnitsAva[3]}"],
               datasets: [
                 {
-                  data: [1500, 2500, 3000, 3010],
+                  data: [${apaUnitsAva}],
                   backgroundColor: ["#683733", "#8f7e18", "#5e6043", "#4c3848"],
                 },
               ],
@@ -3393,10 +3401,10 @@ module.exports = {
           const chart10 = new Chart(main_page4_first_one_one_main_one_chart10, {
             type: "pie",
             data: {
-              labels: ["AVAILABLE", "OCCUPIED"],
+              labels: ["AVAILABLE:${rowTotalAva}", "OCCUPIED:${rowTotalOccupied}"],
               datasets: [
                 {
-                  data: [33.3, 66.7],
+                  data: [${rowTotalAva}, ${rowTotalOccupied}],
                   backgroundColor: ["#683733", "#c2ac7f"],
                 },
               ],
@@ -3428,10 +3436,12 @@ module.exports = {
           const chart11 = new Chart(main_page4_first_one_one_main_one_chart11, {
             type: "pie",
             data: {
-              labels: ["0B:100", "3B+:200", "2B:300", "1B:150"],
+              labels: ["0B:${rowUnitsAva[0]}", "1B:${rowUnitsAva[1]}", "2B:${
+        rowUnitsAva[2]
+      }", "3B+:${rowUnitsAva[3]}"],
               datasets: [
                 {
-                  data: [1500, 2500, 3000, 3010],
+                  data: [${rowUnitsAva}],
                   backgroundColor: ["#683733", "#8f7e18", "#5e6043", "#4c3848"],
                 },
               ],
@@ -4773,10 +4783,7 @@ module.exports = {
             },
           });
         </script>
-      </html>
-      
-      
-      `;
+      </html>`;
       await page.setContent(htmlContent);
       const pdfFilePath = "output.pdf";
       const pdfBuffer = await page.pdf({

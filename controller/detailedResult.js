@@ -402,6 +402,8 @@ module.exports = {
       });
       let rowTotal = 0;
       let apartmentTotal = 0;
+      let rowTotalAva = 0;
+      let apartmentTotalAva = 0;
 
       dwellingDetails.forEach((ele) => {
         if (ele.house_type === "Apartment") {
@@ -417,7 +419,9 @@ module.exports = {
           ele.bedroom_percentage = ele.units / rowTotal;
         }
       });
-
+      let dwellingDetailss = [];
+      let apaUnitsAva = [0, 0, 0, 0];
+      let rowUnitsAva = [0, 0, 0, 0];
       await Promise.all(
         dwellingDetails.map(async (ele) => {
           const vacancyRate = await Services.vacancyRateService.getDetail({
@@ -428,9 +432,75 @@ module.exports = {
             bedroom_type: ele.bedroom_type,
             house_type: ele.house_type,
           });
-          ele.vacancy_rate = vacancyRate.vacancy_rate;
+          let obj = {
+            ...ele.dataValues,
+            vacancy_rate: vacancyRate.vacancy_rate,
+          };
+          dwellingDetailss.push(obj);
+          if (ele.bedroom_type === "0 Bedroom" && ele.house_type === "Row") {
+            rowUnitsAva[0] = Math.ceil(
+              (vacancyRate.vacancy_rate / 100) * ele.units
+            );
+          } else if (
+            ele.bedroom_type === "1 Bedroom" &&
+            ele.house_type === "Row"
+          ) {
+            rowUnitsAva[1] = Math.ceil(
+              (vacancyRate.vacancy_rate / 100) * ele.units
+            );
+          } else if (
+            ele.bedroom_type === "2 Bedroom" &&
+            ele.house_type === "Row"
+          ) {
+            rowUnitsAva[2] = Math.ceil(
+              (vacancyRate.vacancy_rate / 100) * ele.units
+            );
+          } else if (ele.house_type === "Row") {
+            rowUnitsAva[3] = Math.ceil(
+              (vacancyRate.vacancy_rate / 100) * ele.units
+            );
+          }
+          if (
+            ele.bedroom_type === "0 Bedroom" &&
+            ele.house_type === "Apartment"
+          ) {
+            apaUnitsAva[0] = Math.ceil(
+              (vacancyRate.vacancy_rate / 100) * ele.units
+            );
+          } else if (
+            ele.bedroom_type === "1 Bedroom" &&
+            ele.house_type === "Apartment"
+          ) {
+            apaUnitsAva[1] = Math.ceil(
+              (vacancyRate.vacancy_rate / 100) * ele.units
+            );
+          } else if (
+            ele.bedroom_type === "2 Bedroom" &&
+            ele.house_type === "Apartment"
+          ) {
+            apaUnitsAva[2] = Math.ceil(
+              (vacancyRate.vacancy_rate / 100) * ele.units
+            );
+          } else if (ele.house_type === "Apartment") {
+            apaUnitsAva[3] = Math.ceil(
+              (vacancyRate.vacancy_rate / 100) * ele.units
+            );
+          }
+
+          if (ele.house_type === "Row") {
+            rowTotalAva += Math.ceil(
+              (vacancyRate.vacancy_rate / 100) * ele.units
+            );
+          } else {
+            apartmentTotalAva += Math.ceil(
+              (vacancyRate.vacancy_rate / 100) * ele.units
+            );
+          }
         })
       );
+
+      let rowTotalOccupied = rowTotal - rowTotalAva;
+      let apartmentTotalOccupied = apartmentTotal - apartmentTotalAva;
 
       let historical_rental_stock_apartment = [];
       let historical_rental_stock_row = [];
@@ -513,6 +583,12 @@ module.exports = {
         historical_rental_stock_row,
         historical_rental_stock_apartment_growth,
         historical_rental_stock_row_growth,
+        rowTotalOccupied,
+        apartmentTotalOccupied,
+        rowTotalAva,
+        apartmentTotalAva,
+        apaUnitsAva,
+        rowUnitsAva,
       });
 
       return res.json(link);
