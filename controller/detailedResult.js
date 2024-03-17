@@ -630,6 +630,8 @@ module.exports = {
         median_household_income_after_tax_6_year_v,
         historicalGrowthRowFinal,
         historicalGrowthApartmentFinal,
+        median_household_income_before_tax_raw:
+          canadaIncomeSurveyDetails?.[0]?.median_before_tax,
         median_household_income_before_tax,
         median_household_income_after_tax,
         rowTotal,
