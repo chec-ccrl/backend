@@ -405,6 +405,8 @@ module.exports = {
       let apartmentTotal = 0;
       let rowTotalAva = 0;
       let apartmentTotalAva = 0;
+      let rowTotalAdded = 0;
+      let apartmentTotalAdded = 0;
 
       dwellingDetails.forEach((ele) => {
         if (ele.house_type === "Apartment") {
@@ -423,6 +425,8 @@ module.exports = {
       let dwellingDetailss = [];
       let apaUnitsAva = [0, 0, 0, 0];
       let rowUnitsAva = [0, 0, 0, 0];
+      let apaUnitsAdded = [0, 0, 0, 0];
+      let rowUnitsAdded = [0, 0, 0, 0];
       await Promise.all(
         dwellingDetails.map(async (ele) => {
           const vacancyRate = await Services.vacancyRateService.getDetail({
@@ -433,12 +437,47 @@ module.exports = {
             bedroom_type: ele.bedroom_type,
             house_type: ele.house_type,
           });
+          const completeHousing =
+            await Services.completeHousingService.getDetail({
+              province,
+              cma,
+              ca,
+              year,
+              intended_market: "All",
+              house_type: ele.house_type,
+            });
+          const completeHousing2 =
+            await Services.completeHousingService.getDetail({
+              province,
+              cma,
+              ca,
+              year,
+              intended_market: "Rental",
+              house_type: ele.house_type,
+            });
+          const completeHousing3 =
+            await Services.completeHousingService.getDetail({
+              province,
+              cma,
+              ca,
+              year,
+              intended_market: "Owned",
+              house_type: ele.house_type,
+            });
           let obj = {
             ...ele.dataValues,
             vacancy_rate: vacancyRate.vacancy_rate,
+            house_constructed_rental:
+              completeHousing?.units * ele.bedroom_percentage,
+            house_constructed_all:
+              completeHousing2?.units * ele.bedroom_percentage,
+            house_constructed_owned:
+              completeHousing3?.units * ele.bedroom_percentage,
+            rental_percentage: completeHousing2?.units / completeHousing?.units,
           };
           dwellingDetailss.push(obj);
           if (ele.bedroom_type === "0 Bedroom" && ele.house_type === "Row") {
+            rowUnitsAdded[0] = obj.house_constructed_all;
             rowUnitsAva[0] = Math.ceil(
               (vacancyRate.vacancy_rate / 100) * ele.units
             );
@@ -446,6 +485,7 @@ module.exports = {
             ele.bedroom_type === "1 Bedroom" &&
             ele.house_type === "Row"
           ) {
+            rowUnitsAdded[1] = obj.house_constructed_all;
             rowUnitsAva[1] = Math.ceil(
               (vacancyRate.vacancy_rate / 100) * ele.units
             );
@@ -453,10 +493,12 @@ module.exports = {
             ele.bedroom_type === "2 Bedroom" &&
             ele.house_type === "Row"
           ) {
+            rowUnitsAdded[2] = obj.house_constructed_all;
             rowUnitsAva[2] = Math.ceil(
               (vacancyRate.vacancy_rate / 100) * ele.units
             );
           } else if (ele.house_type === "Row") {
+            rowUnitsAdded[3] = obj.house_constructed_all;
             rowUnitsAva[3] = Math.ceil(
               (vacancyRate.vacancy_rate / 100) * ele.units
             );
@@ -465,6 +507,7 @@ module.exports = {
             ele.bedroom_type === "0 Bedroom" &&
             ele.house_type === "Apartment"
           ) {
+            apaUnitsAdded[0] = obj.house_constructed_all;
             apaUnitsAva[0] = Math.ceil(
               (vacancyRate.vacancy_rate / 100) * ele.units
             );
@@ -472,6 +515,7 @@ module.exports = {
             ele.bedroom_type === "1 Bedroom" &&
             ele.house_type === "Apartment"
           ) {
+            apaUnitsAdded[1] = obj.house_constructed_all;
             apaUnitsAva[1] = Math.ceil(
               (vacancyRate.vacancy_rate / 100) * ele.units
             );
@@ -479,20 +523,24 @@ module.exports = {
             ele.bedroom_type === "2 Bedroom" &&
             ele.house_type === "Apartment"
           ) {
+            apaUnitsAdded[2] = obj.house_constructed_all;
             apaUnitsAva[2] = Math.ceil(
               (vacancyRate.vacancy_rate / 100) * ele.units
             );
           } else if (ele.house_type === "Apartment") {
+            apaUnitsAdded[3] = obj.house_constructed_all;
             apaUnitsAva[3] = Math.ceil(
               (vacancyRate.vacancy_rate / 100) * ele.units
             );
           }
 
           if (ele.house_type === "Row") {
+            rowTotalAdded += obj.house_constructed_all;
             rowTotalAva += Math.ceil(
               (vacancyRate.vacancy_rate / 100) * ele.units
             );
           } else {
+            apartmentTotalAdded += obj.house_constructed_all;
             apartmentTotalAva += Math.ceil(
               (vacancyRate.vacancy_rate / 100) * ele.units
             );
@@ -593,6 +641,10 @@ module.exports = {
         cost_of_non_shelter_necessity: Math.ceil(
           cost_of_non_shelter_necessity / 1000
         ),
+        apaUnitsAdded,
+        rowUnitsAdded,
+        rowTotalAdded,
+        apartmentTotalAdded,
       });
 
       return res.json(link);

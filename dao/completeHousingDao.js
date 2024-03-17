@@ -76,6 +76,17 @@ module.exports = {
       logger.info(error);
     }
   },
+  getDetail: async (completeHousingObj, transaction) => {
+    try {
+      const result = await db.completeHousing.findOne(
+        { where: completeHousingObj },
+        transaction
+      );
+      return result;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
   update: async (completeHousingObj, transaction) => {
     try {
       const updated = await db.completeHousing.update(

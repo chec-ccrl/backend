@@ -87,6 +87,10 @@ module.exports = {
         apaUnitsAva,
         rowUnitsAva,
         cost_of_non_shelter_necessity,
+        apaUnitsAdded,
+        rowUnitsAdded,
+        rowTotalAdded,
+        apartmentTotalAdded,
       } = data;
 
       let obj1, obj2, obj3, obj4;
@@ -2204,7 +2208,7 @@ module.exports = {
                       class="main_page3_first_one_main_head_sub_two ml-2"
                       style="padding: 4px 12px; letter-spacing: 3px"
                     >
-                      2,100
+                      ${numberWithCommas(apartmentTotalAdded)}
                     </div>
                   </div>
                   <div class="main_page4_first_one_one_main">
@@ -2300,7 +2304,7 @@ module.exports = {
                       class="main_page3_first_one_main_head_sub_two ml-2"
                       style="padding: 4px 12px; letter-spacing: 3px"
                     >
-                      2,100
+                    ${numberWithCommas(rowTotalAdded)}
                     </div>
                   </div>
                   <div class="main_page4_first_one_one_main">
@@ -3588,10 +3592,12 @@ module.exports = {
           const chart14 = new Chart(main_page4_first_one_one_main_one_chart14, {
             type: "pie",
             data: {
-              labels: ["0B:100", "3B+:200", "2B:300", "1B:150"],
+              labels:["0B:${apaUnitsAdded[0]}", "1B:${apaUnitsAdded[1]}", "2B:${
+        apaUnitsAdded[2]
+      }", "3B+:${apaUnitsAdded[3]}"],
               datasets: [
                 {
-                  data: [1500, 2500, 3000, 3010],
+                  data: [${apaUnitsAdded}],
                   backgroundColor: ["#683733", "#8f7e18", "#5e6043", "#4c3848"],
                 },
               ],
@@ -3637,10 +3643,12 @@ module.exports = {
           const chart15 = new Chart(main_page4_first_one_one_main_one_chart15, {
             type: "pie",
             data: {
-              labels: ["0B:100", "3B+:200", "2B:300", "1B:150"],
+              labels: ["0B:${rowUnitsAdded[0]}", "1B:${
+        rowUnitsAdded[1]
+      }", "2B:${rowUnitsAdded[2]}", "3B+:${rowUnitsAdded[3]}"],
               datasets: [
                 {
-                  data: [1500, 2500, 3000, 3010],
+                  data: [${rowUnitsAdded}],
                   backgroundColor: ["#683733", "#8f7e18", "#5e6043", "#4c3848"],
                 },
               ],
