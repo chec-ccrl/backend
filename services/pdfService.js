@@ -2163,9 +2163,9 @@ module.exports = {
                       >
                         <span
                           class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                          > ${historical_rental_stock_row_growth}%%
+                          > ${historical_rental_stock_row_growth}%
                           ${
-                            historical_rental_stock_apartment_growth < 0
+                            historical_rental_stock_row_growth < 0
                               ? `<img
                             src="https://i.ibb.co/hgwPPJd/8.png"
                             width="20"
