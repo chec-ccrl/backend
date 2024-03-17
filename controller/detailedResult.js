@@ -328,7 +328,7 @@ module.exports = {
           // Calculate growth percentage
           const growthPercentage =
             ((historicalGrowthRow[year] - previousValue) / previousValue) * 100;
-          growthRowData[year] = Number(growthPercentage.toFixed(2));
+          growthRowData[year] = Number(growthPercentage.toFixed(1));
         }
         previousValue = historicalGrowthRow[year];
       }
@@ -346,7 +346,7 @@ module.exports = {
             ((historicalGrowthApartment[year] - previousValuee) /
               previousValuee) *
             100;
-          growthApartmentData[year] = Number(growthPercentage.toFixed(2));
+          growthApartmentData[year] = Number(growthPercentage.toFixed(1));
         }
         previousValuee = historicalGrowthApartment[year];
       }
