@@ -3480,13 +3480,13 @@ module.exports = {
           const chart12 = new Chart(main_page4_first_one_one_main_one_chart12, {
             type: "line",
             data: {
-              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${
+              labels: ["${Number(year) - 5}", "${Number(year) - 4}", "${
         Number(year) - 3
       }", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "Value",
-                  data: [, ${historical_rental_stock_apartment}],
+                  data: [${historical_rental_stock_apartment}],
                   backgroundColor: "transparent",
                   borderColor: "black",
                   borderWidth: 1,
@@ -3537,13 +3537,13 @@ module.exports = {
           const chart13 = new Chart(main_page4_first_one_one_main_one_chart13, {
             type: "line",
             data: {
-              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${
+              labels: ["${Number(year) - 5}", "${Number(year) - 4}", "${
         Number(year) - 3
       }", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "Value",
-                  data: [, ${historical_rental_stock_row}],
+                  data: [${historical_rental_stock_row}],
                   backgroundColor: "transparent",
                   borderColor: "black",
                   borderWidth: 1,
@@ -3830,13 +3830,13 @@ module.exports = {
           const chart19 = new Chart(main_page5_first_one_chart19, {
             type: "line",
             data: {
-              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${
+              labels: ["${Number(year) - 5}", "${Number(year) - 4}", "${
         Number(year) - 3
       }", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "Value",
-                  data: [,${median_household_income_before_tax_6_year_v}],
+                  data: [${median_household_income_before_tax_6_year_v}],
                   backgroundColor: "transparent",
                   borderColor: "#4c3848",
                   borderWidth: 1,
@@ -3898,13 +3898,13 @@ module.exports = {
           const chart20 = new Chart(main_page5_first_one_chart20, {
             type: "line",
             data: {
-              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${
+              labels: ["${Number(year) - 5}", "${Number(year) - 4}", "${
         Number(year) - 3
       }", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "Value",
-                  data: [,${median_household_income_after_tax_6_year_v}],
+                  data: [${median_household_income_after_tax_6_year_v}],
                   backgroundColor: "transparent",
                   borderColor: "#4c3848",
                   borderWidth: 1,
@@ -4095,13 +4095,13 @@ module.exports = {
           const chart23 = new Chart(main_page6_first_one_charts_one_23, {
             type: "line",
             data: {
-              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${
+              labels: ["${Number(year) - 5}", "${Number(year) - 4}", "${
         Number(year) - 3
       }", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "${geography}",
-                  data: [, ${historicalGrowthApartmentFinal}],
+                  data: [${historicalGrowthApartmentFinal}],
                   backgroundColor: "transparent",
                   borderColor: "#4c3848",
                   borderWidth: 4,
@@ -4153,13 +4153,13 @@ module.exports = {
           const chart24 = new Chart(main_page6_first_one_charts_two_24, {
             type: "line",
             data: {
-              labels: ["", "${Number(year) - 5}", "${Number(year) - 4}", "${
+              labels: ["${Number(year) - 5}", "${Number(year) - 4}", "${
         Number(year) - 3
       }", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
                   label: "${geography}",
-                  data: [, ${historicalGrowthRowFinal}],
+                  data: [${historicalGrowthRowFinal}],
                   backgroundColor: "rgba(0, 0, 0, 0)",
                   borderColor: "#4c3848",
                   borderWidth: 4,
@@ -4796,6 +4796,7 @@ module.exports = {
           });
         </script>
       </html>`;
+
       await page.setContent(htmlContent);
       const pdfFilePath = "output.pdf";
       const pdfBuffer = await page.pdf({
