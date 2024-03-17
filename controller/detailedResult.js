@@ -484,60 +484,44 @@ module.exports = {
           dwellingDetailss.push(obj);
           if (ele.bedroom_type === "0 Bedroom" && ele.house_type === "Row") {
             rowUnitsAdded[0] = obj.house_constructed_all;
-            rowUnitsAva[0] = Math.ceil(
-              (vacancyRate.vacancy_rate / 100) * ele.units
-            );
+            rowUnitsAva[0] = ele.units;
           } else if (
             ele.bedroom_type === "1 Bedroom" &&
             ele.house_type === "Row"
           ) {
             rowUnitsAdded[1] = obj.house_constructed_all;
-            rowUnitsAva[1] = Math.ceil(
-              (vacancyRate.vacancy_rate / 100) * ele.units
-            );
+            rowUnitsAva[1] = ele.units;
           } else if (
             ele.bedroom_type === "2 Bedroom" &&
             ele.house_type === "Row"
           ) {
             rowUnitsAdded[2] = obj.house_constructed_all;
-            rowUnitsAva[2] = Math.ceil(
-              (vacancyRate.vacancy_rate / 100) * ele.units
-            );
+            rowUnitsAva[2] = ele.units;
           } else if (ele.house_type === "Row") {
             rowUnitsAdded[3] = obj.house_constructed_all;
-            rowUnitsAva[3] = Math.ceil(
-              (vacancyRate.vacancy_rate / 100) * ele.units
-            );
+            rowUnitsAva[3] = ele.units;
           }
           if (
             ele.bedroom_type === "0 Bedroom" &&
             ele.house_type === "Apartment"
           ) {
             apaUnitsAdded[0] = obj.house_constructed_all;
-            apaUnitsAva[0] = Math.ceil(
-              (vacancyRate.vacancy_rate / 100) * ele.units
-            );
+            apaUnitsAva[0] = ele.units;
           } else if (
             ele.bedroom_type === "1 Bedroom" &&
             ele.house_type === "Apartment"
           ) {
             apaUnitsAdded[1] = obj.house_constructed_all;
-            apaUnitsAva[1] = Math.ceil(
-              (vacancyRate.vacancy_rate / 100) * ele.units
-            );
+            apaUnitsAva[1] = ele.units;
           } else if (
             ele.bedroom_type === "2 Bedroom" &&
             ele.house_type === "Apartment"
           ) {
             apaUnitsAdded[2] = obj.house_constructed_all;
-            apaUnitsAva[2] = Math.ceil(
-              (vacancyRate.vacancy_rate / 100) * ele.units
-            );
+            apaUnitsAva[2] = ele.units;
           } else if (ele.house_type === "Apartment") {
             apaUnitsAdded[3] = obj.house_constructed_all;
-            apaUnitsAva[3] = Math.ceil(
-              (vacancyRate.vacancy_rate / 100) * ele.units
-            );
+            apaUnitsAva[3] = ele.units;
           }
 
           if (ele.house_type === "Row") {
