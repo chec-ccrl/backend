@@ -75,6 +75,17 @@ module.exports = {
       logger.info(error);
     }
   },
+  getAlls: async (dwellingObj, transaction) => {
+    try {
+      const result = await db.dwellingType.findAll(
+        { where: dwellingObj },
+        transaction
+      );
+      return result;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
   update: async (dwellingObj, transaction) => {
     try {
       const updated = await db.dwellingType.update(

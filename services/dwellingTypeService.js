@@ -25,6 +25,18 @@ module.exports = {
       throw new Error(error);
     }
   },
+  getAlls: async (dwellingObj, transaction) => {
+    try {
+      const dwelling = await Dao.dwellingTypeDao.getAlls(
+        dwellingObj,
+        transaction
+      );
+      return dwelling;
+    } catch (error) {
+      logger.info(error);
+      throw new Error(error);
+    }
+  },
   getDetail: async (dwellingObj, transaction) => {
     try {
       const getDetail = await Dao.dwellingTypeDao.getDetail(

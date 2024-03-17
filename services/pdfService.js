@@ -74,6 +74,10 @@ module.exports = {
         historicalGrowthApartmentFinal,
         median_household_income_before_tax,
         median_household_income_after_tax,
+        rowTotal,
+        apartmentTotal,
+        historical_rental_stock_apartment,
+        historical_rental_stock_row,
       } = data;
 
       let obj1, obj2, obj3, obj4;
@@ -2004,7 +2008,7 @@ module.exports = {
                       class="main_page3_first_one_main_head_sub_two ml-2"
                       style="padding: 4px 12px; letter-spacing: 3px; margin-top: -10px"
                     >
-                      2,100
+                      ${numberWithCommas(apartmentTotal)}
                     </div>
                   </div>
                   <div class="main_page4_first_one_one_main">
@@ -2042,7 +2046,7 @@ module.exports = {
                       class="main_page3_first_one_main_head_sub_two ml-2"
                       style="padding: 4px 12px; letter-spacing: 3px; margin-top: -10px"
                     >
-                      5,100
+                    ${numberWithCommas(rowTotal)}
                     </div>
                   </div>
                   <div class="main_page4_first_one_one_main">
@@ -2103,24 +2107,7 @@ module.exports = {
                       >
                         <span
                           class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                          >1.5%
-                          <img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB3UlEQVQ4jWP4//8/Az584P4Be4keiWeCHYJvD9w/YEdIPeP///8ZcIEvv75w607XvfzgwwNFBgYGBmVB5TuXMi/pcbFyfcelhwmnaQwMDLX7apthhjEwMDDcfX9XpfFgYz0+PThdeOrpKTPLuZbH/v3/x4wszsLE8udUyilTQ0nDC0S78Pff36wpm1JmoxvGwMDA8OffH5bUzalz/vz7gyGH08Cuo11ll19d1sPqdAYGhrPPzxpPODGhAJschpdvvLmhbjDD4MLPvz85cBnIwMDAwMXK9fVy5mVdJUGl+zhd+O//P8a0zWmzCBnGwMDA8O33N+6MLRkz0B2EYuCss7PSDj86bEfIMBjYfW+326KLi+KQxeBefvrpqZTWNK1rn35+4ifWQAYGBgZhTuE317KvaYlxi71GcWH2tuyppBrGwMDA8Pb7W5GCHQUTYHwmBgYGhtVXV4dsvLkxgFTDYGD5leVR229v92RgYGBgfPftnYDWNK3rL768kCDXQAYGBgZ5fvmHV7KuaDO/NXs7+dCjQ0RHBC7w8edHgW+/v3ExinSJvHrz7Y0opQYyMDAwiHGLvWSK0Y1ZysLI8oeNme0XGzPbL1YmVhj+jYxZmFiw4T8wzMrE+ivXLHcyAOYX+EkJeBCMAAAAAElFTkSuQmCC"
-                            width="20"
-                            height="16"
-                        /></span>
-                        <br />
-                        <span
-                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                          >OWNED</span
-                        >
-                      </div>
-                      <div
-                        class="main_page4_first_one_one_main_one_chart_bar_other_rate"
-                      >
-                        <span
-                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                          >-1%
+                          >- 1%
                           <img
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABpUlEQVQ4jWP8Nn999c/5G+oY/jMwMiADVB4DAwPDf1R5RlTxf/+Z2IJdpjB+8M56+f/9JzEM7WQARgHe10ysrpbLqGEYAwMDA6ut0UbGf1+/83yKqbjy/+VbeYpcJ8T/nHdZpxYTIxfHF67ShExKXcdZFJfLxMv9gYmBgYGB1dJgOyVeZ7E12sDmaLaWgYGBgfH/f2gkvf8k+jmq/Pr/T1+ESTKNm/Mj39JOLSZRwWcMDAwMTDBxJkG+1xy5UUWkuo4zK6IcZhiKgQwMDAxsnjaLWEy0dxNrGLO++iE2f8dZyGIoBjIyMjJwliVlMHCwfSVoGhvrD67ypDRGRkaUBM+Ero5ZWuweR3JQAyHzOBL8m5nlpW6ii2MYyMDAwMAe7tHPrKZwFpdhTMqyl9ijvbuxymETZGRm/stZkZzKwMz0B1MH41+uiuQURhaW30QbyMDAwMCirnCePcKzD12cLdRtEouW8mlc+uDpEBv4/+Mn5+e4qkv/nr5SYWBgYGCUFLnPt7hdl5GTA3ek/f//Hy/+de6a3Xv3tHcffLOf/Tp7zZ6QegDtJaSx3DtD8QAAAABJRU5ErkJgggAA"
                             width="20"
@@ -2160,22 +2147,6 @@ module.exports = {
                         class="main_page4_first_one_one_main_one_chart_bar_other_head"
                       >
                         GROWTH RATE
-                      </div>
-                      <div
-                        class="main_page4_first_one_one_main_one_chart_bar_other_rate"
-                      >
-                        <span
-                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                          >1.5%
-                          <img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB3UlEQVQ4jWP4//8/Az584P4Be4keiWeCHYJvD9w/YEdIPeP///8ZcIEvv75w607XvfzgwwNFBgYGBmVB5TuXMi/pcbFyfcelhwmnaQwMDLX7apthhjEwMDDcfX9XpfFgYz0+PThdeOrpKTPLuZbH/v3/x4wszsLE8udUyilTQ0nDC0S78Pff36wpm1JmoxvGwMDA8OffH5bUzalz/vz7gyGH08Cuo11ll19d1sPqdAYGhrPPzxpPODGhAJschpdvvLmhbjDD4MLPvz85cBnIwMDAwMXK9fVy5mVdJUGl+zhd+O//P8a0zWmzCBnGwMDA8O33N+6MLRkz0B2EYuCss7PSDj86bEfIMBjYfW+326KLi+KQxeBefvrpqZTWNK1rn35+4ifWQAYGBgZhTuE317KvaYlxi71GcWH2tuyppBrGwMDA8Pb7W5GCHQUTYHwmBgYGhtVXV4dsvLkxgFTDYGD5leVR229v92RgYGBgfPftnYDWNK3rL768kCDXQAYGBgZ5fvmHV7KuaDO/NXs7+dCjQ0RHBC7w8edHgW+/v3ExinSJvHrz7Y0opQYyMDAwiHGLvWSK0Y1ZysLI8oeNme0XGzPbL1YmVhj+jYxZmFiw4T8wzMrE+ivXLHcyAOYX+EkJeBCMAAAAAElFTkSuQmCC"
-                            width="20"
-                            height="16" /></span
-                        ><br />
-                        <span
-                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                          >OWNED</span
-                        >
                       </div>
                       <div
                         class="main_page4_first_one_one_main_one_chart_bar_other_rate"
@@ -3479,7 +3450,7 @@ module.exports = {
               datasets: [
                 {
                   label: "Value",
-                  data: [, 2500, 5000, 7500, 8000, 9000, 10000],
+                  data: [, ${historical_rental_stock_apartment}],
                   backgroundColor: "transparent",
                   borderColor: "black",
                   borderWidth: 1,
@@ -3504,7 +3475,6 @@ module.exports = {
                 yAxes: [
                   {
                     ticks: {
-                      beginAtZero: true,
                     },
                     scaleLabel: {
                       display: true,
@@ -3537,7 +3507,7 @@ module.exports = {
               datasets: [
                 {
                   label: "Value",
-                  data: [, 2500, 5000, 7500, 8000, 9000, 10000],
+                  data: [, ${historical_rental_stock_row}],
                   backgroundColor: "transparent",
                   borderColor: "black",
                   borderWidth: 1,
@@ -3563,7 +3533,6 @@ module.exports = {
                   {
                     title: "Number",
                     ticks: {
-                      beginAtZero: true,
                     },
                     scaleLabel: {
                       display: true,

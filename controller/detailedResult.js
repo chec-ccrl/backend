@@ -217,6 +217,26 @@ module.exports = {
         c36v.push(Math.ceil(ele[1] / 4));
       });
 
+      let marketBasketDetails;
+      if (source_of_cost_of_non_shelter_necessity === "Poverty Line Expenses") {
+        marketBasketDetails =
+          await Services.marketBasketMeasureService.getDetail({
+            province,
+            year,
+            cma,
+            ca,
+          });
+      } else {
+        marketBasketDetails = await Services.householdSpendingService.getDetail(
+          {
+            province,
+            year,
+            ca,
+            cma,
+          }
+        );
+      }
+
       const multiplier = await Services.multiplierService.getDetail({
         province,
         cma,
@@ -374,6 +394,69 @@ module.exports = {
         canadaIncomeSurveyDetails?.[0]?.median_before_tax / 1000
       );
 
+      const dwellingDetails = await Services.dwellingTypeService.getAlls({
+        province,
+        year,
+        cma,
+        ca,
+      });
+      let rowTotal = 0;
+      let apartmentTotal = 0;
+
+      dwellingDetails.forEach((ele) => {
+        if (ele.house_type === "Apartment") {
+          apartmentTotal += ele.units;
+        } else {
+          rowTotal += ele.units;
+        }
+      });
+      dwellingDetails.forEach((ele) => {
+        if (ele.house_type === "Apartment") {
+          ele.bedroom_percentage = ele.units / apartmentTotal;
+        } else {
+          ele.bedroom_percentage = ele.units / rowTotal;
+        }
+      });
+
+      await Promise.all(
+        dwellingDetails.map(async (ele) => {
+          const vacancyRate = await Services.vacancyRateService.getDetail({
+            province,
+            cma,
+            ca,
+            year,
+            bedroom_type: ele.bedroom_type,
+            house_type: ele.house_type,
+          });
+          ele.vacancy_rate = vacancyRate.vacancy_rate;
+        })
+      );
+
+      let historical_rental_stock_apartment = [];
+      let historical_rental_stock_row = [];
+      await Promise.all(
+        arrYear.map(async (year) => {
+          const dwellingDetails = await Services.dwellingTypeService.getAlls({
+            province,
+            year,
+            cma,
+            ca,
+          });
+          let rowTotal = 0;
+          let apartmentTotal = 0;
+
+          dwellingDetails.forEach((ele) => {
+            if (ele.house_type === "Apartment") {
+              apartmentTotal += ele.units;
+            } else {
+              rowTotal += ele.units;
+            }
+          });
+          historical_rental_stock_apartment.push(apartmentTotal);
+          historical_rental_stock_row.push(rowTotal);
+        })
+      );
+
       const link = await Services.pdfService.detailPdfGenerator({
         province,
         geography,
@@ -402,29 +485,13 @@ module.exports = {
         historicalGrowthApartmentFinal,
         median_household_income_before_tax,
         median_household_income_after_tax,
+        rowTotal,
+        apartmentTotal,
+        historical_rental_stock_apartment,
+        historical_rental_stock_row,
       });
 
       return res.json(link);
-
-      let marketBasketDetails;
-      if (source_of_cost_of_non_shelter_necessity === "Poverty Line Expenses") {
-        marketBasketDetails =
-          await Services.marketBasketMeasureService.getDetail({
-            province,
-            year,
-            cma,
-            ca,
-          });
-      } else {
-        marketBasketDetails = await Services.householdSpendingService.getDetail(
-          {
-            province,
-            year,
-            ca,
-            cma,
-          }
-        );
-      }
 
       //*************** START 1.15 ************************** */
       const cost_of_non_shelter_necessity = marketBasketDetails?.cost;
@@ -437,30 +504,6 @@ module.exports = {
       //*************** START NO MARKING AVAILABLE ************************** */
       const affordability_rent_based_30_benchmarch =
         (median_household_income_before_tax * 0.3) / 12;
-
-      const dwellingDetails = await Services.dwellingTypeService.getAll({
-        province,
-        year,
-        cma,
-        ca,
-      });
-      let rowTotal = 0;
-      let apartmentTotal = 0;
-
-      dwellingDetails.map((ele) => {
-        if (ele.house_type === "Apartment") {
-          apartmentTotal += ele.units;
-        } else {
-          rowTotal += ele.units;
-        }
-      });
-      dwellingDetails.map((ele) => {
-        if (ele.house_type === "Apartment") {
-          ele.bedroom_percentage = ele.units / apartmentTotal;
-        } else {
-          ele.bedroom_percentage = ele.units / rowTotal;
-        }
-      });
 
       const completeHousing = await Services.completeHousingService.getAll({
         province,
@@ -525,20 +568,6 @@ module.exports = {
       const rental_percentage_of_row_houses = (comrow / comTotalrow) * 100;
       const rental_percentage_of_apartment_houses =
         (comapa / comTotalapa) * 100;
-
-      await Promise.all(
-        dwellingDetails.map(async (ele) => {
-          const vacancyRate = await Services.vacancyRateService.getDetail({
-            province,
-            cma,
-            ca,
-            year,
-            bedroom_type: ele.bedroom_type,
-            house_type: ele.house_type,
-          });
-          ele.vacancy_rate = vacancyRate.vacancy_rate;
-        })
-      );
 
       rentDetails.map((obj) => {
         dwellingDetails.map((ele) => {

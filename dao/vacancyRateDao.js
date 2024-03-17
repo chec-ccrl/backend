@@ -18,6 +18,14 @@ module.exports = {
       logger.info(error);
     }
   },
+  getDetail: async (rentObj) => {
+    try {
+      const result = await db.vacancyRate.findOne({ where: rentObj });
+      return result;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
   getAll: async (vacancyObj, transaction) => {
     try {
       if (vacancyObj.filter) {
