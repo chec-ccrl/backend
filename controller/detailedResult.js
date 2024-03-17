@@ -542,20 +542,17 @@ module.exports = {
 
           if (ele.house_type === "Row") {
             rowTotalAdded += obj.house_constructed_all;
-            rowTotalAva += Math.ceil(
-              (vacancyRate.vacancy_rate / 100) * ele.units
-            );
+            rowTotalAva += (vacancyRate.vacancy_rate / 100) * ele.units;
           } else {
             apartmentTotalAdded += obj.house_constructed_all;
-            apartmentTotalAva += Math.ceil(
-              (vacancyRate.vacancy_rate / 100) * ele.units
-            );
+            apartmentTotalAva += (vacancyRate.vacancy_rate / 100) * ele.units;
           }
         })
       );
 
-      let rowTotalOccupied = rowTotal - rowTotalAva;
-      let apartmentTotalOccupied = apartmentTotal - apartmentTotalAva;
+      let rowTotalOccupied = rowTotal - Math.ceil(rowTotalAva);
+      let apartmentTotalOccupied =
+        apartmentTotal - Math.ceil(apartmentTotalAva);
 
       let historical_rental_stock_apartment = [];
       let historical_rental_stock_row = [];
@@ -642,8 +639,8 @@ module.exports = {
         historical_rental_stock_row_growth,
         rowTotalOccupied,
         apartmentTotalOccupied,
-        rowTotalAva,
-        apartmentTotalAva,
+        rowTotalAva: Math.ceil(rowTotalAva),
+        apartmentTotalAva: Math.ceil(apartmentTotalAva),
         apaUnitsAva,
         rowUnitsAva,
         cost_of_non_shelter_necessity: Math.ceil(
