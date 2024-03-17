@@ -1921,7 +1921,7 @@ module.exports = {
                 class="main_page3_first_one_main_head_sub_two ml-1"
                 style="letter-spacing: 3px;height:30px "
               >
-                $${numberWithCommas(Number(median_household_income_after_tax))}
+                $${numberWithCommas(Number(median_household_income_before_tax))}
               </div>
               </div>
                 <div class="main_page3_first_one_sub2 text-xl fw-light ls-2">
