@@ -361,17 +361,18 @@ module.exports = {
       });
 
       const canadaIncomeSurveyDetails =
-        await Services.canadaIncomeSurveyService.getAll({
+        await Services.canadaIncomeSurveyService.getAlls({
           province,
           year,
           cma,
           ca,
         });
 
-      const median_household_income_before_tax =
-        canadaIncomeSurveyDetails?.[0]?.median_before_tax;
       const median_household_income_after_tax =
         canadaIncomeSurveyDetails?.[0]?.median_after_tax;
+      const median_household_income_before_tax = Math.ceil(
+        canadaIncomeSurveyDetails?.[0]?.median_before_tax / 1000
+      );
 
       const link = await Services.pdfService.detailPdfGenerator({
         province,

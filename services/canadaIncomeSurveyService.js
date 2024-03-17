@@ -25,6 +25,7 @@ module.exports = {
       throw new Error(error);
     }
   },
+  
   getAlls: async (completeHousingObj, transaction) => {
     try {
       const Housing = await Dao.canadaIncomeSurveyDao.getAlls(

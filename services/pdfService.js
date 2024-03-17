@@ -1904,7 +1904,7 @@ module.exports = {
                 class="main_page3_first_one_main_head_sub_two ml-1"
                 style="letter-spacing: 3px;height:30px "
               >
-                $${numberWithCommas(median_household_income_after_tax)}
+                $${numberWithCommas(Number(median_household_income_after_tax))}
               </div>
               </div>
                 <div class="main_page3_first_one_sub2 text-xl fw-light ls-2">
@@ -3291,7 +3291,7 @@ module.exports = {
             yAxis: { label_text: "Cost", formatString: "c" },
             backgroundColor: "#f1f3f9",
             defaultSeries: {
-              shape_innerPadding: 2,
+              shape_innerPadding: 3,
               defaultPoint: {
                 label: {
                   text: "%name <b>%yValuek</b> (%percentOfSeries%)",
