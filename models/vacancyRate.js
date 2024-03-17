@@ -27,7 +27,7 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.INTEGER,
       },
       vacancy_rate: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DOUBLE,
       },
     },
     {
