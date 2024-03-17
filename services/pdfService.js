@@ -78,6 +78,8 @@ module.exports = {
         apartmentTotal,
         historical_rental_stock_apartment,
         historical_rental_stock_row,
+        historical_rental_stock_apartment_growth,
+        historical_rental_stock_row_growth,
       } = data;
 
       let obj1, obj2, obj3, obj4;
@@ -2107,11 +2109,19 @@ module.exports = {
                       >
                         <span
                           class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                          >- 1%
-                          <img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABpUlEQVQ4jWP8Nn999c/5G+oY/jMwMiADVB4DAwPDf1R5RlTxf/+Z2IJdpjB+8M56+f/9JzEM7WQARgHe10ysrpbLqGEYAwMDA6ut0UbGf1+/83yKqbjy/+VbeYpcJ8T/nHdZpxYTIxfHF67ShExKXcdZFJfLxMv9gYmBgYGB1dJgOyVeZ7E12sDmaLaWgYGBgfH/f2gkvf8k+jmq/Pr/T1+ESTKNm/Mj39JOLSZRwWcMDAwMTDBxJkG+1xy5UUWkuo4zK6IcZhiKgQwMDAxsnjaLWEy0dxNrGLO++iE2f8dZyGIoBjIyMjJwliVlMHCwfSVoGhvrD67ypDRGRkaUBM+Ero5ZWuweR3JQAyHzOBL8m5nlpW6ii2MYyMDAwMAe7tHPrKZwFpdhTMqyl9ijvbuxymETZGRm/stZkZzKwMz0B1MH41+uiuQURhaW30QbyMDAwMCirnCePcKzD12cLdRtEouW8mlc+uDpEBv4/+Mn5+e4qkv/nr5SYWBgYGCUFLnPt7hdl5GTA3ek/f//Hy/+de6a3Xv3tHcffLOf/Tp7zZ6QegDtJaSx3DtD8QAAAABJRU5ErkJgggAA"
+                          > ${historical_rental_stock_apartment_growth}%
+                          ${
+                            historical_rental_stock_apartment_growth < 0
+                              ? `<img
+                            src="https://i.ibb.co/hgwPPJd/8.png"
                             width="20"
-                            height="16" /></span
+                            height="16" />`
+                              : `<img
+                            src="https://i.ibb.co/JsqKWHm/7.png"
+                            width="20"
+                            height="16" />`
+                          }
+                            </span
                         ><br />
                         <span
                           class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
@@ -2153,11 +2163,19 @@ module.exports = {
                       >
                         <span
                           class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                          >-1%
-                          <img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABpUlEQVQ4jWP8Nn999c/5G+oY/jMwMiADVB4DAwPDf1R5RlTxf/+Z2IJdpjB+8M56+f/9JzEM7WQARgHe10ysrpbLqGEYAwMDA6ut0UbGf1+/83yKqbjy/+VbeYpcJ8T/nHdZpxYTIxfHF67ShExKXcdZFJfLxMv9gYmBgYGB1dJgOyVeZ7E12sDmaLaWgYGBgfH/f2gkvf8k+jmq/Pr/T1+ESTKNm/Mj39JOLSZRwWcMDAwMTDBxJkG+1xy5UUWkuo4zK6IcZhiKgQwMDAxsnjaLWEy0dxNrGLO++iE2f8dZyGIoBjIyMjJwliVlMHCwfSVoGhvrD67ypDRGRkaUBM+Ero5ZWuweR3JQAyHzOBL8m5nlpW6ii2MYyMDAwMAe7tHPrKZwFpdhTMqyl9ijvbuxymETZGRm/stZkZzKwMz0B1MH41+uiuQURhaW30QbyMDAwMCirnCePcKzD12cLdRtEouW8mlc+uDpEBv4/+Mn5+e4qkv/nr5SYWBgYGCUFLnPt7hdl5GTA3ek/f//Hy/+de6a3Xv3tHcffLOf/Tp7zZ6QegDtJaSx3DtD8QAAAABJRU5ErkJgggAA"
+                          > ${historical_rental_stock_row_growth}%%
+                          ${
+                            historical_rental_stock_apartment_growth < 0
+                              ? `<img
+                            src="https://i.ibb.co/hgwPPJd/8.png"
                             width="20"
-                            height="16" /></span
+                            height="16" />`
+                              : `<img
+                            src="https://i.ibb.co/JsqKWHm/7.png"
+                            width="20"
+                            height="16" />`
+                          }
+                            </span
                         ><br />
                         <span
                           class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"

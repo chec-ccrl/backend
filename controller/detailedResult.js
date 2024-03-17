@@ -456,6 +456,28 @@ module.exports = {
           historical_rental_stock_row.push(rowTotal);
         })
       );
+      const historical_rental_stock_apartment_growth =
+        Math.round(
+          (Math.pow(
+            historical_rental_stock_apartment[
+              historical_rental_stock_apartment.length - 1
+            ] / historical_rental_stock_apartment[0],
+            1 / arrYear.length
+          ) -
+            1) *
+            10000
+        ) / 100;
+      const historical_rental_stock_row_growth =
+        Math.round(
+          (Math.pow(
+            historical_rental_stock_row[
+              historical_rental_stock_row.length - 1
+            ] / historical_rental_stock_row[0],
+            1 / arrYear.length
+          ) -
+            1) *
+            10000
+        ) / 100;
 
       const link = await Services.pdfService.detailPdfGenerator({
         province,
@@ -489,6 +511,8 @@ module.exports = {
         apartmentTotal,
         historical_rental_stock_apartment,
         historical_rental_stock_row,
+        historical_rental_stock_apartment_growth,
+        historical_rental_stock_row_growth,
       });
 
       return res.json(link);
