@@ -86,6 +86,7 @@ module.exports = {
         apartmentTotalAva,
         apaUnitsAva,
         rowUnitsAva,
+        cost_of_non_shelter_necessity,
       } = data;
 
       let obj1, obj2, obj3, obj4;
@@ -3311,7 +3312,7 @@ module.exports = {
                   { name: "INCOME AFTER TAX", y: 55, color: "#5e6043" },
                   {
                     name: "COST OF NON SHELTER <br>NECESSITIES",
-                    y: 30,
+                    y: ${cost_of_non_shelter_necessity},
                     color: "#683733",
                   },
                   { name: "RESIDUAL INCOME", y: 15, color: "#8f7e18" },

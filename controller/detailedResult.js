@@ -236,6 +236,7 @@ module.exports = {
           }
         );
       }
+      const cost_of_non_shelter_necessity = marketBasketDetails?.cost;
 
       const multiplier = await Services.multiplierService.getDetail({
         province,
@@ -589,12 +590,15 @@ module.exports = {
         apartmentTotalAva,
         apaUnitsAva,
         rowUnitsAva,
+        cost_of_non_shelter_necessity: Math.ceil(
+          cost_of_non_shelter_necessity / 1000
+        ),
       });
 
       return res.json(link);
 
       //*************** START 1.15 ************************** */
-      const cost_of_non_shelter_necessity = marketBasketDetails?.cost;
+
       //*************** END 1.15 ************************** */
 
       //*************** START 1.15 & 1.13 ************************** */
