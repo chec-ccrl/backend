@@ -125,7 +125,7 @@ module.exports = {
 
       let arr = [];
       result.map((obj) => {
-        if (obj["A"] !== "Geography (CMA name)") {
+        if (obj["B"] !== "Geography (CMA name)") {
           let data = {
             id: Common.helper.generateId(),
             province: obj["A"],
