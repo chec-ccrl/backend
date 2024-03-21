@@ -11,6 +11,9 @@ module.exports = (sequelize, Sequelize) => {
       year: {
         type: Sequelize.INTEGER,
       },
+      province: {
+        type: Sequelize.STRING,
+      },
       ca: {
         type: Sequelize.STRING,
       },
