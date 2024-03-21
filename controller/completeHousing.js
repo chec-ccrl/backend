@@ -118,9 +118,9 @@ module.exports = {
   addExcelFiles: async (req, res, next) => {
     try {
       let result = excelToJson({
-        sourceFile: __dirname + "/Sample_Files/Housing completions.xlsx",
+        sourceFile: __dirname + "/Sample_Files/Housing Completions.xlsx",
       });
-      result = result["New main"];
+      result = result["All data"];
       let arr = [];
       await Promise.all(
         result.map(async (obj) => {

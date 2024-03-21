@@ -120,16 +120,17 @@ module.exports = {
       let result1 = excelToJson({
         sourceFile: __dirname + "/Sample_Files/Rental ranking CA.xlsx",
       });
-      let result = result1["Sheet1"];
+      let result = result1["Sheet2"];
 
       let arr = [];
       result.map((obj) => {
         if (obj["A"] !== "Geography (CA name)") {
           let data = {
             id: Common.helper.generateId(),
-            ca: obj["A"],
-            year: obj["B"],
-            ranking: Number(obj["C"]),
+            province: obj["A"],
+            ca: obj["B"],
+            year: obj["C"],
+            ranking: Number(obj["D"]),
           };
           arr.push(data);
         }

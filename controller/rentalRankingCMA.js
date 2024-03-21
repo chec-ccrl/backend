@@ -128,9 +128,10 @@ module.exports = {
         if (obj["A"] !== "Geography (CMA name)") {
           let data = {
             id: Common.helper.generateId(),
-            cma: obj["A"],
-            year: obj["B"],
-            ranking: Number(obj["C"]),
+            province: obj["A"],
+            cma: obj["B"],
+            year: obj["C"],
+            ranking: Number(obj["D"]),
           };
           arr.push(data);
         }
