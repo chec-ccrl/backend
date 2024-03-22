@@ -312,7 +312,7 @@ module.exports = {
         }
       
         .main_first_text_tex1 {
-          font-size: 22px;
+          font-size: 20px;
           font-weight: bold;
           letter-spacing: 0.5cap;
           font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
