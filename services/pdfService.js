@@ -643,6 +643,13 @@ module.exports = {
           text-decoration: underline;
           font-size: 15px;
         }
+
+        .main_page3_first_one_txt1 {
+          font-weight: bold;
+          letter-spacing: 0.3cap;
+          text-decoration: underline;
+          font-size: 25px;
+        }
       
         .main_page3_first_one_content {
           display: flex;
@@ -737,7 +744,17 @@ module.exports = {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          width: 70%;
+          width: 60%;
+        }
+
+        .main_page3_second_two {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-content: center;
+          width: 40%;
+          padding: 2px 15px;
+          text-align: center;
         }
       
         .main_page3_first_one_other {
@@ -756,8 +773,8 @@ module.exports = {
         }
       
         .main_page3_first_one_other_one_main {
-          width: 150px;
-          height: 150px;
+          width: 140px;
+          height: 140px;
           background-size: contain;
           background-image: url("https://i.ibb.co/HpJfqZG/1.png");
           background-repeat: no-repeat;
@@ -781,15 +798,6 @@ module.exports = {
           color: gray;
         }
       
-        .main_page3_second_two {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-content: center;
-          width: 30%;
-          padding: 2px 15px;
-          text-align: center;
-        }
       
         .main_page3_third {
           display: flex;
@@ -1682,7 +1690,7 @@ module.exports = {
             </div>
             <div class="main_page3_second">
               <div class="main_page3_second_one">
-                <div class="main_page3_first_one_txt">RANKING</div>
+                <div class="main_page3_first_one_txt1">RANKING</div>
                 <div class="main_page3_first_one_other">
                   <div class="main_page3_first_one_other_one" style="margin-right:-20px">
                     <div class="main_page3_first_one_other_one_main">
@@ -1722,7 +1730,7 @@ module.exports = {
               <div class="main_page3_first_one_break"></div>
               <div class="main_page3_second_two">
                 <div class="flex align-center justify-between">
-                  <div class="main_page3_first_one_txt" style="width: 75%;font-size:13px">
+                  <div class="main_page3_first_one_txt" style="width: 75%;font-size:22px">
                     AVERAGE OPTIMAL INCOME BEFORE TAX
                   </div>
                   <div class="main_page3_first_one_main_head_sub_two">$40,000</div>
@@ -1730,11 +1738,11 @@ module.exports = {
                 <div class="flex justify-center align-center" style="margin-top:20px">
                   <div
                     class="main_page3_first_one_main_head_sub_two"
-                    style="margin-top:20px; width:120px"
+                    style="margin-top:20px; width:180px"
                   >
                     40%
                   </div>
-                  <div class="main_page3_first_one_txt" style="margin-top:20px;font-size:13px">
+                  <div class="main_page3_first_one_txt" style="margin-top:20px;font-size:22px">
                     FAMILIES UNDER OPTIMAL INCOME
                   </div>
                 </div>
@@ -1860,7 +1868,7 @@ module.exports = {
                       Out of a total affordable supply of 2,250 units, 1,125 are
                       available.
                     </p>
-                    <p class="text-2xl ls-1 m-0">AVAILABLE</p>
+                    <p class="text-2xl ls-1 m-0">AVAILABLE:250</p>
       
                     <div class="main_page4_first_one_one_main_one_chart">
                       <canvas
@@ -1868,7 +1876,7 @@ module.exports = {
                         style="max-width: 158px; margin: auto; height: 158px"
                       ></canvas>
                     </div>
-                    <p class="text-2xl ls-1 m-0">OCCUPIED</p>
+                    <p class="text-2xl ls-1 m-0">OCCUPIED:150</p>
                   </div>
                   <div class="main_page3_first_one_break"></div>
       
@@ -1880,7 +1888,7 @@ module.exports = {
                       Out of a total unaffordable supply of 1,850 units, 610 are
                       available.
                     </p>
-                    <p class="text-2xl ls-1 m-0">AVAILABLE</p>
+                    <p class="text-2xl ls-1 m-0">AVAILABLE:120</p>
       
                     <div class="main_page4_first_one_one_main_one_chart">
                       <canvas
@@ -1888,7 +1896,7 @@ module.exports = {
                         style="max-width: 158px; margin: auto; height: 158px"
                       ></canvas>
                     </div>
-                    <p class="text-2xl ls-1 m-0">OCCUPIED</p>
+                    <p class="text-2xl ls-1 m-0">OCCUPIED:40</p>
                   </div>
                 </div>
               </div>
@@ -1902,12 +1910,12 @@ module.exports = {
                   A total of 350 new units were constructed this year, with 210 being
                   affordable
                 </p>
-                <p class="text-2xl ls-1 m-0">AFFORDABLE</p>
+                <p class="text-2xl ls-1 m-0">AFFORDABLE:60</p>
                 <canvas
                   id="main_page3_first_one_one_main_one_chart32"
                   style="max-width: 200px; margin: auto; height: 200px"
                 ></canvas>
-                <p class="text-2xl ls-1 m-0">UNAFFORDABLE</p>
+                <p class="text-2xl ls-1 m-0">UNAFFORDABLE:80</p>
               </div>
             </div>
             <div class="main_third_line" style="margin: 2px 0"></div>
@@ -2204,7 +2212,7 @@ module.exports = {
               <div class="main_page4_first_one">
                 <div class="main_page4_first_one_one">
                   <div class="main_page3_third mb-2">
-                    <div class="main_page3_first_one_txt text-2xl">
+                    <div class="main_page3_first_one_txt text-2xl" style="margin-top:3px">
                       NEW UNITS ADDED
                     </div>
                     <div
@@ -2300,7 +2308,7 @@ module.exports = {
       
                 <div class="main_page4_first_one_one">
                   <div class="main_page3_third mb-2">
-                    <div class="main_page3_first_one_txt text-2xl">
+                    <div class="main_page3_first_one_txt text-2xl" style="margin-top:3px">
                       NEW UNITS ADDED
                     </div>
                     <div
@@ -2586,7 +2594,7 @@ module.exports = {
                       <p class="text-lg m-0">UNAFFORDABLE</p>
                     </div>
                   </div>
-                  <div class="main_page3_first_one_content_one text-sm">
+                  <div class="main_page3_first_one_content_one" style="font-size:7px">
                     *AVAILABLE = VACANT
                   </div>
                 </div>
@@ -2663,7 +2671,7 @@ module.exports = {
                       <p class="text-lg m-0">UNAFFORDABLE</p>
                     </div>
                   </div>
-                  <div class="main_page3_first_one_content_one text-sm">
+                  <div class="main_page3_first_one_content_one" style="font-size:7px">
                     *AVAILABLE = VACANT
                   </div>
                 </div>
@@ -3152,6 +3160,7 @@ module.exports = {
           var barColors = ["red", "green", "blue", "orange", "brown"];
           const chart = new Chart(main_page3_first_one_chart_main, {
             type: "bar",
+            margin:0,
             data: {
               labels: ["OB", "18", "28", "3B+"],
               datasets: [
@@ -3290,11 +3299,11 @@ module.exports = {
             type: "pyramidInverted",
             legend_visible: false,
             width: 530,
-            height: 270,
+            height: 290,
             yAxis: { label_text: "Cost", formatString: "c" },
             backgroundColor: "#f1f3f9",
             defaultSeries: {
-              shape_innerPadding: 3,
+              shape_innerPadding: 6,
               defaultPoint: {
                 label: {
                   text: "%name <b>%yValuek</b> (%percentOfSeries%)",
@@ -3728,7 +3737,7 @@ module.exports = {
                   {
                     ticks: {
                       beginAtZero: true, // Start y-axis at zero
-                      fontSize: 18, // Adjust label font size
+                      fontSize: 12, // Adjust label font size
                       fontColor: "black", // Change label color
                       fontWeight: "bolder",
                       callback: function (value, index, values) {
@@ -3742,7 +3751,7 @@ module.exports = {
                     ticks: {
                       maxRotation: 90, // Rotate labels to a maximum of 90 degrees
                       minRotation: 55,
-                      fontSize: 18, // Adjust label font size
+                      fontSize: 12, // Adjust label font size
                       fontColor: "black", // Change label color
                       fontWeight: "bold",
                     },
