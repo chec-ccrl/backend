@@ -2935,7 +2935,7 @@ module.exports = {
                 <div class="main_page3_first_one_other">
                  ${
                    cma_income_ranking?.length > 0
-                     ? `<div class="main_page3_first_one_other_one">
+                     ? `<div class="main_page3_first_one_other_one" style="margin-right:20px">
                        <div
                          class="main_page3_first_one_other_one_main"
                          style="margin-top: 80px"
@@ -3162,7 +3162,7 @@ module.exports = {
             type: "bar",
             margin:0,
             data: {
-              labels: ["OB", "18", "28", "3B+"],
+              labels: ["OB", "1B", "2B", "3B+"],
               datasets: [
                 {
                   label: "Current stock",
@@ -3381,9 +3381,7 @@ module.exports = {
           const chart9 = new Chart(main_page4_first_one_one_main_one_chart9, {
             type: "pie",
             data: {
-              labels: ["0B:${apaUnitsAva[0]}", "1B:${apaUnitsAva[1]}", "2B:${
-        apaUnitsAva[2]
-      }", "3B+:${apaUnitsAva[3]}"],
+              labels: ["0B:5", "1B:10", "2B:10", "3B+:5"],
               datasets: [
                 {
                   data: [${apaUnitsAva}],
@@ -3453,9 +3451,7 @@ module.exports = {
           const chart11 = new Chart(main_page4_first_one_one_main_one_chart11, {
             type: "pie",
             data: {
-              labels: ["0B:${rowUnitsAva[0]}", "1B:${rowUnitsAva[1]}", "2B:${
-        rowUnitsAva[2]
-      }", "3B+:${rowUnitsAva[3]}"],
+              labels: ["0B:5", "1B:10", "2B:10", "3B+:5"],
               datasets: [
                 {
                   data: [${rowUnitsAva}],
