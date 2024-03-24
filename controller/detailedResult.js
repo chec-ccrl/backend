@@ -416,12 +416,18 @@ module.exports = {
           rowTotal += ele.units;
         }
       });
-      dwellingDetails.forEach((ele) => {
+      let dwellingDetailsa = [];
+      dwellingDetails.map((ele) => {
+        let bedroom_percentage = 0;
         if (ele.house_type === "Apartment") {
-          ele.bedroom_percentage = ele.units / apartmentTotal;
+          bedroom_percentage = ele.units / apartmentTotal;
         } else {
-          ele.bedroom_percentage = ele.units / rowTotal;
+          bedroom_percentage = ele.units / rowTotal;
         }
+        dwellingDetailsa.push({
+          ...ele.dataValues,
+          bedroom_percentage: Number(bedroom_percentage.toFixed(2)),
+        });
       });
       let dwellingDetailss = [];
       let apaUnitsAva = [0, 0, 0, 0];
@@ -429,7 +435,7 @@ module.exports = {
       let apaUnitsAdded = [0, 0, 0, 0];
       let rowUnitsAdded = [0, 0, 0, 0];
       await Promise.all(
-        dwellingDetails.map(async (ele) => {
+        dwellingDetailsa.map(async (ele) => {
           const vacancyRate = await Services.vacancyRateService.getDetail({
             province,
             cma,
@@ -438,21 +444,23 @@ module.exports = {
             bedroom_type: ele.bedroom_type,
             house_type: ele.house_type,
           });
+
           const completeHousing =
             await Services.completeHousingService.getDetail({
               province,
               cma,
               ca,
-              year,
+              year: Number(year),
               intended_market: "All",
               house_type: ele.house_type,
             });
+
           const completeHousing2 =
             await Services.completeHousingService.getDetail({
               province,
               cma,
               ca,
-              year,
+              year: Number(year),
               intended_market: "Rental",
               house_type: ele.house_type,
             });
@@ -461,12 +469,12 @@ module.exports = {
               province,
               cma,
               ca,
-              year,
-              intended_market: "Owned",
+              year: Number(year),
+              intended_market: "Owner",
               house_type: ele.house_type,
             });
           let obj = {
-            ...ele.dataValues,
+            ...ele,
             vacancy_rate: vacancyRate.vacancy_rate,
             house_constructed_rental: Math.ceil(
               completeHousing?.units * ele.bedroom_percentage
@@ -584,6 +592,285 @@ module.exports = {
             1) *
             10000
         ) / 100;
+      let mainObj = [];
+      dwellingDetailss.map((ele) => {
+        rentDetails.map((rr) => {
+          if (
+            ele.bedroom_type === rr.bedroom_type &&
+            ele.house_type === rr.house_type
+          ) {
+            let obj = {
+              ...ele,
+              rent_value: rr.rent_value,
+            };
+            obj.affordable =
+              rr.rent_value <
+              (0.3 * canadaIncomeSurveyDetails?.[0]?.median_before_tax) / 12
+                ? true
+                : false;
+            obj.residual_affordable =
+              (median_household_income_after_tax -
+                cost_of_non_shelter_necessity) /
+                12 >
+              rr.rent_value
+                ? true
+                : false;
+            obj.constructed = ele.units * (ele.rental_percentage / 100);
+            obj.available = ele.units * (ele.vacancy_rate / 100);
+            obj.occupied = ele.units - ele.units * (ele.vacancy_rate / 100);
+            obj.rent_value = rr.rent_value;
+            mainObj.push(obj);
+          }
+        });
+      });
+      let unaffordable_apartment_available = 0;
+      let unaffordable_row_available = 0;
+      let affordable_apartment_available = 0;
+      let affordable_row_available = 0;
+      let unaffordable_apartment_constructed = 0;
+      let unaffordable_row_constructed = 0;
+      let affordable_apartment_constructed = 0;
+      let affordable_row_constructed = 0;
+      let unaffordable_apartment_occupied = 0;
+      let unaffordable_row_occupied = 0;
+      let affordable_apartment_occupied = 0;
+      let affordable_row_occupied = 0;
+      let affordable_apartment = 0;
+      let affordable_row = 0;
+      let averageRent = 0;
+      let mainmainObj = [];
+      mainObj.map((ele) => {
+        if (
+          affordability === "30% of Gross Income" ||
+          affordability === "Both Definations"
+        ) {
+          if (ele.affordable) {
+            if (ele.house_type === "Apartment") {
+              affordable_apartment_constructed += ele.constructed;
+              affordable_apartment_available += ele.available;
+              affordable_apartment_occupied += ele.occupied;
+              affordable_apartment += ele.units;
+            } else {
+              affordable_row_constructed += ele.constructed;
+              affordable_row_available += ele.available;
+              affordable_row_occupied += ele.occupied;
+              affordable_row += ele.units;
+            }
+          } else {
+            if (ele.house_type === "Apartment") {
+              unaffordable_apartment_constructed += ele.constructed;
+              unaffordable_apartment_available += ele.available;
+              unaffordable_apartment_occupied += ele.occupied;
+            } else {
+              unaffordable_row_constructed += ele.constructed;
+              unaffordable_row_available += ele.available;
+              unaffordable_row_occupied += ele.occupied;
+            }
+          }
+        } else {
+          if (ele.affordable) {
+            if (ele.house_type === "Apartment") {
+              affordable_apartment_constructed += ele.constructed;
+              affordable_apartment_available += ele.available;
+              affordable_apartment_occupied += ele.occupied;
+              affordable_apartment += ele.units;
+            } else {
+              affordable_row_constructed += ele.constructed;
+              affordable_row_available += ele.available;
+              affordable_row_occupied += ele.occupied;
+              affordable_row += ele.units;
+            }
+          } else {
+            if (ele.house_type === "Apartment") {
+              unaffordable_apartment_constructed += ele.constructed;
+              unaffordable_apartment_available += ele.available;
+              unaffordable_apartment_occupied += ele.occupied;
+            } else {
+              unaffordable_row_constructed += ele.constructed;
+              unaffordable_row_available += ele.available;
+              unaffordable_row_occupied += ele.occupied;
+            }
+          }
+        }
+
+        let obj = {
+          ...ele,
+          optimal_income_before_tax: (ele.rent_value * 12) / 0.3,
+          optimal_income_after_tax:
+            ele.rent_value * 12 + cost_of_non_shelter_necessity,
+        };
+        mainmainObj.push(obj);
+        averageRent += ele.rent_value;
+      });
+
+      if (
+        affordability === "30% of Gross Income" ||
+        affordability === "Both Definations"
+      ) {
+        averageRent = Math.ceil(((averageRent / 8) * 12) / 0.3);
+      } else {
+        averageRent = Math.ceil(
+          (averageRent / 8) * 12 + cost_of_non_shelter_necessity
+        );
+      }
+      let optimal_incomes = [0, 0, 0, 0, 0, 0, 0, 0];
+      let optimal_incomes_diff = [0, 0, 0, 0, 0, 0, 0, 0];
+      mainmainObj.map((ele) => {
+        if (ele.house_type === "Row") {
+          if (ele.bedroom_type === "0 Bedroom") {
+            optimal_incomes[0] =
+              affordability === "30% of Gross Income" ||
+              affordability === "Both Definations"
+                ? ele.optimal_income_before_tax
+                : ele.optimal_income_after_tax;
+            optimal_incomes_diff[0] =
+              affordability === "30% of Gross Income" ||
+              affordability === "Both Definations"
+                ? averageRent - ele.optimal_income_before_tax
+                : averageRent - ele.optimal_income_after_tax;
+          } else if (ele.bedroom_type === "1 Bedroom") {
+            optimal_incomes[1] =
+              affordability === "30% of Gross Income" ||
+              affordability === "Both Definations"
+                ? ele.optimal_income_before_tax
+                : ele.optimal_income_after_tax;
+            optimal_incomes_diff[1] =
+              affordability === "30% of Gross Income" ||
+              affordability === "Both Definations"
+                ? averageRent - ele.optimal_income_before_tax
+                : averageRent - ele.optimal_income_after_tax;
+          } else if (ele.bedroom_type === "2 Bedroom") {
+            optimal_incomes[2] =
+              affordability === "30% of Gross Income" ||
+              affordability === "Both Definations"
+                ? ele.optimal_income_before_tax
+                : ele.optimal_income_after_tax;
+            optimal_incomes_diff[2] =
+              affordability === "30% of Gross Income" ||
+              affordability === "Both Definations"
+                ? averageRent - ele.optimal_income_before_tax
+                : averageRent - ele.optimal_income_after_tax;
+          } else {
+            optimal_incomes[3] =
+              affordability === "30% of Gross Income" ||
+              affordability === "Both Definations"
+                ? ele.optimal_income_before_tax
+                : ele.optimal_income_after_tax;
+            optimal_incomes_diff[3] =
+              affordability === "30% of Gross Income" ||
+              affordability === "Both Definations"
+                ? averageRent - ele.optimal_income_before_tax
+                : averageRent - ele.optimal_income_after_tax;
+          }
+        } else {
+          if (ele.bedroom_type === "0 Bedroom") {
+            optimal_incomes[4] =
+              affordability === "30% of Gross Income" ||
+              affordability === "Both Definations"
+                ? ele.optimal_income_before_tax
+                : ele.optimal_income_after_tax;
+            optimal_incomes_diff[4] =
+              affordability === "30% of Gross Income" ||
+              affordability === "Both Definations"
+                ? averageRent - ele.optimal_income_before_tax
+                : averageRent - ele.optimal_income_after_tax;
+          } else if (ele.bedroom_type === "1 Bedroom") {
+            optimal_incomes[5] =
+              affordability === "30% of Gross Income" ||
+              affordability === "Both Definations"
+                ? ele.optimal_income_before_tax
+                : ele.optimal_income_after_tax;
+            optimal_incomes_diff[5] =
+              affordability === "30% of Gross Income" ||
+              affordability === "Both Definations"
+                ? averageRent - ele.optimal_income_before_tax
+                : averageRent - ele.optimal_income_after_tax;
+          } else if (ele.bedroom_type === "2 Bedroom") {
+            optimal_incomes[6] =
+              affordability === "30% of Gross Income" ||
+              affordability === "Both Definations"
+                ? ele.optimal_income_before_tax
+                : ele.optimal_income_after_tax;
+            optimal_incomes_diff[6] =
+              affordability === "30% of Gross Income" ||
+              affordability === "Both Definations"
+                ? averageRent - ele.optimal_income_before_tax
+                : averageRent - ele.optimal_income_after_tax;
+          } else {
+            optimal_incomes[7] =
+              affordability === "30% of Gross Income" ||
+              affordability === "Both Definations"
+                ? ele.optimal_income_before_tax
+                : ele.optimal_income_after_tax;
+            optimal_incomes_diff[7] =
+              affordability === "30% of Gross Income" ||
+              affordability === "Both Definations"
+                ? averageRent - ele.optimal_income_before_tax
+                : averageRent - ele.optimal_income_after_tax;
+          }
+        }
+      });
+      // return res.json({
+      //   province,
+      //   geography,
+      //   year,
+      //   rent_source,
+      //   house_type,
+      //   affordability,
+      //   source_of_cost_of_non_shelter_necessity,
+      //   affordability_ranking,
+      //   province_income_ranking,
+      //   cma_income_ranking,
+      //   cma,
+      //   ca,
+      //   c27l,
+      //   c27v,
+      //   c28l,
+      //   c28v,
+      //   c35l,
+      //   c35v,
+      //   c36l,
+      //   c36v,
+      //   rentDetails,
+      //   median_household_income_before_tax_6_year_v,
+      //   median_household_income_after_tax_6_year_v,
+      //   historicalGrowthRowFinal,
+      //   historicalGrowthApartmentFinal,
+      //   median_household_income_before_tax_raw:
+      //     canadaIncomeSurveyDetails?.[0]?.median_before_tax,
+      //   median_household_income_before_tax,
+      //   median_household_income_after_tax,
+      //   rowTotal,
+      //   apartmentTotal,
+      //   historical_rental_stock_apartment,
+      //   historical_rental_stock_row,
+      //   historical_rental_stock_apartment_growth,
+      //   historical_rental_stock_row_growth,
+      //   rowTotalOccupied,
+      //   apartmentTotalOccupied,
+      //   rowTotalAva: Math.ceil(rowTotalAva),
+      //   apartmentTotalAva: Math.ceil(apartmentTotalAva),
+      //   apaUnitsAva,
+      //   rowUnitsAva,
+      //   cost_of_non_shelter_necessity: Math.ceil(
+      //     cost_of_non_shelter_necessity / 1000
+      //   ),
+      //   apaUnitsAdded,
+      //   rowUnitsAdded,
+      //   rowTotalAdded,
+      //   apartmentTotalAdded,
+      //   mainObj,
+      //   unaffordable_apartment_available,
+      //   unaffordable_row_available,
+      //   affordable_apartment_available,
+      //   affordable_row_available,
+      //   unaffordable_apartment_constructed,
+      //   unaffordable_row_constructed,
+      //   affordable_apartment_constructed,
+      //   affordable_row_constructed,
+      //   optimal_incomes,
+      //   optimal_incomes_diff,
+      // });
 
       const link = await Services.pdfService.detailPdfGenerator({
         province,
@@ -634,6 +921,25 @@ module.exports = {
         rowUnitsAdded,
         rowTotalAdded,
         apartmentTotalAdded,
+        dwellingDetailss,
+        unaffordable_apartment_available,
+        unaffordable_row_available,
+        affordable_apartment_available,
+        affordable_row_available,
+        unaffordable_apartment_constructed,
+        unaffordable_row_constructed,
+        affordable_apartment_constructed,
+        affordable_row_constructed,
+        unaffordable_apartment_occupied,
+        unaffordable_row_occupied,
+        affordable_apartment_occupied,
+        affordable_row_occupied,
+        affordable_apartment,
+        affordable_row,
+        averageRent,
+        mainmainObj,
+        optimal_incomes,
+        optimal_incomes_diff,
       });
 
       return res.json(link);

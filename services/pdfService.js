@@ -92,6 +92,23 @@ module.exports = {
         rowTotalAdded,
         apartmentTotalAdded,
         median_household_income_before_tax_raw,
+        unaffordable_apartment_available,
+        unaffordable_row_available,
+        affordable_apartment_available,
+        affordable_row_available,
+        unaffordable_apartment_constructed,
+        unaffordable_row_constructed,
+        affordable_apartment_constructed,
+        affordable_row_constructed,
+        unaffordable_apartment_occupied,
+        unaffordable_row_occupied,
+        affordable_apartment_occupied,
+        affordable_row_occupied,
+        affordable_apartment,
+        affordable_row,
+        averageRent,
+        optimal_incomes,
+        optimal_incomes_diff,
       } = data;
 
       let obj1, obj2, obj3, obj4;
@@ -1733,7 +1750,9 @@ module.exports = {
                   <div class="main_page3_first_one_txt" style="width: 75%;font-size:22px">
                     AVERAGE OPTIMAL INCOME BEFORE TAX
                   </div>
-                  <div class="main_page3_first_one_main_head_sub_two">$40,000</div>
+                  <div class="main_page3_first_one_main_head_sub_two">$${numberWithCommas(
+                    averageRent
+                  )}</div>
                 </div>
                 <div class="flex justify-center align-center" style="margin-top:20px">
                   <div
@@ -1827,7 +1846,7 @@ module.exports = {
                 class="main_page3_first_one_main_head_sub_two ml-4"
                 style="letter-spacing: 8px;margin-top: 3px"
               >
-                4,100
+                ${numberWithCommas(apartmentTotal + rowTotal)}
               </div>
             </div>
             <p
@@ -1844,14 +1863,35 @@ module.exports = {
                     AFFORDABILITY OVERVIEW
                   </div>
                   <p class="text-sm fw-light m-0">
-                    Out of a total supply of 4,100 units, 2,250 are affordable.
+                    Out of a total supply of ${numberWithCommas(
+                      apartmentTotal + rowTotal
+                    )} units, ${numberWithCommas(
+        Math.ceil(
+          affordable_apartment_available +
+            affordable_apartment_constructed +
+            affordable_row_available +
+            affordable_row_constructed
+        )
+      )} are affordable.
                   </p>
-                  <p class="text-2xl ls-1 m-0">AFFORDABLE</p>
+                  <p class="text-2xl ls-1 m-0">AFFORDABLE:${numberWithCommas(
+                    Math.ceil(
+                      affordable_apartment_available +
+                        affordable_apartment_constructed +
+                        affordable_row_available +
+                        affordable_row_constructed
+                    )
+                  )}</p>
                   <canvas
                     id="main_page3_first_one_one_main_one_chart29"
                     style="max-width: 200px; margin: auto; height: 200px"
                   ></canvas>
-                  <p class="text-2xl ls-1 m-0">UNAFFORDABLE</p>
+                  <p class="text-2xl ls-1 m-0">UNAFFORDABLE:${numberWithCommas(
+                    unaffordable_apartment_available +
+                      unaffordable_apartment_constructed +
+                      unaffordable_row_available +
+                      unaffordable_row_constructed
+                  )}</p>
                 </div>
               </div>
               <div class="main_page3_first_one_break"></div>
@@ -1865,10 +1905,22 @@ module.exports = {
                       AFFORDABLE STOCKS
                     </div>
                     <p class="text-sm fw-light m-0">
-                      Out of a total affordable supply of 2,250 units, 1,125 are
+                      Out of a total affordable supply of  ${Math.ceil(
+                        affordable_apartment_available +
+                          affordable_row_available +
+                          affordable_apartment_occupied +
+                          affordable_row_occupied
+                      )} units, ${numberWithCommas(
+        Math.ceil(affordable_apartment_available + affordable_row_available)
+      )} are
                       available.
                     </p>
-                    <p class="text-2xl ls-1 m-0">AVAILABLE:250</p>
+                    <p class="text-2xl ls-1 m-0">AVAILABLE:${numberWithCommas(
+                      Math.ceil(
+                        affordable_apartment_available +
+                          affordable_row_available
+                      )
+                    )}</p>
       
                     <div class="main_page4_first_one_one_main_one_chart">
                       <canvas
@@ -1876,7 +1928,11 @@ module.exports = {
                         style="max-width: 158px; margin: auto; height: 158px"
                       ></canvas>
                     </div>
-                    <p class="text-2xl ls-1 m-0">OCCUPIED:150</p>
+                    <p class="text-2xl ls-1 m-0">OCCUPIED:${numberWithCommas(
+                      Math.ceil(
+                        affordable_apartment_occupied + affordable_row_occupied
+                      )
+                    )}</p>
                   </div>
                   <div class="main_page3_first_one_break"></div>
       
@@ -1885,10 +1941,20 @@ module.exports = {
                       UNAFFORDABLE STOCKS
                     </div>
                     <p class="text-sm fw-light m-0">
-                      Out of a total unaffordable supply of 1,850 units, 610 are
+                      Out of a total unaffordable supply of ${Math.ceil(
+                        unaffordable_apartment_available +
+                          unaffordable_row_available +
+                          unaffordable_apartment_occupied +
+                          unaffordable_row_occupied
+                      )} units, ${Math.ceil(
+        unaffordable_apartment_available + unaffordable_row_available
+      )} are
                       available.
                     </p>
-                    <p class="text-2xl ls-1 m-0">AVAILABLE:120</p>
+                    <p class="text-2xl ls-1 m-0">AVAILABLE:${Math.ceil(
+                      unaffordable_apartment_available +
+                        unaffordable_row_available
+                    )}</p>
       
                     <div class="main_page4_first_one_one_main_one_chart">
                       <canvas
@@ -1896,7 +1962,10 @@ module.exports = {
                         style="max-width: 158px; margin: auto; height: 158px"
                       ></canvas>
                     </div>
-                    <p class="text-2xl ls-1 m-0">OCCUPIED:40</p>
+                    <p class="text-2xl ls-1 m-0">OCCUPIED:${Math.ceil(
+                      unaffordable_apartment_occupied +
+                        unaffordable_row_occupied
+                    )}</p>
                   </div>
                 </div>
               </div>
@@ -1907,15 +1976,34 @@ module.exports = {
                   NEW UNITS CONSTRUCTED
                 </div>
                 <p class="text-sm fw-light m-0">
-                  A total of 350 new units were constructed this year, with 210 being
+                  A total of ${numberWithCommas(
+                    Math.ceil(
+                      affordable_apartment_constructed +
+                        affordable_row_constructed +
+                        unaffordable_apartment_constructed +
+                        unaffordable_row_constructed
+                    )
+                  )} new units were constructed this year, with ${numberWithCommas(
+        Math.ceil(affordable_apartment_constructed + affordable_row_constructed)
+      )} being
                   affordable
                 </p>
-                <p class="text-2xl ls-1 m-0">AFFORDABLE:60</p>
+                <p class="text-2xl ls-1 m-0">AFFORDABLE:${numberWithCommas(
+                  Math.ceil(
+                    affordable_apartment_constructed +
+                      affordable_row_constructed
+                  )
+                )}</p>
                 <canvas
                   id="main_page3_first_one_one_main_one_chart32"
                   style="max-width: 200px; margin: auto; height: 200px"
                 ></canvas>
-                <p class="text-2xl ls-1 m-0">UNAFFORDABLE:80</p>
+                <p class="text-2xl ls-1 m-0">UNAFFORDABLE:${numberWithCommas(
+                  Math.ceil(
+                    unaffordable_apartment_constructed +
+                      unaffordable_row_constructed
+                  )
+                )}</p>
               </div>
             </div>
             <div class="main_third_line" style="margin: 2px 0"></div>
@@ -1952,32 +2040,56 @@ module.exports = {
                     </tr>
                     <tr>
                       <td>0 B</td>
-                      <td>$41,000</td>
-                      <td><span class="btn-green">$19,000</span></td>
-                      <td>$40,000</td>
-                      <td><span class="btn-green">$19,000</span></td>
+                      <td>$${numberWithCommas(optimal_incomes[0])}</td>
+                      <td><span class="btn-green">$${numberWithCommas(
+                        Math.abs(optimal_incomes_diff[0])
+                      )}</span></td>
+                      <td>$${numberWithCommas(optimal_incomes[4])}</td>
+                      <td><span class="${
+                        optimal_incomes_diff[4] < 0 ? "btn-red" : "btn-green"
+                      }">$${numberWithCommas(
+        Math.abs(optimal_incomes_diff[4])
+      )}</span></td>
                     </tr>
                     <tr>
-                      <td>1 B</td>
-                      <td>$54,000</td>
-                      <td><span class="btn-green">$6,000</span></td>
-                      <td>$51,000</td>
-                      <td><span class="btn-green">$6,000</span></td>
-                    </tr>
-                    <tr>
-                      <td>2 B</td>
-                      <td>$61,000</td>
-                      <td><span class="btn-red">$1,000</span></td>
-                      <td>$63,000</td>
-                      <td><span class="btn-red">$1,000</span></td>
-                    </tr>
-                    <tr>
-                      <td>3 B +</td>
-                      <td>$65,000</td>
-                      <td><span class="btn-red">$5,000</span></td>
-                      <td>$64,000</td>
-                      <td><span class="btn-red">$5,000</span></td>
-                    </tr>
+                    <td>1 B</td>
+                    <td>$${numberWithCommas(optimal_incomes[1])}</td>
+                    <td><span class="btn-green">$${numberWithCommas(
+                      Math.abs(optimal_incomes_diff[1])
+                    )}</span></td>
+                    <td>$${numberWithCommas(optimal_incomes[5])}</td>
+                    <td><span class="${
+                      optimal_incomes_diff[5] < 0 ? "btn-red" : "btn-green"
+                    }">$${numberWithCommas(
+        Math.abs(optimal_incomes_diff[5])
+      )}</span></td>
+                  </tr>
+                  <tr>
+                  <td>2 B</td>
+                  <td>$${numberWithCommas(optimal_incomes[2])}</td>
+                  <td><span class="btn-green">$${numberWithCommas(
+                    Math.abs(optimal_incomes_diff[2])
+                  )}</span></td>
+                  <td>$${numberWithCommas(optimal_incomes[6])}</td>
+                  <td><span class="${
+                    optimal_incomes_diff[6] < 0 ? "btn-red" : "btn-green"
+                  }">$${numberWithCommas(
+    Math.abs(optimal_incomes_diff[6])
+  )}</span></td>
+                </tr>
+                <tr>
+                <td>3 B+</td>
+                <td>$${numberWithCommas(optimal_incomes[3])}</td>
+                <td><span class="btn-green">$${numberWithCommas(
+                  Math.abs(optimal_incomes_diff[3])
+                )}</span></td>
+                <td>$${numberWithCommas(optimal_incomes[7])}</td>
+                <td><span class="${
+                  optimal_incomes_diff[7] < 0 ? "btn-red" : "btn-green"
+                }">$${numberWithCommas(
+  Math.abs(optimal_incomes_diff[7])
+)}</span></td>
+              </tr>
                   </table>
                 </div>
               </div>
@@ -2410,13 +2522,13 @@ module.exports = {
                   </div>
                   <div class="main_page3_third">
                     <div class="main_page3_first_one_txt ls-2 text-md">
-                      TOTAL RENTAL UNITS
+                      TOTAL RENTAL STOCK
                     </div>
                     <div
                       class="main_page3_first_one_main_head_sub_two ml-2 text-md"
                       style="padding: 8px 12px; letter-spacing: 3px;margin-top:-10px"
                     >
-                      2,100
+                      ${numberWithCommas(apartmentTotal)}
                     </div>
                     <div
                       class="main_page3_first_one_main_head_sub_two ml-2 text-md"
@@ -2428,7 +2540,9 @@ module.exports = {
                         border-radius: 18px;
                       "
                     >
-                      100%
+                      ${Math.ceil(
+                        (affordable_apartment / apartmentTotal) * 100
+                      )}%
                     </div>
                   </div>
                   <div class="main_page4_first_one_one_main">
@@ -2437,11 +2551,11 @@ module.exports = {
                         <p
                           style="
                             margin-right: -15px;
-                            letter-spacing: 5px;
+                            letter-spacing: 3px;
                             font-size: large;
                           "
                         >
-                          AFFORDABLE
+                          AFFORDABLE:${affordable_apartment}
                         </p>
                         <canvas
                           id="main_page4_first_one_one_main_one_chart34"
@@ -2449,12 +2563,12 @@ module.exports = {
                         <p
                           style="
                             margin-left: -15px;
-                            letter-spacing: 5px;
+                            letter-spacing: 3px;
                             font-size: large;
                             margin-top: auto;
                           "
                         >
-                          UNAFFORDABLE
+                          UNAFFORDABLE:${apartmentTotal - affordable_apartment}
                         </p>
                       </div>
                     </div>
@@ -2466,13 +2580,13 @@ module.exports = {
                   </div>
                   <div class="main_page3_third mb-2 text-md">
                     <div class="main_page3_first_one_txt ls-2 text-md">
-                      TOTAL RENTAL UNITS
+                      TOTAL RENTAL STOCK
                     </div>
                     <div
                       class="main_page3_first_one_main_head_sub_two ml-2 text-md"
                       style="padding: 8px 12px; letter-spacing: 3px;margin-top:-10px"
                     >
-                      5,100
+                    ${numberWithCommas(rowTotal)}
                     </div>
                     <div
                       class="main_page3_first_one_main_head_sub_two ml-2 text-md"
@@ -2484,7 +2598,7 @@ module.exports = {
                         border-radius: 18px;
                       "
                     >
-                      100%
+                    ${Math.ceil((affordable_row / rowTotal) * 100)}%
                     </div>
                   </div>
                   <div class="main_page4_first_one_one_main">
@@ -2493,11 +2607,11 @@ module.exports = {
                         <p
                           style="
                             margin-right: -15px;
-                            letter-spacing: 5px;
+                            letter-spacing: 3px;
                             font-size: large;
                           "
                         >
-                          AFFORDABLE
+                          AFFORDABLE:${affordable_row}
                         </p>
                         <canvas
                           id="main_page4_first_one_one_main_one_chart33"
@@ -2505,12 +2619,12 @@ module.exports = {
                         <p
                           style="
                             margin-left: -15px;
-                            letter-spacing: 5px;
+                            letter-spacing: 3px;
                             font-size: large;
                             margin-top: auto;
                           "
                         >
-                          UNAFFORDABLE
+                          UNAFFORDABLE:${rowTotal - affordable_row}
                         </p>
                       </div>
                     </div>
@@ -2535,12 +2649,12 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 40px;
+                              font-size: 37px;
                               margin-right: 0px !important;
                               padding: 5px;
                             "
                           >
-                            200
+                            ${Math.ceil(affordable_apartment_available)}
                           </span>
                         </div>
                         <div
@@ -2549,12 +2663,16 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 23px;
+                              font-size: 20px;
                               margin-right: -5px !important;
                               padding: 5px;
                             "
                           >
-                            5%
+                            ${Math.ceil(
+                              (affordable_apartment_available /
+                                apartmentTotal) *
+                                100
+                            )}%
                           </span>
                         </div>
                       </div>
@@ -2568,12 +2686,12 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 40px;
+                              font-size: 37px;
                               margin-right: 0px !important;
                               padding: 5px;
                             "
                           >
-                            200
+                            ${Math.ceil(unaffordable_apartment_available)}
                           </span>
                         </div>
                         <div
@@ -2582,12 +2700,16 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 23px;
+                              font-size: 20px;
                               margin-right: -5px !important;
                               padding: 5px;
                             "
                           >
-                            5%
+                          ${Math.ceil(
+                            (unaffordable_apartment_available /
+                              apartmentTotal) *
+                              100
+                          )}%
                           </span>
                         </div>
                       </div>
@@ -2612,12 +2734,12 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 40px;
+                              font-size: 37px;
                               margin-right: 0px !important;
                               padding: 5px;
                             "
                           >
-                            200
+                            ${Math.ceil(affordable_row_available)}
                           </span>
                         </div>
                         <div
@@ -2626,12 +2748,14 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 23px;
+                              font-size: 20px;
                               margin-right: -5px !important;
                               padding: 5px;
                             "
                           >
-                            5%
+                          ${Math.ceil(
+                            (affordable_row_available / rowTotal) * 100
+                          )}%
                           </span>
                         </div>
                       </div>
@@ -2645,12 +2769,12 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 40px;
+                              font-size: 37px;
                               margin-right: 0px !important;
                               padding: 5px;
                             "
                           >
-                            200
+                          ${Math.ceil(unaffordable_row_available)}
                           </span>
                         </div>
                         <div
@@ -2659,12 +2783,14 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 23px;
+                              font-size: 20px;
                               margin-right: -5px !important;
                               padding: 5px;
                             "
                           >
-                            5%
+                          ${Math.ceil(
+                            (unaffordable_row_available / rowTotal) * 100
+                          )}%
                           </span>
                         </div>
                       </div>
@@ -2691,12 +2817,12 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 40px;
+                              font-size: 37px;
                               margin-right: 0px !important;
                               padding: 5px;
                             "
                           >
-                            200
+                          ${Math.ceil(affordable_apartment_constructed)}
                           </span>
                         </div>
                         <div
@@ -2705,12 +2831,16 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 23px;
+                              font-size: 20px;
                               margin-right: -5px !important;
                               padding: 5px;
                             "
                           >
-                            5%
+                          ${Math.ceil(
+                            (affordable_apartment_constructed /
+                              apartmentTotal) *
+                              100
+                          )}%
                           </span>
                         </div>
                       </div>
@@ -2724,12 +2854,12 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 40px;
+                              font-size: 37px;
                               margin-right: 0px !important;
                               padding: 5px;
                             "
                           >
-                            200
+                           ${Math.ceil(unaffordable_apartment_constructed)}
                           </span>
                         </div>
                         <div
@@ -2738,12 +2868,16 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 23px;
+                              font-size: 20px;
                               margin-right: -5px !important;
                               padding: 5px;
                             "
                           >
-                            5%
+                          ${Math.ceil(
+                            (unaffordable_apartment_constructed /
+                              apartmentTotal) *
+                              100
+                          )}%
                           </span>
                         </div>
                       </div>
@@ -2765,12 +2899,12 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 40px;
+                              font-size: 37px;
                               margin-right: 0px !important;
                               padding: 5px;
                             "
                           >
-                            200
+                          ${Math.ceil(affordable_row_constructed)}
                           </span>
                         </div>
                         <div
@@ -2779,12 +2913,14 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 23px;
+                              font-size: 20px;
                               margin-right: -5px !important;
                               padding: 5px;
                             "
                           >
-                            5%
+                          ${Math.ceil(
+                            (affordable_row_constructed / rowTotal) * 100
+                          )}%
                           </span>
                         </div>
                       </div>
@@ -2798,12 +2934,12 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 40px;
+                              font-size: 37px;
                               margin-right: 0px !important;
                               padding: 5px;
                             "
                           >
-                            200
+                          ${Math.ceil(unaffordable_row_constructed)}
                           </span>
                         </div>
                         <div
@@ -2812,12 +2948,14 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 23px;
+                              font-size: 20px;
                               margin-right: -5px !important;
                               padding: 5px;
                             "
                           >
-                            5%
+                          ${Math.ceil(
+                            (unaffordable_row_constructed / rowTotal) * 100
+                          )}%
                           </span>
                         </div>
                       </div>
@@ -3381,7 +3519,9 @@ module.exports = {
           const chart9 = new Chart(main_page4_first_one_one_main_one_chart9, {
             type: "pie",
             data: {
-              labels: ["0B:5", "1B:10", "2B:10", "3B+:5"],
+              labels: ["0B:${apaUnitsAva[0]}", "1B:${apaUnitsAva[1]}", "2B:${
+        apaUnitsAva[2]
+      }", "3B+:${apaUnitsAva[3]}"],
               datasets: [
                 {
                   data: [${apaUnitsAva}],
@@ -3451,7 +3591,9 @@ module.exports = {
           const chart11 = new Chart(main_page4_first_one_one_main_one_chart11, {
             type: "pie",
             data: {
-              labels: ["0B:5", "1B:10", "2B:10", "3B+:5"],
+              labels: ["0B:${rowUnitsAva[0]}", "1B:${rowUnitsAva[1]}H", "2B:${
+        rowUnitsAva[2]
+      }", "3B+:${rowUnitsAva[3]}"],
               datasets: [
                 {
                   data: [${rowUnitsAva}],
@@ -4452,7 +4594,17 @@ module.exports = {
               labels: ["0B", "3B+"],
               datasets: [
                 {
-                  data: [2250, 1850],
+                  data: [${Math.ceil(
+                    affordable_apartment_available +
+                      affordable_apartment_constructed +
+                      affordable_row_available +
+                      affordable_row_constructed
+                  )}, ${Math.ceil(
+        unaffordable_apartment_available +
+          unaffordable_apartment_constructed +
+          unaffordable_row_available +
+          unaffordable_row_constructed
+      )}],
                   backgroundColor: ["#c2ac7f", "#683733"],
                 },
               ],
@@ -4538,7 +4690,11 @@ module.exports = {
               labels: ["0B", "3B+"],
               datasets: [
                 {
-                  data: [1125, 1125],
+                  data: [${Math.ceil(
+                    affordable_apartment_available + affordable_row_available
+                  )}, ${Math.ceil(
+        affordable_apartment_occupied + affordable_row_occupied
+      )}],
                   backgroundColor: ["#c2ac7f", "#683733"],
                 },
               ],
@@ -4570,7 +4726,12 @@ module.exports = {
               labels: ["0B", "3B+"],
               datasets: [
                 {
-                  data: [610, 1240],
+                  data: [${Math.ceil(
+                    unaffordable_apartment_available +
+                      unaffordable_row_available
+                  )}, ${Math.ceil(
+        unaffordable_apartment_occupied + unaffordable_row_occupied
+      )}],
                   backgroundColor: ["#c2ac7f", "#683733"],
                 },
               ],
@@ -4607,7 +4768,12 @@ module.exports = {
               labels: ["0B", "3B+"],
               datasets: [
                 {
-                  data: [210, 140],
+                  data: [${Math.ceil(
+                    affordable_apartment_constructed +
+                      affordable_row_constructed
+                  )}, ${Math.ceil(
+        unaffordable_apartment_constructed + unaffordable_row_constructed
+      )}],
                   backgroundColor: ["#c2ac7f", "#683733"],
                 },
               ],
@@ -4639,7 +4805,7 @@ module.exports = {
               labels: ["UNAFFORDABLE", "AFFORDABLE"],
               datasets: [
                 {
-                  data: [800, 1200],
+                  data: [${affordable_row}, ${rowTotal - affordable_row}],
                   backgroundColor: ["#c2ac7f", "#683733"],
                 },
               ],
@@ -4671,7 +4837,9 @@ module.exports = {
               labels: ["UNAFFORDABLE", "AFFORDABLE"],
               datasets: [
                 {
-                  data: [1050, 1050],
+                  data: [${affordable_apartment}, ${
+        apartmentTotal - affordable_apartment
+      }],
                   backgroundColor: ["#c2ac7f", "#683733"],
                 },
               ],
