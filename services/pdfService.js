@@ -1856,14 +1856,16 @@ module.exports = {
                 style="letter-spacing: 8px;margin-top: 3px"
               >
                 ${numberWithCommas(
-                  affordable_apartment_available +
-                    affordable_apartment_constructed +
-                    affordable_row_available +
-                    affordable_row_constructed +
-                    unaffordable_apartment_available +
-                    unaffordable_apartment_constructed +
-                    unaffordable_row_available +
-                    unaffordable_row_constructed
+                  Math.ceil(
+                    affordable_apartment_available +
+                      affordable_apartment_constructed +
+                      affordable_row_available +
+                      affordable_row_constructed +
+                      unaffordable_apartment_available +
+                      unaffordable_apartment_constructed +
+                      unaffordable_row_available +
+                      unaffordable_row_constructed
+                  )
                 )}
               </div>
             </div>
@@ -1882,14 +1884,16 @@ module.exports = {
                   </div>
                   <p class="fw-light m-0" style="font-size:12px">
                     Out of a total supply of ${numberWithCommas(
-                      affordable_apartment_available +
-                        affordable_apartment_constructed +
-                        affordable_row_available +
-                        affordable_row_constructed +
-                        unaffordable_apartment_available +
-                        unaffordable_apartment_constructed +
-                        unaffordable_row_available +
-                        unaffordable_row_constructed
+                      Math.ceil(
+                        affordable_apartment_available +
+                          affordable_apartment_constructed +
+                          affordable_row_available +
+                          affordable_row_constructed +
+                          unaffordable_apartment_available +
+                          unaffordable_apartment_constructed +
+                          unaffordable_row_available +
+                          unaffordable_row_constructed
+                      )
                     )} units, ${numberWithCommas(
         Math.ceil(
           affordable_apartment_available +
