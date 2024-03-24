@@ -114,6 +114,8 @@ module.exports = {
         graph_4_3_average_rent_apa,
         graph_4_3_average_rent_row,
         graph_4_3_utility,
+        graph_4_1_cma,
+        graph_4_1_province,
       } = data;
 
       let obj1, obj2, obj3, obj4;
@@ -4134,18 +4136,22 @@ module.exports = {
           const chart21 = new Chart(main_page6_first_one_charts_one_21, {
             type: "bar", // Chart type
             data: {
-              labels: ["No bedroom", "1 bedroom", "2 bedroom", "3 bedroom"], // Data labels
+              labels: ["No bedroom", "1 bedroom", "2 bedroom", "3+ bedroom"], // Data labels
               datasets: [
                 {
                   label: "CMA", // Dataset label
-                  data: [100, 120, 150, 180], // Data values
+                  data: [${graph_4_1_cma[0]}, ${graph_4_1_cma[1]}, ${
+        graph_4_1_cma[2]
+      }, ${graph_4_1_cma[3]}], // Data values
                   backgroundColor: "#683733", // Bar background color
                   borderColor: "#683733", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
                   label: "Province", // Dataset label
-                  data: [200, 120, 150, 180], // Data values
+                  data: [${graph_4_1_province[0]} ,${graph_4_1_province[1]},${
+        graph_4_1_province[2]
+      },${graph_4_1_province[3]}],
                   backgroundColor: "#5e6043", // Bar background color
                   borderColor: "#5e6043", // Bar border color
                   borderWidth: 2, // Bar border width
@@ -4201,14 +4207,18 @@ module.exports = {
               datasets: [
                 {
                   label: "CMA", // Dataset label
-                  data: [100, 120, 150, 180], // Data values
+                  data: [${graph_4_1_cma[4]} ,${graph_4_1_cma[5]},${
+        graph_4_1_cma[6]
+      },${graph_4_1_cma[7]}], // Data values
                   backgroundColor: "#683733", // Bar background color
                   borderColor: "#683733", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
                   label: "Province", // Dataset label
-                  data: [200, 120, 150, 180], // Data values
+                  data: [${graph_4_1_province[4]} ,${graph_4_1_province[5]},${
+        graph_4_1_province[6]
+      },${graph_4_1_province[7]}],
                   backgroundColor: "#5e6043", // Bar background color
                   borderColor: "#5e6043", // Bar border color
                   borderWidth: 2, // Bar border width

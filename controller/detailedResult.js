@@ -274,9 +274,6 @@ module.exports = {
         if (rent_source === "Average Listing Rent") {
           ele.rent_value = Math.ceil(ele.rent_value * multiplier?.rent);
         }
-        ele.dataValues.shelter_cost = Math.ceil(
-          ele.rent_value * multiplier?.utility
-        );
         current_shelter_cost += ele.shelter_cost;
       });
 
@@ -886,7 +883,6 @@ module.exports = {
             cma: "NA",
             ca: "NA",
           });
-
           let row = 0;
           let apa = 0;
           rents.map((eke) => {
@@ -900,7 +896,73 @@ module.exports = {
           graph_4_3_average_rent_apa.push(Math.ceil(apa / 4));
         })
       );
-
+      let graph_4_1_province = [0, 0, 0, 0, 0, 0, 0, 0];
+      let graph_4_1_cma = [0, 0, 0, 0, 0, 0, 0, 0];
+      let graph_4_1_canada = [0, 0, 0, 0, 0, 0, 0, 0];
+      const rentCma = await Services.rentService.getAlls({
+        province,
+        cma,
+        ca,
+        year,
+      });
+      rentCma.map((ele) => {
+        if (rent_source === "Average Listing Rent") {
+          ele.rent_value = Math.ceil(ele.rent_value * multiplier?.rent);
+        }
+        if (ele.house_type === "Row") {
+          if (ele.bedroom_type === "0 Bedroom") {
+            graph_4_1_cma[0] = ele.rent_value;
+          } else if (ele.bedroom_type === "1 Bedroom") {
+            graph_4_1_cma[1] = ele.rent_value;
+          } else if (ele.bedroom_type === "2 Bedroom") {
+            graph_4_1_cma[2] = ele.rent_value;
+          } else {
+            graph_4_1_cma[3] = ele.rent_value;
+          }
+        } else {
+          if (ele.bedroom_type === "0 Bedroom") {
+            graph_4_1_cma[4] = ele.rent_value;
+          } else if (ele.bedroom_type === "1 Bedroom") {
+            graph_4_1_cma[5] = ele.rent_value;
+          } else if (ele.bedroom_type === "2 Bedroom") {
+            graph_4_1_cma[6] = ele.rent_value;
+          } else {
+            graph_4_1_cma[7] = ele.rent_value;
+          }
+        }
+      });
+      const rentProvince = await Services.rentService.getAlls({
+        province,
+        cma: "NA",
+        ca: "NA",
+        year,
+      });
+      rentProvince.map((ele) => {
+        if (rent_source === "Average Listing Rent") {
+          ele.rent_value = Math.ceil(ele.rent_value * multiplier?.rent);
+        }
+        if (ele.house_type === "Row") {
+          if (ele.bedroom_type === "0 Bedroom") {
+            graph_4_1_province[0] = ele.rent_value;
+          } else if (ele.bedroom_type === "1 Bedroom") {
+            graph_4_1_province[1] = ele.rent_value;
+          } else if (ele.bedroom_type === "2 Bedroom") {
+            graph_4_1_province[2] = ele.rent_value;
+          } else {
+            graph_4_1_province[3] = ele.rent_value;
+          }
+        } else {
+          if (ele.bedroom_type === "0 Bedroom") {
+            graph_4_1_province[4] = ele.rent_value;
+          } else if (ele.bedroom_type === "1 Bedroom") {
+            graph_4_1_province[5] = ele.rent_value;
+          } else if (ele.bedroom_type === "2 Bedroom") {
+            graph_4_1_province[6] = ele.rent_value;
+          } else {
+            graph_4_1_province[7] = ele.rent_value;
+          }
+        }
+      });
       // return res.json({
       //   province,
       //   geography,
@@ -1041,6 +1103,8 @@ module.exports = {
         graph_4_3_average_rent_apa,
         graph_4_3_average_rent_row,
         graph_4_3_utility,
+        graph_4_1_cma,
+        graph_4_1_province,
       });
 
       return res.json(link);
