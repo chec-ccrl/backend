@@ -1957,8 +1957,7 @@ module.exports = {
                           unaffordable_row_occupied
                       )} units, ${Math.ceil(
         unaffordable_apartment_available + unaffordable_row_available
-      )} are
-                      available.
+      )} are available.
                     </p>
                     <p class="text-2xl ls-1 m-0">AVAILABLE:${Math.ceil(
                       unaffordable_apartment_available +
