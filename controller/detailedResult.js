@@ -6,6 +6,21 @@ const bedroom_type_const = [
   "3 Bedroom +",
 ];
 const house_type_const = ["Apartment", "Row"];
+const provincesMap = new Map([
+  ["Newfoundland and Labrador", "NL"],
+  ["Prince Edward Island", "PE"],
+  ["Nova Scotia", "NS"],
+  ["New Brunswick", "NB"],
+  ["Quebec", "QC"],
+  ["Ontario", "ON"],
+  ["Manitoba", "MB"],
+  ["Saskatchewan", "SK"],
+  ["Alberta", "AB"],
+  ["British Columbia", "BC"],
+  ["Yukon", "YT"],
+  ["Northwest Territories", "NT"],
+  ["Nunavut", "NU"],
+]);
 
 module.exports = {
   result: async (req, res, next) => {
@@ -810,6 +825,82 @@ module.exports = {
           }
         }
       });
+
+      const provinceList = await Services.provinceListService.getAllProvinces(
+        {}
+      );
+      let graph_4_3_utility = [];
+      let graph_4_3_abbr = [];
+      let graph_4_3_affordable = [];
+      let graph_4_3_average_rent_row = [];
+      let graph_4_3_average_rent_apa = [];
+      await Promise.all(
+        provinceList.map(async (ele) => {
+          let abbr = provincesMap.get(ele.province);
+          graph_4_3_abbr.push(`"${abbr}"`);
+          const multiplier = await Services.multiplierService.getAllFr({
+            province: ele.province,
+            year,
+          });
+          graph_4_3_utility.push(multiplier.result[0].average_utility);
+          const canadaIncomeSurveyDetails =
+            await Services.canadaIncomeSurveyService.getAlls({
+              province: ele.province,
+              year,
+              cma: "NA",
+              ca: "NA",
+            });
+          let affordable_rent = 0;
+          canadaIncomeSurveyDetails.map((eke) => {
+            if (eke.income_bracket === "$100,000 and over") {
+              affordable_rent +=
+                (2500 * eke.percentage_of_family_total_income) / 100;
+            } else if (eke.income_bracket === "$80,000 to $99,999") {
+              affordable_rent +=
+                (2000 * eke.percentage_of_family_total_income) / 100;
+            } else if (eke.income_bracket === "$60,000 to $79,999") {
+              affordable_rent +=
+                (1800 * eke.percentage_of_family_total_income) / 100;
+            } else if (eke.income_bracket === "$50,000 to $59,999") {
+              affordable_rent +=
+                (1250 * eke.percentage_of_family_total_income) / 100;
+            } else if (eke.income_bracket === "$40,000 to $49,999") {
+              affordable_rent +=
+                (1000 * eke.percentage_of_family_total_income) / 100;
+            } else if (eke.income_bracket === "$30,000 to $39,999") {
+              affordable_rent +=
+                (750 * eke.percentage_of_family_total_income) / 100;
+            } else if (eke.income_bracket === "$20,000 to $29,999") {
+              affordable_rent +=
+                (500 * eke.percentage_of_family_total_income) / 100;
+            } else if (eke.income_bracket === "$10,000 to $19,999") {
+              affordable_rent +=
+                (250 * eke.percentage_of_family_total_income) / 100;
+            }
+          });
+          graph_4_3_affordable.push(Math.ceil(affordable_rent));
+
+          const rents = await Services.rentService.getAlls({
+            province: ele.province,
+            year,
+            cma: "NA",
+            ca: "NA",
+          });
+
+          let row = 0;
+          let apa = 0;
+          rents.map((eke) => {
+            if (eke.house_type === "Row") {
+              row += eke.rent_value;
+            } else {
+              apa += eke.rent_value;
+            }
+          });
+          graph_4_3_average_rent_row.push(Math.ceil(row / 4));
+          graph_4_3_average_rent_apa.push(Math.ceil(apa / 4));
+        })
+      );
+
       // return res.json({
       //   province,
       //   geography,
@@ -870,6 +961,11 @@ module.exports = {
       //   affordable_row_constructed,
       //   optimal_incomes,
       //   optimal_incomes_diff,
+      //   graph_4_3_abbr,
+      //   graph_4_3_affordable,
+      //   graph_4_3_average_rent_apa,
+      //   graph_4_3_average_rent_row,
+      //   graph_4_3_utility,
       // });
 
       const link = await Services.pdfService.detailPdfGenerator({
@@ -940,6 +1036,11 @@ module.exports = {
         mainmainObj,
         optimal_incomes,
         optimal_incomes_diff,
+        graph_4_3_abbr,
+        graph_4_3_affordable,
+        graph_4_3_average_rent_apa,
+        graph_4_3_average_rent_row,
+        graph_4_3_utility,
       });
 
       return res.json(link);

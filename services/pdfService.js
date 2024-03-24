@@ -109,6 +109,11 @@ module.exports = {
         averageRent,
         optimal_incomes,
         optimal_incomes_diff,
+        graph_4_3_abbr,
+        graph_4_3_affordable,
+        graph_4_3_average_rent_apa,
+        graph_4_3_average_rent_row,
+        graph_4_3_utility,
       } = data;
 
       let obj1, obj2, obj3, obj4;
@@ -2018,13 +2023,26 @@ module.exports = {
                 class="main_page3_first_one_main_head_sub_two ml-1"
                 style="letter-spacing: 3px;height:30px "
               >
-                $${numberWithCommas(
-                  Number(median_household_income_before_tax_raw)
-                )}
+                $${
+                  affordability === "30% of Gross Income" ||
+                  affordability === "Both Definations"
+                    ? numberWithCommas(
+                        Number(median_household_income_before_tax_raw)
+                      )
+                    : numberWithCommas(
+                        Number(median_household_income_after_tax)
+                      )
+                }
               </div>
               </div>
                 <div class="main_page3_first_one_sub2 text-xl fw-light ls-2">
-                  BEFORE TAX
+                ${
+                  affordability === "30% of Gross Income" ||
+                  affordability === "Both Definations"
+                    ? `BEFORE TAX`
+                    : "AFTER TAX"
+                }
+                
                 </div>
                 <div>
                   <table class="fw-bold half_width_table">
@@ -2074,8 +2092,8 @@ module.exports = {
                   <td><span class="${
                     optimal_incomes_diff[6] < 0 ? "btn-red" : "btn-green"
                   }">$${numberWithCommas(
-    Math.abs(optimal_incomes_diff[6])
-  )}</span></td>
+        Math.abs(optimal_incomes_diff[6])
+      )}</span></td>
                 </tr>
                 <tr>
                 <td>3 B+</td>
@@ -2087,8 +2105,8 @@ module.exports = {
                 <td><span class="${
                   optimal_incomes_diff[7] < 0 ? "btn-red" : "btn-green"
                 }">$${numberWithCommas(
-  Math.abs(optimal_incomes_diff[7])
-)}</span></td>
+        Math.abs(optimal_incomes_diff[7])
+      )}</span></td>
               </tr>
                   </table>
                 </div>
@@ -4360,25 +4378,25 @@ module.exports = {
           const chart25 = new Chart(main_page6_first_one_charts_one_25, {
             type: "bar", // Chart type
             data: {
-              labels: ["AB", "BC", "MB", "NB", "NL", "NS", "ON", "PE", "QC", "SK"], // Data labels
+              labels: [${graph_4_3_abbr}], // Data labels
               datasets: [
                 {
                   label: "CMA", // Dataset label
-                  data: [10, 1, 2, 5, 8, 10, 15, 5, 8, 9], // Data values
+                  data: [${graph_4_3_utility}], // Data values
                   backgroundColor: "#c2ac7f", // Bar background color
                   borderColor: "#c2ac7f", // Bar border color
                   // borderWidth: 1, // Bar border width
                 },
                 {
                   label: "CMA", // Dataset label
-                  data: [15, 2, 3, 7, 8, 10, 13, 6, 16, 20], // Data values
+                  data: [${graph_4_3_affordable}], // Data values
                   backgroundColor: "#683733", // Bar background color
                   borderColor: "#683733", // Bar border color
                   // borderWidth: 1, // Bar border width
                 },
                 {
                   label: "CMA", // Dataset label
-                  data: [20, 3, 5, 10, 12, 15, 20, 9, 25, 30], // Data values
+                  data: [${graph_4_3_average_rent_apa}], // Data values
                   backgroundColor: "#4c3848", // Bar background color
                   borderColor: "#4c3848", // Bar border color
                   // borderWidth: 1, // Bar border width
@@ -4424,25 +4442,25 @@ module.exports = {
           const chart26 = new Chart(main_page6_first_one_charts_two_26, {
             type: "bar", // Chart type
             data: {
-              labels: ["AB", "BC", "MB", "NB", "NL", "NS", "ON", "PE", "QC", "SK"], // Data labels
+              labels: [${graph_4_3_abbr}], // Data labels
               datasets: [
                 {
                   label: "CMA", // Dataset label
-                  data: [10, 1, 2, 5, 8, 10, 15, 5, 8, 9], // Data values
+                  data: [${graph_4_3_utility}], // Data values
                   backgroundColor: "#c2ac7f", // Bar background color
                   borderColor: "#c2ac7f", // Bar border color
                   // borderWidth: 1, // Bar border width
                 },
                 {
                   label: "CMA", // Dataset label
-                  data: [15, 2, 3, 7, 8, 10, 13, 6, 16, 20], // Data values
+                  data: [${graph_4_3_affordable}], // Data values
                   backgroundColor: "#683733", // Bar background color
                   borderColor: "#683733", // Bar border color
                   // borderWidth: 1, // Bar border width
                 },
                 {
                   label: "CMA", // Dataset label
-                  data: [20, 3, 5, 10, 12, 15, 20, 9, 25, 30], // Data values
+                  data: [${graph_4_3_average_rent_row}], // Data values
                   backgroundColor: "#4c3848", // Bar background color
                   borderColor: "#4c3848", // Bar border color
                   // borderWidth: 1, // Bar border width
