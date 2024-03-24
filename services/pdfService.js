@@ -1855,7 +1855,16 @@ module.exports = {
                 class="main_page3_first_one_main_head_sub_two ml-4"
                 style="letter-spacing: 8px;margin-top: 3px"
               >
-                ${numberWithCommas(apartmentTotal + rowTotal)}
+                ${numberWithCommas(
+                  affordable_apartment_available +
+                    affordable_apartment_constructed +
+                    affordable_row_available +
+                    affordable_row_constructed +
+                    unaffordable_apartment_available +
+                    unaffordable_apartment_constructed +
+                    unaffordable_row_available +
+                    unaffordable_row_constructed
+                )}
               </div>
             </div>
             <p
@@ -1871,9 +1880,16 @@ module.exports = {
                   <div class="main_page3_first_one_txt" style="letter-spacing: 6px">
                     AFFORDABILITY OVERVIEW
                   </div>
-                  <p class="text-sm fw-light m-0">
+                  <p class="fw-light m-0" style="font-size:12px">
                     Out of a total supply of ${numberWithCommas(
-                      apartmentTotal + rowTotal
+                      affordable_apartment_available +
+                        affordable_apartment_constructed +
+                        affordable_row_available +
+                        affordable_row_constructed +
+                        unaffordable_apartment_available +
+                        unaffordable_apartment_constructed +
+                        unaffordable_row_available +
+                        unaffordable_row_constructed
                     )} units, ${numberWithCommas(
         Math.ceil(
           affordable_apartment_available +
@@ -1913,7 +1929,7 @@ module.exports = {
                     <div class="main_page4_first_one_one_main_one_head mx-2">
                       AFFORDABLE STOCKS
                     </div>
-                    <p class="text-sm fw-light m-0">
+                    <p class="fw-light m-0" style="font-size:12px">
                       Out of a total affordable supply of  ${Math.ceil(
                         affordable_apartment_available +
                           affordable_row_available +
@@ -1921,8 +1937,7 @@ module.exports = {
                           affordable_row_occupied
                       )} units, ${numberWithCommas(
         Math.ceil(affordable_apartment_available + affordable_row_available)
-      )} are
-                      available.
+      )} are available.
                     </p>
                     <p class="text-2xl ls-1 m-0">AVAILABLE:${numberWithCommas(
                       Math.ceil(
@@ -1949,7 +1964,7 @@ module.exports = {
                     <div class="main_page4_first_one_one_main_one_head">
                       UNAFFORDABLE STOCKS
                     </div>
-                    <p class="text-sm fw-light m-0">
+                    <p class="fw-light m-0" style="font-size:12px">
                       Out of a total unaffordable supply of ${Math.ceil(
                         unaffordable_apartment_available +
                           unaffordable_row_available +
@@ -1957,8 +1972,7 @@ module.exports = {
                           unaffordable_row_occupied
                       )} units, ${Math.ceil(
         unaffordable_apartment_available + unaffordable_row_available
-      )} are available.
-                    </p>
+      )} are available.</p>
                     <p class="text-2xl ls-1 m-0">AVAILABLE:${Math.ceil(
                       unaffordable_apartment_available +
                         unaffordable_row_available
@@ -1983,7 +1997,7 @@ module.exports = {
                 <div class="main_page3_first_one_txt" style="letter-spacing: 6px">
                   NEW UNITS CONSTRUCTED
                 </div>
-                <p class="text-sm fw-light m-0">
+                <p class="fw-light m-0" style="font-size:12px">
                   A total of ${numberWithCommas(
                     Math.ceil(
                       affordable_apartment_constructed +
