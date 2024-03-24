@@ -848,6 +848,7 @@ module.exports = {
               ca: "NA",
             });
           let affordable_rent = 0;
+
           canadaIncomeSurveyDetails.map((eke) => {
             if (eke.income_bracket === "$100,000 and over") {
               affordable_rent +=
@@ -896,6 +897,28 @@ module.exports = {
           graph_4_3_average_rent_apa.push(Math.ceil(apa / 4));
         })
       );
+      let graph_3_1 = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+      canadaIncomeSurveyDetails.map((eke) => {
+        if (eke.income_bracket === "$100,000 and over") {
+          graph_3_1[8] = eke.percentage_of_family_after_tax_income;
+        } else if (eke.income_bracket === "$80,000 to $99,999") {
+          graph_3_1[7] = eke.percentage_of_family_after_tax_income;
+        } else if (eke.income_bracket === "$60,000 to $79,999") {
+          graph_3_1[6] = eke.percentage_of_family_after_tax_income;
+        } else if (eke.income_bracket === "$50,000 to $59,999") {
+          graph_3_1[5] = eke.percentage_of_family_after_tax_income;
+        } else if (eke.income_bracket === "$40,000 to $49,999") {
+          graph_3_1[4] = eke.percentage_of_family_after_tax_income;
+        } else if (eke.income_bracket === "$30,000 to $39,999") {
+          graph_3_1[3] = eke.percentage_of_family_after_tax_income;
+        } else if (eke.income_bracket === "$20,000 to $29,999") {
+          graph_3_1[2] = eke.percentage_of_family_after_tax_income;
+        } else if (eke.income_bracket === "$10,000 to $19,999") {
+          graph_3_1[1] = eke.percentage_of_family_after_tax_income;
+        } else {
+          graph_3_1[0] = eke.percentage_of_family_after_tax_income;
+        }
+      });
       let graph_4_1_province = [0, 0, 0, 0, 0, 0, 0, 0];
       let graph_4_1_cma = [0, 0, 0, 0, 0, 0, 0, 0];
       let graph_4_1_canada = [0, 0, 0, 0, 0, 0, 0, 0];
@@ -1138,6 +1161,7 @@ module.exports = {
         graph_4_1_cma,
         graph_4_1_province,
         graph_4_1_canada,
+        graph_3_1,
       });
 
       return res.json(link);

@@ -117,6 +117,7 @@ module.exports = {
         graph_4_1_cma,
         graph_4_1_province,
         graph_4_1_canada,
+        graph_3_1,
       } = data;
 
       let obj1, obj2, obj3, obj4;
@@ -3018,7 +3019,9 @@ module.exports = {
           </h1>
           <p style="text-align: center; font-weight: 600" class="text-lg">
             <span class="bg-yellow p-1 px-2" style="border-radius: 5px"
-              >OPTIMAL INCOME : $40,000</span
+              >OPTIMAL INCOME : $${numberWithCommas(
+                Math.ceil(averageRent)
+              )}</span
             >
           </p>
           <div class="flex" style="margin: auto 80px">
@@ -3866,7 +3869,7 @@ module.exports = {
               datasets: [
                 {
                   label: "CMA", // Dataset label
-                  data: [5, 4, 18, 17, 15, 10, 5, 15, 10], // Data values
+                  data: [${graph_3_1}], // Data values
                   backgroundColor: [
                     "#bb1823",
                     "#bb1823",
