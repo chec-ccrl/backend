@@ -116,6 +116,7 @@ module.exports = {
         graph_4_3_utility,
         graph_4_1_cma,
         graph_4_1_province,
+        graph_4_1_canada,
       } = data;
 
       let obj1, obj2, obj3, obj4;
@@ -4158,7 +4159,9 @@ module.exports = {
                 },
                 {
                   label: "CANADA", // Dataset label
-                  data: [50, 120, 150, 180], // Data values
+                  data: [${graph_4_1_canada[0]} ,${graph_4_1_canada[1]},${
+        graph_4_1_canada[2]
+      },${graph_4_1_canada[3]}],
                   backgroundColor: "#4c3848", // Bar background color
                   borderColor: "#4c3848", // Bar border color
                   borderWidth: 2, // Bar border width
@@ -4225,7 +4228,9 @@ module.exports = {
                 },
                 {
                   label: "CANADA", // Dataset label
-                  data: [50, 120, 150, 180], // Data values
+                  data: [${graph_4_1_canada[4]} ,${graph_4_1_canada[5]},${
+        graph_4_1_canada[6]
+      },${graph_4_1_canada[7]}],
                   backgroundColor: "#4c3848", // Bar background color
                   borderColor: "#4c3848", // Bar border color
                   borderWidth: 2, // Bar border width

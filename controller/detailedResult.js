@@ -963,6 +963,38 @@ module.exports = {
           }
         }
       });
+      const rentCanada = await Services.rentService.getAlls({
+        province: "Canada",
+        cma: "NA",
+        ca: "NA",
+        year,
+      });
+      rentCanada.map((ele) => {
+        if (rent_source === "Average Listing Rent") {
+          ele.rent_value = Math.ceil(ele.rent_value * multiplier?.rent);
+        }
+        if (ele.house_type === "Row") {
+          if (ele.bedroom_type === "0 Bedroom") {
+            graph_4_1_canada[0] = ele.rent_value;
+          } else if (ele.bedroom_type === "1 Bedroom") {
+            graph_4_1_canada[1] = ele.rent_value;
+          } else if (ele.bedroom_type === "2 Bedroom") {
+            graph_4_1_canada[2] = ele.rent_value;
+          } else {
+            graph_4_1_canada[3] = ele.rent_value;
+          }
+        } else {
+          if (ele.bedroom_type === "0 Bedroom") {
+            graph_4_1_canada[4] = ele.rent_value;
+          } else if (ele.bedroom_type === "1 Bedroom") {
+            graph_4_1_canada[5] = ele.rent_value;
+          } else if (ele.bedroom_type === "2 Bedroom") {
+            graph_4_1_canada[6] = ele.rent_value;
+          } else {
+            graph_4_1_canada[7] = ele.rent_value;
+          }
+        }
+      });
       // return res.json({
       //   province,
       //   geography,
@@ -1105,6 +1137,7 @@ module.exports = {
         graph_4_3_utility,
         graph_4_1_cma,
         graph_4_1_province,
+        graph_4_1_canada,
       });
 
       return res.json(link);
