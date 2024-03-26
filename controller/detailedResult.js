@@ -308,7 +308,7 @@ module.exports = {
           rentDetailsRow.map((ele) => {
             rowval += ele.rent_value;
           });
-          rowval = rowval / rentDetailsRow.length;
+          rowval = rowval / 4;
 
           const rentDetailsApa = await Services.rentService.getAlls({
             province,
@@ -321,7 +321,7 @@ module.exports = {
           rentDetailsApa.map((ele) => {
             apaval += ele.rent_value;
           });
-          apaval = apaval / rentDetailsApa.length;
+          apaval = apaval / 4;
           historicalGrowthApartment[String(year)] = apaval;
           historicalGrowthRow[String(year)] = rowval;
 
@@ -356,8 +356,21 @@ module.exports = {
 
       for (const year in historicalGrowthRow) {
         if (previousValue === null) {
-          // For the first year, set growth percentage to 0
-          growthRowData[year] = 0;
+          const rentDetailsRow = await Services.rentService.getAlls({
+            province,
+            cma,
+            ca,
+            year: String(Number(year) - 1),
+            house_type: "Row",
+          });
+          let rowval = 0;
+          rentDetailsRow.map((ele) => {
+            rowval += ele.rent_value;
+          });
+          rowval = rowval / 4;
+          const growthPercentage =
+            ((historicalGrowthRow[year] - rowval) / rowval) * 100;
+          growthRowData[year] = Number(growthPercentage.toFixed(1));
         } else {
           // Calculate growth percentage
           const growthPercentage =
@@ -372,8 +385,22 @@ module.exports = {
 
       for (const year in historicalGrowthApartment) {
         if (previousValuee === null) {
+          const rentDetailsRow = await Services.rentService.getAlls({
+            province,
+            cma,
+            ca,
+            year: String(Number(year) - 1),
+            house_type: "Apartment",
+          });
+          let rowval = 0;
+          rentDetailsRow.map((ele) => {
+            rowval += ele.rent_value;
+          });
+          rowval = rowval / 4;
+          const growthPercentage =
+            ((historicalGrowthRow[year] - rowval) / rowval) * 100;
+          growthApartmentData[year] = Number(growthPercentage.toFixed(1));
           // For the first year, set growth percentage to 0
-          growthApartmentData[year] = 0;
         } else {
           // Calculate growth percentage
           const growthPercentage =
@@ -843,7 +870,7 @@ module.exports = {
           const canadaIncomeSurveyDetails =
             await Services.canadaIncomeSurveyService.getAlls({
               province: ele.province,
-              year,
+              year: Number(year),
               cma: "NA",
               ca: "NA",
             });
@@ -851,32 +878,24 @@ module.exports = {
 
           canadaIncomeSurveyDetails.map((eke) => {
             if (eke.income_bracket === "$100,000 and over") {
-              affordable_rent +=
-                (2500 * eke.percentage_of_family_total_income) / 100;
+              affordable_rent += 2500 * eke.percentage_of_family_total_income;
             } else if (eke.income_bracket === "$80,000 to $99,999") {
-              affordable_rent +=
-                (2000 * eke.percentage_of_family_total_income) / 100;
+              affordable_rent += 2000 * eke.percentage_of_family_total_income;
             } else if (eke.income_bracket === "$60,000 to $79,999") {
-              affordable_rent +=
-                (1800 * eke.percentage_of_family_total_income) / 100;
+              affordable_rent += 1800 * eke.percentage_of_family_total_income;
             } else if (eke.income_bracket === "$50,000 to $59,999") {
-              affordable_rent +=
-                (1250 * eke.percentage_of_family_total_income) / 100;
+              affordable_rent += 1250 * eke.percentage_of_family_total_income;
             } else if (eke.income_bracket === "$40,000 to $49,999") {
-              affordable_rent +=
-                (1000 * eke.percentage_of_family_total_income) / 100;
+              affordable_rent += 1000 * eke.percentage_of_family_total_income;
             } else if (eke.income_bracket === "$30,000 to $39,999") {
-              affordable_rent +=
-                (750 * eke.percentage_of_family_total_income) / 100;
+              affordable_rent += 750 * eke.percentage_of_family_total_income;
             } else if (eke.income_bracket === "$20,000 to $29,999") {
-              affordable_rent +=
-                (500 * eke.percentage_of_family_total_income) / 100;
+              affordable_rent += 500 * eke.percentage_of_family_total_income;
             } else if (eke.income_bracket === "$10,000 to $19,999") {
-              affordable_rent +=
-                (250 * eke.percentage_of_family_total_income) / 100;
+              affordable_rent += 250 * eke.percentage_of_family_total_income;
             }
           });
-          graph_4_3_affordable.push(Math.ceil(affordable_rent));
+          graph_4_3_affordable.push(Math.ceil(affordable_rent / 100));
 
           const rents = await Services.rentService.getAlls({
             province: ele.province,
@@ -1039,72 +1058,7 @@ module.exports = {
           graph_3_2_val.push(Math.ceil(total));
         })
       );
-      // return res.json({
-      //   province,
-      //   geography,
-      //   year,
-      //   rent_source,
-      //   house_type,
-      //   affordability,
-      //   source_of_cost_of_non_shelter_necessity,
-      //   affordability_ranking,
-      //   province_income_ranking,
-      //   cma_income_ranking,
-      //   cma,
-      //   ca,
-      //   c27l,
-      //   c27v,
-      //   c28l,
-      //   c28v,
-      //   c35l,
-      //   c35v,
-      //   c36l,
-      //   c36v,
-      //   rentDetails,
-      //   median_household_income_before_tax_6_year_v,
-      //   median_household_income_after_tax_6_year_v,
-      //   historicalGrowthRowFinal,
-      //   historicalGrowthApartmentFinal,
-      //   median_household_income_before_tax_raw:
-      //     canadaIncomeSurveyDetails?.[0]?.median_before_tax,
-      //   median_household_income_before_tax,
-      //   median_household_income_after_tax,
-      //   rowTotal,
-      //   apartmentTotal,
-      //   historical_rental_stock_apartment,
-      //   historical_rental_stock_row,
-      //   historical_rental_stock_apartment_growth,
-      //   historical_rental_stock_row_growth,
-      //   rowTotalOccupied,
-      //   apartmentTotalOccupied,
-      //   rowTotalAva: Math.ceil(rowTotalAva),
-      //   apartmentTotalAva: Math.ceil(apartmentTotalAva),
-      //   apaUnitsAva,
-      //   rowUnitsAva,
-      //   cost_of_non_shelter_necessity: Math.ceil(
-      //     cost_of_non_shelter_necessity / 1000
-      //   ),
-      //   apaUnitsAdded,
-      //   rowUnitsAdded,
-      //   rowTotalAdded,
-      //   apartmentTotalAdded,
-      //   mainObj,
-      //   unaffordable_apartment_available,
-      //   unaffordable_row_available,
-      //   affordable_apartment_available,
-      //   affordable_row_available,
-      //   unaffordable_apartment_constructed,
-      //   unaffordable_row_constructed,
-      //   affordable_apartment_constructed,
-      //   affordable_row_constructed,
-      //   optimal_incomes,
-      //   optimal_incomes_diff,
-      //   graph_4_3_abbr,
-      //   graph_4_3_affordable,
-      //   graph_4_3_average_rent_apa,
-      //   graph_4_3_average_rent_row,
-      //   graph_4_3_utility,
-      // });
+
       let house_constructed_all_row = 0;
       let house_constructed_rental_row = 0;
       let house_constructed_owned_row = 0;
@@ -1341,112 +1295,6 @@ module.exports = {
       });
 
       return res.json(link);
-
-      //*************** START 1.15 ************************** */
-
-      //*************** END 1.15 ************************** */
-
-      //*************** START 1.15 & 1.13 ************************** */
-
-      //*************** END 1.15 & 1.13 ************************** */
-
-      //*************** START NO MARKING AVAILABLE ************************** */
-      const affordability_rent_based_30_benchmarch =
-        (median_household_income_before_tax * 0.3) / 12;
-
-      const completeHousing = await Services.completeHousingService.getAll({
-        province,
-        year,
-        cma,
-        ca,
-      });
-      let comrow = 0;
-      let comapa = 0;
-      let comTotalrow = 0;
-      let comTotalapa = 0;
-      completeHousing.map(async (house) => {
-        if (
-          house.intended_market === "Rental" &&
-          house.house_type === "Apartment"
-        ) {
-          comapa += house.units;
-        } else if (
-          house.intended_market === "Rental" &&
-          house.house_type === "Row"
-        ) {
-          comrow += house.units;
-        } else if (
-          house.intended_market === "Total" &&
-          house.house_type === "Row"
-        ) {
-          comTotalrow += house.units;
-        } else if (
-          house.intended_market === "Total" &&
-          house.house_type === "Apartment"
-        ) {
-          comTotalapa += house.units;
-        }
-        dwellingDetails.map((dwelling) => {
-          if (
-            dwelling.house_type === house.house_type &&
-            house.intended_market === "Total"
-          ) {
-            dwelling.total_house_constructed =
-              house.units * dwelling.bedroom_percentage;
-            dwelling.total_houses = house.units;
-          }
-          if (
-            dwelling.house_type === house.house_type &&
-            house.intended_market === "Rental"
-          ) {
-            dwelling.rental_house_constructed =
-              house.units * dwelling.bedroom_percentage;
-            dwelling.rental_houses = house.units;
-          }
-          if (
-            dwelling.house_type === house.house_type &&
-            house.intended_market === "Owned"
-          ) {
-            dwelling.owned_house_constructed =
-              house.units * dwelling.bedroom_percentage;
-            dwelling.owned_houses = house.units;
-          }
-        });
-      });
-
-      const rental_percentage_of_row_houses = (comrow / comTotalrow) * 100;
-      const rental_percentage_of_apartment_houses =
-        (comapa / comTotalapa) * 100;
-
-      rentDetails.map((obj) => {
-        dwellingDetails.map((ele) => {
-          if (
-            ele.house_type === obj.house_type &&
-            ele.bedroom_type === obj.bedroom_type
-          ) {
-            ele.rent_value = obj.rent_value;
-            ele.shelter_cost = obj.shelter_cost;
-          }
-        });
-      });
-
-      dwellingDetails.map((ele) => {
-        if (affordability === "30%" || affordability === "Both") {
-          ele.chmc_house_affordable =
-            ele.rent_value < (0.3 * median_household_income_before_tax) / 12
-              ? true
-              : false;
-        }
-        if (affordability === "Residual" || affordability === "Both") {
-          ele.residual_house_affordable =
-            (median_household_income_after_tax -
-              cost_of_non_shelter_necessity) /
-              12 >
-            ele.rent_value
-              ? true
-              : false;
-        }
-      });
     } catch (error) {
       next(error);
     }
