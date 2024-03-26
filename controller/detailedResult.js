@@ -398,7 +398,7 @@ module.exports = {
           });
           rowval = rowval / 4;
           const growthPercentage =
-            ((historicalGrowthRow[year] - rowval) / rowval) * 100;
+            ((historicalGrowthApartment[year] - rowval) / rowval) * 100;
           growthApartmentData[year] = Number(growthPercentage.toFixed(1));
           // For the first year, set growth percentage to 0
         } else {
@@ -866,7 +866,7 @@ module.exports = {
             province: ele.province,
             year,
           });
-          graph_4_3_utility.push(multiplier.result[0].average_utility);
+          graph_4_3_utility.push(multiplier.result[0].average_utility / 12);
           const canadaIncomeSurveyDetails =
             await Services.canadaIncomeSurveyService.getAlls({
               province: ele.province,
@@ -874,28 +874,12 @@ module.exports = {
               cma: "NA",
               ca: "NA",
             });
-          let affordable_rent = 0;
 
-          canadaIncomeSurveyDetails.map((eke) => {
-            if (eke.income_bracket === "$100,000 and over") {
-              affordable_rent += 2500 * eke.percentage_of_family_total_income;
-            } else if (eke.income_bracket === "$80,000 to $99,999") {
-              affordable_rent += 2000 * eke.percentage_of_family_total_income;
-            } else if (eke.income_bracket === "$60,000 to $79,999") {
-              affordable_rent += 1800 * eke.percentage_of_family_total_income;
-            } else if (eke.income_bracket === "$50,000 to $59,999") {
-              affordable_rent += 1250 * eke.percentage_of_family_total_income;
-            } else if (eke.income_bracket === "$40,000 to $49,999") {
-              affordable_rent += 1000 * eke.percentage_of_family_total_income;
-            } else if (eke.income_bracket === "$30,000 to $39,999") {
-              affordable_rent += 750 * eke.percentage_of_family_total_income;
-            } else if (eke.income_bracket === "$20,000 to $29,999") {
-              affordable_rent += 500 * eke.percentage_of_family_total_income;
-            } else if (eke.income_bracket === "$10,000 to $19,999") {
-              affordable_rent += 250 * eke.percentage_of_family_total_income;
-            }
-          });
-          graph_4_3_affordable.push(Math.ceil(affordable_rent / 100));
+          graph_4_3_affordable.push(
+            Math.ceil(
+              (0.3 * canadaIncomeSurveyDetails[0].median_before_tax) / 12
+            )
+          );
 
           const rents = await Services.rentService.getAlls({
             province: ele.province,
