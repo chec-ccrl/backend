@@ -483,11 +483,19 @@ module.exports = {
           bedroom_percentage: Number(bedroom_percentage.toFixed(2)),
         });
       });
+      let house_constructed_all_row = 0;
+      let house_constructed_rental_row = 0;
+      let house_constructed_owned_row = 0;
+      let house_constructed_all_apa = 0;
+      let house_constructed_rental_apa = 0;
+      let house_constructed_owned_apa = 0;
       let dwellingDetailss = [];
       let apaUnitsAva = [0, 0, 0, 0];
       let rowUnitsAva = [0, 0, 0, 0];
       let apaUnitsAdded = [0, 0, 0, 0];
       let rowUnitsAdded = [0, 0, 0, 0];
+      let bool1 = false,
+        bool2 = false;
       await Promise.all(
         dwellingDetailsa.map(async (ele) => {
           const vacancyRate = await Services.vacancyRateService.getDetail({
@@ -527,6 +535,17 @@ module.exports = {
               intended_market: "Owner",
               house_type: ele.house_type,
             });
+          if (ele.house_type === "Row" && !bool1) {
+            bool1 = true;
+            house_constructed_all_row += completeHousing.units;
+            house_constructed_rental_row += completeHousing2.units;
+            house_constructed_owned_row += completeHousing3.units;
+          } else if (!bool2) {
+            bool2 = true;
+            house_constructed_all_apa += completeHousing.units;
+            house_constructed_rental_apa += completeHousing2.units;
+            house_constructed_owned_apa += completeHousing3.units;
+          }
           let obj = {
             ...ele,
             vacancy_rate: vacancyRate.vacancy_rate,
@@ -1219,23 +1238,6 @@ module.exports = {
         })
       );
       graph_3_2_val.reverse();
-      let house_constructed_all_row = 0;
-      let house_constructed_rental_row = 0;
-      let house_constructed_owned_row = 0;
-      let house_constructed_all_apa = 0;
-      let house_constructed_rental_apa = 0;
-      let house_constructed_owned_apa = 0;
-      dwellingDetailss.map((ele) => {
-        if (ele.house_type === "Row") {
-          house_constructed_all_row += ele.house_constructed_all;
-          house_constructed_rental_row += ele.house_constructed_rental;
-          house_constructed_owned_row += ele.house_constructed_owned;
-        } else {
-          house_constructed_all_apa += ele.house_constructed_all;
-          house_constructed_rental_apa += ele.house_constructed_rental;
-          house_constructed_owned_apa += ele.house_constructed_owned;
-        }
-      });
       const rental_share_row =
         house_constructed_rental_row ?? 1 / house_constructed_all_row ?? 5;
       const owner_share_row =
@@ -1257,6 +1259,8 @@ module.exports = {
       let house_constructed_all_apa_past = 0;
       let house_constructed_rental_apa_past = 0;
       let house_constructed_owned_apa_past = 0;
+      let bool3 = false,
+        bool4 = false;
       await Promise.all(
         dwellingDetailsPast.map(async (ele) => {
           const completeHousing =
@@ -1287,11 +1291,13 @@ module.exports = {
               intended_market: "Owner",
               house_type: ele.house_type,
             });
-          if (ele.house_type === "Row") {
+          if (ele.house_type === "Row" && !bool3) {
+            bool3 = true;
             house_constructed_all_row_past += completeHousing.units;
             house_constructed_rental_row_past += completeHousing2.units;
             house_constructed_owned_row_past += completeHousing3.units;
-          } else {
+          } else if (!bool4) {
+            bool4 = true;
             house_constructed_all_apa_past += completeHousing.units;
             house_constructed_rental_apa_past += completeHousing2.units;
             house_constructed_owned_apa_past += completeHousing3.units;
@@ -1299,6 +1305,22 @@ module.exports = {
         })
       );
 
+      house_constructed_rental_row_past =
+        house_constructed_rental_row_past === 0
+          ? 0.001
+          : house_constructed_rental_row_past;
+      house_constructed_owned_row_past =
+        house_constructed_owned_row_past === 0
+          ? 0.001
+          : house_constructed_owned_row_past;
+      house_constructed_rental_apa_past =
+        house_constructed_rental_apa_past === 0
+          ? 0.001
+          : house_constructed_rental_apa_past;
+      house_constructed_owned_apa_past =
+        house_constructed_owned_apa_past === 0
+          ? 0.001
+          : house_constructed_owned_apa_past;
       const rental_share_row_growth =
         ((house_constructed_rental_row - house_constructed_rental_row_past) /
           house_constructed_rental_row_past) *
