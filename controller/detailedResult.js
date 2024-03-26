@@ -1048,12 +1048,95 @@ module.exports = {
               ca,
             });
           let total = 0;
-          canadaIncomeSurveyDetails.map((ele) => {
-            total +=
-              (ele.median_after_tax -
-                cost_of_non_shelter_necessity -
-                graph_4_1_canada[6]) *
-              (ele.percentage_of_family_after_tax_income / 100);
+          let house = "";
+          if (house_type === "Apartment") {
+            house = "Apartment";
+          } else {
+            house = "Row";
+          }
+          const rentDetail = await Services.rentService.getDetail({
+            province,
+            year: String(years),
+            cma,
+            ca,
+            house_type: house,
+            bedroom_type: "2 Bedroom",
+          });
+          const multiplier = await Services.multiplierService.getDetail({
+            province,
+            cma,
+            ca,
+            year: String(years),
+          });
+          let marketBasketDetails;
+          if (
+            source_of_cost_of_non_shelter_necessity === "Poverty Line Expenses"
+          ) {
+            marketBasketDetails =
+              await Services.marketBasketMeasureService.getDetail({
+                province,
+                year: String(years),
+                cma,
+                ca,
+              });
+          } else {
+            marketBasketDetails =
+              await Services.householdSpendingService.getDetail({
+                province,
+                year: String(years),
+                ca,
+                cma,
+              });
+          }
+          const cost_of_non_shelter_necessity = marketBasketDetails?.cost;
+
+          canadaIncomeSurveyDetails.map((eke) => {
+            if (eke.income_bracket === "$100,000 and over") {
+              let gg = rentDetail.rent_value * multiplier.utility * 12;
+              total +=
+                (100000 - cost_of_non_shelter_necessity - gg) *
+                (eke.percentage_of_family_after_tax_income / 100);
+            } else if (eke.income_bracket === "$80,000 to $99,999") {
+              let gg = rentDetail.rent_value * multiplier.utility * 12;
+              total +=
+                (80000 - cost_of_non_shelter_necessity - gg) *
+                (eke.percentage_of_family_after_tax_income / 100);
+            } else if (eke.income_bracket === "$60,000 to $79,999") {
+              let gg = rentDetail.rent_value * multiplier.utility * 12;
+              total +=
+                (60000 - cost_of_non_shelter_necessity - gg) *
+                (eke.percentage_of_family_after_tax_income / 100);
+            } else if (eke.income_bracket === "$50,000 to $59,999") {
+              let gg = rentDetail.rent_value * multiplier.utility * 12;
+              total +=
+                (50000 - cost_of_non_shelter_necessity - gg) *
+                (eke.percentage_of_family_after_tax_income / 100);
+            } else if (eke.income_bracket === "$40,000 to $49,999") {
+              let gg = rentDetail.rent_value * multiplier.utility * 12;
+              total +=
+                (40000 - cost_of_non_shelter_necessity - gg) *
+                (eke.percentage_of_family_after_tax_income / 100);
+            } else if (eke.income_bracket === "$30,000 to $39,999") {
+              let gg = rentDetail.rent_value * multiplier.utility * 12;
+              total +=
+                (30000 - cost_of_non_shelter_necessity - gg) *
+                (eke.percentage_of_family_after_tax_income / 100);
+            } else if (eke.income_bracket === "$20,000 to $29,999") {
+              let gg = rentDetail.rent_value * multiplier.utility * 12;
+              total +=
+                (20000 - cost_of_non_shelter_necessity - gg) *
+                (eke.percentage_of_family_after_tax_income / 100);
+            } else if (eke.income_bracket === "$10,000 to $19,999") {
+              let gg = rentDetail.rent_value * multiplier.utility * 12;
+              total +=
+                (10000 - cost_of_non_shelter_necessity - gg) *
+                (eke.percentage_of_family_after_tax_income / 100);
+            } else {
+              let gg = rentDetail.rent_value * multiplier.utility * 12;
+              total +=
+                (0 - cost_of_non_shelter_necessity - gg) *
+                (eke.percentage_of_family_after_tax_income / 100);
+            }
           });
           graph_3_2_val.push(Math.ceil(total));
         })
