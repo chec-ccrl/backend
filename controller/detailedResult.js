@@ -871,9 +871,11 @@ module.exports = {
             province: ele.province,
             year,
           });
+
           graph_4_3_utility[`"${abbr}"`] = Math.ceil(
             multiplier.result[0].average_utility / 12
           );
+
           const canadaIncomeSurveyDetails =
             await Services.canadaIncomeSurveyService.getAlls({
               province: ele.province,
@@ -881,10 +883,41 @@ module.exports = {
               cma: "NA",
               ca: "NA",
             });
-
-          graph_4_3_affordable[`"${abbr}"`] = Math.ceil(
-            (0.3 * canadaIncomeSurveyDetails[0].median_before_tax) / 12
-          );
+          if (
+            affordability === "30% of Gross Income" ||
+            affordability === "Both Definations"
+          ) {
+            graph_4_3_affordable[`"${abbr}"`] = Math.ceil(
+              (0.3 * canadaIncomeSurveyDetails[0].median_before_tax) / 12
+            );
+          } else {
+            let marketBasketDetails;
+            if (
+              source_of_cost_of_non_shelter_necessity ===
+              "Poverty Line Expenses"
+            ) {
+              marketBasketDetails =
+                await Services.marketBasketMeasureService.getDetail({
+                  province: ele.province,
+                  year,
+                  cma,
+                  ca,
+                });
+            } else {
+              marketBasketDetails =
+                await Services.householdSpendingService.getDetail({
+                  province: ele.province,
+                  year,
+                  ca,
+                  cma,
+                });
+            }
+            const cost_of_non_shelter_necessity = marketBasketDetails?.cost;
+            graph_4_3_affordable[`"${abbr}"`] =
+              (canadaIncomeSurveyDetails[0].median_before_tax -
+                cost_of_non_shelter_necessity) /
+              12;
+          }
 
           const rents = await Services.rentService.getAlls({
             province: ele.province,
