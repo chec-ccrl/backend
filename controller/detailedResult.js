@@ -953,16 +953,6 @@ module.exports = {
         }
         if (ele.house_type === "Row") {
           if (ele.bedroom_type === "0 Bedroom") {
-            graph_4_1_cma[0] = ele.rent_value;
-          } else if (ele.bedroom_type === "1 Bedroom") {
-            graph_4_1_cma[1] = ele.rent_value;
-          } else if (ele.bedroom_type === "2 Bedroom") {
-            graph_4_1_cma[2] = ele.rent_value;
-          } else {
-            graph_4_1_cma[3] = ele.rent_value;
-          }
-        } else {
-          if (ele.bedroom_type === "0 Bedroom") {
             graph_4_1_cma[4] = ele.rent_value;
           } else if (ele.bedroom_type === "1 Bedroom") {
             graph_4_1_cma[5] = ele.rent_value;
@@ -970,6 +960,16 @@ module.exports = {
             graph_4_1_cma[6] = ele.rent_value;
           } else {
             graph_4_1_cma[7] = ele.rent_value;
+          }
+        } else {
+          if (ele.bedroom_type === "0 Bedroom") {
+            graph_4_1_cma[0] = ele.rent_value;
+          } else if (ele.bedroom_type === "1 Bedroom") {
+            graph_4_1_cma[1] = ele.rent_value;
+          } else if (ele.bedroom_type === "2 Bedroom") {
+            graph_4_1_cma[2] = ele.rent_value;
+          } else {
+            graph_4_1_cma[3] = ele.rent_value;
           }
         }
       });
@@ -985,16 +985,6 @@ module.exports = {
         }
         if (ele.house_type === "Row") {
           if (ele.bedroom_type === "0 Bedroom") {
-            graph_4_1_province[0] = ele.rent_value;
-          } else if (ele.bedroom_type === "1 Bedroom") {
-            graph_4_1_province[1] = ele.rent_value;
-          } else if (ele.bedroom_type === "2 Bedroom") {
-            graph_4_1_province[2] = ele.rent_value;
-          } else {
-            graph_4_1_province[3] = ele.rent_value;
-          }
-        } else {
-          if (ele.bedroom_type === "0 Bedroom") {
             graph_4_1_province[4] = ele.rent_value;
           } else if (ele.bedroom_type === "1 Bedroom") {
             graph_4_1_province[5] = ele.rent_value;
@@ -1002,6 +992,16 @@ module.exports = {
             graph_4_1_province[6] = ele.rent_value;
           } else {
             graph_4_1_province[7] = ele.rent_value;
+          }
+        } else {
+          if (ele.bedroom_type === "0 Bedroom") {
+            graph_4_1_province[0] = ele.rent_value;
+          } else if (ele.bedroom_type === "1 Bedroom") {
+            graph_4_1_province[1] = ele.rent_value;
+          } else if (ele.bedroom_type === "2 Bedroom") {
+            graph_4_1_province[2] = ele.rent_value;
+          } else {
+            graph_4_1_province[3] = ele.rent_value;
           }
         }
       });
