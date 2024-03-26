@@ -685,7 +685,7 @@ module.exports = {
       mainObj.map((ele) => {
         if (
           affordability === "30% of Gross Income" ||
-          affordability === "Both Definations"
+          affordability === "Both Defanitions"
         ) {
           if (ele.affordable) {
             if (ele.house_type === "Apartment") {
