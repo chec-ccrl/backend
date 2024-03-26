@@ -21,6 +21,25 @@ const provincesMap = new Map([
   ["Northwest Territories", "NT"],
   ["Nunavut", "NU"],
 ]);
+function calculateCAGR(values) {
+  // Check if there are enough values to calculate CAGR
+  if (values.length < 2) {
+    return null; // Return null if there are insufficient data points
+  }
+
+  // Calculate the number of years
+  const numYears = values.length - 1;
+
+  // Calculate the CAGR formula: ((End Value / Start Value)^(1 / numYears)) - 1
+  const startValue = values[0];
+  const endValue = values[values.length - 1];
+  const cagr = Math.pow(endValue / startValue, 1 / numYears) - 1;
+
+  // Convert CAGR to percentage
+  const cagrPercentage = cagr * 100;
+
+  return cagrPercentage;
+}
 
 module.exports = {
   result: async (req, res, next) => {
@@ -581,13 +600,14 @@ module.exports = {
       let apartmentTotalOccupied =
         apartmentTotal - Math.ceil(apartmentTotalAva);
 
-      let historical_rental_stock_apartment = [];
-      let historical_rental_stock_row = [];
+      let historical_rental_stock_apartment = [0, 0, 0, 0, 0, 0];
+      let historical_rental_stock_row = [0, 0, 0, 0, 0, 0];
+
       await Promise.all(
-        arrYear.map(async (year) => {
+        arrYear.map(async (years) => {
           const dwellingDetails = await Services.dwellingTypeService.getAlls({
             province,
-            year,
+            year: years,
             cma,
             ca,
           });
@@ -601,32 +621,20 @@ module.exports = {
               rowTotal += ele.units;
             }
           });
-          historical_rental_stock_apartment.push(apartmentTotal);
-          historical_rental_stock_row.push(rowTotal);
+
+          historical_rental_stock_apartment[year - years] = apartmentTotal;
+          historical_rental_stock_row[year - years] = rowTotal;
         })
       );
-      const historical_rental_stock_apartment_growth =
-        Math.round(
-          (Math.pow(
-            historical_rental_stock_apartment[
-              historical_rental_stock_apartment.length - 1
-            ] / historical_rental_stock_apartment[0],
-            1 / arrYear.length
-          ) -
-            1) *
-            10000
-        ) / 100;
-      const historical_rental_stock_row_growth =
-        Math.round(
-          (Math.pow(
-            historical_rental_stock_row[
-              historical_rental_stock_row.length - 1
-            ] / historical_rental_stock_row[0],
-            1 / arrYear.length
-          ) -
-            1) *
-            10000
-        ) / 100;
+      historical_rental_stock_apartment.reverse();
+      historical_rental_stock_row.reverse();
+      const historical_rental_stock_apartment_growth = calculateCAGR(
+        historical_rental_stock_apartment
+      );
+
+      const historical_rental_stock_row_growth = calculateCAGR(
+        historical_rental_stock_row
+      );
       let mainObj = [];
       dwellingDetailss.map((ele) => {
         rentDetails.map((rr) => {
@@ -850,11 +858,11 @@ module.exports = {
       const provinceList = await Services.provinceListService.getAllProvinces(
         {}
       );
-      let graph_4_3_utility = [];
+      let graph_4_3_utility = new Map();
       let graph_4_3_abbr = [];
-      let graph_4_3_affordable = [];
-      let graph_4_3_average_rent_row = [];
-      let graph_4_3_average_rent_apa = [];
+      let graph_4_3_affordable = new Map();
+      let graph_4_3_average_rent_row = new Map();
+      let graph_4_3_average_rent_apa = new Map();
       await Promise.all(
         provinceList.map(async (ele) => {
           let abbr = provincesMap.get(ele.province);
@@ -863,7 +871,9 @@ module.exports = {
             province: ele.province,
             year,
           });
-          graph_4_3_utility.push(multiplier.result[0].average_utility / 12);
+          graph_4_3_utility[`"${abbr}"`] = Math.ceil(
+            multiplier.result[0].average_utility / 12
+          );
           const canadaIncomeSurveyDetails =
             await Services.canadaIncomeSurveyService.getAlls({
               province: ele.province,
@@ -872,10 +882,8 @@ module.exports = {
               ca: "NA",
             });
 
-          graph_4_3_affordable.push(
-            Math.ceil(
-              (0.3 * canadaIncomeSurveyDetails[0].median_before_tax) / 12
-            )
+          graph_4_3_affordable[`"${abbr}"`] = Math.ceil(
+            (0.3 * canadaIncomeSurveyDetails[0].median_before_tax) / 12
           );
 
           const rents = await Services.rentService.getAlls({
@@ -893,8 +901,8 @@ module.exports = {
               apa += eke.rent_value;
             }
           });
-          graph_4_3_average_rent_row.push(Math.ceil(row / 4));
-          graph_4_3_average_rent_apa.push(Math.ceil(apa / 4));
+          graph_4_3_average_rent_row[`"${abbr}"`] = Math.ceil(row / 4);
+          graph_4_3_average_rent_apa[`"${abbr}"`] = Math.ceil(apa / 4);
         })
       );
       let graph_3_1 = [0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -987,9 +995,6 @@ module.exports = {
         year,
       });
       rentCma.map((ele) => {
-        if (rent_source === "Average Listing Rent") {
-          ele.rent_value = Math.ceil(ele.rent_value * multiplier?.rent);
-        }
         if (ele.house_type === "Row") {
           if (ele.bedroom_type === "0 Bedroom") {
             graph_4_1_cma[4] = ele.rent_value;
@@ -1012,6 +1017,7 @@ module.exports = {
           }
         }
       });
+
       const rentProvince = await Services.rentService.getAlls({
         province,
         cma: "NA",
@@ -1019,9 +1025,6 @@ module.exports = {
         year,
       });
       rentProvince.map((ele) => {
-        if (rent_source === "Average Listing Rent") {
-          ele.rent_value = Math.ceil(ele.rent_value * multiplier?.rent);
-        }
         if (ele.house_type === "Row") {
           if (ele.bedroom_type === "0 Bedroom") {
             graph_4_1_province[4] = ele.rent_value;
@@ -1051,9 +1054,6 @@ module.exports = {
         year,
       });
       rentCanada.map((ele) => {
-        if (rent_source === "Average Listing Rent") {
-          ele.rent_value = Math.ceil(ele.rent_value * multiplier?.rent);
-        }
         if (ele.house_type === "Row") {
           if (ele.bedroom_type === "0 Bedroom") {
             graph_4_1_canada[0] = ele.rent_value;
@@ -1076,7 +1076,7 @@ module.exports = {
           }
         }
       });
-      const graph_3_2_val = [];
+      const graph_3_2_val = [0, 0, 0, 0, 0, 0];
       await Promise.all(
         arrYear.map(async (years) => {
           const canadaIncomeSurveyDetails =
@@ -1177,10 +1177,10 @@ module.exports = {
                 (eke.percentage_of_family_after_tax_income / 100);
             }
           });
-          graph_3_2_val.push(Math.ceil(total));
+          graph_3_2_val[Number(year) - Number(years)] = Math.ceil(total);
         })
       );
-
+      graph_3_2_val.reverse();
       let house_constructed_all_row = 0;
       let house_constructed_rental_row = 0;
       let house_constructed_owned_row = 0;

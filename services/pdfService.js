@@ -2294,7 +2294,9 @@ module.exports = {
                       >
                         <span
                           class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                          > ${historical_rental_stock_apartment_growth}%
+                          > ${historical_rental_stock_apartment_growth.toFixed(
+                            1
+                          )}%
                           ${
                             historical_rental_stock_apartment_growth < 0
                               ? `<img
@@ -2348,7 +2350,7 @@ module.exports = {
                       >
                         <span
                           class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                          > ${historical_rental_stock_row_growth}%
+                          > ${historical_rental_stock_row_growth.toFixed(1)}%
                           ${
                             historical_rental_stock_row_growth < 0
                               ? `<img
@@ -3207,7 +3209,7 @@ module.exports = {
               <div class="main_page6_first_one_charts">
                 <div class="main_page6_first_one_charts_one">
                   <div class="main_page5_first_one_txt" style="text-align: center">
-                    BEFORE RENT
+                    BEFORE TAX
                   </div>
                   <canvas
                     id="main_page5_first_one_chart19"
@@ -3217,7 +3219,7 @@ module.exports = {
                 <div class="main_page3_first_one_break"></div>
                 <div class="main_page6_first_one_charts_two">
                   <div class="main_page5_first_one_txt" style="text-align: center">
-                    AFTER RENT
+                    AFTER TAX
                   </div>
                   <canvas
                     id="main_page5_first_one_chart20"
@@ -4454,21 +4456,51 @@ module.exports = {
               datasets: [
                 {
                   label: "CMA", // Dataset label
-                  data: [${graph_4_3_utility}], // Data values
+                  data: [${graph_4_3_utility[graph_4_3_abbr[0]]} ,${
+        graph_4_3_utility[graph_4_3_abbr[1]]
+      } , ${graph_4_3_utility[graph_4_3_abbr[2]]} , ${
+        graph_4_3_utility[graph_4_3_abbr[3]]
+      } , ${graph_4_3_utility[graph_4_3_abbr[4]]} ,${
+        graph_4_3_utility[graph_4_3_abbr[5]]
+      } , ${graph_4_3_utility[graph_4_3_abbr[6]]} , ${
+        graph_4_3_utility[graph_4_3_abbr[7]]
+      } , ${graph_4_3_utility[graph_4_3_abbr[8]]} , ${
+        graph_4_3_utility[graph_4_3_abbr[9]]
+      }], // Data values
                   backgroundColor: "#c2ac7f", // Bar background color
                   borderColor: "#c2ac7f", // Bar border color
                   // borderWidth: 1, // Bar border width
                 },
                 {
                   label: "CMA", // Dataset label
-                  data: [${graph_4_3_affordable}], // Data values
+                  data: [${graph_4_3_affordable[graph_4_3_abbr[0]]} ,${
+        graph_4_3_affordable[graph_4_3_abbr[1]]
+      } , ${graph_4_3_affordable[graph_4_3_abbr[2]]} , ${
+        graph_4_3_affordable[graph_4_3_abbr[3]]
+      } , ${graph_4_3_affordable[graph_4_3_abbr[4]]} ,${
+        graph_4_3_affordable[graph_4_3_abbr[5]]
+      } , ${graph_4_3_affordable[graph_4_3_abbr[6]]} , ${
+        graph_4_3_affordable[graph_4_3_abbr[7]]
+      } , ${graph_4_3_affordable[graph_4_3_abbr[8]]} , ${
+        graph_4_3_affordable[graph_4_3_abbr[9]]
+      }], // Data values
                   backgroundColor: "#683733", // Bar background color
                   borderColor: "#683733", // Bar border color
                   // borderWidth: 1, // Bar border width
                 },
                 {
                   label: "CMA", // Dataset label
-                  data: [${graph_4_3_average_rent_apa}], // Data values
+                  data: [${graph_4_3_average_rent_apa[graph_4_3_abbr[0]]} ,${
+        graph_4_3_average_rent_apa[graph_4_3_abbr[1]]
+      } , ${graph_4_3_average_rent_apa[graph_4_3_abbr[2]]} , ${
+        graph_4_3_average_rent_apa[graph_4_3_abbr[3]]
+      } , ${graph_4_3_average_rent_apa[graph_4_3_abbr[4]]} ,${
+        graph_4_3_average_rent_apa[graph_4_3_abbr[5]]
+      } , ${graph_4_3_average_rent_apa[graph_4_3_abbr[6]]} , ${
+        graph_4_3_average_rent_apa[graph_4_3_abbr[7]]
+      } , ${graph_4_3_average_rent_apa[graph_4_3_abbr[8]]} , ${
+        graph_4_3_average_rent_apa[graph_4_3_abbr[9]]
+      }], // Data values
                   backgroundColor: "#4c3848", // Bar background color
                   borderColor: "#4c3848", // Bar border color
                   // borderWidth: 1, // Bar border width
@@ -4518,21 +4550,51 @@ module.exports = {
               datasets: [
                 {
                   label: "CMA", // Dataset label
-                  data: [${graph_4_3_utility}], // Data values
+                  data: [${graph_4_3_utility[graph_4_3_abbr[0]]} ,${
+        graph_4_3_utility[graph_4_3_abbr[1]]
+      } , ${graph_4_3_utility[graph_4_3_abbr[2]]} , ${
+        graph_4_3_utility[graph_4_3_abbr[3]]
+      } , ${graph_4_3_utility[graph_4_3_abbr[4]]} ,${
+        graph_4_3_utility[graph_4_3_abbr[5]]
+      } , ${graph_4_3_utility[graph_4_3_abbr[6]]} , ${
+        graph_4_3_utility[graph_4_3_abbr[7]]
+      } , ${graph_4_3_utility[graph_4_3_abbr[8]]} , ${
+        graph_4_3_utility[graph_4_3_abbr[9]]
+      }], // Data values
                   backgroundColor: "#c2ac7f", // Bar background color
                   borderColor: "#c2ac7f", // Bar border color
                   // borderWidth: 1, // Bar border width
                 },
                 {
                   label: "CMA", // Dataset label
-                  data: [${graph_4_3_affordable}], // Data values
+                  data: [${graph_4_3_affordable[graph_4_3_abbr[0]]} ,${
+        graph_4_3_affordable[graph_4_3_abbr[1]]
+      } , ${graph_4_3_affordable[graph_4_3_abbr[2]]} , ${
+        graph_4_3_affordable[graph_4_3_abbr[3]]
+      } , ${graph_4_3_affordable[graph_4_3_abbr[4]]} ,${
+        graph_4_3_affordable[graph_4_3_abbr[5]]
+      } , ${graph_4_3_affordable[graph_4_3_abbr[6]]} , ${
+        graph_4_3_affordable[graph_4_3_abbr[7]]
+      } , ${graph_4_3_affordable[graph_4_3_abbr[8]]} , ${
+        graph_4_3_affordable[graph_4_3_abbr[9]]
+      }], // Data values
                   backgroundColor: "#683733", // Bar background color
                   borderColor: "#683733", // Bar border color
                   // borderWidth: 1, // Bar border width
                 },
                 {
                   label: "CMA", // Dataset label
-                  data: [${graph_4_3_average_rent_row}], // Data values
+                  data: [${graph_4_3_average_rent_row[graph_4_3_abbr[0]]} ,${
+        graph_4_3_average_rent_row[graph_4_3_abbr[1]]
+      } , ${graph_4_3_average_rent_row[graph_4_3_abbr[2]]} , ${
+        graph_4_3_average_rent_row[graph_4_3_abbr[3]]
+      } , ${graph_4_3_average_rent_row[graph_4_3_abbr[4]]} ,${
+        graph_4_3_average_rent_row[graph_4_3_abbr[5]]
+      } , ${graph_4_3_average_rent_row[graph_4_3_abbr[6]]} , ${
+        graph_4_3_average_rent_row[graph_4_3_abbr[7]]
+      } , ${graph_4_3_average_rent_row[graph_4_3_abbr[8]]} , ${
+        graph_4_3_average_rent_row[graph_4_3_abbr[9]]
+      }], // Data values
                   backgroundColor: "#4c3848", // Bar background color
                   borderColor: "#4c3848", // Bar border color
                   // borderWidth: 1, // Bar border width
