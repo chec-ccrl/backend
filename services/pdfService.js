@@ -118,6 +118,7 @@ module.exports = {
         graph_4_1_province,
         graph_4_1_canada,
         graph_3_1,
+        graph_3_2_val,
       } = data;
 
       let obj1, obj2, obj3, obj4;
@@ -3952,22 +3953,22 @@ module.exports = {
       }", "${Number(year) - 2}", "${Number(year) - 1}", "${Number(year)}"],
               datasets: [
                 {
-                  label: "30% of Income", // Dataset label
-                  data: [1000, 1400, 2000, 2050, 2400,3600], // Data values
+                  label: "Discretionary Income", // Dataset label
+                  data: [${graph_3_2_val}], // Data values
                   backgroundColor: "#c2ac7f", // Bar background color
                   borderColor: "#c2ac7f", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
-                  label: "Residual Income", // Dataset label
-                  data: [1200, 1800, 2400, 2300, 2600,3000], // Data values
+                  label: "Income after Tax", // Dataset label
+                  data: [${median_household_income_after_tax_6_year_v}], // Data values
                   backgroundColor: "#4d2927", // Bar background color
                   borderColor: "#4d2927", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
-                  label: "Current Shelter Cost", // Dataset label
-                  data: [1250, 1400, 1800, 2500, 2800,3200], // Data values
+                  label: "Income before Tax", // Dataset label
+                  data: [${median_household_income_before_tax_6_year_v}], // Data values
                   backgroundColor: "#4c3848", // Bar background color
                   borderColor: "#4c3848", // Bar border color
                   borderWidth: 2, // Bar border width

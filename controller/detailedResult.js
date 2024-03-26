@@ -1018,6 +1018,27 @@ module.exports = {
           }
         }
       });
+      const graph_3_2_val = [];
+      await Promise.all(
+        arrYear.map(async (years) => {
+          const canadaIncomeSurveyDetails =
+            await Services.canadaIncomeSurveyService.getAlls({
+              province,
+              year: years,
+              cma,
+              ca,
+            });
+          let total = 0;
+          canadaIncomeSurveyDetails.map((ele) => {
+            total +=
+              (ele.median_after_tax -
+                cost_of_non_shelter_necessity -
+                graph_4_1_canada[6]) *
+              (ele.percentage_of_family_after_tax_income / 100);
+          });
+          graph_3_2_val.push(Math.ceil(total));
+        })
+      );
       // return res.json({
       //   province,
       //   geography,
@@ -1162,6 +1183,7 @@ module.exports = {
         graph_4_1_province,
         graph_4_1_canada,
         graph_3_1,
+        graph_3_2_val,
       });
 
       return res.json(link);
