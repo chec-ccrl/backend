@@ -2401,13 +2401,13 @@ module.exports = {
                           <div
                             class="main_page4_first_one_one_main_one_chart_bar_big"
                           >
-                            ${Math.ceil(owner_share_apa)}% <br />
+                            ${owner_share_apa.toFixed(1)}% <br />
                             OWNED
                           </div>
                           <div
                             class="main_page4_first_one_one_main_one_chart_bar_small"
                           >
-                            ${Math.ceil(rental_share_apa)}% <br />
+                            ${rental_share_apa.toFixed(1)}% <br />
                             RENTAL
                           </div>
                         </div>
@@ -2513,13 +2513,13 @@ module.exports = {
                           <div
                             class="main_page4_first_one_one_main_one_chart_bar_big"
                           >
-                          ${Math.ceil(owner_share_row)}% <br />
+                          ${owner_share_row.toFixed(1)}% <br />
                             OWNED
                           </div>
                           <div
                             class="main_page4_first_one_one_main_one_chart_bar_small"
                           >
-                          ${Math.ceil(rental_share_row)}% <br />
+                          ${rental_share_row.toFixed(1)}% <br />
                             RENTAL
                           </div>
                         </div>

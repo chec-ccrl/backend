@@ -463,13 +463,14 @@ module.exports = {
       let rowTotalAdded = 0;
       let apartmentTotalAdded = 0;
 
-      dwellingDetails.forEach((ele) => {
+      dwellingDetails.map((ele) => {
         if (ele.house_type === "Apartment") {
           apartmentTotal += ele.units;
         } else {
           rowTotal += ele.units;
         }
       });
+      console.log(apartmentTotal);
       let dwellingDetailsa = [];
       dwellingDetails.map((ele) => {
         let bedroom_percentage = 0;
@@ -1239,13 +1240,13 @@ module.exports = {
       );
       graph_3_2_val.reverse();
       const rental_share_row =
-        house_constructed_rental_row ?? 1 / house_constructed_all_row ?? 5;
+        (house_constructed_rental_row / house_constructed_all_row) * 100;
       const owner_share_row =
-        house_constructed_owned_row ?? 1 / house_constructed_all_row ?? 5;
+        (house_constructed_owned_row / house_constructed_all_row) * 100;
       const rental_share_apa =
-        house_constructed_rental_apa ?? 1 / house_constructed_all_apa ?? 5;
+        (house_constructed_rental_apa / house_constructed_all_apa) * 100;
       const owner_share_apa =
-        house_constructed_owned_apa ?? 1 / house_constructed_all_apa ?? 5;
+        (house_constructed_owned_apa / house_constructed_all_apa) * 100;
 
       const dwellingDetailsPast = await Services.dwellingTypeService.getAlls({
         province,
