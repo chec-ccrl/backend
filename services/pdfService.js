@@ -127,6 +127,9 @@ module.exports = {
         owned_share_row_growth,
         rental_share_apa_growth,
         owned_share_apa_growth,
+        redPercent,
+        greenPercent,
+        graph_3_1_color,
       } = data;
 
       let obj1, obj2, obj3, obj4;
@@ -3084,7 +3087,7 @@ module.exports = {
           <div class="flex" style="margin: auto 80px">
             <p
               style="
-                width: 46%;
+                width: ${averageRent / 1000 + 5}%;
                 text-align: center;
                 border-bottom: 1px solid;
                 position: relative;
@@ -3093,13 +3096,13 @@ module.exports = {
               class="mx-2"
             >
               PERCENTAGE OF POPULATION BELOW OPTIMAL INCOME <br />
-              44%
+              ${redPercent.toFixed(1)}%
               <span style="position: absolute; left: -4px; bottom: -9.5px"> < </span>
               <span style="position: absolute; right: -4px; bottom: -9.5px"> > </span>
             </p>
             <p
               style="
-                width: 55%;
+                width: ${95 - averageRent / 1000}%;
                 text-align: center;
                 border-bottom: 1px solid;
                 position: relative;
@@ -3108,7 +3111,7 @@ module.exports = {
               class="mx-1"
             >
               PERCENTAGE OF POPULATION ABOVE OPTIMAL INCOME <br />
-              66%
+              ${greenPercent.toFixed(1)}%
               <span style="position: absolute; left: -4px; bottom: -9.5px"> < </span>
               <span style="position: absolute; right: -4px; bottom: -9.5px"> > </span>
             </p>
@@ -3928,15 +3931,7 @@ module.exports = {
                   label: "CMA", // Dataset label
                   data: [${graph_3_1}], // Data values
                   backgroundColor: [
-                    "#bb1823",
-                    "#bb1823",
-                    "#bb1823",
-                    "#bb1823",
-                    "green",
-                    "green",
-                    "green",
-                    "green",
-                    "green",
+                   ${graph_3_1_color}
                   ], // Bar background color
                   borderColor: "#bb1823", // Bar border color
                 },
