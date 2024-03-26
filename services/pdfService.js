@@ -1891,7 +1891,7 @@ module.exports = {
                   <div class="main_page3_first_one_txt" style="letter-spacing: 6px">
                     AFFORDABILITY OVERVIEW
                   </div>
-                  <p class="fw-light m-0" style="font-size:12px">
+                  <p class="fw-light m-0" style="font-size:11px">
                     Out of a total supply of ${numberWithCommas(
                       Math.ceil(
                         affordable_apartment_available +
@@ -1942,7 +1942,7 @@ module.exports = {
                     <div class="main_page4_first_one_one_main_one_head mx-2">
                       AFFORDABLE STOCKS
                     </div>
-                    <p class="fw-light m-0" style="font-size:12px">
+                    <p class="fw-light m-0" style="font-size:11px">
                       Out of a total affordable supply of  ${Math.ceil(
                         affordable_apartment_available +
                           affordable_row_available +
@@ -1977,7 +1977,7 @@ module.exports = {
                     <div class="main_page4_first_one_one_main_one_head">
                       UNAFFORDABLE STOCKS
                     </div>
-                    <p class="fw-light m-0" style="font-size:12px">
+                    <p class="fw-light m-0" style="font-size:11px">
                       Out of a total unaffordable supply of ${Math.ceil(
                         unaffordable_apartment_available +
                           unaffordable_row_available +
@@ -2010,7 +2010,7 @@ module.exports = {
                 <div class="main_page3_first_one_txt" style="letter-spacing: 6px">
                   NEW UNITS CONSTRUCTED
                 </div>
-                <p class="fw-light m-0" style="font-size:12px">
+                <p class="fw-light m-0" style="font-size:11px">
                   A total of ${numberWithCommas(
                     Math.ceil(
                       affordable_apartment_constructed +
