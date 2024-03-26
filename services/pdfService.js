@@ -3091,14 +3091,15 @@ module.exports = {
                 text-align: center;
                 border-bottom: 1px solid;
                 position: relative;
-                letter-spacing: 3px;
+                letter-spacing: 1px;
+                font-size:10px;
               "
               class="mx-2"
             >
               PERCENTAGE OF POPULATION BELOW OPTIMAL INCOME <br />
               ${redPercent.toFixed(1)}%
-              <span style="position: absolute; left: -4px; bottom: -9.5px"> < </span>
-              <span style="position: absolute; right: -4px; bottom: -9.5px"> > </span>
+              <span style="position: absolute; left: -4px; bottom: -6.5px"> < </span>
+              <span style="position: absolute; right: -4px; bottom: -6.5px"> > </span>
             </p>
             <p
               style="
@@ -3106,14 +3107,15 @@ module.exports = {
                 text-align: center;
                 border-bottom: 1px solid;
                 position: relative;
-                letter-spacing: 3px;
+                letter-spacing: 1px;
+                font-size:10px;
               "
               class="mx-1"
             >
               PERCENTAGE OF POPULATION ABOVE OPTIMAL INCOME <br />
               ${greenPercent.toFixed(1)}%
-              <span style="position: absolute; left: -4px; bottom: -9.5px"> < </span>
-              <span style="position: absolute; right: -4px; bottom: -9.5px"> > </span>
+              <span style="position: absolute; left: -4px; bottom: -6.5px"> < </span>
+              <span style="position: absolute; right: -4px; bottom: -6.5px"> > </span>
             </p>
           </div>
           <div class="main_page5_first_one_chart">
