@@ -878,21 +878,29 @@ module.exports = {
 
           canadaIncomeSurveyDetails.map((eke) => {
             if (eke.income_bracket === "$100,000 and over") {
-              affordable_rent += 2500 * eke.percentage_of_family_total_income;
+              affordable_rent +=
+                2500 * (eke.percentage_of_family_total_income / 100);
             } else if (eke.income_bracket === "$80,000 to $99,999") {
-              affordable_rent += 2000 * eke.percentage_of_family_total_income;
+              affordable_rent +=
+                2000 * (eke.percentage_of_family_total_income / 100);
             } else if (eke.income_bracket === "$60,000 to $79,999") {
-              affordable_rent += 1800 * eke.percentage_of_family_total_income;
+              affordable_rent +=
+                1800 * (eke.percentage_of_family_total_income / 100);
             } else if (eke.income_bracket === "$50,000 to $59,999") {
-              affordable_rent += 1250 * eke.percentage_of_family_total_income;
+              affordable_rent +=
+                1250 * (eke.percentage_of_family_total_income / 100);
             } else if (eke.income_bracket === "$40,000 to $49,999") {
-              affordable_rent += 1000 * eke.percentage_of_family_total_income;
+              affordable_rent +=
+                1000 * (eke.percentage_of_family_total_income / 100);
             } else if (eke.income_bracket === "$30,000 to $39,999") {
-              affordable_rent += 750 * eke.percentage_of_family_total_income;
+              affordable_rent +=
+                750 * (eke.percentage_of_family_total_income / 100);
             } else if (eke.income_bracket === "$20,000 to $29,999") {
-              affordable_rent += 500 * eke.percentage_of_family_total_income;
+              affordable_rent +=
+                500 * (eke.percentage_of_family_total_income / 100);
             } else if (eke.income_bracket === "$10,000 to $19,999") {
-              affordable_rent += 250 * eke.percentage_of_family_total_income;
+              affordable_rent +=
+                250 * (eke.percentage_of_family_total_income / 100);
             }
           });
           graph_4_3_affordable.push(Math.ceil(affordable_rent / 100));
