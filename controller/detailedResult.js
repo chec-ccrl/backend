@@ -743,9 +743,14 @@ module.exports = {
             ele.rent_value * 12 + cost_of_non_shelter_necessity,
         };
         mainmainObj.push(obj);
-        averageRent += ele.rent_value;
+        if (house_type === "Apartment" && ele.house_type === "Apartment") {
+          averageRent += ele.rent_value;
+        } else if (ele.house_type === "Row" && house_type === "Row House") {
+          averageRent += ele.rent_value;
+        } else if (house_type === "Apartment & Row house") {
+          averageRent += ele.rent_value;
+        }
       });
-
       if (
         affordability === "30% of Gross Income" ||
         affordability === "Both Definations"
