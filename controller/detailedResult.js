@@ -905,16 +905,16 @@ module.exports = {
                 await Services.marketBasketMeasureService.getDetail({
                   province: ele.province,
                   year,
-                  cma,
-                  ca,
+                  cma: "NA",
+                  ca: "NA",
                 });
             } else {
               marketBasketDetails =
                 await Services.householdSpendingService.getDetail({
                   province: ele.province,
                   year,
-                  ca,
-                  cma,
+                  cma: "NA",
+                  ca: "NA",
                 });
             }
             const cost_of_non_shelter_necessity = marketBasketDetails?.cost;
@@ -1244,47 +1244,21 @@ module.exports = {
         house_constructed_rental_apa ?? 1 / house_constructed_all_apa ?? 5;
       const owner_share_apa =
         house_constructed_owned_apa ?? 1 / house_constructed_all_apa ?? 5;
+
       const dwellingDetailsPast = await Services.dwellingTypeService.getAlls({
         province,
         year: String(Number(year - 1)),
         cma,
         ca,
       });
-      let apartmentTotalPast = 0;
-      let rowTotalPast = 0;
-      dwellingDetailsPast.forEach((ele) => {
-        if (ele.house_type === "Apartment") {
-          apartmentTotalPast += ele.units;
-        } else {
-          rowTotalPast += ele.units;
-        }
-      });
-      let dwellingDetailsaPast = [];
-      dwellingDetailsPast.map((ele) => {
-        let bedroom_percentage = 0;
-        if (ele.house_type === "Apartment") {
-          bedroom_percentage = ele.units / apartmentTotalPast;
-        } else {
-          bedroom_percentage = ele.units / rowTotalPast;
-        }
-        dwellingDetailsaPast.push({
-          ...ele.dataValues,
-          bedroom_percentage: Number(bedroom_percentage.toFixed(2)),
-        });
-      });
-      let dwellingDetailssPast = [];
-
+      let house_constructed_all_row_past = 0;
+      let house_constructed_rental_row_past = 0;
+      let house_constructed_owned_row_past = 0;
+      let house_constructed_all_apa_past = 0;
+      let house_constructed_rental_apa_past = 0;
+      let house_constructed_owned_apa_past = 0;
       await Promise.all(
-        dwellingDetailsaPast.map(async (ele) => {
-          const vacancyRate = await Services.vacancyRateService.getDetail({
-            province,
-            cma,
-            ca,
-            year: String(Number(year - 1)),
-            bedroom_type: ele.bedroom_type,
-            house_type: ele.house_type,
-          });
-
+        dwellingDetailsPast.map(async (ele) => {
           const completeHousing =
             await Services.completeHousingService.getDetail({
               province,
@@ -1313,42 +1287,18 @@ module.exports = {
               intended_market: "Owner",
               house_type: ele.house_type,
             });
-          let obj = {
-            ...ele,
-            vacancy_rate: vacancyRate.vacancy_rate,
-            house_constructed_rental: Math.ceil(
-              completeHousing?.units * ele.bedroom_percentage
-            ),
-            house_constructed_all: Math.ceil(
-              completeHousing2?.units * ele.bedroom_percentage
-            ),
-            house_constructed_owned: Math.ceil(
-              completeHousing3?.units * ele.bedroom_percentage
-            ),
-            rental_percentage: Math.ceil(
-              completeHousing2?.units / completeHousing?.units
-            ),
-          };
-          dwellingDetailssPast.push(obj);
+          if (ele.house_type === "Row") {
+            house_constructed_all_row_past += completeHousing.units;
+            house_constructed_rental_row_past += completeHousing2.units;
+            house_constructed_owned_row_past += completeHousing3.units;
+          } else {
+            house_constructed_all_apa_past += completeHousing.units;
+            house_constructed_rental_apa_past += completeHousing2.units;
+            house_constructed_owned_apa_past += completeHousing3.units;
+          }
         })
       );
-      let house_constructed_all_row_past = 0;
-      let house_constructed_rental_row_past = 0;
-      let house_constructed_owned_row_past = 0;
-      let house_constructed_all_apa_past = 0;
-      let house_constructed_rental_apa_past = 0;
-      let house_constructed_owned_apa_past = 0;
-      dwellingDetailssPast.map((ele) => {
-        if (ele.house_type === "Row") {
-          house_constructed_all_row_past += ele.house_constructed_all;
-          house_constructed_rental_row_past += ele.house_constructed_rental;
-          house_constructed_owned_row_past += ele.house_constructed_owned;
-        } else {
-          house_constructed_all_apa_past += ele.house_constructed_all;
-          house_constructed_rental_apa_past += ele.house_constructed_rental;
-          house_constructed_owned_apa_past += ele.house_constructed_owned;
-        }
-      });
+
       const rental_share_row_growth =
         ((house_constructed_rental_row - house_constructed_rental_row_past) /
           house_constructed_rental_row_past) *
