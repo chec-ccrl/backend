@@ -15,7 +15,7 @@ require("dotenv").config();
 app.use(morgan("combined", { stream: logger.stream.write }));
 app.use(express.json());
 app.use(cors());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true, limit: "500mb" }));
 app.use(cookieParser());
 
 const PORT = process.env.SERVER_PORT || 80;
