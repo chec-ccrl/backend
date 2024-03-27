@@ -4,6 +4,7 @@ const Validations = require("../validations");
 const Common = require("../common");
 const logger = require("../util/logger");
 const db = require("../models");
+const xlsx = require("xlsx");
 
 const excelToJson = require("convert-excel-to-json");
 
@@ -170,6 +171,66 @@ module.exports = {
       );
 
       return res.json("Done");
+    } catch (error) {
+      next(error);
+    }
+  },
+  uploadExcelFiles: async (req, res, next) => {
+    try {
+      if (!req.files) {
+        return res.status(400).json("No file uploaded.");
+      }
+      const workbook = xlsx.read(req.files[0].buffer, { type: "buffer" });
+      const sheetName = workbook.SheetNames[0];
+      let data1 = excelToJson({
+        source: req.files[0].buffer,
+      });
+      let data = data1[sheetName];
+      let arr = [];
+      data.map(async (obj) => {
+        if (obj["A"] !== "Geography (Province name)") {
+          let objj = {
+            province: obj["A"],
+            cma: obj["B"],
+            ca: obj["C"],
+            income_bracket: obj["D"],
+            year: obj["E"],
+            percentage_of_family_total_income: obj["F"],
+            percentage_of_family_after_tax_income: obj["G"],
+            number_of_family_total_income: obj["H"],
+            number_of_family_after_tax_income: obj["I"],
+          };
+          arr.push(objj);
+        }
+      });
+      await Services.canadaIncomeSurveyService.bulkCreate(arr);
+      result = data1[workbook.SheetNames[1]];
+
+      await Promise.all(
+        result.map(async (obj) => {
+          if (obj["A"] !== "Geography (Province name)") {
+            const survey = await Services.canadaIncomeSurveyService.getDetail({
+              province: obj["A"],
+              cma: obj["B"],
+              ca: obj["C"],
+              year: obj["D"],
+            });
+            if (survey.length > 0) {
+              await Promise.all(
+                survey.map(async (sur) => {
+                  await Services.canadaIncomeSurveyService.update({
+                    id: sur.id,
+                    median_before_tax: obj["E"],
+                    median_after_tax: obj["F"],
+                  });
+                })
+              );
+            }
+          }
+        })
+      );
+
+      return res.status(200).json({ message: "Done", status: 200 });
     } catch (error) {
       next(error);
     }

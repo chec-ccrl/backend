@@ -3,6 +3,7 @@ const Services = require("../services");
 const Validations = require("../validations");
 const logger = require("../util/logger");
 const db = require("../models");
+const xlsx = require("xlsx");
 
 const excelToJson = require("convert-excel-to-json");
 
@@ -159,6 +160,59 @@ module.exports = {
       );
 
       return res.json("Done");
+    } catch (error) {
+      next(error);
+    }
+  },
+  uploadExcelFiles: async (req, res, next) => {
+    try {
+      if (!req.files) {
+        return res.status(400).json("No file uploaded.");
+      }
+      const workbook = xlsx.read(req.files[0].buffer, { type: "buffer" });
+      const sheetName = workbook.SheetNames[0];
+      let data1 = excelToJson({
+        source: req.files[0].buffer,
+      });
+      let data = data1[sheetName];
+      let ar = [];
+      await Promise.all(
+        data.map(async (obj) => {
+          if (obj["A"] !== "Geography (Province name)") {
+            let objj = {
+              province: obj["A"],
+              cma: obj["B"],
+              ca: obj["C"],
+              year: obj["D"],
+              rent: obj["E"],
+              utility: obj["F"],
+            };
+            ar.push(objj);
+          }
+        })
+      );
+      await Services.multiplierService.bulkCreate(ar);
+
+      result = data1[workbook.SheetNames[1]];
+      await Promise.all(
+        result.map(async (obj) => {
+          if (obj["A"] !== "Geography (Province name)") {
+            const survey = await Services.multiplierService.getDetail({
+              province: obj["A"],
+              cma: obj["B"],
+              ca: obj["C"],
+              year: obj["D"],
+            });
+            if (survey) {
+              await Services.multiplierService.update({
+                id: survey.id,
+                average_utility: obj["E"],
+              });
+            }
+          }
+        })
+      );
+      return res.status(200).json({ message: "Done", status: 200 });
     } catch (error) {
       next(error);
     }

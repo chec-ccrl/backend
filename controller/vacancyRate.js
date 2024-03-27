@@ -154,22 +154,22 @@ module.exports = {
       });
       data = data[sheetName];
       let arr = [];
-      await Promise.all(
-        data.map(async (obj) => {
-          if (obj["A"] !== "Geography (Province name)") {
-            let data = {
-              province: obj["A"],
-              cma: obj["B"],
-              ca: obj["C"],
-              house_type: obj["D"],
-              bedroom_type: obj["E"],
-              year: obj["F"],
-              vacancy_rate: obj["G"],
-            };
-            arr.push(data);
-          }
-        })
-      );
+
+      data.map(async (obj) => {
+        if (obj["A"] !== "Geography (Province name)") {
+          let data = {
+            province: obj["A"],
+            cma: obj["B"],
+            ca: obj["C"],
+            house_type: obj["D"],
+            bedroom_type: obj["E"],
+            year: obj["F"],
+            vacancy_rate: obj["G"],
+          };
+          arr.push(data);
+        }
+      });
+
       await Services.vacancyRateService.bulkCreate(arr);
       return res.status(200).json({ message: "Done", status: 200 });
     } catch (error) {

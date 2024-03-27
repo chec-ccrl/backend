@@ -4,6 +4,7 @@ const Validations = require("../validations");
 const Common = require("../common");
 const logger = require("../util/logger");
 const db = require("../models");
+const xlsx = require("xlsx");
 
 const excelToJson = require("convert-excel-to-json");
 
@@ -138,6 +139,36 @@ module.exports = {
       });
       await Services.rentalRankingCMAService.bulkCreate(arr);
       return res.json("Done");
+    } catch (error) {
+      next(error);
+    }
+  },
+  uploadExcelFiles: async (req, res, next) => {
+    try {
+      if (!req.files) {
+        return res.status(400).json("No file uploaded.");
+      }
+      const workbook = xlsx.read(req.files[0].buffer, { type: "buffer" });
+      const sheetName = workbook.SheetNames[0];
+      let data = excelToJson({
+        source: req.files[0].buffer,
+      });
+      data = data[sheetName];
+      let arr = [];
+      data.map((obj) => {
+        if (obj["B"] !== "Geography (CMA name)") {
+          let data = {
+            id: Common.helper.generateId(),
+            province: obj["A"],
+            cma: obj["B"],
+            year: obj["C"],
+            ranking: Number(obj["D"]),
+          };
+          arr.push(data);
+        }
+      });
+      await Services.rentalRankingCMAService.bulkCreate(arr);
+      return res.status(200).json({ message: "Done", status: 200 });
     } catch (error) {
       next(error);
     }
