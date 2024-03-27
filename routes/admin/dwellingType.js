@@ -12,7 +12,7 @@ module.exports = (router) => {
     .get(Controllers.dwellingType.addExcelFiles);
   router
     .route("/admin/dwelling/type/excel/upload")
-    .post(multerUpload, Controllers.dwellingType.addExcelFiles);
+    .post(multerUpload, Controllers.dwellingType.uploadExcelFiles);
 
   router
     .route("/admin/dwelling/type/:dwellingTypeId")
