@@ -305,6 +305,7 @@ module.exports = {
           current_shelter_cost += ele.rent_value;
         }
       });
+      current_shelter_cost = current_shelter_cost / 4;
       let rentDetails2 = await Services.rentService.getAlls(rentObj);
       rentDetails2.forEach((ele) => {
         if (rent_source === "Average Listing Rent") {
@@ -461,9 +462,8 @@ module.exports = {
 
       const median_household_income_after_tax =
         canadaIncomeSurveyDetails?.[0]?.median_after_tax;
-      const median_household_income_before_tax = Math.ceil(
-        canadaIncomeSurveyDetails?.[0]?.median_before_tax / 1000
-      );
+      const median_household_income_before_tax =
+        canadaIncomeSurveyDetails?.[0]?.median_before_tax / 1000;
 
       const dwellingDetails = await Services.dwellingTypeService.getAlls({
         province,
@@ -1631,6 +1631,7 @@ module.exports = {
         graph_1_7_residual,
         graph_1_7_current,
         graph_1_7_label,
+        current_shelter_cost,
       });
 
       return res.json(link);

@@ -75,6 +75,7 @@ module.exports = {
         historicalGrowthApartmentFinal,
         median_household_income_before_tax,
         median_household_income_after_tax,
+        current_shelter_cost,
         rowTotal,
         apartmentTotal,
         historical_rental_stock_apartment,
@@ -3557,17 +3558,30 @@ module.exports = {
                     y: ${median_household_income_before_tax},
                     color: "#4c3848",
                   },
-                  { name: "INCOME AFTER TAX", y: 55, color: "#5e6043" },
+                  { name: "INCOME AFTER TAX", y: ${
+                    median_household_income_after_tax / 1000
+                  }, color: "#5e6043" },
                   {
                     name: "COST OF NON SHELTER <br>NECESSITIES",
-                    y: ${cost_of_non_shelter_necessity},
+                    y: ${cost_of_non_shelter_necessity / 1000},
                     color: "#683733",
                   },
-                  { name: "RESIDUAL INCOME", y: 15, color: "#8f7e18" },
-                  { name: "SHELTER COST", y: 14, color: "#c2ac7f" },
+                  { name: "RESIDUAL INCOME", y: ${
+                    (median_household_income_after_tax -
+                      cost_of_non_shelter_necessity) /
+                    1000
+                  }, color: "#8f7e18" },
+                  { name: "SHELTER COST", y: ${
+                    (current_shelter_cost * 12) / 1000
+                  }, color: "#c2ac7f" },
                   {
                     name: "<b>DISCRETIONARY INCOME</b>",
-                    y: 1,
+                    y: ${
+                      (median_household_income_after_tax -
+                        cost_of_non_shelter_necessity -
+                        current_shelter_cost) /
+                      1000
+                    },
                     color: "green",
                   },
                 ],
