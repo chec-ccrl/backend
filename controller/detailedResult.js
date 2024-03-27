@@ -294,6 +294,16 @@ module.exports = {
           ele.rent_value = ele.rent_value * multiplier?.rent;
         }
         ele.rent_value = Math.ceil(ele.rent_value * multiplier?.utility);
+        if (house_type === "Both Definations") {
+          current_shelter_cost += ele.rent_value;
+        } else if (house_type === "Row House" && ele.house_type === "Row") {
+          current_shelter_cost += ele.rent_value;
+        } else if (
+          house_type === "Apartment" &&
+          ele.house_type === "Apartment"
+        ) {
+          current_shelter_cost += ele.rent_value;
+        }
       });
       let rentDetails2 = await Services.rentService.getAlls(rentObj);
       rentDetails2.forEach((ele) => {
@@ -1402,6 +1412,128 @@ module.exports = {
       );
       const rentalSupplyPercentage =
         (sumRentalSupplyNew / sumRentalSupplyCurrent) * 100;
+
+      let graph_1_7_30 = [];
+      let graph_1_7_residual = [];
+      let graph_1_7_current = [];
+      let graph_1_7_label = [];
+      if (averageRent <= 10000) {
+        graph_1_7_label = [
+          `"$10,000 to $19,999"`,
+          `"$20,000 to $29,999"`,
+          `"$30,000 to $39,999"`,
+          `"$40,000 to $49,999"`,
+          `"$50,000 to $59,999"`,
+          `"$60,000 to $79,999"`,
+          `"$80,000 to $99,999"`,
+          `"$100,000 and over"`,
+        ];
+        graph_1_7_30 = [250, 500, 750, 1000, 1250, 1500, 2000, 2500];
+        graph_1_7_residual = [
+          (10000 - cost_of_non_shelter_necessity) / 12,
+          (20000 - cost_of_non_shelter_necessity) / 12,
+          (30000 - cost_of_non_shelter_necessity) / 12,
+          (40000 - cost_of_non_shelter_necessity) / 12,
+          (50000 - cost_of_non_shelter_necessity) / 12,
+          (60000 - cost_of_non_shelter_necessity) / 12,
+          (80000 - cost_of_non_shelter_necessity) / 12,
+          (100000 - cost_of_non_shelter_necessity) / 12,
+        ];
+      } else if (averageRent <= 20000) {
+        graph_1_7_label = [
+          `"$20,000 to $29,999"`,
+          `"$30,000 to $39,999"`,
+          `"$40,000 to $49,999"`,
+          `"$50,000 to $59,999"`,
+          `"$60,000 to $79,999"`,
+          `"$80,000 to $99,999"`,
+          `"$100,000 and over"`,
+        ];
+        graph_1_7_residual = [
+          (20000 - cost_of_non_shelter_necessity) / 12,
+          (30000 - cost_of_non_shelter_necessity) / 12,
+          (40000 - cost_of_non_shelter_necessity) / 12,
+          (50000 - cost_of_non_shelter_necessity) / 12,
+          (60000 - cost_of_non_shelter_necessity) / 12,
+          (80000 - cost_of_non_shelter_necessity) / 12,
+          (100000 - cost_of_non_shelter_necessity) / 12,
+        ];
+        graph_1_7_30 = [500, 750, 1000, 1250, 1500, 2000, 2500];
+      } else if (averageRent <= 30000) {
+        graph_1_7_label = [
+          `"$30,000 to $39,999"`,
+          `"$40,000 to $49,999"`,
+          `"$50,000 to $59,999"`,
+          `"$60,000 to $79,999"`,
+          `"$80,000 to $99,999"`,
+          `"$100,000 and over"`,
+        ];
+        graph_1_7_residual = [
+          (30000 - cost_of_non_shelter_necessity) / 12,
+          (40000 - cost_of_non_shelter_necessity) / 12,
+          (50000 - cost_of_non_shelter_necessity) / 12,
+          (60000 - cost_of_non_shelter_necessity) / 12,
+          (80000 - cost_of_non_shelter_necessity) / 12,
+          (100000 - cost_of_non_shelter_necessity) / 12,
+        ];
+        graph_1_7_30 = [750, 1000, 1250, 1500, 2000, 2500];
+      } else if (averageRent <= 40000) {
+        graph_1_7_label = [
+          `"$40,000 to $49,999"`,
+          `"$50,000 to $59,999"`,
+          `"$60,000 to $79,999"`,
+          `"$80,000 to $99,999"`,
+          `"$100,000 and over"`,
+        ];
+        graph_1_7_residual = [
+          (40000 - cost_of_non_shelter_necessity) / 12,
+          (50000 - cost_of_non_shelter_necessity) / 12,
+          (60000 - cost_of_non_shelter_necessity) / 12,
+          (80000 - cost_of_non_shelter_necessity) / 12,
+          (100000 - cost_of_non_shelter_necessity) / 12,
+        ];
+        graph_1_7_30 = [1000, 1250, 1500, 2000, 2500];
+      } else if (averageRent <= 50000) {
+        graph_1_7_label = [
+          `"$50,000 to $59,999"`,
+          `"$60,000 to $79,999"`,
+          `"$80,000 to $99,999"`,
+          `"$100,000 and over"`,
+        ];
+        graph_1_7_residual = [
+          (50000 - cost_of_non_shelter_necessity) / 12,
+          (60000 - cost_of_non_shelter_necessity) / 12,
+          (80000 - cost_of_non_shelter_necessity) / 12,
+          (100000 - cost_of_non_shelter_necessity) / 12,
+        ];
+        graph_1_7_30 = [1250, 1500, 2000, 2500];
+      } else if (averageRent <= 60000) {
+        graph_1_7_label = [
+          `"$60,000 to $79,999"`,
+          `"$80,000 to $99,999"`,
+          `"$100,000 and over"`,
+        ];
+        graph_1_7_residual = [
+          (60000 - cost_of_non_shelter_necessity) / 12,
+          (80000 - cost_of_non_shelter_necessity) / 12,
+          (100000 - cost_of_non_shelter_necessity) / 12,
+        ];
+        graph_1_7_30 = [1500, 2000, 2500];
+      } else if (averageRent <= 80000) {
+        graph_1_7_label = [`"$80,000 to $99,999"`, `"$100,000 and over"`];
+        graph_1_7_residual = [
+          (80000 - cost_of_non_shelter_necessity) / 12,
+          (100000 - cost_of_non_shelter_necessity) / 12,
+        ];
+        graph_1_7_30 = [2000, 2500];
+      } else if (averageRent <= 100000) {
+        graph_1_7_label = [`"$100,000 and over"`];
+        graph_1_7_30 = [2500];
+        graph_1_7_residual = [(100000 - cost_of_non_shelter_necessity) / 12];
+      }
+      for (let i = 0; i < graph_1_7_30.length; i += 1) {
+        graph_1_7_current.push(current_shelter_cost);
+      }
       const link = await Services.pdfService.detailPdfGenerator({
         province,
         geography,
@@ -1495,6 +1627,10 @@ module.exports = {
         graph_1_8_current,
         graph_1_8_new,
         rentalSupplyPercentage,
+        graph_1_7_30,
+        graph_1_7_residual,
+        graph_1_7_current,
+        graph_1_7_label,
       });
 
       return res.json(link);

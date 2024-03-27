@@ -134,6 +134,10 @@ module.exports = {
         graph_1_8_current,
         graph_1_8_new,
         rentDetails2,
+        graph_1_7_30,
+        graph_1_7_residual,
+        graph_1_7_current,
+        graph_1_7_label,
       } = data;
 
       let obj1, obj2, obj3, obj4;
@@ -1784,7 +1788,7 @@ module.exports = {
                     class="main_page3_first_one_main_head_sub_two"
                     style="margin-top:20px; width:180px"
                   >
-                    40%
+                    ${redPercent.toFixed(1)}%
                   </div>
                   <div class="main_page3_first_one_txt" style="margin-top:20px;font-size:22px">
                     FAMILIES UNDER OPTIMAL INCOME
@@ -3450,30 +3454,26 @@ module.exports = {
             type: "bar", // Chart type
             data: {
               labels: [
-                "$40,000-$49,000",
-                "$50,000-$59,000",
-                "$60,000-$79,000",
-                "$80,000-$99,000",
-                "$100,000+",
+               ${graph_1_7_label}
               ], // Data labels
               datasets: [
                 {
                   label: "30% of Income", // Dataset label
-                  data: [1000, 1400, 2000, 2050, 2400], // Data values
+                  data: [${graph_1_7_30}], // Data values
                   backgroundColor: "#683733", // Bar background color
                   borderColor: "#683733", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
                   label: "Residual Income", // Dataset label
-                  data: [1200, 1800, 2400, 2300, 2600], // Data values
+                  data: [${graph_1_7_residual}], // Data values
                   backgroundColor: "#c2ac7f", // Bar background color
                   borderColor: "#c2ac7f", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
                   label: "Current Shelter Cost", // Dataset label
-                  data: [1250, 1400, 1800, 2500, 2800], // Data values
+                  data: [${graph_1_7_current}], // Data values
                   backgroundColor: "#5e6043", // Bar background color
                   borderColor: "#5e6043", // Bar border color
                   borderWidth: 2, // Bar border width
