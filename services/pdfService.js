@@ -94,16 +94,6 @@ module.exports = {
         rowTotalAdded,
         apartmentTotalAdded,
         median_household_income_before_tax_raw,
-        unaffordable_apartment_available,
-        unaffordable_row_available,
-        affordable_apartment_available,
-        affordable_row_available,
-        unaffordable_apartment_constructed,
-        unaffordable_row_constructed,
-        affordable_apartment_constructed,
-        affordable_row_constructed,
-        affordable_apartment,
-        affordable_row,
         averageRent,
         optimal_incomes,
         optimal_incomes_diff,
@@ -141,6 +131,18 @@ module.exports = {
         total_current_affordable_houses_available,
         total_current_unaffordable_houses_const,
         total_current_affordable_houses_const,
+        total_current_unaffordable_houses_row,
+        total_current_affordable_houses_row,
+        total_current_unaffordable_houses_available_row,
+        total_current_affordable_houses_available_row,
+        total_current_unaffordable_houses_const_row,
+        total_current_affordable_houses_const_row,
+        total_current_unaffordable_houses_apa,
+        total_current_affordable_houses_apa,
+        total_current_unaffordable_houses_available_apa,
+        total_current_affordable_houses_available_apa,
+        total_current_unaffordable_houses_const_apa,
+        total_current_affordable_houses_const_apa,
       } = data;
 
       let obj1, obj2, obj3, obj4;
@@ -2574,7 +2576,10 @@ module.exports = {
                       class="main_page3_first_one_main_head_sub_two ml-2 text-md"
                       style="padding: 8px 12px; letter-spacing: 3px;margin-top:-10px"
                     >
-                      ${numberWithCommas(apartmentTotal)}
+                      ${numberWithCommas(
+                        total_current_affordable_houses_apa +
+                          total_current_unaffordable_houses_apa
+                      )}
                     </div>
                     <div
                       class="main_page3_first_one_main_head_sub_two ml-2 text-md"
@@ -2586,9 +2591,7 @@ module.exports = {
                         border-radius: 18px;
                       "
                     >
-                      ${Math.ceil(
-                        (affordable_apartment / apartmentTotal) * 100
-                      )}%
+                        100%
                     </div>
                   </div>
                   <div class="main_page4_first_one_one_main">
@@ -2601,7 +2604,7 @@ module.exports = {
                             font-size: large;
                           "
                         >
-                          AFFORDABLE:${affordable_apartment}
+                          AFFORDABLE:${total_current_affordable_houses_apa}
                         </p>
                         <canvas
                           id="main_page4_first_one_one_main_one_chart34"
@@ -2614,7 +2617,7 @@ module.exports = {
                             margin-top: auto;
                           "
                         >
-                          UNAFFORDABLE:${apartmentTotal - affordable_apartment}
+                          UNAFFORDABLE:${total_current_unaffordable_houses_apa}
                         </p>
                       </div>
                     </div>
@@ -2632,7 +2635,10 @@ module.exports = {
                       class="main_page3_first_one_main_head_sub_two ml-2 text-md"
                       style="padding: 8px 12px; letter-spacing: 3px;margin-top:-10px"
                     >
-                    ${numberWithCommas(rowTotal)}
+                    ${numberWithCommas(
+                      total_current_affordable_houses_row +
+                        total_current_unaffordable_houses_row
+                    )}
                     </div>
                     <div
                       class="main_page3_first_one_main_head_sub_two ml-2 text-md"
@@ -2644,7 +2650,7 @@ module.exports = {
                         border-radius: 18px;
                       "
                     >
-                    ${Math.ceil((affordable_row / rowTotal) * 100)}%
+                   100%
                     </div>
                   </div>
                   <div class="main_page4_first_one_one_main">
@@ -2657,7 +2663,7 @@ module.exports = {
                             font-size: large;
                           "
                         >
-                          AFFORDABLE:${affordable_row}
+                          AFFORDABLE:${total_current_affordable_houses_row}
                         </p>
                         <canvas
                           id="main_page4_first_one_one_main_one_chart33"
@@ -2670,7 +2676,7 @@ module.exports = {
                             margin-top: auto;
                           "
                         >
-                          UNAFFORDABLE:${rowTotal - affordable_row}
+                          UNAFFORDABLE:${total_current_unaffordable_houses_row}
                         </p>
                       </div>
                     </div>
@@ -2700,7 +2706,7 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                            ${Math.ceil(affordable_apartment_available)}
+                            ${total_current_affordable_houses_available_apa}
                           </span>
                         </div>
                         <div
@@ -2714,11 +2720,12 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                            ${Math.ceil(
-                              (affordable_apartment_available /
-                                apartmentTotal) *
-                                100
-                            )}%
+                            ${(
+                              (total_current_affordable_houses_available_apa /
+                                (total_current_affordable_houses_apa +
+                                  total_current_unaffordable_houses_apa)) *
+                              100
+                            ).toFixed(1)}%
                           </span>
                         </div>
                       </div>
@@ -2737,7 +2744,7 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                            ${Math.ceil(unaffordable_apartment_available)}
+                            ${total_current_unaffordable_houses_available_apa}
                           </span>
                         </div>
                         <div
@@ -2751,11 +2758,12 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                          ${Math.ceil(
-                            (unaffordable_apartment_available /
-                              apartmentTotal) *
-                              100
-                          )}%
+                          ${(
+                            (total_current_unaffordable_houses_available_apa /
+                              (total_current_affordable_houses_apa +
+                                total_current_unaffordable_houses_apa)) *
+                            100
+                          ).toFixed(1)}%
                           </span>
                         </div>
                       </div>
@@ -2785,7 +2793,7 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                            ${Math.ceil(affordable_row_available)}
+                          ${total_current_affordable_houses_available_row}
                           </span>
                         </div>
                         <div
@@ -2799,9 +2807,12 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                          ${Math.ceil(
-                            (affordable_row_available / rowTotal) * 100
-                          )}%
+                          ${(
+                            (total_current_affordable_houses_available_row /
+                              (total_current_affordable_houses_row +
+                                total_current_unaffordable_houses_row)) *
+                            100
+                          ).toFixed(1)}%
                           </span>
                         </div>
                       </div>
@@ -2820,7 +2831,7 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                          ${Math.ceil(unaffordable_row_available)}
+                          ${total_current_unaffordable_houses_available_row}
                           </span>
                         </div>
                         <div
@@ -2834,9 +2845,12 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                          ${Math.ceil(
-                            (unaffordable_row_available / rowTotal) * 100
-                          )}%
+                          ${(
+                            (total_current_unaffordable_houses_available_row /
+                              (total_current_affordable_houses_row +
+                                total_current_unaffordable_houses_row)) *
+                            100
+                          ).toFixed(1)}%
                           </span>
                         </div>
                       </div>
@@ -2868,7 +2882,7 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                          ${Math.ceil(affordable_apartment_constructed)}
+                          ${total_current_affordable_houses_const_apa}
                           </span>
                         </div>
                         <div
@@ -2882,11 +2896,12 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                          ${Math.ceil(
-                            (affordable_apartment_constructed /
-                              apartmentTotal) *
-                              100
-                          )}%
+                          ${(
+                            (total_current_affordable_houses_const_apa /
+                              (total_current_affordable_houses_apa +
+                                total_current_unaffordable_houses_apa)) *
+                            100
+                          ).toFixed(1)}%
                           </span>
                         </div>
                       </div>
@@ -2905,7 +2920,7 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                           ${Math.ceil(unaffordable_apartment_constructed)}
+                          ${total_current_unaffordable_houses_const_apa}
                           </span>
                         </div>
                         <div
@@ -2919,11 +2934,12 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                          ${Math.ceil(
-                            (unaffordable_apartment_constructed /
-                              apartmentTotal) *
-                              100
-                          )}%
+                          ${(
+                            (total_current_unaffordable_houses_const_apa /
+                              (total_current_affordable_houses_apa +
+                                total_current_unaffordable_houses_apa)) *
+                            100
+                          ).toFixed(1)}%
                           </span>
                         </div>
                       </div>
@@ -2950,7 +2966,7 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                          ${Math.ceil(affordable_row_constructed)}
+                          ${total_current_affordable_houses_const_row}
                           </span>
                         </div>
                         <div
@@ -2964,9 +2980,12 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                          ${Math.ceil(
-                            (affordable_row_constructed / rowTotal) * 100
-                          )}%
+                          ${(
+                            (total_current_affordable_houses_const_row /
+                              (total_current_affordable_houses_row +
+                                total_current_unaffordable_houses_row)) *
+                            100
+                          ).toFixed(1)}%
                           </span>
                         </div>
                       </div>
@@ -2985,7 +3004,7 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                          ${Math.ceil(unaffordable_row_constructed)}
+                          ${total_current_unaffordable_houses_const_row}
                           </span>
                         </div>
                         <div
@@ -2999,9 +3018,12 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                          ${Math.ceil(
-                            (unaffordable_row_constructed / rowTotal) * 100
-                          )}%
+                          ${(
+                            (total_current_unaffordable_houses_const_row /
+                              (total_current_affordable_houses_row +
+                                total_current_unaffordable_houses_row)) *
+                            100
+                          ).toFixed(1)}%
                           </span>
                         </div>
                       </div>
@@ -4910,7 +4932,7 @@ module.exports = {
               labels: ["UNAFFORDABLE", "AFFORDABLE"],
               datasets: [
                 {
-                  data: [${affordable_row}, ${rowTotal - affordable_row}],
+                  data: [${total_current_affordable_houses_row}, ${total_current_unaffordable_houses_row}],
                   backgroundColor: ["#c2ac7f", "#683733"],
                 },
               ],
@@ -4942,9 +4964,7 @@ module.exports = {
               labels: ["UNAFFORDABLE", "AFFORDABLE"],
               datasets: [
                 {
-                  data: [${affordable_apartment}, ${
-        apartmentTotal - affordable_apartment
-      }],
+                  data: [${total_current_affordable_houses_apa}, ${total_current_unaffordable_houses_apa}],
                   backgroundColor: ["#c2ac7f", "#683733"],
                 },
               ],
