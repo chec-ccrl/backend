@@ -732,20 +732,6 @@ module.exports = {
         }
       });
 
-      let unaffordable_apartment_available = 0;
-      let unaffordable_row_available = 0;
-      let affordable_apartment_available = 0;
-      let affordable_row_available = 0;
-      let unaffordable_apartment_constructed = 0;
-      let unaffordable_row_constructed = 0;
-      let affordable_apartment_constructed = 0;
-      let affordable_row_constructed = 0;
-      let unaffordable_apartment_occupied = 0;
-      let unaffordable_row_occupied = 0;
-      let affordable_apartment_occupied = 0;
-      let affordable_row_occupied = 0;
-      let affordable_apartment = 0;
-      let affordable_row = 0;
       let averageRent = 0;
       let mainmainObj = [];
       mainObj.map((ele) => {
@@ -1827,20 +1813,6 @@ module.exports = {
         rowTotalAdded,
         apartmentTotalAdded,
         dwellingDetailss,
-        unaffordable_apartment_available,
-        unaffordable_row_available,
-        affordable_apartment_available,
-        affordable_row_available,
-        unaffordable_apartment_constructed,
-        unaffordable_row_constructed,
-        affordable_apartment_constructed,
-        affordable_row_constructed,
-        unaffordable_apartment_occupied,
-        unaffordable_row_occupied,
-        affordable_apartment_occupied,
-        affordable_row_occupied,
-        affordable_apartment,
-        affordable_row,
         averageRent,
         mainmainObj,
         optimal_incomes,

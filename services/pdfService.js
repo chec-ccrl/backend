@@ -102,10 +102,6 @@ module.exports = {
         unaffordable_row_constructed,
         affordable_apartment_constructed,
         affordable_row_constructed,
-        unaffordable_apartment_occupied,
-        unaffordable_row_occupied,
-        affordable_apartment_occupied,
-        affordable_row_occupied,
         affordable_apartment,
         affordable_row,
         averageRent,
@@ -1846,7 +1842,7 @@ module.exports = {
                   <canvas
                     id="main_page3_first_one_pichart"
                     width="660"
-                    height="270"main_third_line
+                    height="270"
                   ></canvas>
                   <p class="ls-1">INCOME CATEGORIES</p>
                 </div>
@@ -2038,6 +2034,13 @@ module.exports = {
                 </div>
                 <div>
                   <table class="fw-bold half_width_table">
+                    <tr  style="font-weight: 500; letter-spacing: 4px">
+                      <td></td>
+                      <td>Row</td>
+                      <td style="border-left: 0px; border-left-style: hidden"></td>
+                      <td>Apartment</td>
+                      <td style="border-left: 0px; border-left-style: hidden"></td>
+                    </tr>
                     <tr
                       style="font-weight: 500; letter-spacing: 4px"
                       class="tableheading"
@@ -3480,7 +3483,7 @@ module.exports = {
             type: "pyramidInverted",
             legend_visible: false,
             width: 530,
-            height: 270,
+            height: 370,
             yAxis: { label_text: "Cost", formatString: "c" },
             backgroundColor: "#f1f3f9",
             defaultSeries: {
