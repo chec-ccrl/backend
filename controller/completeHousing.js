@@ -166,8 +166,8 @@ module.exports = {
             ca: obj["C"],
             intended_market: obj["D"],
             house_type: obj["E"],
-            year: obj["F"],
-            units: obj["G"] === "#N/A" ? 0 : obj["G"],
+            year: Number(obj["F"]),
+            units: Number(obj["G"]),
           };
           arr.push(t);
         }
