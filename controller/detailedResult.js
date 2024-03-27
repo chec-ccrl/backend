@@ -675,18 +675,6 @@ module.exports = {
               ...ele,
               rent_value: rr.rent_value,
             };
-            obj.affordable =
-              rr.rent_value <
-              (0.3 * canadaIncomeSurveyDetails?.[0]?.median_before_tax) / 12
-                ? true
-                : false;
-            obj.residual_affordable =
-              (median_household_income_after_tax -
-                cost_of_non_shelter_necessity) /
-                12 >
-              rr.rent_value
-                ? true
-                : false;
             obj.constructed = ele.units * (ele.rental_percentage / 100);
             obj.available = ele.units * (ele.vacancy_rate / 100);
             obj.occupied = ele.units - ele.units * (ele.vacancy_rate / 100);
@@ -761,63 +749,9 @@ module.exports = {
       let averageRent = 0;
       let mainmainObj = [];
       mainObj.map((ele) => {
-        if (
-          affordability === "30% of Gross Income" ||
-          affordability === "Both Defanitions"
-        ) {
-          if (ele.affordable) {
-            if (ele.house_type === "Apartment") {
-              affordable_apartment_constructed += ele.constructed;
-              affordable_apartment_available += ele.available;
-              affordable_apartment_occupied += ele.occupied;
-              affordable_apartment += ele.units;
-            } else {
-              affordable_row_constructed += ele.constructed;
-              affordable_row_available += ele.available;
-              affordable_row_occupied += ele.occupied;
-              affordable_row += ele.units;
-            }
-          } else {
-            if (ele.house_type === "Apartment") {
-              unaffordable_apartment_constructed += ele.constructed;
-              unaffordable_apartment_available += ele.available;
-              unaffordable_apartment_occupied += ele.occupied;
-            } else {
-              unaffordable_row_constructed += ele.constructed;
-              unaffordable_row_available += ele.available;
-              unaffordable_row_occupied += ele.occupied;
-            }
-          }
-        } else {
-          if (ele.affordable) {
-            if (ele.house_type === "Apartment") {
-              affordable_apartment_constructed += ele.constructed;
-              affordable_apartment_available += ele.available;
-              affordable_apartment_occupied += ele.occupied;
-              affordable_apartment += ele.units;
-            } else {
-              affordable_row_constructed += ele.constructed;
-              affordable_row_available += ele.available;
-              affordable_row_occupied += ele.occupied;
-              affordable_row += ele.units;
-            }
-          } else {
-            if (ele.house_type === "Apartment") {
-              unaffordable_apartment_constructed += ele.constructed;
-              unaffordable_apartment_available += ele.available;
-              unaffordable_apartment_occupied += ele.occupied;
-            } else {
-              unaffordable_row_constructed += ele.constructed;
-              unaffordable_row_available += ele.available;
-              unaffordable_row_occupied += ele.occupied;
-            }
-          }
-        }
-
         let obj = {
           ...ele,
           optimal_income_before_tax: (ele.rent_value * 12) / 0.3,
-
           optimal_income_after_tax:
             ele.rent_value * 12 + cost_of_non_shelter_necessity,
         };
@@ -830,6 +764,301 @@ module.exports = {
           averageRent += ele.rent_value;
         }
       });
+      let total_current_unaffordable_houses = 0;
+      let total_current_affordable_houses = 0;
+      let total_current_unaffordable_houses_available = 0;
+      let total_current_affordable_houses_available = 0;
+      let total_current_unaffordable_houses_const = 0;
+      let total_current_affordable_houses_const = 0;
+
+      canadaIncomeSurveyDetails.map((ele) => {
+        let unaffordable = 0;
+        let unaffordable_available = 0;
+        let unaffordable_const = 0;
+        let affordable = 0;
+        let affordable_available = 0;
+        let affordable_const = 0;
+        mainObj.map((eke) => {
+          if (
+            (house_type === "Row House" && eke.house_type === "Row") ||
+            (house_type === "Apartment" && eke.house_type === "Apartment") ||
+            house_type === "Apartment & Row House"
+          ) {
+            if (
+              ele.income_bracket ===
+              "Percentage under $10,000 (including zeros and losses)"
+            ) {
+              if (
+                affordability === "30% of Gross Income" ||
+                affordability === "Both Definations"
+              ) {
+                if (eke.rent_value > 0) {
+                  unaffordable += eke.units;
+                  unaffordable_available += Math.ceil(eke.available);
+                  unaffordable_const += eke.house_constructed_all;
+                } else {
+                  affordable += eke.units;
+                  affordable_available += Math.ceil(eke.available);
+                  affordable_const += eke.house_constructed_all;
+                }
+              } else {
+                if (eke.rent_value > (0 - cost_of_non_shelter_necessity) / 12) {
+                  unaffordable += eke.units;
+                  unaffordable_available += Math.ceil(eke.available);
+                  unaffordable_const += eke.house_constructed_all;
+                } else {
+                  affordable += eke.units;
+                  affordable_available += Math.ceil(eke.available);
+                  affordable_const += eke.house_constructed_all;
+                }
+              }
+            } else if (ele.income_bracket === "$10,000 to $19,999") {
+              if (
+                affordability === "30% of Gross Income" ||
+                affordability === "Both Definations"
+              ) {
+                if (eke.rent_value > 250) {
+                  unaffordable += eke.units;
+                  unaffordable_available += Math.ceil(eke.available);
+                  unaffordable_const += eke.house_constructed_all;
+                } else {
+                  affordable += eke.units;
+                  affordable_available += Math.ceil(eke.available);
+                  affordable_const += eke.house_constructed_all;
+                }
+              } else {
+                if (
+                  eke.rent_value >
+                  (10000 - cost_of_non_shelter_necessity) / 12
+                ) {
+                  unaffordable += eke.units;
+                  unaffordable_available += Math.ceil(eke.available);
+                  unaffordable_const += eke.house_constructed_all;
+                } else {
+                  affordable += eke.units;
+                  affordable_available += Math.ceil(eke.available);
+                  affordable_const += eke.house_constructed_all;
+                }
+              }
+            } else if (ele.income_bracket === "$20,000 to $29,999") {
+              if (
+                affordability === "30% of Gross Income" ||
+                affordability === "Both Definations"
+              ) {
+                if (eke.rent_value > 500) {
+                  unaffordable += eke.units;
+                  unaffordable_available += Math.ceil(eke.available);
+                  unaffordable_const += eke.house_constructed_all;
+                } else {
+                  affordable += eke.units;
+                  affordable_available += Math.ceil(eke.available);
+                  affordable_const += eke.house_constructed_all;
+                }
+              } else {
+                if (
+                  eke.rent_value >
+                  (20000 - cost_of_non_shelter_necessity) / 12
+                ) {
+                  unaffordable += eke.units;
+                  unaffordable_available += Math.ceil(eke.available);
+                  unaffordable_const += eke.house_constructed_all;
+                } else {
+                  affordable += eke.units;
+                  affordable_available += Math.ceil(eke.available);
+                  affordable_const += eke.house_constructed_all;
+                }
+              }
+            } else if (ele.income_bracket === "$30,000 to $39,999") {
+              if (
+                affordability === "30% of Gross Income" ||
+                affordability === "Both Definations"
+              ) {
+                if (eke.rent_value > 750) {
+                  unaffordable += eke.units;
+                  unaffordable_available += Math.ceil(eke.available);
+                  unaffordable_const += eke.house_constructed_all;
+                } else {
+                  affordable += eke.units;
+                  affordable_available += Math.ceil(eke.available);
+                  affordable_const += eke.house_constructed_all;
+                }
+              } else {
+                if (
+                  eke.rent_value >
+                  (30000 - cost_of_non_shelter_necessity) / 12
+                ) {
+                  unaffordable += eke.units;
+                  unaffordable_available += Math.ceil(eke.available);
+                  unaffordable_const += eke.house_constructed_all;
+                } else {
+                  affordable += eke.units;
+                  affordable_available += Math.ceil(eke.available);
+                  affordable_const += eke.house_constructed_all;
+                }
+              }
+            } else if (ele.income_bracket === "$40,000 to $49,999") {
+              if (
+                affordability === "30% of Gross Income" ||
+                affordability === "Both Definations"
+              ) {
+                if (eke.rent_value > 1000) {
+                  unaffordable += eke.units;
+                  unaffordable_available += Math.ceil(eke.available);
+                  unaffordable_const += eke.house_constructed_all;
+                } else {
+                  affordable += eke.units;
+                  affordable_available += Math.ceil(eke.available);
+                  affordable_const += eke.house_constructed_all;
+                }
+              } else {
+                if (
+                  eke.rent_value >
+                  (40000 - cost_of_non_shelter_necessity) / 12
+                ) {
+                  unaffordable += eke.units;
+                  unaffordable_available += Math.ceil(eke.available);
+                  unaffordable_const += eke.house_constructed_all;
+                } else {
+                  affordable += eke.units;
+                  affordable_available += Math.ceil(eke.available);
+                  affordable_const += eke.house_constructed_all;
+                }
+              }
+            } else if (ele.income_bracket === "$50,000 to $59,999") {
+              if (
+                affordability === "30% of Gross Income" ||
+                affordability === "Both Definations"
+              ) {
+                if (eke.rent_value > 1250) {
+                  unaffordable += eke.units;
+                  unaffordable_available += Math.ceil(eke.available);
+                  unaffordable_const += eke.house_constructed_all;
+                } else {
+                  affordable += eke.units;
+                  affordable_available += Math.ceil(eke.available);
+                  affordable_const += eke.house_constructed_all;
+                }
+              } else {
+                if (
+                  eke.rent_value >
+                  (50000 - cost_of_non_shelter_necessity) / 12
+                ) {
+                  unaffordable += eke.units;
+                  unaffordable_available += Math.ceil(eke.available);
+                  unaffordable_const += eke.house_constructed_all;
+                } else {
+                  affordable += eke.units;
+                  affordable_available += Math.ceil(eke.available);
+                  affordable_const += eke.house_constructed_all;
+                }
+              }
+            } else if (ele.income_bracket === "$60,000 to $79,999") {
+              if (
+                affordability === "30% of Gross Income" ||
+                affordability === "Both Definations"
+              ) {
+                if (eke.rent_value > 1500) {
+                  unaffordable += eke.units;
+                  unaffordable_available += Math.ceil(eke.available);
+                  unaffordable_const += eke.house_constructed_all;
+                } else {
+                  affordable += eke.units;
+                  affordable_available += Math.ceil(eke.available);
+                  affordable_const += eke.house_constructed_all;
+                }
+              } else {
+                if (
+                  eke.rent_value >
+                  (60000 - cost_of_non_shelter_necessity) / 12
+                ) {
+                  unaffordable += eke.units;
+                  unaffordable_available += Math.ceil(eke.available);
+                  unaffordable_const += eke.house_constructed_all;
+                } else {
+                  affordable += eke.units;
+                  affordable_available += Math.ceil(eke.available);
+                  affordable_const += eke.house_constructed_all;
+                }
+              }
+            } else if (ele.income_bracket === "$80,000 to $99,999") {
+              if (
+                affordability === "30% of Gross Income" ||
+                affordability === "Both Definations"
+              ) {
+                if (eke.rent_value > 2000) {
+                  unaffordable += eke.units;
+                  unaffordable_available += Math.ceil(eke.available);
+                  unaffordable_const += eke.house_constructed_all;
+                } else {
+                  affordable += eke.units;
+                  affordable_available += Math.ceil(eke.available);
+                  affordable_const += eke.house_constructed_all;
+                }
+              } else {
+                if (
+                  eke.rent_value >
+                  (80000 - cost_of_non_shelter_necessity) / 12
+                ) {
+                  unaffordable += eke.units;
+                  unaffordable_available += Math.ceil(eke.available);
+                  unaffordable_const += eke.house_constructed_all;
+                } else {
+                  affordable += eke.units;
+                  affordable_available += Math.ceil(eke.available);
+                  affordable_const += eke.house_constructed_all;
+                }
+              }
+            } else {
+              if (
+                affordability === "30% of Gross Income" ||
+                affordability === "Both Definations"
+              ) {
+                if (eke.rent_value > 2500) {
+                  unaffordable += eke.units;
+                  unaffordable_available += Math.ceil(eke.available);
+                  unaffordable_const += eke.house_constructed_all;
+                } else {
+                  affordable += eke.units;
+                  affordable_available += Math.ceil(eke.available);
+                  affordable_const += eke.house_constructed_all;
+                }
+              } else {
+                if (
+                  eke.rent_value >
+                  (100000 - cost_of_non_shelter_necessity) / 12
+                ) {
+                  unaffordable += eke.units;
+                  unaffordable_available += Math.ceil(eke.available);
+                  unaffordable_const += eke.house_constructed_all;
+                } else {
+                  affordable += eke.units;
+                  affordable_available += Math.ceil(eke.available);
+                  affordable_const += eke.house_constructed_all;
+                }
+              }
+            }
+          }
+        });
+        total_current_unaffordable_houses += Math.ceil(
+          unaffordable * (ele.percentage_of_family_total_income / 100)
+        );
+        total_current_affordable_houses += Math.ceil(
+          affordable * (ele.percentage_of_family_total_income / 100)
+        );
+        total_current_unaffordable_houses_available += Math.ceil(
+          unaffordable_available * (ele.percentage_of_family_total_income / 100)
+        );
+        total_current_affordable_houses_available += Math.ceil(
+          affordable_available * (ele.percentage_of_family_total_income / 100)
+        );
+        total_current_unaffordable_houses_const += Math.ceil(
+          unaffordable_const * (ele.percentage_of_family_total_income / 100)
+        );
+        total_current_affordable_houses_const += Math.ceil(
+          affordable_const * (ele.percentage_of_family_total_income / 100)
+        );
+      });
+
       if (
         affordability === "30% of Gross Income" ||
         affordability === "Both Definations"
@@ -1645,6 +1874,12 @@ module.exports = {
         graph_1_7_current,
         graph_1_7_label,
         current_shelter_cost,
+        total_current_unaffordable_houses,
+        total_current_affordable_houses,
+        total_current_unaffordable_houses_available,
+        total_current_affordable_houses_available,
+        total_current_unaffordable_houses_const,
+        total_current_affordable_houses_const,
       });
 
       return res.json(link);

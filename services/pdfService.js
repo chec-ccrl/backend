@@ -139,6 +139,12 @@ module.exports = {
         graph_1_7_residual,
         graph_1_7_current,
         graph_1_7_label,
+        total_current_unaffordable_houses,
+        total_current_affordable_houses,
+        total_current_unaffordable_houses_available,
+        total_current_affordable_houses_available,
+        total_current_unaffordable_houses_const,
+        total_current_affordable_houses_const,
       } = data;
 
       let obj1, obj2, obj3, obj4;
@@ -1879,16 +1885,8 @@ module.exports = {
                 style="letter-spacing: 8px;margin-top: 3px"
               >
                 ${numberWithCommas(
-                  Math.ceil(
-                    affordable_apartment_available +
-                      affordable_apartment_constructed +
-                      affordable_row_available +
-                      affordable_row_constructed +
-                      unaffordable_apartment_available +
-                      unaffordable_apartment_constructed +
-                      unaffordable_row_available +
-                      unaffordable_row_constructed
-                  )
+                  total_current_unaffordable_houses +
+                    total_current_affordable_houses
                 )}
               </div>
             </div>
@@ -1907,42 +1905,21 @@ module.exports = {
                   </div>
                   <p class="fw-light m-0" style="font-size:11px">
                     Out of a total supply of ${numberWithCommas(
-                      Math.ceil(
-                        affordable_apartment_available +
-                          affordable_apartment_constructed +
-                          affordable_row_available +
-                          affordable_row_constructed +
-                          unaffordable_apartment_available +
-                          unaffordable_apartment_constructed +
-                          unaffordable_row_available +
-                          unaffordable_row_constructed
-                      )
+                      total_current_unaffordable_houses +
+                        total_current_affordable_houses
                     )} units, ${numberWithCommas(
-        Math.ceil(
-          affordable_apartment_available +
-            affordable_apartment_constructed +
-            affordable_row_available +
-            affordable_row_constructed
-        )
+        total_current_affordable_houses
       )} are affordable.
                   </p>
                   <p class="text-2xl ls-1 m-0">AFFORDABLE:${numberWithCommas(
-                    Math.ceil(
-                      affordable_apartment_available +
-                        affordable_apartment_constructed +
-                        affordable_row_available +
-                        affordable_row_constructed
-                    )
+                    total_current_affordable_houses
                   )}</p>
                   <canvas
                     id="main_page3_first_one_one_main_one_chart29"
                     style="max-width: 200px; margin: auto; height: 200px"
                   ></canvas>
                   <p class="text-2xl ls-1 m-0">UNAFFORDABLE:${numberWithCommas(
-                    unaffordable_apartment_available +
-                      unaffordable_apartment_constructed +
-                      unaffordable_row_available +
-                      unaffordable_row_constructed
+                    total_current_unaffordable_houses
                   )}</p>
                 </div>
               </div>
@@ -1957,20 +1934,12 @@ module.exports = {
                       AFFORDABLE STOCKS
                     </div>
                     <p class="fw-light m-0" style="font-size:11px">
-                      Out of a total affordable supply of  ${Math.ceil(
-                        affordable_apartment_available +
-                          affordable_row_available +
-                          affordable_apartment_occupied +
-                          affordable_row_occupied
-                      )} units, ${numberWithCommas(
-        Math.ceil(affordable_apartment_available + affordable_row_available)
+                      Out of a total affordable supply of ${total_current_affordable_houses} units, ${numberWithCommas(
+        total_current_affordable_houses_available
       )} are available.
                     </p>
                     <p class="text-2xl ls-1 m-0">AVAILABLE:${numberWithCommas(
-                      Math.ceil(
-                        affordable_apartment_available +
-                          affordable_row_available
-                      )
+                      total_current_affordable_houses_available
                     )}</p>
       
                     <div class="main_page4_first_one_one_main_one_chart">
@@ -1980,9 +1949,8 @@ module.exports = {
                       ></canvas>
                     </div>
                     <p class="text-2xl ls-1 m-0">OCCUPIED:${numberWithCommas(
-                      Math.ceil(
-                        affordable_apartment_occupied + affordable_row_occupied
-                      )
+                      total_current_affordable_houses -
+                        total_current_affordable_houses_available
                     )}</p>
                   </div>
                   <div class="main_page3_first_one_break"></div>
@@ -1992,18 +1960,8 @@ module.exports = {
                       UNAFFORDABLE STOCKS
                     </div>
                     <p class="fw-light m-0" style="font-size:11px">
-                      Out of a total unaffordable supply of ${Math.ceil(
-                        unaffordable_apartment_available +
-                          unaffordable_row_available +
-                          unaffordable_apartment_occupied +
-                          unaffordable_row_occupied
-                      )} units, ${Math.ceil(
-        unaffordable_apartment_available + unaffordable_row_available
-      )} are available.</p>
-                    <p class="text-2xl ls-1 m-0">AVAILABLE:${Math.ceil(
-                      unaffordable_apartment_available +
-                        unaffordable_row_available
-                    )}</p>
+                      Out of a total unaffordable supply of ${total_current_unaffordable_houses} units, ${total_current_unaffordable_houses_available} are available.</p>
+                    <p class="text-2xl ls-1 m-0">AVAILABLE:${total_current_unaffordable_houses_available}</p>
       
                     <div class="main_page4_first_one_one_main_one_chart">
                       <canvas
@@ -2011,10 +1969,10 @@ module.exports = {
                         style="max-width: 158px; margin: auto; height: 158px"
                       ></canvas>
                     </div>
-                    <p class="text-2xl ls-1 m-0">OCCUPIED:${Math.ceil(
-                      unaffordable_apartment_occupied +
-                        unaffordable_row_occupied
-                    )}</p>
+                    <p class="text-2xl ls-1 m-0">OCCUPIED:${
+                      total_current_unaffordable_houses -
+                      total_current_unaffordable_houses_available
+                    }</p>
                   </div>
                 </div>
               </div>
@@ -2026,32 +1984,22 @@ module.exports = {
                 </div>
                 <p class="fw-light m-0" style="font-size:11px">
                   A total of ${numberWithCommas(
-                    Math.ceil(
-                      affordable_apartment_constructed +
-                        affordable_row_constructed +
-                        unaffordable_apartment_constructed +
-                        unaffordable_row_constructed
-                    )
+                    total_current_unaffordable_houses_const +
+                      total_current_affordable_houses_const
                   )} new units were constructed this year, with ${numberWithCommas(
-        Math.ceil(affordable_apartment_constructed + affordable_row_constructed)
+        total_current_affordable_houses_const
       )} being
                   affordable
                 </p>
                 <p class="text-2xl ls-1 m-0">AFFORDABLE:${numberWithCommas(
-                  Math.ceil(
-                    affordable_apartment_constructed +
-                      affordable_row_constructed
-                  )
+                  total_current_affordable_houses_const
                 )}</p>
                 <canvas
                   id="main_page3_first_one_one_main_one_chart32"
                   style="max-width: 200px; margin: auto; height: 200px"
                 ></canvas>
                 <p class="text-2xl ls-1 m-0">UNAFFORDABLE:${numberWithCommas(
-                  Math.ceil(
-                    unaffordable_apartment_constructed +
-                      unaffordable_row_constructed
-                  )
+                  total_current_unaffordable_houses_const
                 )}</p>
               </div>
             </div>
@@ -4766,17 +4714,7 @@ module.exports = {
               labels: ["0B", "3B+"],
               datasets: [
                 {
-                  data: [${Math.ceil(
-                    affordable_apartment_available +
-                      affordable_apartment_constructed +
-                      affordable_row_available +
-                      affordable_row_constructed
-                  )}, ${Math.ceil(
-        unaffordable_apartment_available +
-          unaffordable_apartment_constructed +
-          unaffordable_row_available +
-          unaffordable_row_constructed
-      )}],
+                  data: [${total_current_affordable_houses}, ${total_current_unaffordable_houses}],
                   backgroundColor: ["#c2ac7f", "#683733"],
                 },
               ],
@@ -4862,11 +4800,10 @@ module.exports = {
               labels: ["0B", "3B+"],
               datasets: [
                 {
-                  data: [${Math.ceil(
-                    affordable_apartment_available + affordable_row_available
-                  )}, ${Math.ceil(
-        affordable_apartment_occupied + affordable_row_occupied
-      )}],
+                  data: [${total_current_affordable_houses_available}, ${
+        total_current_affordable_houses -
+        total_current_affordable_houses_available
+      }],
                   backgroundColor: ["#c2ac7f", "#683733"],
                 },
               ],
@@ -4898,12 +4835,10 @@ module.exports = {
               labels: ["0B", "3B+"],
               datasets: [
                 {
-                  data: [${Math.ceil(
-                    unaffordable_apartment_available +
-                      unaffordable_row_available
-                  )}, ${Math.ceil(
-        unaffordable_apartment_occupied + unaffordable_row_occupied
-      )}],
+                  data: [${total_current_unaffordable_houses_available}, ${
+        total_current_unaffordable_houses -
+        total_current_unaffordable_houses_available
+      }],
                   backgroundColor: ["#c2ac7f", "#683733"],
                 },
               ],
@@ -4940,12 +4875,7 @@ module.exports = {
               labels: ["0B", "3B+"],
               datasets: [
                 {
-                  data: [${Math.ceil(
-                    affordable_apartment_constructed +
-                      affordable_row_constructed
-                  )}, ${Math.ceil(
-        unaffordable_apartment_constructed + unaffordable_row_constructed
-      )}],
+                  data: [${total_current_affordable_houses_const}, ${total_current_unaffordable_houses_const}],
                   backgroundColor: ["#c2ac7f", "#683733"],
                 },
               ],
