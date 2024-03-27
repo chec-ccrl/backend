@@ -3,6 +3,7 @@ const Services = require("../services");
 const Validations = require("../validations");
 const logger = require("../util/logger");
 const db = require("../models");
+const xlsx = require("xlsx");
 
 const excelToJson = require("convert-excel-to-json");
 
@@ -137,6 +138,37 @@ module.exports = {
       );
       await Services.vacancyRateService.bulkCreate(arr);
       return res.json("Done");
+    } catch (error) {
+      next(error);
+    }
+  },
+  uploadExcelFiles: async (req, res, next) => {
+    try {
+      if (!req.file) {
+        return res.status(400).send("No file uploaded.");
+      }
+      const workbook = xlsx.read(req.file.buffer, { type: "buffer" });
+      const sheetName = workbook.SheetNames[0];
+      const sheet = workbook.Sheets[sheetName];
+      const data = xlsx.utils.sheet_to_json(sheet);
+      await Promise.all(
+        data.map(async (obj) => {
+          if (obj["A"] !== "Geography (Province name)") {
+            let data = {
+              province: obj["A"],
+              cma: obj["B"],
+              ca: obj["C"],
+              house_type: obj["D"],
+              bedroom_type: obj["E"],
+              year: obj["F"],
+              vacancy_rate: obj["G"],
+            };
+            arr.push(data);
+          }
+        })
+      );
+      await Services.vacancyRateService.bulkCreate(arr);
+      return res.status(200).json({ message: "Done", status: 200 });
     } catch (error) {
       next(error);
     }

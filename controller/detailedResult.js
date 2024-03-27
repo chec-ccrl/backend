@@ -470,7 +470,6 @@ module.exports = {
           rowTotal += ele.units;
         }
       });
-      console.log(apartmentTotal);
       let dwellingDetailsa = [];
       dwellingDetails.map((ele) => {
         let bedroom_percentage = 0;
