@@ -2715,9 +2715,10 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 20px;
-                              margin-right: -5px !important;
-                              padding: 5px;
+                            font-size: 16px;
+                            margin-right: -5px !important;
+                            padding: 5px;
+                            font-weight:600;
                             "
                           >
                             ${
@@ -2754,9 +2755,10 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 20px;
-                              margin-right: -5px !important;
-                              padding: 5px;
+                            font-size: 16px;
+                            margin-right: -5px !important;
+                            padding: 5px;
+                            font-weight:600;
                             "
                           >
                           ${
@@ -2804,9 +2806,10 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 20px;
-                              margin-right: -5px !important;
-                              padding: 5px;
+                            font-size: 16px;
+                            margin-right: -5px !important;
+                            padding: 5px;
+                            font-weight:600;
                             "
                           >
                           ${Math.ceil(
@@ -2842,9 +2845,10 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 20px;
-                              margin-right: -5px !important;
-                              padding: 5px;
+                            font-size: 16px;
+                            margin-right: -5px !important;
+                            padding: 5px;
+                            font-weight:600;
                             "
                           >
                           ${Math.ceil(
@@ -2893,9 +2897,10 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 20px;
-                              margin-right: -5px !important;
-                              padding: 5px;
+                            font-size: 16px;
+                            margin-right: -5px !important;
+                            padding: 5px;
+                            font-weight:600;
                             "
                           >
                           ${Math.ceil(
@@ -2931,9 +2936,10 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 20px;
-                              margin-right: -5px !important;
-                              padding: 5px;
+                            font-size: 16px;
+                            margin-right: -5px !important;
+                            padding: 5px;
+                            font-weight:600;
                             "
                           >
                           ${Math.ceil(
@@ -2977,9 +2983,10 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 20px;
-                              margin-right: -5px !important;
-                              padding: 5px;
+                            font-size: 16px;
+                            margin-right: -5px !important;
+                            padding: 5px;
+                            font-weight:600;
                             "
                           >
                           ${Math.ceil(
@@ -3015,9 +3022,10 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 20px;
+                              font-size: 16px;
                               margin-right: -5px !important;
                               padding: 5px;
+                              font-weight:600;
                             "
                           >
                           ${Math.ceil(
