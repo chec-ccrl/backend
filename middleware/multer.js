@@ -5,6 +5,9 @@ const storage = multer.memoryStorage({
     callback(null, "");
   },
 });
-const multipleUpload = multer({ storage }).any();
+const multipleUpload = multer({
+  storage,
+  limits: { fileSize: 10 * 1024 * 1024 * 1024 },
+}).any();
 
 module.exports = multipleUpload;
