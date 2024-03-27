@@ -2720,12 +2720,13 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                            ${(
-                              (total_current_affordable_houses_available_apa /
-                                (total_current_affordable_houses_apa +
-                                  total_current_unaffordable_houses_apa)) *
-                              100
-                            ).toFixed(1)}%
+                            ${
+                              Math.ceil(
+                                total_current_affordable_houses_available_apa /
+                                  (total_current_affordable_houses_apa +
+                                    total_current_unaffordable_houses_apa)
+                              ) * 100
+                            }%
                           </span>
                         </div>
                       </div>
@@ -2758,12 +2759,13 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                          ${(
-                            (total_current_unaffordable_houses_available_apa /
-                              (total_current_affordable_houses_apa +
-                                total_current_unaffordable_houses_apa)) *
-                            100
-                          ).toFixed(1)}%
+                          ${
+                            Math.ceil(
+                              total_current_unaffordable_houses_available_apa /
+                                (total_current_affordable_houses_apa +
+                                  total_current_unaffordable_houses_apa)
+                            ) * 100
+                          }%
                           </span>
                         </div>
                       </div>
@@ -2807,12 +2809,12 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                          ${(
+                          ${Math.ceil(
                             (total_current_affordable_houses_available_row /
                               (total_current_affordable_houses_row +
                                 total_current_unaffordable_houses_row)) *
-                            100
-                          ).toFixed(1)}%
+                              100
+                          )}%
                           </span>
                         </div>
                       </div>
@@ -2845,12 +2847,12 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                          ${(
+                          ${Math.ceil(
                             (total_current_unaffordable_houses_available_row /
                               (total_current_affordable_houses_row +
                                 total_current_unaffordable_houses_row)) *
-                            100
-                          ).toFixed(1)}%
+                              100
+                          )}%
                           </span>
                         </div>
                       </div>
@@ -2896,12 +2898,12 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                          ${(
+                          ${Math.ceil(
                             (total_current_affordable_houses_const_apa /
                               (total_current_affordable_houses_apa +
                                 total_current_unaffordable_houses_apa)) *
-                            100
-                          ).toFixed(1)}%
+                              100
+                          )}%
                           </span>
                         </div>
                       </div>
@@ -2934,12 +2936,12 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                          ${(
+                          ${Math.ceil(
                             (total_current_unaffordable_houses_const_apa /
                               (total_current_affordable_houses_apa +
                                 total_current_unaffordable_houses_apa)) *
-                            100
-                          ).toFixed(1)}%
+                              100
+                          )}%
                           </span>
                         </div>
                       </div>
@@ -2980,12 +2982,12 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                          ${(
+                          ${Math.ceil(
                             (total_current_affordable_houses_const_row /
                               (total_current_affordable_houses_row +
                                 total_current_unaffordable_houses_row)) *
-                            100
-                          ).toFixed(1)}%
+                              100
+                          )}%
                           </span>
                         </div>
                       </div>
@@ -3018,12 +3020,12 @@ module.exports = {
                               padding: 5px;
                             "
                           >
-                          ${(
+                          ${Math.ceil(
                             (total_current_unaffordable_houses_const_row /
                               (total_current_affordable_houses_row +
                                 total_current_unaffordable_houses_row)) *
-                            100
-                          ).toFixed(1)}%
+                              100
+                          )}%
                           </span>
                         </div>
                       </div>
