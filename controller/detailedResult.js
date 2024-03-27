@@ -295,7 +295,12 @@ module.exports = {
         }
         ele.rent_value = Math.ceil(ele.rent_value * multiplier?.utility);
       });
-
+      let rentDetails2 = await Services.rentService.getAlls(rentObj);
+      rentDetails2.forEach((ele) => {
+        if (rent_source === "Average Listing Rent") {
+          ele.rent_value = ele.rent_value * multiplier?.rent;
+        }
+      });
       let arrYear = [];
       for (let i = 0; i < 6; i += 1) {
         arrYear.push(String(Number(year) - i));
@@ -480,7 +485,7 @@ module.exports = {
         }
         dwellingDetailsa.push({
           ...ele.dataValues,
-          bedroom_percentage: Number(bedroom_percentage.toFixed(2)),
+          bedroom_percentage: Number(bedroom_percentage),
         });
       });
       let house_constructed_all_row = 0;
@@ -685,6 +690,55 @@ module.exports = {
           }
         });
       });
+
+      let graph_1_8_current = [0, 0, 0, 0];
+      let graph_1_8_new = [0, 0, 0, 0];
+      dwellingDetailss.map((ele) => {
+        if (house_type === "Apartment" && ele.house_type === "Apartment") {
+          if (ele.bedroom_type === "0 Bedroom") {
+            graph_1_8_current[0] += ele.units;
+            graph_1_8_new[0] += ele.house_constructed_all;
+          } else if (ele.bedroom_type === "1 Bedroom") {
+            graph_1_8_current[1] += ele.units;
+            graph_1_8_new[1] += ele.house_constructed_all;
+          } else if (ele.bedroom_type === "2 Bedroom") {
+            graph_1_8_current[2] += ele.units;
+            graph_1_8_new[2] += ele.house_constructed_all;
+          } else {
+            graph_1_8_current[3] += ele.units;
+            graph_1_8_new[3] += ele.house_constructed_all;
+          }
+        } else if (house_type === "Row House" && ele.house_type === "Row") {
+          if (ele.bedroom_type === "0 Bedroom") {
+            graph_1_8_current[0] += ele.units;
+            graph_1_8_new[0] += ele.house_constructed_all;
+          } else if (ele.bedroom_type === "1 Bedroom") {
+            graph_1_8_current[1] += ele.units;
+            graph_1_8_new[1] += ele.house_constructed_all;
+          } else if (ele.bedroom_type === "2 Bedroom") {
+            graph_1_8_current[2] += ele.units;
+            graph_1_8_new[2] += ele.house_constructed_all;
+          } else {
+            graph_1_8_current[3] += ele.units;
+            graph_1_8_new[3] += ele.house_constructed_all;
+          }
+        } else if (house_type === "Both Definations") {
+          if (ele.bedroom_type === "0 Bedroom") {
+            graph_1_8_current[0] += ele.units;
+            graph_1_8_new[0] += ele.house_constructed_all;
+          } else if (ele.bedroom_type === "1 Bedroom") {
+            graph_1_8_current[1] += ele.units;
+            graph_1_8_new[1] += ele.house_constructed_all;
+          } else if (ele.bedroom_type === "2 Bedroom") {
+            graph_1_8_current[2] += ele.units;
+            graph_1_8_new[2] += ele.house_constructed_all;
+          } else {
+            graph_1_8_current[3] += ele.units;
+            graph_1_8_new[3] += ele.house_constructed_all;
+          }
+        }
+      });
+
       let unaffordable_apartment_available = 0;
       let unaffordable_row_available = 0;
       let affordable_apartment_available = 0;
@@ -1338,6 +1392,16 @@ module.exports = {
           house_constructed_owned_apa_past) *
         100;
 
+      const sumRentalSupplyCurrent = graph_1_8_current.reduce(
+        (accumulator, currentValue) => accumulator + currentValue,
+        0
+      );
+      const sumRentalSupplyNew = graph_1_8_new.reduce(
+        (accumulator, currentValue) => accumulator + currentValue,
+        0
+      );
+      const rentalSupplyPercentage =
+        (sumRentalSupplyNew / sumRentalSupplyCurrent) * 100;
       const link = await Services.pdfService.detailPdfGenerator({
         province,
         geography,
@@ -1374,6 +1438,7 @@ module.exports = {
         historical_rental_stock_row,
         historical_rental_stock_apartment_growth,
         historical_rental_stock_row_growth,
+        rentDetails2,
         rowTotalOccupied,
         apartmentTotalOccupied,
         rowTotalAva: Math.ceil(rowTotalAva),
@@ -1427,6 +1492,9 @@ module.exports = {
         graph_3_1_color,
         redPercent,
         greenPercent,
+        graph_1_8_current,
+        graph_1_8_new,
+        rentalSupplyPercentage,
       });
 
       return res.json(link);

@@ -56,6 +56,7 @@ module.exports = {
         rent_source,
         affordability_ranking,
         province_income_ranking,
+        rentalSupplyPercentage,
         cma_income_ranking,
         cma,
         ca,
@@ -130,10 +131,13 @@ module.exports = {
         redPercent,
         greenPercent,
         graph_3_1_color,
+        graph_1_8_current,
+        graph_1_8_new,
+        rentDetails2,
       } = data;
 
       let obj1, obj2, obj3, obj4;
-      rentDetails.map((ele) => {
+      rentDetails2.map((ele) => {
         if (ele.bedroom_type === "0 Bedroom" && ele.house_type === "Row") {
           obj1 = `<div class="main_page3_first_one_content_one_buttons_button">
           <span>0B</span> $${ele.rent_value}
@@ -1843,7 +1847,9 @@ module.exports = {
                   SUPPLY
                 </div>
                 <div class="main_page3_first_one_sub text-sm">
-                  8% of New stock is added this Year
+                  ${rentalSupplyPercentage.toFixed(
+                    2
+                  )}% of New stock is added this Year
                 </div>
                 <div class="main_page3_first_one_chart">
                   <canvas
@@ -3393,13 +3399,13 @@ module.exports = {
                 {
                   label: "Current stock",
                   showInLegend: true,
-                  data: [1500, 3000, 5800, 1900],
+                  data: [${graph_1_8_current}],
                   backgroundColor: "#683733",
                 },
                 {
                   label: "New Added Stock",
                   showInLegend: true,
-                  data: [500, 1000, 2000, 3000],
+                  data: [${graph_1_8_new}],
                   backgroundColor: "#c2ac7f",
                 },
               ],
