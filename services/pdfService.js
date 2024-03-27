@@ -3051,11 +3051,11 @@ module.exports = {
             <div class="main_first_img" >
               <img
                 src="https://i.ibb.co/v3ht5Zc/logo.png"
-                style="height: 100px; width: 105px; margin-bottom: -25px"
+                style="height: 100px; width: 105px; margin-top: 60px"
                 alt=""
               />
             </div>
-            <div class="main_first_text" style="margin-top: 60px">
+            <div class="main_first_text" style="margin-top: 200px">
             <div class="main_first_text_tex1">${province.toUpperCase()} - ${geography.toUpperCase()}</div>
               <div class="main_first_text_tex2">INCOME ANALYSIS</div>
             </div>
