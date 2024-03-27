@@ -2150,7 +2150,7 @@ module.exports = {
             <div class="main_page4_first">
               <div class="main_page4_first_one">
                 <div class="main_page4_first_one_one">
-                  <div class="main_page4_first_one_one_head text-2xl mt-1">
+                  <div class="main_page4_first_one_one_head text-2xl my-2">
                     APARTMENT OVERVIEW
                   </div>
                   <div class="main_page3_third mb-2">
@@ -2188,7 +2188,7 @@ module.exports = {
                   </div>
                 </div>
                 <div class="main_page4_first_one_one">
-                  <div class="main_page4_first_one_one_head text-2xl mt-1">
+                  <div class="main_page4_first_one_one_head text-2xl my-2">
                     ROW HOUSE OVERVIEW
                   </div>
                   <div class="main_page3_third mb-2">
@@ -2230,7 +2230,7 @@ module.exports = {
                 <div class="main_page4_first_one_one">
                   <div class="main_third_line main_third_line_new"></div>
                   <div
-                    class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-2xl"
+                    class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-2xl mt-1"
                   >
                     HISTORICAL RENTAL STOCK
                   </div>
@@ -2286,7 +2286,7 @@ module.exports = {
                   <div class="main_third_line main_third_line_new"></div>
       
                   <div
-                    class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-2xl"
+                    class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-2xl mt-1"
                   >
                     HISTORICAL RENTAL STOCK
                   </div>
@@ -2565,7 +2565,7 @@ module.exports = {
               <div class="main_third_line"></div>
               <div class="main_page4_first_one">
                 <div class="main_page4_first_one_one">
-                  <div class="main_page3_first_one_txt text-2xl mb-4">
+                  <div class="main_page3_first_one_txt text-2xl mb-4 mt-1">
                     RENTAL UNITS OVERVIEW
                   </div>
                   <div class="main_page3_third">
@@ -2624,7 +2624,7 @@ module.exports = {
                   </div>
                 </div>
                 <div class="main_page4_first_one_one">
-                  <div class="main_page3_first_one_txt text-2xl mb-4">
+                  <div class="main_page3_first_one_txt text-2xl mb-4 mt-1">
                     RENTAL UNITS OVERVIEW
                   </div>
                   <div class="main_page3_third mb-2 text-md">
