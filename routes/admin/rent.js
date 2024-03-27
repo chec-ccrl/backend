@@ -1,4 +1,5 @@
 const Controllers = require("../../controller");
+const multerUpload = require("../../middleware/multer");
 
 module.exports = (router) => {
   router
@@ -7,6 +8,9 @@ module.exports = (router) => {
     .post(Controllers.rent.create);
 
   router.route("/admin/rent/excel").get(Controllers.rent.addExcelFiles);
+  router
+    .route("/admin/rent/excel/upload")
+    .post(multerUpload, Controllers.rent.uploadExcelFiles);
 
   router
     .route("/admin/rent/:rentId")
