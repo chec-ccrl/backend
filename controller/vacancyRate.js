@@ -144,13 +144,16 @@ module.exports = {
   },
   uploadExcelFiles: async (req, res, next) => {
     try {
-      if (!req.file) {
-        return res.status(400).send("No file uploaded.");
+      if (!req.files) {
+        return res.status(400).json("No file uploaded.");
       }
-      const workbook = xlsx.read(req.file.buffer, { type: "buffer" });
+      const workbook = xlsx.read(req.files[0].buffer, { type: "buffer" });
       const sheetName = workbook.SheetNames[0];
-      const sheet = workbook.Sheets[sheetName];
-      const data = xlsx.utils.sheet_to_json(sheet);
+      let data = excelToJson({
+        source: req.files[0].buffer,
+      });
+      data = data[sheetName];
+      let arr = [];
       await Promise.all(
         data.map(async (obj) => {
           if (obj["A"] !== "Geography (Province name)") {
