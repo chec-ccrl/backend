@@ -4200,27 +4200,27 @@ module.exports = {
               datasets: [
                 {
                   label: "CMA", // Dataset label
-                  data: [${graph_4_1_cma[0]}, ${graph_4_1_cma[1]}, ${
-        graph_4_1_cma[2]
-      }, ${graph_4_1_cma[3]}], // Data values
+                  data: [${graph_4_1_cma[4]}, ${graph_4_1_cma[5]}, ${
+        graph_4_1_cma[6]
+      }, ${graph_4_1_cma[7]}], // Data values
                   backgroundColor: "#683733", // Bar background color
                   borderColor: "#683733", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
                   label: "Province", // Dataset label
-                  data: [${graph_4_1_province[0]} ,${graph_4_1_province[1]},${
-        graph_4_1_province[2]
-      },${graph_4_1_province[3]}],
+                  data: [${graph_4_1_province[4]} ,${graph_4_1_province[5]},${
+        graph_4_1_province[6]
+      },${graph_4_1_province[7]}],
                   backgroundColor: "#5e6043", // Bar background color
                   borderColor: "#5e6043", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
                   label: "CANADA", // Dataset label
-                  data: [${graph_4_1_canada[0]} ,${graph_4_1_canada[1]},${
-        graph_4_1_canada[2]
-      },${graph_4_1_canada[3]}],
+                  data: [${graph_4_1_canada[4]} ,${graph_4_1_canada[5]},${
+        graph_4_1_canada[6]
+      },${graph_4_1_canada[7]}],
                   backgroundColor: "#4c3848", // Bar background color
                   borderColor: "#4c3848", // Bar border color
                   borderWidth: 2, // Bar border width
@@ -4269,27 +4269,27 @@ module.exports = {
               datasets: [
                 {
                   label: "CMA", // Dataset label
-                  data: [${graph_4_1_cma[4]} ,${graph_4_1_cma[5]},${
-        graph_4_1_cma[6]
-      },${graph_4_1_cma[7]}], // Data values
+                  data: [${graph_4_1_cma[0]} ,${graph_4_1_cma[1]},${
+        graph_4_1_cma[2]
+      },${graph_4_1_cma[3]}], // Data values
                   backgroundColor: "#683733", // Bar background color
                   borderColor: "#683733", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
                   label: "Province", // Dataset label
-                  data: [${graph_4_1_province[4]} ,${graph_4_1_province[5]},${
-        graph_4_1_province[6]
-      },${graph_4_1_province[7]}],
+                  data: [${graph_4_1_province[0]} ,${graph_4_1_province[1]},${
+        graph_4_1_province[2]
+      },${graph_4_1_province[3]}],
                   backgroundColor: "#5e6043", // Bar background color
                   borderColor: "#5e6043", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
                 {
                   label: "CANADA", // Dataset label
-                  data: [${graph_4_1_canada[4]} ,${graph_4_1_canada[5]},${
-        graph_4_1_canada[6]
-      },${graph_4_1_canada[7]}],
+                  data: [${graph_4_1_canada[0]} ,${graph_4_1_canada[1]},${
+        graph_4_1_canada[2]
+      },${graph_4_1_canada[3]}],
                   backgroundColor: "#4c3848", // Bar background color
                   borderColor: "#4c3848", // Bar border color
                   borderWidth: 2, // Bar border width
