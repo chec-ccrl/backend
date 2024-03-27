@@ -2600,7 +2600,7 @@ module.exports = {
                         <p
                           style="
                             margin-right: -15px;
-                            letter-spacing: 3px;
+                            letter-spacing: 1px;
                             font-size: large;
                           "
                         >
@@ -2612,7 +2612,7 @@ module.exports = {
                         <p
                           style="
                             margin-left: -15px;
-                            letter-spacing: 3px;
+                            letter-spacing: 1px;
                             font-size: large;
                             margin-top: auto;
                           "
@@ -2659,7 +2659,7 @@ module.exports = {
                         <p
                           style="
                             margin-right: -15px;
-                            letter-spacing: 3px;
+                            letter-spacing: 1px;
                             font-size: large;
                           "
                         >
@@ -2671,7 +2671,7 @@ module.exports = {
                         <p
                           style="
                             margin-left: -15px;
-                            letter-spacing: 3px;
+                            letter-spacing: 1px;
                             font-size: large;
                             margin-top: auto;
                           "
