@@ -158,7 +158,7 @@ module.exports = {
       });
       data = data[sheetName];
       let arr = [];
-      result.map(async (obj) => {
+      data.map(async (obj) => {
         if (obj["A"] !== "Geography (Province name)") {
           let t = {
             province: obj["A"],
