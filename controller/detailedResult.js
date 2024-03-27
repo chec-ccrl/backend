@@ -1578,9 +1578,7 @@ module.exports = {
         apartmentTotalAva: Math.ceil(apartmentTotalAva),
         apaUnitsAva,
         rowUnitsAva,
-        cost_of_non_shelter_necessity: Math.ceil(
-          cost_of_non_shelter_necessity / 1000
-        ),
+        cost_of_non_shelter_necessity,
         apaUnitsAdded,
         rowUnitsAdded,
         rowTotalAdded,
