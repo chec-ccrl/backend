@@ -142,7 +142,7 @@ module.exports = {
       } = data;
 
       let obj1, obj2, obj3, obj4;
-      rentDetails2.map((ele) => {
+      rentDetails.map((ele) => {
         if (ele.bedroom_type === "0 Bedroom" && ele.house_type === "Row") {
           obj1 = `<div class="main_page3_first_one_content_one_buttons_button">
           <span>0B</span> $${ele.rent_value}
