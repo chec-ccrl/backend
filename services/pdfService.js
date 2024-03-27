@@ -142,7 +142,7 @@ module.exports = {
       } = data;
 
       let obj1, obj2, obj3, obj4;
-      rentDetails.map((ele) => {
+      rentDetails2.map((ele) => {
         if (ele.bedroom_type === "0 Bedroom" && ele.house_type === "Row") {
           obj1 = `<div class="main_page3_first_one_content_one_buttons_button">
           <span>0B</span> $${ele.rent_value}
@@ -177,7 +177,7 @@ module.exports = {
         </div>`;
 
       let abj1, abj2, abj3, abj4;
-      rentDetails.map((ele) => {
+      rentDetails2.map((ele) => {
         if (
           ele.bedroom_type === "0 Bedroom" &&
           ele.house_type === "Apartment"
@@ -2071,10 +2071,10 @@ module.exports = {
                   affordability === "30% of Gross Income" ||
                   affordability === "Both Definations"
                     ? numberWithCommas(
-                        Number(median_household_income_after_tax)
+                        Number(median_household_income_before_tax_raw)
                       )
                     : numberWithCommas(
-                        Number(median_household_income_before_tax_raw)
+                        Number(median_household_income_after_tax)
                       )
                 }
               </div>
@@ -2083,8 +2083,8 @@ module.exports = {
                 ${
                   affordability === "30% of Gross Income" ||
                   affordability === "Both Definations"
-                    ? `AFTER TAX`
-                    : "BEFORE TAX"
+                    ? "BEFORE TAX"
+                    : `AFTER TAX`
                 }
                 
                 </div>

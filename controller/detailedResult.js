@@ -307,11 +307,6 @@ module.exports = {
       });
       current_shelter_cost = current_shelter_cost / 4;
       let rentDetails2 = await Services.rentService.getAlls(rentObj);
-      rentDetails2.forEach((ele) => {
-        if (rent_source === "Average Listing Rent") {
-          ele.rent_value = ele.rent_value * multiplier?.rent;
-        }
-      });
       let arrYear = [];
       for (let i = 0; i < 6; i += 1) {
         arrYear.push(String(Number(year) - i));
@@ -821,9 +816,10 @@ module.exports = {
 
         let obj = {
           ...ele,
-          optimal_income_before_tax:
+          optimal_income_before_tax: (ele.rent_value * 12) / 0.3,
+
+          optimal_income_after_tax:
             ele.rent_value * 12 + cost_of_non_shelter_necessity,
-          optimal_income_after_tax: (ele.rent_value * 12) / 0.3,
         };
         mainmainObj.push(obj);
         if (house_type === "Apartment" && ele.house_type === "Apartment") {
@@ -853,110 +849,110 @@ module.exports = {
             optimal_incomes[0] =
               affordability === "30% of Gross Income" ||
               affordability === "Both Definations"
-                ? ele.optimal_income_after_tax
-                : ele.optimal_income_before_tax;
+                ? ele.optimal_income_before_tax
+                : ele.optimal_income_after_tax;
             optimal_incomes_diff[0] =
               affordability === "30% of Gross Income" ||
               affordability === "Both Definations"
-                ? median_household_income_after_tax -
-                  ele.optimal_income_after_tax
-                : canadaIncomeSurveyDetails?.[0]?.median_before_tax -
-                  ele.optimal_income_before_tax;
+                ? canadaIncomeSurveyDetails?.[0]?.median_before_tax -
+                  ele.optimal_income_before_tax
+                : canadaIncomeSurveyDetails?.[0]?.median_after_tax -
+                  ele.optimal_income_after_tax;
           } else if (ele.bedroom_type === "1 Bedroom") {
             optimal_incomes[1] =
               affordability === "30% of Gross Income" ||
               affordability === "Both Definations"
-                ? ele.optimal_income_after_tax
-                : ele.optimal_income_before_tax;
+                ? ele.optimal_income_before_tax
+                : ele.optimal_income_after_tax;
             optimal_incomes_diff[1] =
               affordability === "30% of Gross Income" ||
               affordability === "Both Definations"
-                ? median_household_income_after_tax -
-                  ele.optimal_income_after_tax
-                : canadaIncomeSurveyDetails?.[0]?.median_before_tax -
-                  ele.optimal_income_before_tax;
+                ? canadaIncomeSurveyDetails?.[0]?.median_before_tax -
+                  ele.optimal_income_before_tax
+                : canadaIncomeSurveyDetails?.[0]?.median_after_tax -
+                  ele.optimal_income_after_tax;
           } else if (ele.bedroom_type === "2 Bedroom") {
             optimal_incomes[2] =
               affordability === "30% of Gross Income" ||
               affordability === "Both Definations"
-                ? ele.optimal_income_after_tax
-                : ele.optimal_income_before_tax;
+                ? ele.optimal_income_before_tax
+                : ele.optimal_income_after_tax;
             optimal_incomes_diff[2] =
               affordability === "30% of Gross Income" ||
               affordability === "Both Definations"
-                ? median_household_income_after_tax -
-                  ele.optimal_income_after_tax
-                : canadaIncomeSurveyDetails?.[0]?.median_before_tax -
-                  ele.optimal_income_before_tax;
+                ? canadaIncomeSurveyDetails?.[0]?.median_before_tax -
+                  ele.optimal_income_before_tax
+                : canadaIncomeSurveyDetails?.[0]?.median_after_tax -
+                  ele.optimal_income_after_tax;
           } else {
             optimal_incomes[3] =
               affordability === "30% of Gross Income" ||
               affordability === "Both Definations"
-                ? ele.optimal_income_after_tax
-                : ele.optimal_income_before_tax;
+                ? ele.optimal_income_before_tax
+                : ele.optimal_income_after_tax;
             optimal_incomes_diff[3] =
               affordability === "30% of Gross Income" ||
               affordability === "Both Definations"
-                ? median_household_income_after_tax -
-                  ele.optimal_income_after_tax
-                : canadaIncomeSurveyDetails?.[0]?.median_before_tax -
-                  ele.optimal_income_before_tax;
+                ? canadaIncomeSurveyDetails?.[0]?.median_before_tax -
+                  ele.optimal_income_before_tax
+                : canadaIncomeSurveyDetails?.[0]?.median_after_tax -
+                  ele.optimal_income_after_tax;
           }
         } else {
           if (ele.bedroom_type === "0 Bedroom") {
             optimal_incomes[4] =
               affordability === "30% of Gross Income" ||
               affordability === "Both Definations"
-                ? ele.optimal_income_after_tax
-                : ele.optimal_income_before_tax;
+                ? ele.optimal_income_before_tax
+                : ele.optimal_income_after_tax;
             optimal_incomes_diff[4] =
               affordability === "30% of Gross Income" ||
               affordability === "Both Definations"
-                ? median_household_income_after_tax -
-                  ele.optimal_income_after_tax
-                : canadaIncomeSurveyDetails?.[0]?.median_before_tax -
-                  ele.optimal_income_before_tax;
+                ? canadaIncomeSurveyDetails?.[0]?.median_before_tax -
+                  ele.optimal_income_before_tax
+                : canadaIncomeSurveyDetails?.[0]?.median_after_tax -
+                  ele.optimal_income_after_tax;
           } else if (ele.bedroom_type === "1 Bedroom") {
             optimal_incomes[5] =
               affordability === "30% of Gross Income" ||
               affordability === "Both Definations"
-                ? median_household_income_after_tax -
-                  ele.optimal_income_after_tax
-                : canadaIncomeSurveyDetails?.[0]?.median_before_tax -
-                  ele.optimal_income_before_tax;
+                ? canadaIncomeSurveyDetails?.[0]?.median_before_tax -
+                  ele.optimal_income_before_tax
+                : canadaIncomeSurveyDetails?.[0]?.median_after_tax -
+                  ele.optimal_income_after_tax;
             optimal_incomes_diff[5] =
               affordability === "30% of Gross Income" ||
               affordability === "Both Definations"
-                ? median_household_income_after_tax -
-                  ele.optimal_income_after_tax
-                : canadaIncomeSurveyDetails?.[0]?.median_before_tax -
-                  ele.optimal_income_before_tax;
+                ? canadaIncomeSurveyDetails?.[0]?.median_before_tax -
+                  ele.optimal_income_before_tax
+                : canadaIncomeSurveyDetails?.[0]?.median_after_tax -
+                  ele.optimal_income_after_tax;
           } else if (ele.bedroom_type === "2 Bedroom") {
             optimal_incomes[6] =
               affordability === "30% of Gross Income" ||
               affordability === "Both Definations"
-                ? ele.optimal_income_after_tax
-                : ele.optimal_income_before_tax;
+                ? ele.optimal_income_before_tax
+                : ele.optimal_income_after_tax;
             optimal_incomes_diff[6] =
               affordability === "30% of Gross Income" ||
               affordability === "Both Definations"
-                ? median_household_income_after_tax -
-                  ele.optimal_income_after_tax
-                : canadaIncomeSurveyDetails?.[0]?.median_before_tax -
-                  ele.optimal_income_before_tax;
+                ? canadaIncomeSurveyDetails?.[0]?.median_before_tax -
+                  ele.optimal_income_before_tax
+                : canadaIncomeSurveyDetails?.[0]?.median_after_tax -
+                  ele.optimal_income_after_tax;
           } else {
             optimal_incomes[7] =
               affordability === "30% of Gross Income" ||
               affordability === "Both Definations"
-                ? ele.optimal_income_after_tax
-                : ele.optimal_income_before_tax;
+                ? ele.optimal_income_before_tax
+                : ele.optimal_income_after_tax;
             optimal_incomes_diff[7] =
               affordability === "30% of Gross Income" ||
               affordability === "Both Definations"
-                ? median_household_income_after_tax -
-                  ele.optimal_income_after_tax
-                : canadaIncomeSurveyDetails?.[0]?.median_before_tax -
-                  ele.optimal_income_before_tax;
+                ? canadaIncomeSurveyDetails?.[0]?.median_before_tax -
+                  ele.optimal_income_before_tax
+                : canadaIncomeSurveyDetails?.[0]?.median_after_tax -
+                  ele.optimal_income_after_tax;
           }
         }
       });
