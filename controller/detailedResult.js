@@ -1794,21 +1794,18 @@ module.exports = {
                 await Services.marketBasketMeasureService.getDetail({
                   province: ele.province,
                   year,
-                  cma: "NA",
-                  ca: "NA",
                 });
             } else {
               marketBasketDetails =
                 await Services.householdSpendingService.getDetail({
                   province: ele.province,
                   year,
-                  cma: "NA",
-                  ca: "NA",
                 });
             }
+
             const cost_of_non_shelter_necessity = marketBasketDetails?.cost;
             graph_4_3_affordable[`"${abbr}"`] =
-              (canadaIncomeSurveyDetails[0].median_before_tax -
+              (canadaIncomeSurveyDetails[0].median_after_tax -
                 cost_of_non_shelter_necessity) /
               12;
           }
@@ -1832,6 +1829,7 @@ module.exports = {
           graph_4_3_average_rent_apa[`"${abbr}"`] = Math.ceil(apa / 4);
         })
       );
+      console.log(graph_4_3_affordable);
       let graph_3_1 = [0, 0, 0, 0, 0, 0, 0, 0, 0];
       let graph_3_1_color = ["", "", "", "", "", "", "", "", ""];
       let redPercent = 0;
