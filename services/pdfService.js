@@ -3554,7 +3554,7 @@ module.exports = {
                 palette: "default",
                 points: [
                   {
-                    name: "HOUSEHOLD INCOME <br> BEFORE TAX",
+                    name: "HOUSEHOLD INCOME BEFORE TAX",
                     y: ${median_household_income_before_tax},
                     color: "#4c3848",
                   },
@@ -3562,7 +3562,7 @@ module.exports = {
                     median_household_income_after_tax / 1000
                   }, color: "#5e6043" },
                   {
-                    name: "COST OF NON SHELTER <br>NECESSITIES",
+                    name: "COST OF NON SHELTER NECESSITIES",
                     y: ${cost_of_non_shelter_necessity / 1000},
                     color: "#683733",
                   },
@@ -3579,7 +3579,7 @@ module.exports = {
                     y: ${
                       (median_household_income_after_tax -
                         cost_of_non_shelter_necessity -
-                        current_shelter_cost) /
+                        current_shelter_cost * 12) /
                       1000
                     },
                     color: "green",

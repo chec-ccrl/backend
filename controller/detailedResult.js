@@ -1534,6 +1534,7 @@ module.exports = {
       for (let i = 0; i < graph_1_7_30.length; i += 1) {
         graph_1_7_current.push(current_shelter_cost);
       }
+
       const link = await Services.pdfService.detailPdfGenerator({
         province,
         geography,
