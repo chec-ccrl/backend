@@ -1582,14 +1582,14 @@ module.exports = {
           border-radius: 4rem;
         }
         .half_width_table {
-          line-height: 2.2rem;
+          line-height: 2.0rem;
           td {
-            font-size: 23px;
+            font-size: 21px;
           }
         }
         .tableheading {
           td {
-            font-size: 23px;
+            font-size: 21px;
             line-height: 1.2rem !important;
           }
         }
@@ -2036,7 +2036,7 @@ module.exports = {
                 </div>
                 <div>
                   <table class="fw-bold half_width_table">
-                    <tr  style="font-weight: 500; letter-spacing: 4px">
+                    <tr  style="font-weight: 500; letter-spacing: 2px">
                       <td></td>
                       <td>Row</td>
                       <td style="border-left: 0px; border-left-style: hidden"></td>
@@ -2044,7 +2044,7 @@ module.exports = {
                       <td style="border-left: 0px; border-left-style: hidden"></td>
                     </tr>
                     <tr
-                      style="font-weight: 500; letter-spacing: 4px"
+                      style="font-weight: 500; letter-spacing: 2px"
                       class="tableheading"
                     >
                       <td>NO. OF BEDROOMS</td>
@@ -3515,7 +3515,7 @@ module.exports = {
             type: "pyramidInverted",
             legend_visible: false,
             width: 530,
-            height: 330,
+            height: 300,
             yAxis: { label_text: "Cost", formatString: "c" },
             backgroundColor: "#f1f3f9",
             defaultSeries: {
