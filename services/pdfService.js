@@ -3515,7 +3515,7 @@ module.exports = {
             type: "pyramidInverted",
             legend_visible: false,
             width: 530,
-            height: 290,
+            height: 270,
             yAxis: { label_text: "Cost", formatString: "c" },
             backgroundColor: "#f1f3f9",
             defaultSeries: {
