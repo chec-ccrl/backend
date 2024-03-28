@@ -1713,10 +1713,8 @@ module.exports = {
             optimal_incomes[5] =
               affordability === "30% of Gross Income" ||
               affordability === "Both Definations"
-                ? canadaIncomeSurveyDetails?.[0]?.median_before_tax -
-                  ele.optimal_income_before_tax
-                : canadaIncomeSurveyDetails?.[0]?.median_after_tax -
-                  ele.optimal_income_after_tax;
+                ? ele.optimal_income_before_tax
+                : ele.optimal_income_after_tax;
             optimal_incomes_diff[5] =
               affordability === "30% of Gross Income" ||
               affordability === "Both Definations"
