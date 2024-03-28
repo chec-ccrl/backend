@@ -309,7 +309,7 @@ module.exports = {
       let rentDetails2 = await Services.rentService.getAlls(rentObj);
       rentDetails2.forEach((ele) => {
         if (rent_source === "Average Listing Rent") {
-          ele.rent_value = ele.rent_value * multiplier?.rent;
+          ele.rent_value = Math.ceil(ele.rent_value * multiplier?.rent);
         }
       });
       let arrYear = [];
