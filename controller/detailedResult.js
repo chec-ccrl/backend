@@ -1832,7 +1832,6 @@ module.exports = {
           graph_4_3_average_rent_apa[`"${abbr}"`] = Math.ceil(apa / 4);
         })
       );
-      console.log(graph_4_3_affordable);
       let graph_3_1 = [0, 0, 0, 0, 0, 0, 0, 0, 0];
       let graph_3_1_color = ["", "", "", "", "", "", "", "", ""];
       let redPercent = 0;
