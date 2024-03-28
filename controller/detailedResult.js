@@ -307,6 +307,11 @@ module.exports = {
       });
       current_shelter_cost = current_shelter_cost / 4;
       let rentDetails2 = await Services.rentService.getAlls(rentObj);
+      rentDetails2.forEach((ele) => {
+        if (rent_source === "Average Listing Rent") {
+          ele.rent_value = ele.rent_value * multiplier?.rent;
+        }
+      });
       let arrYear = [];
       for (let i = 0; i < 6; i += 1) {
         arrYear.push(String(Number(year) - i));
