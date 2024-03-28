@@ -119,6 +119,7 @@ module.exports = {
         greenPercent,
         graph_3_1_color,
         graph_1_8_current,
+        income_rank,
         graph_1_8_new,
         rentDetails2,
         graph_1_7_30,
@@ -1768,13 +1769,18 @@ module.exports = {
                   </div>
                   <div class="main_page3_first_one_other_one">
                     <div class="main_page3_first_one_other_one_main">
-                    <span style="font-size: 30px">12</span>
+                    <span style="font-size: 30px">${income_rank}</span>
                     </div>
                     <div class="main_page3_first_one_other_one_text">
                       MEDIAN<br />
                       INCOME
                     </div>
-                    <div class="main_page3_first_one_other_one_sub" style="margin-top:3px">*Before Tax</div>
+                    <div class="main_page3_first_one_other_one_sub" style="margin-top:3px">*${
+                      affordability === "30% of Gross Income" ||
+                      affordability === "Both Definations"
+                        ? "Before Tax"
+                        : `After Tax`
+                    }</div>
                   </div>
                 </div>
               </div>

@@ -2362,6 +2362,17 @@ module.exports = {
         graph_1_7_current.push(current_shelter_cost);
       }
 
+      const incomeRank = await Services.incomeRankingProvinceService.getDetail({
+        province,
+        year,
+      });
+
+      let income_rank =
+        affordability === "30% of Gross Income" ||
+        affordability === "Both Definations"
+          ? incomeRank[0].ranking_before_tax
+          : incomeRank[0].ranking_after_tax;
+
       const link = await Services.pdfService.detailPdfGenerator({
         province,
         geography,
@@ -2462,6 +2473,7 @@ module.exports = {
         total_current_affordable_houses_available_apa,
         total_current_unaffordable_houses_const_apa,
         total_current_affordable_houses_const_apa,
+        income_rank,
       });
 
       return res.json(link);
