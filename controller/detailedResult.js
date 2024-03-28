@@ -1923,6 +1923,9 @@ module.exports = {
         year,
       });
       rentCma.map((ele) => {
+        if (rent_source === "Average Listing Rent") {
+          ele.rent_value = ele.rent_value * multiplier?.rent;
+        }
         if (ele.house_type === "Row") {
           if (ele.bedroom_type === "0 Bedroom") {
             graph_4_1_cma[4] = ele.rent_value;
@@ -1952,7 +1955,16 @@ module.exports = {
         ca: "NA",
         year,
       });
+      const multiplierProvince = await Services.multiplierService.getDetail({
+        province,
+        cma: "NA",
+        ca: "NA",
+        year,
+      });
       rentProvince.map((ele) => {
+        if (rent_source === "Average Listing Rent") {
+          ele.rent_value = ele.rent_value * multiplierProvince?.rent;
+        }
         if (ele.house_type === "Row") {
           if (ele.bedroom_type === "0 Bedroom") {
             graph_4_1_province[4] = ele.rent_value;
@@ -1981,7 +1993,16 @@ module.exports = {
         ca: "NA",
         year,
       });
+      const multiplierCanada = await Services.multiplierService.getDetail({
+        province: "Canada",
+        cma: "NA",
+        ca: "NA",
+        year,
+      });
       rentCanada.map((ele) => {
+        if (rent_source === "Average Listing Rent") {
+          ele.rent_value = ele.rent_value * multiplierCanada?.rent;
+        }
         if (ele.house_type === "Row") {
           if (ele.bedroom_type === "0 Bedroom") {
             graph_4_1_canada[0] = ele.rent_value;
