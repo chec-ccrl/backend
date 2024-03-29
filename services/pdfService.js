@@ -58,6 +58,8 @@ module.exports = {
         province_income_ranking,
         rentalSupplyPercentage,
         cma_income_ranking,
+        cma,
+        ca,
         c27l,
         c27v,
         c28l,
@@ -67,6 +69,7 @@ module.exports = {
         c36l,
         final_rank,
         c36v,
+        rentDetails,
         median_household_income_before_tax_6_year_v,
         median_household_income_after_tax_6_year_v,
         historicalGrowthRowFinal,
@@ -571,7 +574,26 @@ module.exports = {
           margin-bottom: 10px;
           z-index: 1;
         }
-
+      
+        .main_five_right_left {
+          display: flex;
+          width: 90%;
+          font-size: 10px;
+          justify-content: space-between;
+          align-items: center;
+          margin: auto;
+        }
+      
+        .main_five_right {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          font-weight: bold;
+          width: 45%;
+        }
+      
         .main_float_line {
           height: 1100px;
           position: absolute;
@@ -581,7 +603,54 @@ module.exports = {
           transform: translateX(-50%);
           top: 400px;
         }
-
+      
+        .page1_footer {
+          font-size: 10px;
+          letter-spacing: 1.3cap;
+          text-align: center;
+          padding: 3px 3px;
+        }
+      
+        .main_page2_first {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          margin-top: 10px;
+        }
+      
+        .main_page2_first_table {
+          border: 1.5px solid black;
+          width: 90%;
+          margin: auto;
+          text-align: center;
+        }
+      
+        .main_page2_first_table:first-child {
+          border: 1.5px solid black;
+          width: 90%;
+          margin: auto;
+          text-align: center;
+          margin-bottom: 180px;
+        }
+      
+        .main_page2_first_table tr {
+          border: 1.5px solid black;
+        }
+      
+        .main_page2_first_table th {
+          border: 1.5px solid black;
+          padding: 10px 4px;
+          background-color: #c7ddef;
+          font-size: 115px;
+        }
+      
+        .main_page2_first_table td {
+          border: 1.5px solid black;
+          padding: 10px 4px;
+          font-size: 18px;
+        }
+      
         .main_page3_first {
           display: flex;
           flex-direction: row;
@@ -1105,6 +1174,40 @@ module.exports = {
           font-weight: bold;
         }
       
+        .main_page4_first_one_one_main2 {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 10px;
+          text-align: center;
+          width: 100%;
+        }
+      
+        .main_page4_first_one_one_main_numone_num {
+          font-size: 50px;
+          font-weight: bolder;
+        }
+      
+        .main_page4_first_one_one_main_numone_txt {
+          font-size: 12px;
+          font-weight: bold;
+          margin-top: 4px;
+        }
+      
+        .main_page4_first_one2 {
+          justify-content: space-between !important;
+          /* width: 100% !important; */
+          width: 90%;
+        }
+      
+        .main_page4_first_one2 .main_page4_first_one_one {
+          width: 45%;
+        }
+      
+        .main_page4_first_one_one_main_one_border {
+          border-right: 1.8px dashed black;
+          margin-right: 5px;
+        }
       
         .main_third_line_new {
           width: 95% !important;
@@ -1287,6 +1390,12 @@ module.exports = {
           height: 1490px !important;
         }
       
+        .main_float_line3 {
+          height: 1150px !important;
+          top: 715% !important;
+          z-index: 0;
+          left: 53%;
+        }
       
         .main_page4_first_one_one_main_pluse_growth {
           display: flex;
@@ -1517,7 +1626,7 @@ module.exports = {
       <html>
         <body>
           <!-- Main ELEMENT FOR COMPLETE PDF -->
-          <div class="main">
+          <div class="main" style="height: 1700px">
             <!-- FIFTH PAGE -->
             <div class="main_first">
               <div class="main_first_img">
@@ -2027,7 +2136,7 @@ module.exports = {
       
           <!-- SIXTH PAGE -->
           <br /><br />
-          <div style="position: relative; >
+          <div style="position: relative; height: 1700px">
             <div class="main_first" >
               <div class="main_first_img">
                 <img
@@ -2583,7 +2692,7 @@ module.exports = {
               </div>
               <br />
               <!-- INSET HERE -->
-
+      
               <div class="main_page3_first">
                 <div class="main_page3_first_second_one">
                   <div class="main_third_line main_third_line_new bg-black"></div>
@@ -2599,7 +2708,7 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 35px;
+                              font-size: 34px;
                               margin-right: 0px !important;
                               padding: 5px;
                             "
@@ -2945,6 +3054,7 @@ module.exports = {
           </div>
       
           <!-- SEVENTH PAGE -->
+          <div style="height: 1700px;">
           <div class="main_first" >
             <div class="main_first_img" >
               <img
@@ -3120,6 +3230,7 @@ module.exports = {
                 </div>
               </div>
             </div>
+          </div>
           </div>
           <!-- LAST PAGE -->
           <div class="main_first" >
@@ -7242,6 +7353,12 @@ module.exports = {
         top: 400px;
     }
 
+    .page1_footer {
+        font-size: 10px;
+        letter-spacing: 1.3cap;
+        text-align: center;
+        padding: 3px 3px;
+    }
 
     .main_page2_first {
         display: flex;
