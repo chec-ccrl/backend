@@ -2817,7 +2817,7 @@ module.exports = {
             );
           });
           rankingArr.push({
-            geography: cma === "NA" ? geo.cma : geo.ca,
+            geography: cma === "NA" ? geo.ca : geo.cma,
             province,
             total_current_affordable_houses,
           });
