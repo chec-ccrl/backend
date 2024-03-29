@@ -5118,8 +5118,8 @@ module.exports = {
         path: pdfFilePath,
         format: "A3",
         printBackground: true,
-        scale: 1.056,
-        // scale: 1.054,
+        // scale: 1.056,
+        scale: 1.052,
       });
       const params = {
         Bucket: process.env.S3_AWS_BUCKET,
