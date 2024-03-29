@@ -2166,42 +2166,42 @@ module.exports = {
           const cost_of_non_shelter_necessity = marketBasketDetails?.cost;
 
           canadaIncomeSurveyDetails.map((eke) => {
-            if (eke.income_bracket === "$100,000 and over") {
+            if (eke.income_bracket === "$100,000 And Over") {
               let gg = rentDetail.rent_value * multiplier.utility * 12;
               total +=
                 (100000 - cost_of_non_shelter_necessity - gg) *
                 (eke.percentage_of_family_after_tax_income / 100);
-            } else if (eke.income_bracket === "$80,000 to $99,999") {
+            } else if (eke.income_bracket === "$80,000 To $99,999") {
               let gg = rentDetail.rent_value * multiplier.utility * 12;
               total +=
                 (80000 - cost_of_non_shelter_necessity - gg) *
                 (eke.percentage_of_family_after_tax_income / 100);
-            } else if (eke.income_bracket === "$60,000 to $79,999") {
+            } else if (eke.income_bracket === "$60,000 To $79,999") {
               let gg = rentDetail.rent_value * multiplier.utility * 12;
               total +=
                 (60000 - cost_of_non_shelter_necessity - gg) *
                 (eke.percentage_of_family_after_tax_income / 100);
-            } else if (eke.income_bracket === "$50,000 to $59,999") {
+            } else if (eke.income_bracket === "$50,000 To $59,999") {
               let gg = rentDetail.rent_value * multiplier.utility * 12;
               total +=
                 (50000 - cost_of_non_shelter_necessity - gg) *
                 (eke.percentage_of_family_after_tax_income / 100);
-            } else if (eke.income_bracket === "$40,000 to $49,999") {
+            } else if (eke.income_bracket === "$40,000 To $49,999") {
               let gg = rentDetail.rent_value * multiplier.utility * 12;
               total +=
                 (40000 - cost_of_non_shelter_necessity - gg) *
                 (eke.percentage_of_family_after_tax_income / 100);
-            } else if (eke.income_bracket === "$30,000 to $39,999") {
+            } else if (eke.income_bracket === "$30,000 To $39,999") {
               let gg = rentDetail.rent_value * multiplier.utility * 12;
               total +=
                 (30000 - cost_of_non_shelter_necessity - gg) *
                 (eke.percentage_of_family_after_tax_income / 100);
-            } else if (eke.income_bracket === "$20,000 to $29,999") {
+            } else if (eke.income_bracket === "$20,000 To $29,999") {
               let gg = rentDetail.rent_value * multiplier.utility * 12;
               total +=
                 (20000 - cost_of_non_shelter_necessity - gg) *
                 (eke.percentage_of_family_after_tax_income / 100);
-            } else if (eke.income_bracket === "$10,000 to $19,999") {
+            } else if (eke.income_bracket === "$10,000 To $19,999") {
               let gg = rentDetail.rent_value * multiplier.utility * 12;
               total +=
                 (10000 - cost_of_non_shelter_necessity - gg) *
@@ -2632,7 +2632,7 @@ module.exports = {
               ) {
                 if (
                   ele.income_bracket ===
-                  "Percentage under $10,000 (including zeros and losses)"
+                  "Percentage Under $10,000 (Including Zeros And Losses)"
                 ) {
                   if (
                     affordability === "30% of Gross Income" ||
@@ -2661,7 +2661,7 @@ module.exports = {
                       affordable_const += eke.house_constructed_all;
                     }
                   }
-                } else if (ele.income_bracket === "$10,000 to $19,999") {
+                } else if (ele.income_bracket === "$10,000 To $19,999") {
                   if (
                     affordability === "30% of Gross Income" ||
                     affordability === "Both Definations"
@@ -2689,7 +2689,7 @@ module.exports = {
                       affordable_const += eke.house_constructed_all;
                     }
                   }
-                } else if (ele.income_bracket === "$20,000 to $29,999") {
+                } else if (ele.income_bracket === "$20,000 To $29,999") {
                   if (
                     affordability === "30% of Gross Income" ||
                     affordability === "Both Definations"
@@ -2717,7 +2717,7 @@ module.exports = {
                       affordable_const += eke.house_constructed_all;
                     }
                   }
-                } else if (ele.income_bracket === "$30,000 to $39,999") {
+                } else if (ele.income_bracket === "$30,000 To $39,999") {
                   if (
                     affordability === "30% of Gross Income" ||
                     affordability === "Both Definations"
@@ -2745,7 +2745,7 @@ module.exports = {
                       affordable_const += eke.house_constructed_all;
                     }
                   }
-                } else if (ele.income_bracket === "$40,000 to $49,999") {
+                } else if (ele.income_bracket === "$40,000 To $49,999") {
                   if (
                     affordability === "30% of Gross Income" ||
                     affordability === "Both Definations"
@@ -2773,7 +2773,7 @@ module.exports = {
                       affordable_const += eke.house_constructed_all;
                     }
                   }
-                } else if (ele.income_bracket === "$50,000 to $59,999") {
+                } else if (ele.income_bracket === "$50,000 To $59,999") {
                   if (
                     affordability === "30% of Gross Income" ||
                     affordability === "Both Definations"
@@ -2801,7 +2801,7 @@ module.exports = {
                       affordable_const += eke.house_constructed_all;
                     }
                   }
-                } else if (ele.income_bracket === "$60,000 to $79,999") {
+                } else if (ele.income_bracket === "$60,000 To $79,999") {
                   if (
                     affordability === "30% of Gross Income" ||
                     affordability === "Both Definations"
@@ -2829,7 +2829,7 @@ module.exports = {
                       affordable_const += eke.house_constructed_all;
                     }
                   }
-                } else if (ele.income_bracket === "$80,000 to $99,999") {
+                } else if (ele.income_bracket === "$80,000 To $99,999") {
                   if (
                     affordability === "30% of Gross Income" ||
                     affordability === "Both Definations"
