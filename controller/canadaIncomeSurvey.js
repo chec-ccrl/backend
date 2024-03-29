@@ -136,8 +136,6 @@ module.exports = {
               year: obj["E"],
               percentage_of_family_total_income: obj["F"],
               percentage_of_family_after_tax_income: obj["G"],
-              number_of_family_total_income: obj["H"],
-              number_of_family_after_tax_income: obj["I"],
             };
             arr.push(objj);
           }

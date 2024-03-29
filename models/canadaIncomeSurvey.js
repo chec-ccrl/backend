@@ -29,12 +29,6 @@ module.exports = (sequelize, Sequelize) => {
       percentage_of_family_after_tax_income: {
         type: Sequelize.DOUBLE,
       },
-      number_of_family_total_income: {
-        type: Sequelize.DOUBLE,
-      },
-      number_of_family_after_tax_income: {
-        type: Sequelize.DOUBLE,
-      },
       median_before_tax: {
         type: Sequelize.DOUBLE,
       },
