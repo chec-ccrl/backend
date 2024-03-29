@@ -757,7 +757,7 @@ module.exports = {
           averageRent += ele.rent_value;
         } else if (ele.house_type === "Row" && house_type === "Row House") {
           averageRent += ele.rent_value;
-        } else if (house_type === "Apartment & Row house") {
+        } else if (house_type === "Apartment & Row House") {
           averageRent += ele.rent_value;
         }
       });
