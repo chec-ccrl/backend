@@ -28,7 +28,7 @@ function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 const provincesMap = new Map([
-  ["Newfoundland and Labrador", "NL"],
+  ["Newfoundland And Labrador", "NL"],
   ["Prince Edward Island", "PE"],
   ["Nova Scotia", "NS"],
   ["New Brunswick", "NB"],

@@ -1,13 +1,7 @@
 const Services = require("../services");
-const bedroom_type_const = [
-  "0 Bedroom",
-  "1 Bedroom",
-  "2 Bedroom",
-  "3 Bedroom +",
-];
-const house_type_const = ["Apartment", "Row"];
+
 const provincesMap = new Map([
-  ["Newfoundland and Labrador", "NL"],
+  ["Newfoundland And Labrador", "NL"],
   ["Prince Edward Island", "PE"],
   ["Nova Scotia", "NS"],
   ["New Brunswick", "NB"],
