@@ -5158,7 +5158,7 @@ module.exports = {
     const organizedOutcome = outcome.reduce((acc, current) => {
       const { cma, ca } = current;
       let keyy = "";
-      if (cma !== "NA") {
+      if (cma !== "Na") {
         keyy = cma.toUpperCase();
       } else {
         keyy = ca.toUpperCase();
@@ -5173,7 +5173,7 @@ module.exports = {
     const organizedAllOutcome = all_outcome.reduce((acc, current) => {
       const { cma } = current;
       let keyy = "";
-      if (cma !== "NA") {
+      if (cma !== "Na") {
         keyy = "CMA";
       } else {
         keyy = "CA";
@@ -5193,7 +5193,7 @@ module.exports = {
         if (!organizedAllOutcome[prov][house_type]) {
           organizedAllOutcome[prov][house_type] = {};
         }
-        if (cma !== "NA") {
+        if (cma !== "Na") {
           if (!organizedAllOutcome[prov][house_type][cma]) {
             organizedAllOutcome[prov][house_type][cma] = [];
           }
@@ -5254,7 +5254,7 @@ module.exports = {
           let city = "";
           dataBasedOnGeography.map((obj) => {
             pl = obj.province;
-            city = obj.cma !== "NA" ? obj.cma : obj.ca;
+            city = obj.cma !== "Na" ? obj.cma : obj.ca;
             if (obj.bedroom_type === "0 Bedroom") {
               b0str = obj.household_affordable
                 ? `<img width="17" height="17"
@@ -5787,7 +5787,7 @@ module.exports = {
           let city = "";
           dataBasedOnGeography.map((obj) => {
             pl = obj.province;
-            city = obj.cma !== "NA" ? obj.cma : obj.ca;
+            city = obj.cma !== "Na" ? obj.cma : obj.ca;
             if (obj.bedroom_type === "0 Bedroom") {
               b0str = obj.residual_affordable
                 ? `<img width="17" height="17"
