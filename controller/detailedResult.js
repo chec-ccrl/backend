@@ -1779,7 +1779,13 @@ module.exports = {
           const multiplier = await Services.multiplierService.getAllFr({
             province: ele.province,
             year,
+            cma: "Na",
+            ca: "Na",
           });
+          console.log(ele.province, year);
+          if (!multiplier?.result[0]?.average_utility) {
+            console.log(ele.province, year);
+          }
 
           graph_4_3_utility[`"${abbr}"`] = Math.ceil(
             multiplier.result[0].average_utility / 12
