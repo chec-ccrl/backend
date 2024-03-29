@@ -75,14 +75,14 @@ module.exports = {
 
       if (cma_ca_list.result.length === 0) {
         ca = geography;
-        cma = "NA";
+        cma = "Na";
       } else {
         cma = geography;
-        ca = "NA";
+        ca = "Na";
       }
       let affordability_ranking;
 
-      if (ca !== "NA") {
+      if (ca !== "Na") {
         affordability_ranking = await Services.rentalRankingCAService.getDetail(
           {
             year: Number(year),
@@ -102,7 +102,7 @@ module.exports = {
           province,
         });
       let cma_income_ranking = null;
-      if (cma !== "NA") {
+      if (cma !== "Na") {
         cma_income_ranking = await Services.incomeRankingCMAService.getDetail({
           year: Number(year),
           province,
@@ -122,7 +122,7 @@ module.exports = {
       allRentDetails.map((ele) => {
         const { cma, ca, rent_value } = ele;
         const inside_house_type = ele.house_type;
-        if (cma !== "NA" && ca === "NA") {
+        if (cma !== "Na" && ca === "Na") {
           if (house_type === "Row House") {
             if (inside_house_type === "Row") {
               if (allRentCMARow[cma]) {
@@ -146,7 +146,7 @@ module.exports = {
               allRentCMABoth[cma] = rent_value;
             }
           }
-        } else if (cma === "NA" && ca !== "NA") {
+        } else if (cma === "Na" && ca !== "Na") {
           if (house_type === "Row House") {
             if (inside_house_type === "Row") {
               if (allRentCARow[ca]) {
@@ -1789,8 +1789,8 @@ module.exports = {
             await Services.canadaIncomeSurveyService.getAlls({
               province: ele.province,
               year: Number(year),
-              cma: "NA",
-              ca: "NA",
+              cma: "Na",
+              ca: "Na",
             });
           if (
             affordability === "30% of Gross Income" ||
@@ -1828,8 +1828,8 @@ module.exports = {
           const rents = await Services.rentService.getAlls({
             province: ele.province,
             year,
-            cma: "NA",
-            ca: "NA",
+            cma: "Na",
+            ca: "Na",
           });
           let row = 0;
           let apa = 0;
@@ -1962,14 +1962,14 @@ module.exports = {
 
       const rentProvince = await Services.rentService.getAlls({
         province,
-        cma: "NA",
-        ca: "NA",
+        cma: "Na",
+        ca: "Na",
         year,
       });
       const multiplierProvince = await Services.multiplierService.getDetail({
         province,
-        cma: "NA",
-        ca: "NA",
+        cma: "Na",
+        ca: "Na",
         year,
       });
       rentProvince.map((ele) => {
@@ -2000,14 +2000,14 @@ module.exports = {
       });
       const rentCanada = await Services.rentService.getAlls({
         province: "Canada",
-        cma: "NA",
-        ca: "NA",
+        cma: "Na",
+        ca: "Na",
         year,
       });
       const multiplierCanada = await Services.multiplierService.getDetail({
         province: "Canada",
-        cma: "NA",
-        ca: "NA",
+        cma: "Na",
+        ca: "Na",
         year,
       });
       rentCanada.map((ele) => {
@@ -2388,7 +2388,7 @@ module.exports = {
       let final_rank = "";
 
       let listing = [];
-      if (cma === "NA") {
+      if (cma === "Na") {
         listing = await Services.rentalRankingCAService.getAlls({ year });
       } else {
         listing = await Services.rentalRankingCMAService.getAlls({ year });
@@ -2401,10 +2401,10 @@ module.exports = {
             ca = "";
           if (geo?.ca) {
             ca = geo.ca;
-            cma = "NA";
+            cma = "Na";
           } else {
             cma = geo.cma;
-            ca = "NA";
+            ca = "Na";
           }
 
           let marketBasketDetails;
@@ -2818,7 +2818,7 @@ module.exports = {
             );
           });
           rankingArr.push({
-            geography: cma === "NA" ? geo.ca : geo.cma,
+            geography: cma === "Na" ? geo.ca : geo.cma,
             province,
             total_current_affordable_houses,
           });
@@ -2830,7 +2830,7 @@ module.exports = {
           b.total_current_affordable_houses - a.total_current_affordable_houses
       );
 
-      final_rank = findRank(cma === "NA" ? ca : cma, rankingArr);
+      final_rank = findRank(cma === "Na" ? ca : cma, rankingArr);
 
       const link = await Services.pdfService.detailPdfGenerator({
         province,
