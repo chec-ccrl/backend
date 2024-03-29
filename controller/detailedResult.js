@@ -1854,10 +1854,10 @@ module.exports = {
         if (eke.income_bracket === "$100,000 and over") {
           if (averageRent > 100000) {
             redPercent += eke.percentage_of_family_total_income;
+            graph_3_1_color[8] = `"#bb1823"`;
           } else {
             graph_3_1_color[8] = `"green"`;
           }
-          graph_3_1_color[8] = `"#bb1823"`;
           graph_3_1[8] = eke.percentage_of_family_total_income;
         } else if (eke.income_bracket === "$80,000 to $99,999") {
           if (averageRent > 80000) {
@@ -1871,10 +1871,10 @@ module.exports = {
             } else {
               redPercent += eke.percentage_of_family_total_income;
             }
+            graph_3_1_color[7] = `"#bb1823"`;
           } else {
             graph_3_1_color[7] = `"green"`;
           }
-          graph_3_1_color[7] = `"#bb1823"`;
           graph_3_1[7] = eke.percentage_of_family_total_income;
         } else if (eke.income_bracket === "$60,000 to $79,999") {
           if (averageRent > 60000) {
@@ -1888,10 +1888,10 @@ module.exports = {
             } else {
               redPercent += eke.percentage_of_family_total_income;
             }
+            graph_3_1_color[6] = `"#bb1823"`;
           } else {
             graph_3_1_color[6] = `"green"`;
           }
-          graph_3_1_color[6] = `"#bb1823"`;
           graph_3_1[6] = eke.percentage_of_family_total_income;
         } else if (eke.income_bracket === "$50,000 to $59,999") {
           if (averageRent > 50000) {
@@ -1905,10 +1905,11 @@ module.exports = {
             } else {
               redPercent += eke.percentage_of_family_total_income;
             }
+            graph_3_1_color[5] = `"#bb1823"`;
           } else {
             graph_3_1_color[5] = `"green"`;
           }
-          graph_3_1_color[5] = `"#bb1823"`;
+
           graph_3_1[5] = eke.percentage_of_family_total_income;
         } else if (eke.income_bracket === "$40,000 to $49,999") {
           if (averageRent > 40000) {
@@ -1922,10 +1923,11 @@ module.exports = {
             } else {
               redPercent += eke.percentage_of_family_total_income;
             }
+            graph_3_1_color[4] = `"#bb1823"`;
           } else {
             graph_3_1_color[4] = `"green"`;
           }
-          graph_3_1_color[4] = `"#bb1823"`;
+
           graph_3_1[4] = eke.percentage_of_family_total_income;
         } else if (eke.income_bracket === "$30,000 to $39,999") {
           if (averageRent > 30000) {
@@ -1939,10 +1941,10 @@ module.exports = {
             } else {
               redPercent += eke.percentage_of_family_total_income;
             }
+            graph_3_1_color[3] = `"#bb1823"`;
           } else {
             graph_3_1_color[3] = `"green"`;
           }
-          graph_3_1_color[3] = `"#bb1823"`;
           graph_3_1[3] = eke.percentage_of_family_total_income;
         } else if (eke.income_bracket === "$20,000 to $29,999") {
           if (averageRent > 20000) {
@@ -1956,10 +1958,10 @@ module.exports = {
             } else {
               redPercent += eke.percentage_of_family_total_income;
             }
+            graph_3_1_color[2] = `"#bb1823"`;
           } else {
             graph_3_1_color[2] = `"green"`;
           }
-          graph_3_1_color[2] = `"#bb1823"`;
           graph_3_1[2] = eke.percentage_of_family_total_income;
         } else if (eke.income_bracket === "$10,000 to $19,999") {
           if (averageRent > 10000) {
@@ -1973,10 +1975,10 @@ module.exports = {
             } else {
               redPercent += eke.percentage_of_family_total_income;
             }
+            graph_3_1_color[1] = `"#bb1823"`;
           } else {
             graph_3_1_color[1] = `"green"`;
           }
-          graph_3_1_color[1] = `"#bb1823"`;
           graph_3_1[1] = eke.percentage_of_family_total_income;
         } else {
           if (averageRent > 0) {
@@ -1990,10 +1992,10 @@ module.exports = {
             } else {
               redPercent += eke.percentage_of_family_total_income;
             }
+            graph_3_1_color[0] = `"#bb1823"`;
           } else {
             graph_3_1_color[0] = `"green"`;
           }
-          graph_3_1_color[0] = `"#bb1823"`;
           graph_3_1[0] = eke.percentage_of_family_total_income;
         }
       });
