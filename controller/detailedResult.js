@@ -1865,7 +1865,7 @@ module.exports = {
               redPercent += Number(
                 (
                   (eke.percentage_of_family_total_income / 19999) *
-                  (99999 - averageRent)
+                  (19999 - (99999 - averageRent))
                 ).toFixed(1)
               );
             } else {
@@ -1882,7 +1882,7 @@ module.exports = {
               redPercent += Number(
                 (
                   (eke.percentage_of_family_total_income / 19999) *
-                  (79999 - averageRent)
+                  (19999 - (79999 - averageRent))
                 ).toFixed(1)
               );
             } else {
@@ -1899,7 +1899,7 @@ module.exports = {
               redPercent += Number(
                 (
                   (eke.percentage_of_family_total_income / 9999) *
-                  (59999 - averageRent)
+                  (9999 - (59999 - averageRent))
                 ).toFixed(1)
               );
             } else {
@@ -1917,7 +1917,7 @@ module.exports = {
               redPercent += Number(
                 (
                   (eke.percentage_of_family_total_income / 9999) *
-                  (49999 - averageRent)
+                  (9999 - (49999 - averageRent))
                 ).toFixed(1)
               );
             } else {
@@ -1935,7 +1935,7 @@ module.exports = {
               redPercent += Number(
                 (
                   (eke.percentage_of_family_total_income / 9999) *
-                  (39999 - averageRent)
+                  (9999 - (39999 - averageRent))
                 ).toFixed(1)
               );
             } else {
@@ -1952,7 +1952,7 @@ module.exports = {
               redPercent += Number(
                 (
                   (eke.percentage_of_family_total_income / 9999) *
-                  (29999 - averageRent)
+                  (9999 - (29999 - averageRent))
                 ).toFixed(1)
               );
             } else {
@@ -1969,7 +1969,7 @@ module.exports = {
               redPercent += Number(
                 (
                   (eke.percentage_of_family_total_income / 9999) *
-                  (19999 - averageRent)
+                  (9999 - (19999 - averageRent))
                 ).toFixed(1)
               );
             } else {
