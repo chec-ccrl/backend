@@ -2583,7 +2583,7 @@ module.exports = {
               </div>
               <br />
               <!-- INSET HERE -->
-      
+
               <div class="main_page3_first">
                 <div class="main_page3_first_second_one">
                   <div class="main_third_line main_third_line_new bg-black"></div>
@@ -2945,7 +2945,6 @@ module.exports = {
           </div>
       
           <!-- SEVENTH PAGE -->
-          <div >
           <div class="main_first" >
             <div class="main_first_img" >
               <img
@@ -3121,7 +3120,6 @@ module.exports = {
                 </div>
               </div>
             </div>
-          </div>
           </div>
           <!-- LAST PAGE -->
           <div class="main_first" >
