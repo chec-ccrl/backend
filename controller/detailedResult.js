@@ -32,6 +32,7 @@ function findRank(name, listing) {
   }
   return -1; // Return -1 if name is not found
 }
+
 function calculateCAGR(values) {
   // Check if there are enough values to calculate CAGR
   if (values.length < 2) {
