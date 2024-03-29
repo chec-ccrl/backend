@@ -25,6 +25,18 @@ module.exports = {
       throw new Error(error);
     }
   },
+  getAlls: async (spendingObj, transaction) => {
+    try {
+      const details = await Dao.rentalRankingCMADao.getAlls(
+        spendingObj,
+        transaction
+      );
+      return details;
+    } catch (error) {
+      logger.info(error);
+      throw new Error(error);
+    }
+  },
   getDetail: async (spendingObj, transaction) => {
     try {
       const getDetail = await Dao.rentalRankingCMADao.getDetail(

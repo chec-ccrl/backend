@@ -71,6 +71,17 @@ module.exports = {
       logger.info(error);
     }
   },
+  getAlls: async (spendingObj, transaction) => {
+    try {
+      const result = await db.rentalRankingCa.findAll(
+        { where: spendingObj },
+        transaction
+      );
+      return result;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
   update: async (spendingObj, transaction) => {
     try {
       const updated = await db.rentalRankingCa.update(

@@ -67,6 +67,7 @@ module.exports = {
         c35l,
         c35v,
         c36l,
+        final_rank,
         c36v,
         rentDetails,
         median_household_income_before_tax_6_year_v,
@@ -1760,7 +1761,7 @@ module.exports = {
                   </div>
                   <div class="main_page3_first_one_other_one">
                     <div class="main_page3_first_one_other_one_main">
-                    <span style="font-size: 30px">12</span>
+                    <span style="font-size: 30px">${final_rank}</span>
                     </div>
                     <div class="main_page3_first_one_other_one_text" style="margin-bottom:8px">
                       AFFORDABILITY<br />

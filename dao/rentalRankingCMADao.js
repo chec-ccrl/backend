@@ -91,6 +91,17 @@ module.exports = {
       logger.info(error);
     }
   },
+  getAlls: async (spendingObj, transaction) => {
+    try {
+      const result = await db.rentalRankingCma.findAll(
+        { where: spendingObj },
+        transaction
+      );
+      return result;
+    } catch (error) {
+      logger.info(error);
+    }
+  },
   bulkCreate: async (marketObj) => {
     try {
       const canadaIncomeSurvey = await db.rentalRankingCma.bulkCreate(
