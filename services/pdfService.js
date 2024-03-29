@@ -1906,7 +1906,7 @@ module.exports = {
               <div class="main_page4_first_one_one_main">
                 <div class="main_page3_first_one_sub">
                   <div class="main_page3_first_one_txt" style="letter-spacing: 6px">
-                    AFFORDABILITY OVERVIEW
+                    AFFORDABILITY <br /> OVERVIEW
                   </div>
                   <p class="fw-light m-0" style="font-size:13px">
                     Out of a total supply of ${numberWithCommas(
@@ -1936,7 +1936,7 @@ module.exports = {
                 <div class="main_page4_first_one_one_main w-fit">
                   <div class="main_page3_first_one_sub mr-2">
                     <div class="main_page4_first_one_one_main_one_head mx-2">
-                      AFFORDABLE STOCKS
+                      AFFORDABLE <br /> STOCKS
                     </div>
                     <p class="fw-light m-0" style="font-size:13px">
                       Out of a total affordable supply of ${total_current_affordable_houses} units, ${numberWithCommas(
@@ -1962,7 +1962,7 @@ module.exports = {
       
                   <div class="main_page3_first_one_sub ml-2">
                     <div class="main_page4_first_one_one_main_one_head">
-                      UNAFFORDABLE STOCKS
+                      UNAFFORDABLE <br /> STOCKS
                     </div>
                     <p class="fw-light m-0" style="font-size:13px">
                       Out of a total unaffordable supply of ${total_current_unaffordable_houses} units, ${total_current_unaffordable_houses_available} are available.</p>
@@ -1985,7 +1985,7 @@ module.exports = {
       
               <div class="main_page3_first_one_sub h-max">
                 <div class="main_page3_first_one_txt" style="letter-spacing: 6px">
-                  NEW UNITS CONSTRUCTED
+                  NEW UNITS <br /> CONSTRUCTED
                 </div>
                 <p class="fw-light m-0" style="font-size:13px">
                   A total of ${numberWithCommas(
