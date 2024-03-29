@@ -26,7 +26,7 @@ module.exports = {
         province: "%%",
       };
       let sql = `SELECT id , count(*) over() as "total_count" from "rents" 
-                 where (province ilike :province or cma ilike :cma or ca ilike :ca) `;
+                 where (province ilike :province or cma ilike :province or ca ilike :province) `;
       if (rentObj?.filter?.year) {
         sql += ` and  year = '${rentObj.filter.year}' `;
       }
