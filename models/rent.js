@@ -27,7 +27,7 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING,
       },
       rent_value: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DOUBLE,
       },
     },
     {
