@@ -1584,7 +1584,7 @@ module.exports = {
           border-radius: 4rem;
         }
         .half_width_table {
-          line-height: 3rem;
+          line-height: 2.0rem;
           td {
             font-size: 21px;
           }
@@ -1592,7 +1592,7 @@ module.exports = {
         .tableheading {
           td {
             font-size: 21px;
-            line-height: 1.4rem !important;
+            line-height: 1.2rem !important;
           }
         }
         .btn-green {
@@ -3524,7 +3524,7 @@ module.exports = {
             type: "pyramidInverted",
             legend_visible: false,
             width: 530,
-            height: 500,
+            height: 270,
             yAxis: { label_text: "Cost", formatString: "c" },
             backgroundColor: "#f1f3f9",
             defaultSeries: {
