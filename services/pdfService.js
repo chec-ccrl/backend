@@ -2708,7 +2708,7 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 37px;
+                              font-size: 35px;
                               margin-right: 0px !important;
                               padding: 5px;
                             "
@@ -2722,7 +2722,7 @@ module.exports = {
                         >
                           <span
                             style="
-                            font-size: 16px;
+                            font-size: 14px;
                             margin-right: -5px !important;
                             padding: 5px;
                             font-weight:600;
@@ -2748,7 +2748,7 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 37px;
+                              font-size: 35px;
                               margin-right: 0px !important;
                               padding: 5px;
                             "
@@ -2762,7 +2762,7 @@ module.exports = {
                         >
                           <span
                             style="
-                            font-size: 16px;
+                            font-size: 14px;
                             margin-right: -5px !important;
                             padding: 5px;
                             font-weight:600;
@@ -2799,7 +2799,7 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 37px;
+                              font-size: 35px;
                               margin-right: 0px !important;
                               padding: 5px;
                             "
@@ -2813,7 +2813,7 @@ module.exports = {
                         >
                           <span
                             style="
-                            font-size: 16px;
+                            font-size: 14px;
                             margin-right: -5px !important;
                             padding: 5px;
                             font-weight:600;
@@ -2838,7 +2838,7 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 37px;
+                              font-size: 35px;
                               margin-right: 0px !important;
                               padding: 5px;
                             "
@@ -2852,7 +2852,7 @@ module.exports = {
                         >
                           <span
                             style="
-                            font-size: 16px;
+                            font-size: 14px;
                             margin-right: -5px !important;
                             padding: 5px;
                             font-weight:600;
@@ -2890,7 +2890,7 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 37px;
+                              font-size: 35px;
                               margin-right: 0px !important;
                               padding: 5px;
                             "
@@ -2904,7 +2904,7 @@ module.exports = {
                         >
                           <span
                             style="
-                            font-size: 16px;
+                            font-size: 14px;
                             margin-right: -5px !important;
                             padding: 5px;
                             font-weight:600;
@@ -2929,7 +2929,7 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 37px;
+                              font-size: 35px;
                               margin-right: 0px !important;
                               padding: 5px;
                             "
@@ -2943,7 +2943,7 @@ module.exports = {
                         >
                           <span
                             style="
-                            font-size: 16px;
+                            font-size: 14px;
                             margin-right: -5px !important;
                             padding: 5px;
                             font-weight:600;
@@ -2976,7 +2976,7 @@ module.exports = {
                         >
                           <span
                             style="
-                              font-size: 37px;
+                              font-size: 35px;
                               margin-right: 0px !important;
                               padding: 5px;
                             "
@@ -2990,7 +2990,7 @@ module.exports = {
                         >
                           <span
                             style="
-                            font-size: 16px;
+                            font-size: 14px;
                             margin-right: -5px !important;
                             padding: 5px;
                             font-weight:600;
