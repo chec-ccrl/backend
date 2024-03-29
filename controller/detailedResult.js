@@ -809,7 +809,7 @@ module.exports = {
           ) {
             if (
               ele.income_bracket ===
-              "Percentage under $10,000 (including zeros and losses)"
+              "Percentage Under $10,000 (Including Zeros And Losses)"
             ) {
               if (
                 affordability === "30% of Gross Income" ||
