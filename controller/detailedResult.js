@@ -300,7 +300,7 @@ module.exports = {
           ele.rent_value = ele.rent_value * multiplier?.rent;
         }
         ele.rent_value = Math.ceil(ele.rent_value * multiplier?.utility);
-        if (house_type === "Both Definations") {
+        if (house_type === "Apartment & Row House") {
           current_shelter_cost += ele.rent_value;
         } else if (house_type === "Row House" && ele.house_type === "Row") {
           current_shelter_cost += ele.rent_value;
@@ -726,7 +726,7 @@ module.exports = {
             graph_1_8_current[3] += ele.units;
             graph_1_8_new[3] += ele.house_constructed_all;
           }
-        } else if (house_type === "Both Definations") {
+        } else if (house_type === "Apartment & Row House") {
           if (ele.bedroom_type === "0 Bedroom") {
             graph_1_8_current[0] += ele.units;
             graph_1_8_new[0] += ele.house_constructed_all;
