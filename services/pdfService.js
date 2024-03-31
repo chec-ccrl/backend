@@ -8732,7 +8732,7 @@ module.exports = {
           </script></html>            `,
       ];
       const concatenatedHTML = htmlContent.join("");
-      await page.setContent(concatenatedHTM);
+      await page.setContent(concatenatedHTML);
       await page.evaluate(() => {
         return new Promise((resolve) => {
           setTimeout(resolve, 2000); // Wait for 2 seconds
