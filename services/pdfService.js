@@ -5124,6 +5124,11 @@ module.exports = {
       </html>`;
 
       await page.setContent(htmlContent);
+      await page.evaluate(() => {
+        return new Promise((resolve) => {
+          setTimeout(resolve, 2000); // Wait for 2 seconds
+        });
+      });
       const pdfFilePath = "output.pdf";
       const pdfBuffer = await page.pdf({
         path: pdfFilePath,
