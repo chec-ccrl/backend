@@ -3054,7 +3054,6 @@ module.exports = {
           </div>
       
           <!-- SEVENTH PAGE -->
-          <div >
           <div class="main_first" >
             <div class="main_first_img" >
               <img
@@ -3229,7 +3228,6 @@ module.exports = {
                   ></canvas>
                 </div>
               </div>
-            </div>
           </div>
           </div>
           <!-- LAST PAGE -->
