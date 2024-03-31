@@ -1584,7 +1584,7 @@ module.exports = {
           border-radius: 4rem;
         }
         .half_width_table {
-          line-height: 2.0rem;
+          line-height: 3.0rem;
           td {
             font-size: 21px;
           }
@@ -1592,7 +1592,7 @@ module.exports = {
         .tableheading {
           td {
             font-size: 21px;
-            line-height: 1.2rem !important;
+            line-height: 2rem !important;
           }
         }
         .btn-green {
@@ -1626,7 +1626,7 @@ module.exports = {
       <html>
         <body>
           <!-- Main ELEMENT FOR COMPLETE PDF -->
-          <div class="main" style="height: 1650px">
+          <div class="main" style="height: 1610px">
             <!-- FIFTH PAGE -->
             <div class="main_first">
               <div class="main_first_img">
@@ -2136,7 +2136,7 @@ module.exports = {
       
           <!-- SIXTH PAGE -->
           <br /><br />
-          <div style="position: relative; height: 1650px">
+          <div style="position: relative; height: 1610px">
             <div class="main_first" >
               <div class="main_first_img">
                 <img
@@ -3054,7 +3054,7 @@ module.exports = {
           </div>
       
           <!-- SEVENTH PAGE -->
-          <div style="height: 1650px;">
+          <div style="height: 1610px;">
           <div class="main_first" >
             <div class="main_first_img" >
               <img
