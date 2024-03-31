@@ -2228,7 +2228,7 @@ module.exports = {
                       <div class="main_page4_first_one_one_main_one_chart">
                         <canvas
                           id="main_page4_first_one_one_main_one_chart11"
-                          style="min-width: 300px; min-height: 300px"
+                          style="min-width: 200px; min-height: 200px"
                         ></canvas>
                       </div>
                     </div>
