@@ -2189,6 +2189,7 @@ module.exports = {
                       <div class="main_page4_first_one_one_main_one_chart">
                         <canvas
                           id="main_page4_first_one_one_main_one_chart9"
+                          style="min-width: 300px; min-height: 300px"
                         ></canvas>
                       </div>
                     </div>
@@ -2227,6 +2228,7 @@ module.exports = {
                       <div class="main_page4_first_one_one_main_one_chart">
                         <canvas
                           id="main_page4_first_one_one_main_one_chart11"
+                          style="min-width: 300px; min-height: 300px"
                         ></canvas>
                       </div>
                     </div>
@@ -3203,7 +3205,7 @@ module.exports = {
             </div>
           </div>
           <div class="main_third_line"></div>
-          <h2 style="text-align: center; text-decoration: underline" class="ls-2 mb-0 mt-1">
+          <h2 style="text-align: center; text-decoration: underline" class="ls-2 mb-0 my-2">
             MEDIAN HOUSEHOLD INCOME
           </h2>
           <div class="main_page6_first_one">
