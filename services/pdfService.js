@@ -1789,7 +1789,7 @@ module.exports = {
               <div class="main_page3_second_two">
                 <div class="flex align-center justify-between">
                   <div class="main_page3_first_one_txt" style="width: 75%;font-size:21px">
-                    AVERAGE OPTIMAL INCOME BEFORE TAX
+                    AVERAGE OPTIMAL <br /> INCOME <br /> BEFORE TAX
                   </div>
                   <div class="main_page3_first_one_main_head_sub_two">$${numberWithCommas(
                     averageRent
