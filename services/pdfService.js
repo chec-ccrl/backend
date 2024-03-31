@@ -2189,7 +2189,7 @@ module.exports = {
                       <div class="main_page4_first_one_one_main_one_chart">
                         <canvas
                           id="main_page4_first_one_one_main_one_chart9"
-                          style="min-width: 300px; min-height: 300px"
+                          style="min-width: 200px; min-height: 200px"
                         ></canvas>
                       </div>
                     </div>
@@ -2228,7 +2228,7 @@ module.exports = {
                       <div class="main_page4_first_one_one_main_one_chart">
                         <canvas
                           id="main_page4_first_one_one_main_one_chart11"
-                          style="min-width: 400px; min-height: 200px"
+                          style="min-width: 200px; min-height: 200px"
                         ></canvas>
                       </div>
                     </div>
@@ -3635,6 +3635,9 @@ module.exports = {
               legend: {
                 display: true,
                 position: "top",
+                labels: {
+                  fontSize: 10, // Adjust the font size for legend labels here
+                },
               },
               title: {
                 display: true,
@@ -3693,7 +3696,7 @@ module.exports = {
           const chart11 = new Chart(main_page4_first_one_one_main_one_chart11, {
             type: "pie",
             data: {
-              labels: ["0B:${rowUnitsAva[0]}", "1B:${rowUnitsAva[1]}H", "2B:${
+              labels: ["0B:${rowUnitsAva[0]}", "1B:${rowUnitsAva[1]}", "2B:${
         rowUnitsAva[2]
       }", "3B+:${rowUnitsAva[3]}"],
               datasets: [
@@ -3707,6 +3710,9 @@ module.exports = {
               legend: {
                 display: true,
                 position: "top",
+                labels: {
+                  fontSize: 10, // Adjust the font size for legend labels here
+                },
               },
               title: {
                 display: true,
@@ -3751,6 +3757,7 @@ module.exports = {
               legend: {
                 display: false,
                 position: "top",
+                
               },
               title: {
                 display: false,
