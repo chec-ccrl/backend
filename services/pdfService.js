@@ -1626,7 +1626,7 @@ module.exports = {
       <html>
         <body>
           <!-- Main ELEMENT FOR COMPLETE PDF -->
-          <div class="main" >
+          <div class="main" style="height: 1500px">
             <!-- FIFTH PAGE -->
             <div class="main_first">
               <div class="main_first_img">
@@ -2136,7 +2136,7 @@ module.exports = {
       
           <!-- SIXTH PAGE -->
           <br /><br />
-          <div style="position: relative;>
+          <div style="position: relative; height: 1500px">
             <div class="main_first" >
               <div class="main_first_img">
                 <img
@@ -3054,6 +3054,7 @@ module.exports = {
           </div>
       
           <!-- SEVENTH PAGE -->
+          <div style="height: 1500px;">
           <div class="main_first" >
             <div class="main_first_img" >
               <img
@@ -3228,6 +3229,7 @@ module.exports = {
                   ></canvas>
                 </div>
               </div>
+            </div>
           </div>
           </div>
           <!-- LAST PAGE -->
