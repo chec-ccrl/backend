@@ -189,25 +189,25 @@ module.exports = {
           ele.house_type === "Apartment"
         ) {
           abj1 = `<div class="main_page3_first_one_content_one_buttons_button">
-          <span>0B</span> $${}
+          <span>0B</span> $${Math.ceil(ele.rent_value)}
         </div>`;
         } else if (
           ele.bedroom_type === "1 Bedroom" &&
           ele.house_type === "Apartment"
         ) {
           abj2 = `<div class="main_page3_first_one_content_one_buttons_button">
-          <span>1B</span> $${}
+          <span>1B</span> $${Math.ceil(ele.rent_value)}
         </div>`;
         } else if (
           ele.bedroom_type === "2 Bedroom" &&
           ele.house_type === "Apartment"
         ) {
           abj3 = `<div class="main_page3_first_one_content_one_buttons_button">
-          <span>2B</span> $${}
+          <span>2B</span> $${Math.ceil(ele.rent_value)}
         </div>`;
         } else if (ele.house_type === "Apartment") {
           abj4 = `<div class="main_page3_first_one_content_one_buttons_button">
-          <span>3B+</span> $${}
+          <span>3B+</span> $${Math.ceil(ele.rent_value)}
         </div>`;
         }
       });
