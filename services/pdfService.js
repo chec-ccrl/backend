@@ -2136,8 +2136,8 @@ module.exports = {
       
           <!-- SIXTH PAGE -->
           <br /><br />
-          <div style="position: relative; height: 1670px">
-            <div class="main_first" style="margin-top:100px">
+          <div style="position: relative; height: 1670px;margin-top:50px">
+            <div class="main_first" >
               <div class="main_first_img">
                 <img
                   src="https://i.ibb.co/v3ht5Zc/logo.png"
