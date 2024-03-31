@@ -5133,6 +5133,13 @@ module.exports = {
       const pdfBuffer = await page.pdf({
         path: pdfFilePath,
         format: "A3",
+        margin: {
+          // Optionally, set margins if needed
+          top: "0px",
+          bottom: "0px",
+          left: "0px",
+          right: "0px",
+        },
         printBackground: true,
         // scale: 1.056,
         scale: 1.054,
