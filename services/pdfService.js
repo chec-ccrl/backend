@@ -2136,9 +2136,6 @@ module.exports = {
       
           <!-- SIXTH PAGE -->
           <br /><br />
-          <br /><br />
-          <br /><br />
-          <br /><br />
           <div style="position: relative; height: 1670px;">
             <div class="main_first" >
               <div class="main_first_img">
