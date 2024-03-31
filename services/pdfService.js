@@ -1743,7 +1743,7 @@ module.exports = {
             </div>
             <div class="main_page3_second">
               <div class="main_page3_second_one">
-                <div class="main_page3_first_one_txt1">RANKING</div>
+                <div class="main_page3_first_one_txt1" style="font-size:20px">RANKING</div>
                 <div class="main_page3_first_one_other">
                   <div class="main_page3_first_one_other_one" style="margin-right:-20px">
                     <div class="main_page3_first_one_other_one_main">
