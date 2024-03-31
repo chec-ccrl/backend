@@ -189,25 +189,25 @@ module.exports = {
           ele.house_type === "Apartment"
         ) {
           abj1 = `<div class="main_page3_first_one_content_one_buttons_button">
-          <span>0B</span> $${Math.ceil(ele.rent_value)}
+          <span>0B</span> $${}
         </div>`;
         } else if (
           ele.bedroom_type === "1 Bedroom" &&
           ele.house_type === "Apartment"
         ) {
           abj2 = `<div class="main_page3_first_one_content_one_buttons_button">
-          <span>1B</span> $${Math.ceil(ele.rent_value)}
+          <span>1B</span> $${}
         </div>`;
         } else if (
           ele.bedroom_type === "2 Bedroom" &&
           ele.house_type === "Apartment"
         ) {
           abj3 = `<div class="main_page3_first_one_content_one_buttons_button">
-          <span>2B</span> $${Math.ceil(ele.rent_value)}
+          <span>2B</span> $${}
         </div>`;
         } else if (ele.house_type === "Apartment") {
           abj4 = `<div class="main_page3_first_one_content_one_buttons_button">
-          <span>3B+</span> $${Math.ceil(ele.rent_value)}
+          <span>3B+</span> $${}
         </div>`;
         }
       });
@@ -2136,7 +2136,15 @@ module.exports = {
       
           <!-- SIXTH PAGE -->
           <br /><br />
-          <div style="position: relative; height: 1670px;margin-top:400px">
+          <br /><br />
+          <br /><br />
+          <br /><br />
+          <br /><br />
+          <br /><br />
+          <br /><br />
+          <br /><br />
+          
+          <div style="position: relative; height: 1670px;">
             <div class="main_first" >
               <div class="main_first_img">
                 <img
