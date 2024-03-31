@@ -1921,7 +1921,7 @@ module.exports = {
                   )}</p>
                   <canvas
                     id="main_page3_first_one_one_main_one_chart29"
-                    style="width: 150px; margin: auto; height: 150px"
+                    style="max-width: 200px; margin: auto; height: 200px"
                   ></canvas>
                   <p class="text-2xl ls-1 m-0">UNAFFORDABLE:${numberWithCommas(
                     total_current_unaffordable_houses
@@ -1950,7 +1950,7 @@ module.exports = {
                     <div class="main_page4_first_one_one_main_one_chart">
                       <canvas
                         id="main_page3_first_one_one_main_one_chart30"
-                        style="width: 120px; margin: auto; height: 120px"
+                        style="max-width: 158px; margin: auto; height: 158px"
                       ></canvas>
                     </div>
                     <p class="text-2xl ls-1 m-0">OCCUPIED:${numberWithCommas(
@@ -1971,7 +1971,7 @@ module.exports = {
                     <div class="main_page4_first_one_one_main_one_chart">
                       <canvas
                         id="main_page3_first_one_one_main_one_chart31"
-                        style="width: 120px; margin: auto; height: 120px"
+                        style="max-width: 158px; margin: auto; height: 158px"
                       ></canvas>
                     </div>
                     <p class="text-2xl ls-1 m-0">OCCUPIED:${
@@ -2001,7 +2001,7 @@ module.exports = {
                 )}</p>
                 <canvas
                   id="main_page3_first_one_one_main_one_chart32"
-                  style="width: 150px; margin: auto; height: 150px"
+                  style="max-width: 200px; margin: auto; height: 200px"
                 ></canvas>
                 <p class="text-2xl ls-1 m-0">UNAFFORDABLE:${numberWithCommas(
                   total_current_unaffordable_houses_const
