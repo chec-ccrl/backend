@@ -5129,7 +5129,7 @@ module.exports = {
           setTimeout(resolve, 2000); // Wait for 2 seconds
         });
       });
-      const pdfFilePath = "output.pdf";
+      const pdfFilePath = `${Common.helper.generateId()}.pdf`;
       const pdfBuffer = await page.pdf({
         path: pdfFilePath,
         format: "A3",
