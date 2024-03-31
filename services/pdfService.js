@@ -1626,7 +1626,7 @@ module.exports = {
       <html>
         <body>
           <!-- Main ELEMENT FOR COMPLETE PDF -->
-          <div class="main" style="height: 1740px">
+          <div class="main" style="height: 1600px">
             <!-- FIFTH PAGE -->
             <div class="main_first">
               <div class="main_first_img">
@@ -2136,7 +2136,7 @@ module.exports = {
       
           <!-- SIXTH PAGE -->
           <br /><br />
-          <div style="position: relative; height: 1740px">
+          <div style="position: relative; height: 1600px">
             <div class="main_first" >
               <div class="main_first_img">
                 <img
@@ -3054,7 +3054,7 @@ module.exports = {
           </div>
       
           <!-- SEVENTH PAGE -->
-          <div style="height: 1740px;">
+          <div style="height: 1600px;">
           <div class="main_first" >
             <div class="main_first_img" >
               <img
@@ -3524,7 +3524,7 @@ module.exports = {
             type: "pyramidInverted",
             legend_visible: false,
             width: 530,
-            height: 400,
+            height: 270,
             yAxis: { label_text: "Cost", formatString: "c" },
             backgroundColor: "#f1f3f9",
             defaultSeries: {
