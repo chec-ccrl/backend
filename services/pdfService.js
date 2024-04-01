@@ -2136,7 +2136,7 @@ module.exports = {
       
           <!-- SIXTH PAGE -->
           <br /><br />
-          <div style="position: relative; height: 1670px;">
+          <div style="position: relative; height: 1650px;">
             <div class="main_first" >
               <div class="main_first_img">
                 <img
@@ -3056,7 +3056,7 @@ module.exports = {
           </div>
       
           <!-- SEVENTH PAGE -->
-          <div style="height: 1670px;">
+          <div style="height: 1650px;">
           <div class="main_first" >
             <div class="main_first_img" >
               <img
