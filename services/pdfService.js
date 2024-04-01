@@ -3533,7 +3533,7 @@ module.exports = {
               shape_innerPadding: 6,
               defaultPoint: {
                 label: {
-                  text: "%name <b>%gValuek</b>",
+                  text: "%name <b>$</b><b>{g}</b>",
                   placement: "auto",
                   align: "left", // Add this line to set the alignment to left
                   style: {
