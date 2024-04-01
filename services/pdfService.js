@@ -3533,7 +3533,7 @@ module.exports = {
               shape_innerPadding: 6,
               defaultPoint: {
                 label: {
-                  text: "%name <b>%yValuek</b> (%percentOfSeries%)",
+                  text: "%name <b>%gValuek</b>",
                   placement: "auto",
                   align: "left", // Add this line to set the alignment to left
                   style: {
@@ -3549,28 +3549,42 @@ module.exports = {
                 points: [
                   {
                     name: "HOUSEHOLD INCOME <br> BEFORE TAX",
-                    y: ${median_household_income_before_tax},
+                    y:6,
+                    g: ${median_household_income_before_tax},
                     color: "#4c3848",
                   },
-                  { name: "INCOME AFTER TAX", y: ${
-                    median_household_income_after_tax / 1000
-                  }, color: "#5e6043" },
+                  { 
+                    name: "INCOME AFTER TAX", 
+                    y:5,
+                    g: ${median_household_income_after_tax / 1000}, 
+                    color: "#5e6043" 
+                  },
                   {
                     name: "COST OF NON SHELTER <br> NECESSITIES",
+                    y:4,
                     y: ${cost_of_non_shelter_necessity / 1000},
                     color: "#683733",
                   },
-                  { name: "RESIDUAL INCOME", y: ${
-                    (median_household_income_after_tax -
-                      cost_of_non_shelter_necessity) /
-                    1000
-                  }, color: "#8f7e18" },
-                  { name: "SHELTER COST", y: ${
-                    (current_shelter_cost * 12) / 1000
-                  }, color: "#c2ac7f" },
+                  {
+                    name: "RESIDUAL INCOME", 
+                    y:3,
+                    g: ${
+                      (median_household_income_after_tax -
+                        cost_of_non_shelter_necessity) /
+                      1000
+                    }, 
+                    color: "#8f7e18" 
+                  },
+                  { 
+                    name: "SHELTER COST", 
+                    y:2,
+                    g: ${(current_shelter_cost * 12) / 1000}, 
+                    color: "#c2ac7f" 
+                  },
                   {
                     name: "<b>DISCRETIONARY INCOME</b>",
-                    y: ${
+                    y:1,
+                    g: ${
                       (median_household_income_after_tax -
                         cost_of_non_shelter_necessity -
                         current_shelter_cost * 12) /
