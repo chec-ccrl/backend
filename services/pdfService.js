@@ -1626,7 +1626,7 @@ module.exports = {
       <html>
         <body>
           <!-- Main ELEMENT FOR COMPLETE PDF -->
-          <div class="main" style="height: 1600px">
+          <div class="main" style="height: 1620px">
             <!-- FIFTH PAGE -->
             <div class="main_first">
               <div class="main_first_img">
@@ -3056,7 +3056,7 @@ module.exports = {
           </div>
       
           <!-- SEVENTH PAGE -->
-          <div style="height: 1650px;">
+          <div style="height: 1620px;">
           <div class="main_first" >
             <div class="main_first_img" >
               <img
@@ -3554,9 +3554,7 @@ module.exports = {
                   },
                   { 
                     name: "INCOME AFTER TAX", 
-                    y: ${
-                      median_household_income_after_tax / 1000
-                    }, 
+                    y: ${median_household_income_after_tax / 1000}, 
                     color: "#5e6043" 
                   },
                   {
@@ -3567,16 +3565,14 @@ module.exports = {
                   {
                     name: "RESIDUAL INCOME", 
                     y: ${
-                    (median_household_income_after_tax -
-                      cost_of_non_shelter_necessity) /
-                    1000
+                      (median_household_income_after_tax -
+                        cost_of_non_shelter_necessity) /
+                      1000
                     }, 
                     color: "#8f7e18" },
                   { 
                     name: "SHELTER COST", 
-                    y: ${
-                    (current_shelter_cost * 12) / 1000
-                    }, 
+                    y: ${(current_shelter_cost * 12) / 1000}, 
                     color: "#c2ac7f" 
                   },
                   {
