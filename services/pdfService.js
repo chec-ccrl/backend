@@ -3104,8 +3104,8 @@ module.exports = {
             >
               PERCENTAGE OF POPULATION BELOW OPTIMAL INCOME <br />
               ${redPercent.toFixed(1)}%
-              <span style="position: absolute; left: -4px; bottom: -7.5px"> < </span>
-              <span style="position: absolute; right: -4px; bottom: -7.5px"> > </span>
+              <span style="position: absolute; left: -4px; bottom: -5.5px"> < </span>
+              <span style="position: absolute; right: -4px; bottom: -5.5px"> > </span>
             </p>
             <p
               style="
