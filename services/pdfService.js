@@ -3531,16 +3531,6 @@ module.exports = {
             backgroundColor: "#f1f3f9",
             defaultSeries: {
               shape_innerPadding: 6,
-              defaultPoint: {
-                label: {
-                  text: "%name <b>$</b><b>{g}</b>",
-                  placement: "auto",
-                  align: "left", // Add this line to set the alignment to left
-                  style: {
-                    fontSize: "14px", // Adjust the font size as needed
-                  },
-                },
-              },
             },
             series: [
               {
@@ -3552,18 +3542,27 @@ module.exports = {
                     y:6,
                     g: ${median_household_income_before_tax},
                     color: "#4c3848",
+                    label_text: function(point) {
+                      return point.name + " <b>$" + point.g + "</b>";
+                    }
                   },
                   { 
                     name: "INCOME AFTER TAX", 
                     y:5,
                     g: ${median_household_income_after_tax / 1000}, 
-                    color: "#5e6043" 
+                    color: "#5e6043" ,
+                    label_text: function(point) {
+                      return point.name + " <b>$" + point.g + "</b>";
+                    }
                   },
                   {
                     name: "COST OF NON SHELTER <br> NECESSITIES",
                     y:4,
                     y: ${cost_of_non_shelter_necessity / 1000},
                     color: "#683733",
+                    label_text: function(point) {
+                      return point.name + " <b>$" + point.g + "</b>";
+                    }
                   },
                   {
                     name: "RESIDUAL INCOME", 
@@ -3573,13 +3572,19 @@ module.exports = {
                         cost_of_non_shelter_necessity) /
                       1000
                     }, 
-                    color: "#8f7e18" 
+                    color: "#8f7e18" ,
+                    label_text: function(point) {
+                      return point.name + " <b>$" + point.g + "</b>";
+                    }
                   },
                   { 
                     name: "SHELTER COST", 
                     y:2,
                     g: ${(current_shelter_cost * 12) / 1000}, 
-                    color: "#c2ac7f" 
+                    color: "#c2ac7f" ,
+                    label_text: function(point) {
+                      return point.name + " <b>$" + point.g + "</b>";
+                    }
                   },
                   {
                     name: "<b>DISCRETIONARY INCOME</b>",
@@ -3591,6 +3596,9 @@ module.exports = {
                       1000
                     },
                     color: "green",
+                    label_text: function(point) {
+                      return point.name + " <b>$" + point.g + "</b>";
+                    }
                   },
                 ],
               },
