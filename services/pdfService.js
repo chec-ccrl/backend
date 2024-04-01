@@ -3865,6 +3865,9 @@ module.exports = {
               legend: {
                 display: true,
                 position: "top",
+                labels:{
+                  fontSize:10,
+                }
               },
               title: {
                 display: true,
@@ -3917,6 +3920,9 @@ module.exports = {
               legend: {
                 display: true,
                 position: "top",
+                labels:{
+                  fontSize:10,
+                }
               },
               title: {
                 display: true,
