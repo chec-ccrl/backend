@@ -1584,7 +1584,7 @@ module.exports = {
           border-radius: 4rem;
         }
         .half_width_table {
-          line-height: 1.7rem;
+          line-height: 2rem;
           td {
             font-size: 21px;
           }
