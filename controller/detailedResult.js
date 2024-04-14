@@ -2904,7 +2904,7 @@ module.exports = {
       let height = 1650;
       if (geography === "Gander" || geography === "Corner Brook") {
         tableHeigth = 1.6;
-        height = 1590;
+        height = 1610;
       } else if (
         geography === "St. John'S" ||
         geography === "Grand Falls-Windsor"
