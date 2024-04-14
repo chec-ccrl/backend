@@ -2903,7 +2903,12 @@ module.exports = {
       let tableHeigth = 2;
       let height = 1660;
       let invertHiegt = 250;
-      if (geography === "Penticton" || geography === "Abbotsford - Mission") {
+      if (
+        geography === "Penticton" ||
+        geography === "Abbotsford - Mission" ||
+        geography === "Chilliwack" ||
+        geography === "Kelowna"
+      ) {
         tableHeigth = 2.3;
       } else if (geography === "Victoria") {
         tableHeigth = 3.2;
