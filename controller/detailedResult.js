@@ -2905,6 +2905,8 @@ module.exports = {
       let invertHiegt = 250;
       if (geography === "Penticton") {
         tableHeigth = 2.3;
+      } else if (geography === "Victoria") {
+        tableHeigth = 2.5;
       }
       // if (
       //   geography === "Gander" ||
