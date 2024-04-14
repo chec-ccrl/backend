@@ -2917,7 +2917,16 @@ module.exports = {
         geography === "Moncton" ||
         geography === "Summerside" ||
         geography === "St. John'S" ||
-        geography === "Quebec"
+        geography === "Quebec" ||
+        geography === "North Bay" ||
+        geography === "Sault Ste. Marie" ||
+        geography === "Sarnia" ||
+        geography === "Woodstock" ||
+        geography === "Chatam - Kent" ||
+        geography === "Hamilton" ||
+        geography === "St. Catharines - Niagara" ||
+        geography === "Guelph" ||
+        geography === "Windsor"
       ) {
         tableHeigth = 2.3;
       } else if (geography === "Saskatoon") {
