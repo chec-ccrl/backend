@@ -1738,7 +1738,7 @@ module.exports = {
               </div>
               <div class="main_third_line"></div>
             </div>
-            <div class="main_page3_second" style="min-height:210px; max-height:211px">
+            <div class="main_page3_second" style="min-height:230px; max-height:231px">
               <div class="main_page3_second_one">
                 <div class="main_page3_first_one_txt1" style="font-size:px">RANKING</div>
                 <div class="main_page3_first_one_other">
@@ -1899,7 +1899,7 @@ module.exports = {
               ROW HOUSE & APARTMENT
             </p>
       
-            <div class="flex justify-between" style="min-height:400px;max-height:401px">
+            <div class="flex justify-between" style="min-height:350px;max-height:351px">
               <div class="main_page4_first_one_one_main">
                 <div class="main_page3_first_one_sub">
                   <div class="main_page3_first_one_txt" style="letter-spacing: 6px">
@@ -2007,7 +2007,7 @@ module.exports = {
             </div>
             <div class="main_third_line" style="margin: 2px 0"></div>
       
-            <div class="main_page3_third" style="min-height:250px;max-height:251px">
+            <div class="main_page3_third" style="min-height:300px;max-height:301px">
               <div class="main_page3_third_one">
               <div style="display: flex">
                 <div class="main_page3_first_one_txt" style="font-size: 18px;margin-top:7px">
