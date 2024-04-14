@@ -2914,7 +2914,8 @@ module.exports = {
         geography === "Steinbach" ||
         geography === "Bathurst" ||
         geography === "Fredericton" ||
-        geography === "Moncton"
+        geography === "Moncton" ||
+        geography === "Summerside"
       ) {
         tableHeigth = 2.3;
       } else if (geography === "Saskatoon") {
@@ -2924,7 +2925,8 @@ module.exports = {
         geography === "Victoria" ||
         geography === "Red Deer" ||
         geography === "Winnipeg" ||
-        geography === "Halifax"
+        geography === "Halifax" ||
+        geography === "Charlottetown"
       ) {
         tableHeigth = 3.2;
         invertHiegt = 300;
