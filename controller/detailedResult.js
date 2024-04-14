@@ -2902,6 +2902,7 @@ module.exports = {
 
       let tableHeigth = 2;
       let height = 1650;
+      let invertHiegt = 250;
       if (
         geography === "Gander" ||
         geography === "Corner Brook" ||
@@ -2918,6 +2919,7 @@ module.exports = {
       ) {
         tableHeigth = 1.6;
         height = 1630;
+        invertHiegt = 230;
       } else if (
         geography === "St. John'S" ||
         geography === "Grand Falls-Windsor" ||
@@ -2928,6 +2930,7 @@ module.exports = {
       ) {
         tableHeigth = 1.6;
         height = 1650;
+        invertHiegt = 250;
       }
 
       const link = await Services.pdfService.detailPdfGenerator({
@@ -2935,6 +2938,7 @@ module.exports = {
         tableHeigth,
         height,
         geography,
+        invertHiegt,
         year,
         rent_source,
         house_type,
