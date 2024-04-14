@@ -2923,7 +2923,8 @@ module.exports = {
       } else if (
         geography === "Victoria" ||
         geography === "Red Deer" ||
-        geography === "Winnipeg"
+        geography === "Winnipeg" ||
+        geography === "Halifax"
       ) {
         tableHeigth = 3.2;
         invertHiegt = 300;
