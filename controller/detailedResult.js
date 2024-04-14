@@ -2922,7 +2922,7 @@ module.exports = {
         geography === "Sault Ste. Marie" ||
         geography === "Sarnia" ||
         geography === "Woodstock" ||
-        geography === "Chatam - Kent" ||
+        geography === "Chatam-Kent" ||
         geography === "Hamilton" ||
         geography === "St. Catharines - Niagara" ||
         geography === "Guelph" ||
