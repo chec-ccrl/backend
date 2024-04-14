@@ -2919,9 +2919,9 @@ module.exports = {
         tableHeigth = 2.8;
         height = 1700;
       } else if (geography === "Edmonton" || geography === "Calgary") {
-        tableHeigth = 3.2;
+        tableHeigth = 4.0;
         invertHiegt = 350;
-        height = 1850;
+        height = 1700;
       }
       // if (
       //   geography === "Gander" ||
