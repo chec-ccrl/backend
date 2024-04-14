@@ -2909,7 +2909,8 @@ module.exports = {
         geography === "Chilliwack" ||
         geography === "Kelowna" ||
         geography === "Lethbridge" ||
-        geography === "Grande Prairie"
+        geography === "Grande Prairie" ||
+        geography === "Saskatoon"
       ) {
         tableHeigth = 2.3;
       } else if (geography === "Victoria" || geography === "Red Deer") {
