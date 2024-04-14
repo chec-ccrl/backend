@@ -2935,7 +2935,8 @@ module.exports = {
         geography === "Victoria" ||
         geography === "Red Deer" ||
         geography === "Winnipeg" ||
-        geography === "Halifax"
+        geography === "Halifax" ||
+        geography === "Hamilton"
       ) {
         tableHeigth = 3.2;
         invertHiegt = 300;
@@ -2959,7 +2960,6 @@ module.exports = {
       } else if (
         geography === "Calgary" ||
         geography === "Montréal" ||
-        geography === "Hamilton" ||
         geography === "Greater Sudbury" ||
         geography === "Ottawa" ||
         geography === "Kitchener - Cambridge - Waterloo"
