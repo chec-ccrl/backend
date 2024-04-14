@@ -1806,7 +1806,7 @@ module.exports = {
               </div>
             </div>
             <div class="main_third_line"></div>
-            <div class="main_page3_first" style="height:500px">
+            <div class="main_page3_first" style="height:400px">
               <div class="main_page3_first_one">
                 <div class="main_page3_first_one_txt ls-2" style="font-size: 30px">
                   AVERAGE <br />
