@@ -1638,7 +1638,7 @@ module.exports = {
                 <div class="main_first_text_tex2 fw-md">KEY INSIGHTS</div>
               </div>
             </div>
-            <div class="main_second">
+            <div class="main_second" style="height:500px">
               <div class="main_second1">
                 <div class="main_second_select1">
                   <label class="label" for="cars">PROVINCE:</label>
@@ -1728,7 +1728,7 @@ module.exports = {
                 </div>
               </div>
             </div>
-            <div class="main_third">
+            <div class="main_third mb-0 pt-0 pb-0 mt-0">
               <div class="main_third_text">
                 <span> NOTE 1: B = Bedrooms </span>
                 <span>
