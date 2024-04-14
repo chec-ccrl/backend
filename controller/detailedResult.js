@@ -2901,7 +2901,7 @@ module.exports = {
       final_rank = findRank(cma === "Na" ? ca : cma, rankingArr);
 
       let tableHeigth = 2;
-      let height = 1630;
+      let height = 1610;
       let invertHiegt = 250;
       // if (
       //   geography === "Gander" ||
