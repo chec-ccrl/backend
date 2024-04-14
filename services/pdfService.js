@@ -1623,9 +1623,7 @@ module.exports = {
       <html>
         <body>
           <!-- Main ELEMENT FOR COMPLETE PDF -->
-          <div class="main" style="min-height: ${height}px;max-height: ${
-        height + 1
-      }px">
+          <div class="main" >
             <!-- FIFTH PAGE -->
             <div class="main_first">
               <div class="main_first_img">
