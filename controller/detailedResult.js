@@ -2925,6 +2925,7 @@ module.exports = {
         geography === "Chatam - Kent" ||
         geography === "St. Catharines - Niagara" ||
         geography === "Guelph" ||
+        geography === "Red Deer" ||
         geography === "Windsor"
       ) {
         tableHeigth = 2.3;
@@ -2933,7 +2934,6 @@ module.exports = {
         height = 1700;
       } else if (
         geography === "Victoria" ||
-        geography === "Red Deer" ||
         geography === "Winnipeg" ||
         geography === "Halifax" ||
         geography === "Hamilton"
