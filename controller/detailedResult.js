@@ -2925,13 +2925,16 @@ module.exports = {
         geography === "Victoria" ||
         geography === "Red Deer" ||
         geography === "Winnipeg" ||
-        geography === "Halifax" ||
-        geography === "Charlottetown"
+        geography === "Halifax"
       ) {
         tableHeigth = 3.2;
         invertHiegt = 300;
         height = 1750;
-      } else if (geography === "Vancouver" || geography === "Medicine Hat") {
+      } else if (
+        geography === "Vancouver" ||
+        geography === "Medicine Hat" ||
+        geography === "Charlottetown"
+      ) {
         tableHeigth = 2.8;
         height = 1700;
       } else if (geography === "Edmonton") {
