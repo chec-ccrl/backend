@@ -1738,7 +1738,7 @@ module.exports = {
               </div>
               <div class="main_third_line"></div>
             </div>
-            <div class="main_page3_second" style="height:300px">
+            <div class="main_page3_second" style="height:250px">
               <div class="main_page3_second_one">
                 <div class="main_page3_first_one_txt1" style="font-size:px">RANKING</div>
                 <div class="main_page3_first_one_other">
