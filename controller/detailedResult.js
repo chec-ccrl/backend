@@ -2900,8 +2900,23 @@ module.exports = {
 
       final_rank = findRank(cma === "Na" ? ca : cma, rankingArr);
 
+      let tableHeigth = 2;
+      let height = 1650;
+      if (geography === "Gander" || geography === "Corner Brook") {
+        tableHeigth = 1.6;
+        height = 1590;
+      } else if (
+        geography === "St. John'S" ||
+        geography === "Grand Falls-Windsor"
+      ) {
+        tableHeigth = 2;
+        height = 1650;
+      }
+
       const link = await Services.pdfService.detailPdfGenerator({
         province,
+        tableHeigth,
+        height,
         geography,
         year,
         rent_source,

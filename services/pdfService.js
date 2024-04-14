@@ -145,6 +145,8 @@ module.exports = {
         total_current_affordable_houses_available_apa,
         total_current_unaffordable_houses_const_apa,
         total_current_affordable_houses_const_apa,
+        tableHeigth,
+        height,
       } = data;
 
       let obj1, obj2, obj3, obj4;
@@ -1584,7 +1586,7 @@ module.exports = {
           border-radius: 4rem;
         }
         .half_width_table {
-          line-height: 1.5rem;
+          line-height: ${tableHeigth}rem;
           td {
             font-size: 21px;
           }
@@ -1620,7 +1622,7 @@ module.exports = {
       <html>
         <body>
           <!-- Main ELEMENT FOR COMPLETE PDF -->
-          <div class="main" style="height: 1590px">
+          <div class="main" style="height: ${height}px">
             <!-- FIFTH PAGE -->
             <div class="main_first">
               <div class="main_first_img">
@@ -5129,7 +5131,6 @@ module.exports = {
           });
         </script>
       </html>`;
-
 
       await page.setContent(htmlContent);
       const pdfFilePath = `${Common.helper.generateId()}.pdf`;
