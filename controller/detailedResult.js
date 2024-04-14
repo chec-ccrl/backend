@@ -2917,7 +2917,7 @@ module.exports = {
         geography === "Edmundston"
       ) {
         tableHeigth = 1.6;
-        height = 1610;
+        height = 1630;
       } else if (
         geography === "St. John'S" ||
         geography === "Grand Falls-Windsor" ||
@@ -2926,7 +2926,7 @@ module.exports = {
         geography === "Halifax" ||
         geography === "Fredericton"
       ) {
-        tableHeigth = 2;
+        tableHeigth = 1.6;
         height = 1650;
       }
 
