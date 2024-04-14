@@ -2948,7 +2948,11 @@ module.exports = {
       ) {
         tableHeigth = 2.8;
         height = 1700;
-      } else if (geography === "Edmonton") {
+      } else if (
+        geography === "Edmonton" ||
+        geography === "Toronto" ||
+        geography === "London"
+      ) {
         tableHeigth = 3.5;
         invertHiegt = 400;
         height = 1900;
@@ -2956,8 +2960,6 @@ module.exports = {
         geography === "Calgary" ||
         geography === "Montréal" ||
         geography === "Hamilton" ||
-        geography === "Toronto" ||
-        geography === "London" ||
         geography === "Greater Sudbury" ||
         geography === "Ottawa" ||
         geography === "Kitchener - Cambridge - Waterloo"
