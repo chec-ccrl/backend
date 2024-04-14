@@ -1638,7 +1638,7 @@ module.exports = {
                 <div class="main_first_text_tex2 fw-md">KEY INSIGHTS</div>
               </div>
             </div>
-            <div class="main_second" style="height:150px">
+            <div class="main_second" style="min-height:150px">
               <div class="main_second1">
                 <div class="main_second_select1">
                   <label class="label" for="cars">PROVINCE:</label>
@@ -1738,7 +1738,7 @@ module.exports = {
               </div>
               <div class="main_third_line"></div>
             </div>
-            <div class="main_page3_second" style="min-height:250px">
+            <div class="main_page3_second" style="min-height:230px">
               <div class="main_page3_second_one">
                 <div class="main_page3_first_one_txt1" style="font-size:px">RANKING</div>
                 <div class="main_page3_first_one_other">
