@@ -2908,6 +2908,7 @@ module.exports = {
       } else if (geography === "Victoria") {
         tableHeigth = 3.2;
         invertHiegt = 300;
+        height = 1700;
       }
       // if (
       //   geography === "Gander" ||
