@@ -2925,7 +2925,7 @@ module.exports = {
       } else if (geography === "Calgary") {
         tableHeigth = 3;
         invertHiegt = 400;
-        height = 1850;
+        height = 1900;
       }
       // if (
       //   geography === "Gander" ||
