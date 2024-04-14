@@ -2910,7 +2910,7 @@ module.exports = {
         invertHiegt = 300;
         height = 1750;
       } else if (geography === "Vancouver") {
-        tableHeigth = 3;
+        tableHeigth = 2.8;
         height = 1700;
       }
       // if (
