@@ -3053,7 +3053,7 @@ module.exports = {
           </div>
       
           <!-- SEVENTH PAGE -->
-          <div style="height: 1550px;">
+          <div style="height: 1650px;">
           <div class="main_first" >
             <div class="main_first_img" >
               <img
