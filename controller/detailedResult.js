@@ -2905,10 +2905,12 @@ module.exports = {
       let invertHiegt = 250;
       if (geography === "Penticton") {
         tableHeigth = 2.3;
-      } else if (geography === "Victoria" || geography === "Vancouver") {
+      } else if (geography === "Victoria") {
         tableHeigth = 3.2;
         invertHiegt = 300;
         height = 1750;
+      } else if (geography === "Vancouver") {
+        tableHeigth = 3;
       }
       // if (
       //   geography === "Gander" ||
