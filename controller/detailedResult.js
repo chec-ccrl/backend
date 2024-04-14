@@ -2911,6 +2911,7 @@ module.exports = {
         height = 1750;
       } else if (geography === "Vancouver") {
         tableHeigth = 3;
+        height = 1700;
       }
       // if (
       //   geography === "Gander" ||
