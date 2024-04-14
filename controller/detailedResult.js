@@ -2909,7 +2909,9 @@ module.exports = {
         geography === "Chilliwack" ||
         geography === "Kelowna" ||
         geography === "Lethbridge" ||
-        geography === "Grande Prairie"
+        geography === "Grande Prairie" ||
+        geography === "Brandon" ||
+        geography === "Steinbach"
       ) {
         tableHeigth = 2.3;
       } else if (geography === "Saskatoon") {
@@ -2922,7 +2924,7 @@ module.exports = {
       } else if (geography === "Vancouver" || geography === "Medicine Hat") {
         tableHeigth = 2.8;
         height = 1700;
-      } else if (geography === "Edmonton") {
+      } else if (geography === "Edmonton" || geography === "Winnipeg") {
         tableHeigth = 3.5;
         invertHiegt = 400;
         height = 1900;
