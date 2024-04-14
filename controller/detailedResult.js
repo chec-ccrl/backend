@@ -2912,15 +2912,14 @@ module.exports = {
         geography === "Grande Prairie"
       ) {
         tableHeigth = 2.3;
+      } else if (geography === "Saskatoon") {
+        tableHeigth = 2.5;
+        height = 1700;
       } else if (geography === "Victoria" || geography === "Red Deer") {
         tableHeigth = 3.2;
         invertHiegt = 300;
         height = 1750;
-      } else if (
-        geography === "Vancouver" ||
-        geography === "Medicine Hat" ||
-        geography === "Saskatoon"
-      ) {
+      } else if (geography === "Vancouver" || geography === "Medicine Hat") {
         tableHeigth = 2.8;
         height = 1700;
       } else if (geography === "Edmonton") {
