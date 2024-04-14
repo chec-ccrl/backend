@@ -2908,7 +2908,13 @@ module.exports = {
         geography === "Kentville" ||
         geography === "Truro" ||
         geography === "New Glasgow" ||
-        geography === "Cape Breton"
+        geography === "Cape Breton" ||
+        geography === "Moncton" ||
+        geography === "Sant John" ||
+        geography === "Bathurst" ||
+        geography === "Miramichi" ||
+        geography === "Campbellton" ||
+        geography === "Edmundston"
       ) {
         tableHeigth = 1.6;
         height = 1610;
@@ -2917,7 +2923,8 @@ module.exports = {
         geography === "Grand Falls-Windsor" ||
         geography === "Summerside" ||
         geography === "Charlottetown" ||
-        geography === "Halifax"
+        geography === "Halifax" ||
+        geography === "Fredericton"
       ) {
         tableHeigth = 2;
         height = 1650;
