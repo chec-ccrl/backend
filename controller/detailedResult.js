@@ -2910,7 +2910,7 @@ module.exports = {
       } else if (geography === "Halifax") {
         height = 1750;
         invertHiegt = 300;
-        tableHeigth = 2.5;
+        tableHeigth = 2.3;
       }
       // if (
       //   geography === "Gander" ||
