@@ -2903,7 +2903,7 @@ module.exports = {
       let tableHeigth = 2;
       let height = 1630;
       let invertHiegt = 250;
-      if (geography === "Charlottetown") {
+      if (geography === "Charlottetown" || geography === "Halifax") {
         height = 1700;
         invertHiegt = 270;
         tableHeigth = 2.3;
