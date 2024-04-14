@@ -2906,7 +2906,7 @@ module.exports = {
       if (geography === "Charlottetown") {
         height = 1700;
         invertHiegt = 270;
-        tableHeigth = 2.5;
+        tableHeigth = 2.3;
       }
       // if (
       //   geography === "Gander" ||
