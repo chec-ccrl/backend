@@ -1620,7 +1620,7 @@ module.exports = {
       <html>
         <body>
           <!-- Main ELEMENT FOR COMPLETE PDF -->
-          <div class="main" style="height: 1610px">
+          <div class="main" style="height: 1650px">
             <!-- FIFTH PAGE -->
             <div class="main_first">
               <div class="main_first_img">
@@ -5130,12 +5130,8 @@ module.exports = {
         </script>
       </html>`;
 
+
       await page.setContent(htmlContent);
-      await page.evaluate(() => {
-        return new Promise((resolve) => {
-          setTimeout(resolve, 2000); // Wait for 2 seconds
-        });
-      });
       const pdfFilePath = `${Common.helper.generateId()}.pdf`;
       const pdfBuffer = await page.pdf({
         path: pdfFilePath,
