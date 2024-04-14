@@ -2900,7 +2900,7 @@ module.exports = {
 
       final_rank = findRank(cma === "Na" ? ca : cma, rankingArr);
 
-      let tableHeigth = 2.5;
+      let tableHeigth = 2;
       let height = 1700;
       let invertHiegt = 270;
       // if (
