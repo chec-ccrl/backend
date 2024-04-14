@@ -2903,6 +2903,10 @@ module.exports = {
       let tableHeigth = 2;
       let height = 1660;
       let invertHiegt = 250;
+      if (geography === "Penticton") {
+        height = 1700;
+        invertHiegt = 280;
+      }
       // if (
       //   geography === "Gander" ||
       //   geography === "Corner Brook" ||
