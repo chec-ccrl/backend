@@ -2903,35 +2903,35 @@ module.exports = {
       let tableHeigth = 2;
       let height = 1650;
       let invertHiegt = 250;
-      if (
-        geography === "Gander" ||
-        geography === "Corner Brook" ||
-        geography === "Kentville" ||
-        geography === "Truro" ||
-        geography === "New Glasgow" ||
-        geography === "Cape Breton" ||
-        geography === "Moncton" ||
-        geography === "Sant John" ||
-        geography === "Bathurst" ||
-        geography === "Miramichi" ||
-        geography === "Campbellton" ||
-        geography === "Edmundston"
-      ) {
-        tableHeigth = 1.6;
-        height = 1630;
-        invertHiegt = 230;
-      } else if (
-        geography === "St. John'S" ||
-        geography === "Grand Falls-Windsor" ||
-        geography === "Summerside" ||
-        geography === "Charlottetown" ||
-        geography === "Halifax" ||
-        geography === "Fredericton"
-      ) {
-        tableHeigth = 1.6;
-        height = 1650;
-        invertHiegt = 250;
-      }
+      // if (
+      //   geography === "Gander" ||
+      //   geography === "Corner Brook" ||
+      //   geography === "Kentville" ||
+      //   geography === "Truro" ||
+      //   geography === "New Glasgow" ||
+      //   geography === "Cape Breton" ||
+      //   geography === "Moncton" ||
+      //   geography === "Sant John" ||
+      //   geography === "Bathurst" ||
+      //   geography === "Miramichi" ||
+      //   geography === "Campbellton" ||
+      //   geography === "Edmundston"
+      // ) {
+      //   tableHeigth = 1.6;
+      //   height = 1630;
+      //   invertHiegt = 230;
+      // } else if (
+      //   geography === "St. John'S" ||
+      //   geography === "Grand Falls-Windsor" ||
+      //   geography === "Summerside" ||
+      //   geography === "Charlottetown" ||
+      //   geography === "Halifax" ||
+      //   geography === "Fredericton"
+      // ) {
+      //   tableHeigth = 1.6;
+      //   height = 1650;
+      //   invertHiegt = 250;
+      // }
 
       const link = await Services.pdfService.detailPdfGenerator({
         province,
