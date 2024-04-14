@@ -2009,7 +2009,7 @@ module.exports = {
             </div>
             <div class="main_third_line" style="margin: 2px 0"></div>
       
-            <div class="main_page3_third" style="min-height:300px;max-height:301px">
+            <div class="main_page3_third" style="min-height:320px;max-height:321px">
               <div class="main_page3_third_one">
               <div style="display: flex">
                 <div class="main_page3_first_one_txt" style="font-size: 18px;margin-top:7px">
