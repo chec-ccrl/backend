@@ -2911,13 +2911,17 @@ module.exports = {
         geography === "Lethbridge"
       ) {
         tableHeigth = 2.3;
-      } else if (geography === "Victoria" || geography === "Edmonton") {
+      } else if (geography === "Victoria") {
         tableHeigth = 3.2;
         invertHiegt = 300;
         height = 1750;
-      } else if (geography === "Vancouver" || geography === "Calgary") {
+      } else if (geography === "Vancouver") {
         tableHeigth = 2.8;
         height = 1700;
+      } else if (geography === "Edmonton" || geography === "Calgary") {
+        tableHeigth = 3.2;
+        invertHiegt = 350;
+        height = 1750;
       }
       // if (
       //   geography === "Gander" ||
