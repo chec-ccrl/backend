@@ -2948,21 +2948,19 @@ module.exports = {
       ) {
         tableHeigth = 2.8;
         height = 1700;
-      } else if (
-        geography === "Edmonton" ||
-        geography === "Toronto" ||
-        geography === "London" ||
-        geography === "Greater Sudbury" ||
-        geography === "Ottawa" ||
-        geography === "Kitchener - Cambridge - Waterloo"
-      ) {
+      } else if (geography === "Edmonton") {
         tableHeigth = 3.5;
         invertHiegt = 400;
         height = 1900;
       } else if (
         geography === "Calgary" ||
         geography === "Montréal" ||
-        geography === "Hamilton"
+        geography === "Hamilton" ||
+        geography === "Toronto" ||
+        geography === "London" ||
+        geography === "Greater Sudbury" ||
+        geography === "Ottawa" ||
+        geography === "Kitchener - Cambridge - Waterloo"
       ) {
         tableHeigth = 3.3;
         invertHiegt = 400;
