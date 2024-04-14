@@ -2918,10 +2918,14 @@ module.exports = {
       } else if (geography === "Vancouver") {
         tableHeigth = 2.8;
         height = 1700;
-      } else if (geography === "Edmonton" || geography === "Calgary") {
+      } else if (geography === "Edmonton") {
         tableHeigth = 3.5;
         invertHiegt = 400;
         height = 1900;
+      } else if (geography === "Calgary") {
+        tableHeigth = 3;
+        invertHiegt = 400;
+        height = 1700;
       }
       // if (
       //   geography === "Gander" ||
