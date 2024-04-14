@@ -2923,7 +2923,7 @@ module.exports = {
         invertHiegt = 400;
         height = 1900;
       } else if (geography === "Calgary") {
-        tableHeigth = 3;
+        tableHeigth = 3.3;
         invertHiegt = 400;
         height = 1900;
       }
