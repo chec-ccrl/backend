@@ -2007,7 +2007,7 @@ module.exports = {
             </div>
             <div class="main_third_line" style="margin: 2px 0"></div>
       
-            <div class="main_page3_third" style="height:500px">
+            <div class="main_page3_third" style="min-height:400px;max-height:401px">
               <div class="main_page3_third_one">
               <div style="display: flex">
                 <div class="main_page3_first_one_txt" style="font-size: 18px;margin-top:7px">
