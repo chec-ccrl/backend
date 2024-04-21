@@ -63,7 +63,7 @@ module.exports = {
       let ca = null;
       let cma_ca_list = await Services.multiplierService.getAllFr({
         province,
-        year,
+        year: Number(year),
         cma: geography,
       });
 
@@ -92,7 +92,7 @@ module.exports = {
       }
       const province_income_ranking =
         await Services.incomeRankingProvinceService.getDetail({
-          year,
+          year: Number(year),
           province,
         });
       let cma_income_ranking = null;
@@ -262,7 +262,7 @@ module.exports = {
         marketBasketDetails =
           await Services.marketBasketMeasureService.getDetail({
             province,
-            year,
+            year: Number(year),
             cma,
             ca,
           });
@@ -270,7 +270,7 @@ module.exports = {
         marketBasketDetails = await Services.householdSpendingService.getDetail(
           {
             province,
-            year,
+            year: Number(year),
             ca,
             cma,
           }
@@ -282,7 +282,7 @@ module.exports = {
         province,
         cma,
         ca,
-        year,
+        year: Number(year),
       });
 
       let rentObj = {
@@ -338,7 +338,7 @@ module.exports = {
             province,
             cma,
             ca,
-            year,
+            year: String(year),
             house_type: "Row",
           });
           let rowval = 0;
@@ -351,7 +351,7 @@ module.exports = {
             province,
             cma,
             ca,
-            year,
+            year: String(year),
             house_type: "Apartment",
           });
           let apaval = 0;
@@ -461,7 +461,7 @@ module.exports = {
       const canadaIncomeSurveyDetails =
         await Services.canadaIncomeSurveyService.getAlls({
           province,
-          year,
+          year: Number(year),
           cma,
           ca,
         });
@@ -473,7 +473,7 @@ module.exports = {
 
       const dwellingDetails = await Services.dwellingTypeService.getAlls({
         province,
-        year,
+        year: Number(year),
         cma,
         ca,
       });
@@ -523,7 +523,7 @@ module.exports = {
             province,
             cma,
             ca,
-            year,
+            year: Number(year),
             bedroom_type: ele.bedroom_type,
             house_type: ele.house_type,
           });
@@ -1584,12 +1584,7 @@ module.exports = {
               }
             })
           );
-          console.log(
-            affordable,
-            unaffordable,
-            ele.percentage_of_family_total_income,
-            ele.income_bracket
-          );
+
           total_current_unaffordable_houses += Math.ceil(
             unaffordable * (ele.percentage_of_family_total_income / 100)
           );
@@ -1797,7 +1792,7 @@ module.exports = {
           graph_4_3_abbr.push(`"${abbr}"`);
           const multiplier = await Services.multiplierService.getAllFr({
             province: ele.province,
-            year,
+            year: Number(year),
             cma: "Na",
             ca: "Na",
           });
@@ -1828,13 +1823,13 @@ module.exports = {
               marketBasketDetails =
                 await Services.marketBasketMeasureService.getDetail({
                   province: ele.province,
-                  year,
+                  year: Number(year),
                 });
             } else {
               marketBasketDetails =
                 await Services.householdSpendingService.getDetail({
                   province: ele.province,
-                  year,
+                  year: Number(year),
                 });
             }
 
@@ -2064,7 +2059,7 @@ module.exports = {
         province,
         cma: "Na",
         ca: "Na",
-        year,
+        year: Number(year),
       });
       rentProvince.map((ele) => {
         if (rent_source === "Average Listing Rent") {
@@ -2102,7 +2097,7 @@ module.exports = {
         province: "Canada",
         cma: "Na",
         ca: "Na",
-        year,
+        year: Number(year),
       });
       rentCanada.map((ele) => {
         if (rent_source === "Average Listing Rent") {
@@ -2168,7 +2163,7 @@ module.exports = {
             marketBasketDetails =
               await Services.marketBasketMeasureService.getDetail({
                 province,
-                year: String(years),
+                year: Number(years),
                 cma,
                 ca,
               });
@@ -2176,7 +2171,7 @@ module.exports = {
             marketBasketDetails =
               await Services.householdSpendingService.getDetail({
                 province,
-                year: String(years),
+                year: Number(years),
                 ca,
                 cma,
               });
