@@ -2532,7 +2532,7 @@ module.exports = {
             province,
             cma,
             ca,
-            year: Number(year),
+            year: String(year),
           });
 
           rentDetails.forEach((ele) => {
