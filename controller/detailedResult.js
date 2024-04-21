@@ -1571,6 +1571,7 @@ module.exports = {
             }
           }
         });
+        console.log(affordable, unaffordable);
         total_current_unaffordable_houses += Math.ceil(
           unaffordable * (ele.percentage_of_family_total_income / 100)
         );
