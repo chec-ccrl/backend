@@ -105,7 +105,7 @@ module.exports = {
       }
 
       const allRentDetails = await Services.rentService.getAlls({
-        year,
+        year: String(year),
       });
       const allRentCMAApartment = {};
       const allRentCMABoth = {};
@@ -289,7 +289,7 @@ module.exports = {
         province,
         cma,
         ca,
-        year,
+        year: String(year),
       };
 
       let rentDetails = await Services.rentService.getAlls(rentObj);
@@ -365,7 +365,7 @@ module.exports = {
           const canadaIncomeSurveyDetails =
             await Services.canadaIncomeSurveyService.getAlls({
               province,
-              year,
+              year: Number(year),
               cma,
               ca,
             });
@@ -647,7 +647,7 @@ module.exports = {
         arrYear.map(async (years) => {
           const dwellingDetails = await Services.dwellingTypeService.getAlls({
             province,
-            year: years,
+            year: Number(year),
             cma,
             ca,
           });
@@ -1842,7 +1842,7 @@ module.exports = {
 
           const rents = await Services.rentService.getAlls({
             province: ele.province,
-            year,
+            year: String(year),
             cma: "Na",
             ca: "Na",
           });
@@ -2020,7 +2020,7 @@ module.exports = {
         province,
         cma,
         ca,
-        year,
+        year: String(year),
       });
       rentCma.map((ele) => {
         if (rent_source === "Average Listing Rent") {
@@ -2053,7 +2053,7 @@ module.exports = {
         province,
         cma: "Na",
         ca: "Na",
-        year,
+        year: String(year),
       });
       const multiplierProvince = await Services.multiplierService.getDetail({
         province,
@@ -2091,7 +2091,7 @@ module.exports = {
         province: "Canada",
         cma: "Na",
         ca: "Na",
-        year,
+        year: String(year),
       });
       const multiplierCanada = await Services.multiplierService.getDetail({
         province: "Canada",
@@ -2131,7 +2131,7 @@ module.exports = {
           const canadaIncomeSurveyDetails =
             await Services.canadaIncomeSurveyService.getAlls({
               province,
-              year: years,
+              year: Number(years),
               cma,
               ca,
             });
@@ -2154,7 +2154,7 @@ module.exports = {
             province,
             cma,
             ca,
-            year: String(years),
+            year: Number(years),
           });
           let marketBasketDetails;
           if (
@@ -2465,7 +2465,7 @@ module.exports = {
 
       const incomeRank = await Services.incomeRankingProvinceService.getDetail({
         province,
-        year,
+        year: Number(year),
       });
 
       let income_rank =
@@ -2478,9 +2478,13 @@ module.exports = {
 
       let listing = [];
       if (cma === "Na") {
-        listing = await Services.rentalRankingCAService.getAlls({ year });
+        listing = await Services.rentalRankingCAService.getAlls({
+          year: Number(year),
+        });
       } else {
-        listing = await Services.rentalRankingCMAService.getAlls({ year });
+        listing = await Services.rentalRankingCMAService.getAlls({
+          year: Number(year),
+        });
       }
       let rankingArr = [];
       await Promise.all(
@@ -2503,7 +2507,7 @@ module.exports = {
             marketBasketDetails =
               await Services.marketBasketMeasureService.getDetail({
                 province,
-                year,
+                year: Number(year),
                 cma,
                 ca,
               });
@@ -2511,7 +2515,7 @@ module.exports = {
             marketBasketDetails =
               await Services.householdSpendingService.getDetail({
                 province,
-                year,
+                year: Number(year),
                 ca,
                 cma,
               });
@@ -2522,13 +2526,13 @@ module.exports = {
             province,
             cma,
             ca,
-            year,
+            year: Number(year),
           });
           let rentDetails = await Services.rentService.getAlls({
             province,
             cma,
             ca,
-            year,
+            year: Number(year),
           });
 
           rentDetails.forEach((ele) => {
@@ -2540,14 +2544,14 @@ module.exports = {
           const canadaIncomeSurveyDetails =
             await Services.canadaIncomeSurveyService.getAlls({
               province,
-              year,
+              year: Number(year),
               cma,
               ca,
             });
 
           const dwellingDetails = await Services.dwellingTypeService.getAlls({
             province,
-            year,
+            year: Number(year),
             cma,
             ca,
           });
@@ -2582,7 +2586,7 @@ module.exports = {
                 province,
                 cma,
                 ca,
-                year,
+                year: Number(year),
                 bedroom_type: ele.bedroom_type,
                 house_type: ele.house_type,
               });
