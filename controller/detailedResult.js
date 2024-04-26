@@ -2948,10 +2948,11 @@ module.exports = {
         geography === "St. Catharines - Niagara" ||
         geography === "Guelph" ||
         geography === "Red Deer" ||
-        geography === "Windsor"
+        geography === "Windsor" ||
+        geography === "Kentville"
       ) {
         tableHeigth = 2.3;
-      } else if (geography === "Saskatoon" || geography === "Kentiville") {
+      } else if (geography === "Saskatoon") {
         tableHeigth = 2.5;
         height = 1700;
         // } {
