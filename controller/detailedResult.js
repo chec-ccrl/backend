@@ -2950,13 +2950,15 @@ module.exports = {
         geography === "Cape Breton"
       ) {
         tableHeigth = 2.3;
-      } else if (geography === "Saskatoon" || geography === "Kentville") {
+      } else if (
+        geography === "Saskatoon" ||
+        geography === "Kentville" ||
+        geography === "Moncton" ||
+        geography === "Saint John" ||
+        geography === "Fredericton"
+      ) {
         tableHeigth = 2.6;
         height = 1730;
-        // } {
-        //   tableHeigth = 3.2;
-        //   invertHiegt = 300;
-        //   height = 1750;
       } else if (
         geography === "Edmonton" ||
         geography === "Toronto" ||
@@ -2983,10 +2985,7 @@ module.exports = {
         geography === "Victoria" ||
         geography === "Winnipeg" ||
         geography === "Halifax" ||
-        geography === "Hamilton" ||
-        geography === "Moncton" ||
-        geography === "Saint John" ||
-        geography === "Fredericton"
+        geography === "Hamilton"
       ) {
         tableHeigth = 4.2;
         invertHiegt = 500;
