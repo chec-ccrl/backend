@@ -2965,15 +2965,11 @@ module.exports = {
         geography === "Vancouver" ||
         geography === "Medicine Hat" ||
         geography === "Oshawa" ||
-        geography === "Charlottetown" ||
-        geography === "Victoria" ||
-        geography === "Winnipeg" ||
-        geography === "Halifax" ||
-        geography === "Hamilton"
+        geography === "Charlottetown"
       ) {
-        tableHeigth = 3.8;
-        invertHiegt = 450;
-        height = 1950;
+        tableHeigth = 3.5;
+        invertHiegt = 400;
+        height = 1900;
       } else if (
         geography === "Calgary" ||
         geography === "Montréal" ||
@@ -2984,6 +2980,15 @@ module.exports = {
         tableHeigth = 3.3;
         invertHiegt = 400;
         height = 1900;
+      } else if (
+        geography === "Victoria" ||
+        geography === "Winnipeg" ||
+        geography === "Halifax" ||
+        geography === "Hamilton"
+      ) {
+        tableHeigth = 3.6;
+        invertHiegt = 500;
+        height = 2000;
       }
 
       const link = await Services.pdfService.detailPdfGenerator({
