@@ -2986,7 +2986,7 @@ module.exports = {
         geography === "Halifax" ||
         geography === "Hamilton"
       ) {
-        tableHeigth = 4;
+        tableHeigth = 4.5;
         invertHiegt = 500;
         height = 2000;
       }
