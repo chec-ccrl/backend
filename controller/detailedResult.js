@@ -2952,8 +2952,8 @@ module.exports = {
       ) {
         tableHeigth = 2.3;
       } else if (geography === "Saskatoon" || geography === "Kentville") {
-        tableHeigth = 2.5;
-        height = 1700;
+        tableHeigth = 2.6;
+        height = 1730;
         // } {
         //   tableHeigth = 3.2;
         //   invertHiegt = 300;
