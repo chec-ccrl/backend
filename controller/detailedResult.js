@@ -2954,15 +2954,10 @@ module.exports = {
       } else if (geography === "Saskatoon") {
         tableHeigth = 2.5;
         height = 1700;
-      } else if (
-        geography === "Victoria" ||
-        geography === "Winnipeg" ||
-        geography === "Halifax" ||
-        geography === "Hamilton"
-      ) {
-        tableHeigth = 3.2;
-        invertHiegt = 300;
-        height = 1750;
+        // } {
+        //   tableHeigth = 3.2;
+        //   invertHiegt = 300;
+        //   height = 1750;
       } else if (
         geography === "Edmonton" ||
         geography === "Toronto" ||
@@ -2970,7 +2965,11 @@ module.exports = {
         geography === "Vancouver" ||
         geography === "Medicine Hat" ||
         geography === "Oshawa" ||
-        geography === "Charlottetown"
+        geography === "Charlottetown" ||
+        geography === "Victoria" ||
+        geography === "Winnipeg" ||
+        geography === "Halifax" ||
+        geography === "Hamilton"
       ) {
         tableHeigth = 3.5;
         invertHiegt = 400;
