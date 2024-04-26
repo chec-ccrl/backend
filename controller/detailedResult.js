@@ -647,7 +647,7 @@ module.exports = {
         arrYear.map(async (years) => {
           const dwellingDetails = await Services.dwellingTypeService.getAlls({
             province,
-            year: Number(year),
+            year: Number(years),
             cma,
             ca,
           });
