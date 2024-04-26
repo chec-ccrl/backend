@@ -1865,7 +1865,7 @@ module.exports = {
       let greenPercent = 0;
       canadaIncomeSurveyDetails.map((eke) => {
         if (eke.income_bracket === "$100,000 And Over") {
-          if (averageRent > 100000) {
+          if (averageRent >= 100000) {
             redPercent += eke.percentage_of_family_total_income;
             graph_3_1_color[8] = `"#bb1823"`;
           } else {
@@ -1873,7 +1873,7 @@ module.exports = {
           }
           graph_3_1[8] = eke.percentage_of_family_total_income;
         } else if (eke.income_bracket === "$80,000 To $99,999") {
-          if (averageRent > 80000) {
+          if (averageRent >= 80000) {
             if (averageRent < 100000) {
               redPercent += Number(
                 (
@@ -1890,7 +1890,7 @@ module.exports = {
           }
           graph_3_1[7] = eke.percentage_of_family_total_income;
         } else if (eke.income_bracket === "$60,000 To $79,999") {
-          if (averageRent > 60000) {
+          if (averageRent >= 60000) {
             if (averageRent < 80000) {
               redPercent += Number(
                 (
@@ -1907,7 +1907,7 @@ module.exports = {
           }
           graph_3_1[6] = eke.percentage_of_family_total_income;
         } else if (eke.income_bracket === "$50,000 To $59,999") {
-          if (averageRent > 50000) {
+          if (averageRent >= 50000) {
             if (averageRent < 60000) {
               redPercent += Number(
                 (
@@ -1925,7 +1925,7 @@ module.exports = {
 
           graph_3_1[5] = eke.percentage_of_family_total_income;
         } else if (eke.income_bracket === "$40,000 To $49,999") {
-          if (averageRent > 40000) {
+          if (averageRent >= 40000) {
             if (averageRent < 50000) {
               redPercent += Number(
                 (
@@ -1943,7 +1943,7 @@ module.exports = {
 
           graph_3_1[4] = eke.percentage_of_family_total_income;
         } else if (eke.income_bracket === "$30,000 To $39,999") {
-          if (averageRent > 30000) {
+          if (averageRent >= 30000) {
             if (averageRent < 40000) {
               redPercent += Number(
                 (
@@ -1960,7 +1960,7 @@ module.exports = {
           }
           graph_3_1[3] = eke.percentage_of_family_total_income;
         } else if (eke.income_bracket === "$20,000 To $29,999") {
-          if (averageRent > 20000) {
+          if (averageRent >= 20000) {
             if (averageRent < 30000) {
               redPercent += Number(
                 (
@@ -1977,7 +1977,7 @@ module.exports = {
           }
           graph_3_1[2] = eke.percentage_of_family_total_income;
         } else if (eke.income_bracket === "$10,000 To $19,999") {
-          if (averageRent > 10000) {
+          if (averageRent >= 10000) {
             if (averageRent < 20000) {
               redPercent += Number(
                 (
@@ -1994,7 +1994,7 @@ module.exports = {
           }
           graph_3_1[1] = eke.percentage_of_family_total_income;
         } else {
-          if (averageRent > 0) {
+          if (averageRent >= 0) {
             if (averageRent < 10000) {
               redPercent += Number(
                 (
