@@ -2449,7 +2449,7 @@ module.exports = {
                       <div
                         class="main_page4_first_one_one_main_one_head fw-light ls-1"
                       >
-                        TYPE OF BEDROOM
+                        TYPE OF <br/> BEDROOM
                       </div>
                       <div class="main_page4_first_one_one_main_one_chart">
                         <canvas
@@ -2559,7 +2559,7 @@ module.exports = {
                       <div
                         class="main_page4_first_one_one_main_one_head fw-light ls-1"
                       >
-                        TYPE OF BEDROOM
+                        TYPE OF <br/> BEDROOM
                       </div>
                       <div class="main_page4_first_one_one_main_one_chart">
                         <canvas
