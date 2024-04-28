@@ -3127,36 +3127,74 @@ module.exports = {
               DIFFERENT INCOME RANGES
             </p>
             <div class="main_third_line"></div>
-            
-            <div class="main_third_line"></div>
-            <h2 style="text-align: center; text-decoration: underline" class="ls-2 mb-0 my-2">
-              MEDIAN HOUSEHOLD INCOME
-            </h2>
-            <div class="main_page6_first_one">
-              <div class="main_page6_first">
-                <div class="main_page6_first_one_charts">
-                  <div class="main_page6_first_one_charts_one">
-                    <div class="main_page5_first_one_txt" style="text-align: center">
-                      BEFORE TAX
-                    </div>
+            <div class="main_page5_first">
+              <div class="main_page5_first_one">
+                <div
+                  class="main_page5_first_one_one"
+                >
+                  <div class="main_page5_first_one_txt">
+                    DISCRETIONARY INCOME VS <br />
+                    MEDIAN INCOME AFTER TAX/BEFORE TAX
+                  </div>
+                  <div class="main_page5_first_one_chart">
                     <canvas
-                      id="main_page5_first_one_chart19"
-                      style="width: 550px; height: 320px"
+                      id="main_page5_first_one_chart18"
+                      style="width: max-content; min-height: 280px; min-width: 720px"
                     ></canvas>
                   </div>
-                  <div class="main_page3_first_one_break"></div>
-                  <div class="main_page6_first_one_charts_two">
-                    <div class="main_page5_first_one_txt" style="text-align: center">
-                      AFTER TAX
+                </div>
+                <div class="main_page3_first_one_break"></div>
+                <div class="main_page5_first_one_one2">
+                  <div class="main_page5_first_one_txt text-2xl" style="width:118%">
+                    MEDIAN INCOME <br />
+                    RANKING
+                  </div>
+                  <div class="main_page3_first_one_other">
+                  ${
+                    cma_income_ranking?.length > 0
+                      ? `<div class="main_page3_first_one_other_one" style="margin-right:20px">
+                          <div
+                            class="main_page3_first_one_other_one_main"
+                            style="margin-top: 80px"
+                          >
+                            <span style="font-size: 30px">${cma_income_ranking[0].ranking_before_tax}</span>
+                          </div>
+                          <div class="main_page3_first_one_other_one_sub my-2">
+                            Before Tax
+                          </div>
+                          <div
+                            class="main_page3_first_one_other_one_text"
+                            style="font-size:20px"
+                          >
+                            MAJOR
+                            <br />
+                            CMAS
+                          </div>
+                        </div>`
+                      : ``
+                  }
+                    <div class="main_page3_first_one_other_one">
+                      <div
+                        class="main_page3_first_one_other_one_main"
+                        style="margin-top: 60px"
+                      >
+                        <span style="font-size: 30px">
+                          ${province_income_ranking[0].ranking_before_tax}
+                        </span>
+                      </div>
+                      <div class="main_page3_first_one_other_one_sub my-2">
+                        Before Tax
+                      </div>
+                      <div class="main_page3_first_one_other_one_text" style="font-size:20px">PROVINCE</div>
                     </div>
-                    <canvas
-                      id="main_page5_first_one_chart20"
-                      style="width: 550px; height: 320px"
-                    ></canvas>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="main_third_line"></div>
+            <h2 style="text-align: center; text-decoration: underline" class="ls-2 mb-0 my-2">
+              MEDIAN HOUSEHOLD INCOME
+            </h2>
           </div>
         </body>
         <script>
