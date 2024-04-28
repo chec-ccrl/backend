@@ -1810,6 +1810,72 @@ module.exports = {
             <div class="main_third m-0 p-0">
               <div class="main_third_line"></div>
             </div>
+            <div class="main_page3_first" style="min-height:400px;max-height:401px">
+              <div class="main_page3_first_one">
+                <div class="main_page3_first_one_txt ls-2" style="font-size: 30px">
+                  AVERAGE <br />
+                  RENT
+                </div>
+                <span class="m-0">Monthly</span>
+                <div class="main_page3_first_one_content">
+                  <div class="main_page3_first_one_content_one">
+                    <div
+                    class="main_page3_first_one_content_one_head fw-light ls-1 my-4"
+                    >
+                      ROW HOUSE
+                    </div>
+                    ${strRow}
+                  </div>               
+                  <div class="main_page3_first_one_content_one">
+                    <div
+                      class="main_page3_first_one_content_one_head fw-light ls-1 my-4"
+                    >
+                      APARTMENT
+                    </div>
+                    ${strApa}
+                  </div>
+                </div>
+              </div>
+              <div class="main_page3_first_one_break"></div>
+              <div class="main_page3_first_two">
+                <div class="main_page3_first_one_txt ls-2" style="font-size: 28px">
+                  AFFORDABLE SHELTER COST
+                </div>
+                <span style="font-size: small; letter-spacing: 5px"
+                  >BASED ON 2 DEFINATIONS</span
+                >
+                <div class="main_page3_first_one_txt ls-2" style="font-size: 28px">
+                  VS CURRENT SHELTER COST
+                </div>
+                <div class="main_page3_first_one_sub">
+                  MONTHLY
+                  <canvas
+                    id="main_page3_first_one_pichart"
+                    width="660"
+                    height="270"
+                  ></canvas>
+                  <p class="ls-1">INCOME CATEGORIES</p>
+                </div>
+              </div>
+              <div class="main_page3_first_one_break"></div>
+              <div class="main_page3_first_three">
+                <div class="main_page3_first_one_txt ls-2" style="font-size:30px">
+                  RENTAL <br />
+                  SUPPLY
+                </div>
+                <div class="main_page3_first_one_sub text-sm">
+                  ${rentalSupplyPercentage.toFixed(
+                    2
+                  )}% of New stock is added this Year
+                </div>
+                <div class="main_page3_first_one_chart">
+                  <canvas
+                    id="main_page3_first_one_chart_main"
+                    style="height: 300px; width: 155px"
+                  ></canvas>
+                </div>
+              </div>
+            </div>
           </div>
         </body>
         <script>
