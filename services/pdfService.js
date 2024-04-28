@@ -1065,7 +1065,7 @@ module.exports = {
         }
       
         .main_page4_first_one_one_main_one_head {
-          font-size: 16px;
+          font-size: 15px;
           text-decoration: underline;
           font-weight: bold;
           letter-spacing: 0.3cap;
@@ -1118,7 +1118,7 @@ module.exports = {
         }
       
         .main_page4_first_one_one_main_one_chart_bar_big {
-          width: 130px;
+          width: 120px;
           height: 80px;
           background-color: #723a29;
           color: white;
