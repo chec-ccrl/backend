@@ -2147,7 +2147,7 @@ module.exports = {
                 </div>
               </div>
               <div class="main_third m-0 p-0">
-                <div class="main_third_text">
+                <div class="main_third_text" style="text-align:left">
                   <span> NOTE 1: B = Bedrooms </span>
                 </div>
                 <div class="main_third_line"></div>
@@ -3049,9 +3049,7 @@ module.exports = {
                 </div>
               </div>
             </div>
-            <div class="main_third m-0 p-0">
-              <div class="main_third_line"></div>
-            </div>
+            <div class="main_float_line main_float_line2"></div>
           </div>
         </body>
         <script>
