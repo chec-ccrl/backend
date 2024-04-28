@@ -1671,7 +1671,7 @@ module.exports = {
                 <div class="main_second_select1">
                   <div
                     class="main_second_select1_label label"
-                    style="margin-left: 15px;font-size:15px;margin-top:20px"
+                    style="margin-left: 15px;font-size:15px;"
                   >
                     YEAR:
                   </div>
