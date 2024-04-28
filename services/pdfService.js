@@ -3532,71 +3532,9 @@ module.exports = {
               ],
             },
             options: {
-              plugins: [
-                {
-                  beforeDraw: function (chart) {
-                    var width = chart.width,
-                      height = chart.height,
-                      ctx = chart.ctx;
-      
-                    ctx.restore();
-                    var fontSize = (height / 114).toFixed(2);
-                    ctx.font = fontSize + "em sans-serif";
-                    ctx.textBaseline = "middle";
-      
-                    var text = chart.config.options.title.text,
-                      textX = Math.round((width - ctx.measureText(text).width) / 2),
-                      textY = height / 2;
-      
-                    ctx.fillText(text, textX, textY);
-                    ctx.save();
-                  },
-                },
-                {
-                  id: "datalabels",
-                  afterDraw: function (chart, easing) {
-                    var ctx = chart.ctx;
-      
-                    chart.data.datasets.forEach(function (dataset) {
-                      dataset.data.forEach(function (point, index) {
-                        var value = point;
-      
-                        var fontSize = (chart.height / 114).toFixed(2);
-                        ctx.font = fontSize + "em sans-serif";
-                        ctx.textBaseline = "middle";
-      
-                        var padding = 5;
-                        var position =
-                          dataset._meta[Object.keys(dataset._meta)[0]].data[index]
-                            ._model.anchor;
-                        var x = position.x;
-                        var y = position.y;
-      
-                        ctx.fillStyle = "white";
-                        ctx.fillRect(
-                          x - padding,
-                          y - padding,
-                          padding * 2,
-                          padding * 2
-                        );
-      
-                        ctx.fillStyle = dataset.backgroundColor;
-                        ctx.fillText(value, x, y);
-                      });
-                    });
-                  },
-                },
-              ],
               legend: {
                 display: false,
                 position: "top",
-              },
-              tooltip: {
-                callbacks: {
-                  label: function (tooltipItem) {
-                    return tooltipItem.label + ": " + tooltipItem.value + "%";
-                  },
-                },
               },
               borderColor: "#000",
               borderWidth: 1,
@@ -3660,14 +3598,6 @@ module.exports = {
                 display: false,
                 position: "top",
               },
-      
-              tooltip: {
-                callbacks: {
-                  label: function (tooltipItem) {
-                    return tooltipItem.label + ": " + tooltipItem.value + "%";
-                  },
-                },
-              },
               borderColor: "#000",
               borderWidth: 1,
               animation: {
@@ -3697,14 +3627,6 @@ module.exports = {
                 display: false,
                 position: "top",
               },
-      
-              tooltip: {
-                callbacks: {
-                  label: function (tooltipItem) {
-                    return tooltipItem.label + ": " + tooltipItem.value + "%";
-                  },
-                },
-              },
               borderColor: "#000",
               borderWidth: 1,
               animation: {
@@ -3729,14 +3651,6 @@ module.exports = {
               legend: {
                 display: false,
               },
-      
-              tooltip: {
-                callbacks: {
-                  label: function (tooltipItem) {
-                    return tooltipItem.label + ": " + tooltipItem.value + "%";
-                  },
-                },
-              },
               borderColor: "#000",
               borderWidth: 1,
               animation: {
@@ -3757,17 +3671,8 @@ module.exports = {
               ],
             },
             options: {
-              rotation: -45,
               legend: {
                 display: false,
-              },
-      
-              tooltip: {
-                callbacks: {
-                  label: function (tooltipItem) {
-                    return tooltipItem.label + ": " + tooltipItem.value + "%";
-                  },
-                },
               },
               borderColor: "#000",
               borderWidth: 1,
