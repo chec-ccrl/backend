@@ -1738,7 +1738,7 @@ module.exports = {
               </div>
               <div class="main_third_line"></div>
             </div>
-            <div class="main_page3_second" style="min-height:220px; max-height:221px">
+            <div class="main_page3_second" style="min-height:210px; max-height:211px">
               <div class="main_page3_second_one">
                 <div class="main_page3_first_one_txt1" style="font-size:px">RANKING</div>
                 <div class="main_page3_first_one_other">
@@ -2012,7 +2012,125 @@ module.exports = {
             </div>    
             <div class="main_third m-0 p-0">
               <div class="main_third_line"></div>
-            </div>       
+            </div>   
+            <div class="main_page3_third" style="min-height:320px;max-height:321px">
+              <div class="main_page3_third_one">
+                <div style="display: flex">
+                  <div class="main_page3_first_one_txt" style="font-size: 18px;margin-top:7px">
+                    PROVINCIAL AVERAGE INCOME
+                  </div>
+                  <div
+                  class="main_page3_first_one_main_head_sub_two ml-1"
+                  style="letter-spacing: 3px;height:30px "
+                  >
+                    $${
+                      affordability === "30% of Gross Income" ||
+                      affordability === "Both Definations"
+                        ? numberWithCommas(
+                            Number(median_household_income_before_tax_raw)
+                          )
+                        : numberWithCommas(
+                            Number(median_household_income_after_tax)
+                          )
+                    }
+                  </div>
+                </div>
+                <div class="main_page3_first_one_sub2 text-xl fw-light ls-2">
+                ${
+                  affordability === "30% of Gross Income" ||
+                  affordability === "Both Definations"
+                    ? "BEFORE TAX"
+                    : `AFTER TAX`
+                }
+                </div>
+                <div>
+                  <table class="fw-bold half_width_table">
+                    <tr  style="font-weight: 500; letter-spacing: 2px">
+                      <td></td>
+                      <td>Row</td>
+                      <td style="border-left: 0px; border-left-style: hidden"></td>
+                      <td>Apartment</td>
+                      <td style="border-left: 0px; border-left-style: hidden"></td>
+                    </tr>
+                    <tr
+                      style="font-weight: 500; letter-spacing: 2px"
+                      class="tableheading"
+                    >
+                      <td>NO. OF BEDROOMS</td>
+                      <td>OPTIMAL INCOME</td>
+                      <td>INCOME DIFFRENCE</td>
+                      <td>OPTICAL INCOME</td>
+                      <td>INCOME DIFFRENCE</td>
+                    </tr>
+                    <tr>
+                      <td>0 B</td>
+                      <td>$${numberWithCommas(optimal_incomes[0])}</td>
+                      <td><span class="btn-green">$${numberWithCommas(
+                        Math.abs(optimal_incomes_diff[0])
+                      )}</span></td>
+                      <td>$${numberWithCommas(optimal_incomes[4])}</td>
+                      <td><span class="${
+                        optimal_incomes_diff[4] < 0 ? "btn-red" : "btn-green"
+                      }">$${numberWithCommas(Math.abs(optimal_incomes_diff[4]))}
+                      </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1 B</td>
+                      <td>$${numberWithCommas(optimal_incomes[1])}</td>
+                      <td><span class="btn-green">$${numberWithCommas(
+                        Math.abs(optimal_incomes_diff[1])
+                      )}</span></td>
+                      <td>$${numberWithCommas(optimal_incomes[5])}</td>
+                      <td><span class="${
+                        optimal_incomes_diff[5] < 0 ? "btn-red" : "btn-green"
+                      }">$${numberWithCommas(Math.abs(optimal_incomes_diff[5]))}
+                      </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2 B</td>
+                      <td>$${numberWithCommas(optimal_incomes[2])}</td>
+                      <td><span class="btn-green">$${numberWithCommas(
+                        Math.abs(optimal_incomes_diff[2])
+                      )}</span></td>
+                      <td>$${numberWithCommas(optimal_incomes[6])}</td>
+                      <td><span class="${
+                        optimal_incomes_diff[6] < 0 ? "btn-red" : "btn-green"
+                      }">$${numberWithCommas(Math.abs(optimal_incomes_diff[6]))}
+                      </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3 B+</td>
+                      <td>$${numberWithCommas(optimal_incomes[3])}</td>
+                      <td><span class="btn-green">$${numberWithCommas(
+                        Math.abs(optimal_incomes_diff[3])
+                      )}</span></td>
+                      <td>$${numberWithCommas(optimal_incomes[7])}</td>
+                      <td><span class="${
+                        optimal_incomes_diff[7] < 0 ? "btn-red" : "btn-green"
+                      }">$${numberWithCommas(Math.abs(optimal_incomes_diff[7]))}
+                      </span>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="main_page3_first_one_break" ></div>
+              <div class="main_page3_third_two">
+                <div class="main_page3_first_one_txt ls-2" style="font-size:20px">DISCRETIONARY INCOME</div>
+                <div class="main_page3_four_one">
+                  <div class="main_page3_first_one_tri">
+                    <div
+                      id="chartDiv"
+                      style="background: transparent !important; margin-top: 5px"
+                    >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>                    
           </div>
         </body>
         <script>
