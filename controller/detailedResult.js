@@ -2950,7 +2950,8 @@ module.exports = {
         geography === "Red Deer" ||
         geography === "Windsor"
       ) {
-        tableHeigth = 2.3;
+        height = 1860;
+        tableHeigth = 2.6;
       } else if (geography === "Saskatoon") {
         tableHeigth = 2.5;
         height = 1800;
