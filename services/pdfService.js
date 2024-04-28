@@ -1882,7 +1882,7 @@ module.exports = {
             <div class="main_page3_third">
               <span style="width: 8%"></span>
               <div
-                class="main_page3_first_one_txt"
+                class="main_page3_first_one_txt mt-2"
                 style="letter-spacing: 6px; font-size: 20px"
               >
                 TOTAL RENTAL STOCK :
