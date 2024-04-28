@@ -1623,7 +1623,7 @@ module.exports = {
       <html>
         <body>
           <!-- Main ELEMENT FOR COMPLETE PDF -->
-          <div class="main" style="min-height:1530px" >
+          <div class="main" style="min-height:1550px" >
             <!-- FIFTH PAGE -->
             <div class="main_first">
               <div class="main_first_img">
@@ -2117,7 +2117,7 @@ module.exports = {
                   </table>
                 </div>
               </div>
-              <div class="main_page3_first_one_break" ></div>
+              <div class="main_page3_first_one_break" style="heigth:200px" ></div>
               <div class="main_page3_third_two">
                 <div class="main_page3_first_one_txt ls-2" style="font-size:20px">DISCRETIONARY INCOME</div>
                 <div class="main_page3_four_one">
