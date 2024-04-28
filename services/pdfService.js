@@ -3240,14 +3240,20 @@ module.exports = {
                     <div class="main_page4_first_one_one_head text-xl ml-3">
                       APARTMENT OVERVIEW
                     </div>
-                    
+                    <canvas
+                    id="main_page6_first_one_charts_one_21"
+                    style="width: 550px"
+                    ></canvas>
                   </div>
                   <div class="main_page3_first_one_break"></div>
                   <div class="main_page6_first_one_charts_two">
                     <div class="main_page4_first_one_one_head text-xl mr-3">
                       ROW HOUSE OVERVIEW
                     </div>
-                    
+                    <canvas
+                      id="main_page6_first_one_charts_two_22"
+                      style="width: 550px"
+                    ></canvas>
                   </div>
                 </div>
               </div>
@@ -4083,18 +4089,16 @@ module.exports = {
           });
       
           const chart21 = new Chart(main_page6_first_one_charts_one_21, {
-            type: "bar", // Chart type
+            type: "bar",
             data: {
-              labels: ["No bedroom", "1 bedroom", "2 bedroom", "3+ bedroom"], // Data labels
+              labels: ["No bedroom", "1 bedroom", "2 bedroom", "3+ bedroom"],
               datasets: [
                 {
-                  label: "CMA", // Dataset label
-                  data: [${graph_4_1_cma[4]}, ${graph_4_1_cma[5]}, ${
-        graph_4_1_cma[6]
-      }, ${graph_4_1_cma[7]}], // Data values
-                  backgroundColor: "#683733", // Bar background color
-                  borderColor: "#683733", // Bar border color
-                  borderWidth: 2, // Bar border width
+                  label: "CMA",
+                  data: [${graph_4_1_cma[4]}, ${graph_4_1_cma[5]}, ${graph_4_1_cma[6]}, ${graph_4_1_cma[7]}], // Data values
+                  backgroundColor: "#683733", 
+                  borderColor: "#683733", 
+                  borderWidth: 2, 
                 },
                 {
                   label: "Province", // Dataset label
@@ -4117,13 +4121,8 @@ module.exports = {
               ],
             },
             options: {
-              responsive: false, // Make the chart responsive
-              title: {
-                display: false, // Display chart title
-                text: "Sales by Quarter", // Chart title text
-              },
               legend: {
-                display: true, // Hide chart legend
+                display: true, 
                 labels: {
                   boxWidth: 14,
                 },
@@ -4145,16 +4144,13 @@ module.exports = {
                   },
                 ],
               },
-              animation: {
-                duration: 0,
-              },
             },
           });
       
           const chart22 = new Chart(main_page6_first_one_charts_two_22, {
-            type: "bar", // Chart type
+            type: "bar",
             data: {
-              labels: ["No bedroom", "1 bedroom", "2 bedroom", "3 bedroom"], // Data labels
+              labels: ["No bedroom", "1 bedroom", "2 bedroom", "3 bedroom"],
               datasets: [
                 {
                   label: "CMA", // Dataset label
@@ -4186,11 +4182,6 @@ module.exports = {
               ],
             },
             options: {
-              responsive: false, // Make the chart responsive
-              title: {
-                display: false, // Display chart title
-                text: "Sales by Quarter", // Chart title text
-              },
               legend: {
                 display: true, // Hide chart legend
                 labels: {
@@ -4213,9 +4204,6 @@ module.exports = {
                     categoryPercentage: 0.5, // Adjust bar spacing
                   },
                 ],
-              },
-              animation: {
-                duration: 0,
               },
             },
           });
