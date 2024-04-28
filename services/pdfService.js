@@ -2168,12 +2168,12 @@ module.exports = {
                     <div class="main_page4_first_one_one_main">
                       <div class="main_page4_first_one_one_main_one">
                         <div class="main_page4_first_one_one_main_one_head mr-2">
-                          HOUSES AVAILABLE
+                          TOTAL UNITS
                         </div>
                         <div class="main_page4_first_one_one_main_one_chart">
                           <canvas
                             id="main_page4_first_one_one_main_one_chart8"
-                            style="min-width: 250px; min-height: 250px"
+                            style="min-width: 225px; min-height: 225px"
                           ></canvas>
                         </div>
                       </div>
@@ -2212,7 +2212,7 @@ module.exports = {
                         <div class="main_page4_first_one_one_main_one_chart">
                           <canvas
                             id="main_page4_first_one_one_main_one_chart10"
-                            style="min-width: 250px; min-height: 250px"
+                            style="min-width: 225px; min-height: 225px"
                           ></canvas>
                         </div>
                       </div>
