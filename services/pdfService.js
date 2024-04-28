@@ -754,9 +754,9 @@ module.exports = {
           justify-content: center;
           align-items: center;
           background-color: #c2a36fc9;
-          width: 100px;
+          width: 80px;
           margin: 4px;
-          font-size: 18px;
+          font-size: 15px;
           padding: 2px 7px;
           border-radius: 10px;
           color: white;
@@ -1812,7 +1812,7 @@ module.exports = {
             </div>
             <div class="main_page3_first" style="min-height:400px;max-height:401px">
               <div class="main_page3_first_one">
-                <div class="main_page3_first_one_txt ls-2" style="font-size: 30px">
+                <div class="main_page3_first_one_txt ls-2" style="font-size: 20px">
                   AVERAGE <br />
                   RENT
                 </div>
@@ -1838,13 +1838,13 @@ module.exports = {
               </div>
               <div class="main_page3_first_one_break"></div>
               <div class="main_page3_first_two">
-                <div class="main_page3_first_one_txt ls-2" style="font-size: 28px">
+                <div class="main_page3_first_one_txt ls-2" style="font-size: 20px">
                   AFFORDABLE SHELTER COST
                 </div>
                 <span style="font-size: small; letter-spacing: 5px"
                   >BASED ON 2 DEFINATIONS</span
                 >
-                <div class="main_page3_first_one_txt ls-2" style="font-size: 28px">
+                <div class="main_page3_first_one_txt ls-2" style="font-size: 20px">
                   VS CURRENT SHELTER COST
                 </div>
                 <div class="main_page3_first_one_sub">
@@ -1859,7 +1859,7 @@ module.exports = {
               </div>
               <div class="main_page3_first_one_break"></div>
               <div class="main_page3_first_three">
-                <div class="main_page3_first_one_txt ls-2" style="font-size:30px">
+                <div class="main_page3_first_one_txt ls-2" style="font-size:20px">
                   RENTAL <br />
                   SUPPLY
                 </div>
