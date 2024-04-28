@@ -1390,7 +1390,7 @@ module.exports = {
       
         .main_float_line2 {
           top: 83px !important;
-          height: 1350px !important;
+          height: 1370px !important;
         }
       
         .main_float_line3 {
@@ -3046,6 +3046,182 @@ module.exports = {
                 </div>
               </div>
               <div class="main_float_line main_float_line2"></div>
+            </div>
+          </div>
+          <div style="height: 1500px;">
+            <div class="main_first" >
+              <div class="main_first_img" >
+                <img
+                  src="https://i.ibb.co/v3ht5Zc/logo.png"
+                  style="height: 100px; width: 105px;"
+                  alt=""
+                />
+              </div>
+              <div class="main_first_text" style="margin-top: 20px">
+                <div class="main_first_text_tex1">${province.toUpperCase()} - ${geography.toUpperCase()}</div>
+                  <div class="main_first_text_tex2">INCOME ANALYSIS</div>
+                </div>
+              </div>
+              <div class="main_third" style="margin-top: 10px">
+                <span style="margin-left: 5rem" class="text-sm">
+                  INCOME IS TAKEN ANUALLY
+                </span>
+                <div class="main_third_line"></div>
+              </div>
+              <h1
+                class="ls-2 mx-auto"
+                style="text-align: center; text-decoration: underline"
+              >
+                POPULATION BELOW & ABOVE OPTIMAL INCOME
+              </h1>
+              <p style="text-align: center; font-weight: 600" class="text-lg">
+                <span class="bg-yellow p-1 px-2" style="border-radius: 5px"
+                  >OPTIMAL INCOME : $${numberWithCommas(
+                    Math.ceil(averageRent)
+                  )}</span
+                >
+              </p>
+              <div class="flex" style="margin: auto 80px">
+                <p
+                  style="
+                    width: ${averageRent / 1000 + 5}%;
+                    text-align: center;
+                    border-bottom: 1px solid;
+                    position: relative;
+                    letter-spacing: 1px;
+                    font-size:10px;
+                  "
+                  class="mx-2"
+                >
+                  PERCENTAGE OF POPULATION BELOW OPTIMAL INCOME <br />
+                  ${redPercent.toFixed(1)}%
+                  <span style="position: absolute; left: -4px; bottom: -5.5px"> < </span>
+                  <span style="position: absolute; right: -4px; bottom: -5px"> > </span>
+                </p>
+                <p
+                  style="
+                    width: ${95 - averageRent / 1000}%;
+                    text-align: center;
+                    border-bottom: 1px solid;
+                    position: relative;
+                    letter-spacing: 1px;
+                    font-size:10px;
+                  "
+                  class="mx-1"
+                >
+                  PERCENTAGE OF POPULATION ABOVE OPTIMAL INCOME <br />
+                  ${greenPercent.toFixed(1)}%
+                  <span style="position: absolute; left: -4px; bottom: -6.5px"> < </span>
+                  <span style="position: absolute; right: -4px; bottom: -6.5px"> > </span>
+                </p>
+              </div>
+              <div class="main_page5_first_one_chart">
+                <canvas
+                  id="main_page5_first_one_chart17"
+                  style="
+                    max-height: 400px;
+                    margin: 10px 40px 10px 0px;
+                    width: 1500px !important;
+                  "
+                ></canvas>
+              </div>
+              <p style="text-align: center; font-weight: 600; font-size: larger" class="mt-0 mb-1">
+                DIFFERENT INCOME RANGES
+              </p>
+              <div class="main_third_line"></div>
+              <div class="main_page5_first">
+                <div class="main_page5_first_one">
+                  <div
+                    class="main_page5_first_one_one"
+                  >
+                    <div class="main_page5_first_one_txt">
+                      DISCRETIONARY INCOME VS <br />
+                      MEDIAN INCOME AFTER TAX/BEFORE TAX
+                    </div>
+                    <div class="main_page5_first_one_chart">
+                      <canvas
+                        id="main_page5_first_one_chart18"
+                        style="width: max-content; min-height: 280px; min-width: 720px"
+                      ></canvas>
+                    </div>
+                  </div>
+                  <div class="main_page3_first_one_break"></div>
+                  <div class="main_page5_first_one_one2">
+                    <div class="main_page5_first_one_txt text-2xl" style="width:118%">
+                      MEDIAN INCOME <br />
+                      RANKING
+                    </div>
+                    <div class="main_page3_first_one_other">
+                    ${
+                      cma_income_ranking?.length > 0
+                        ? `<div class="main_page3_first_one_other_one" style="margin-right:20px">
+                          <div
+                            class="main_page3_first_one_other_one_main"
+                            style="margin-top: 80px"
+                          >
+                            <span style="font-size: 30px">${cma_income_ranking[0].ranking_before_tax}</span>
+                          </div>
+                          <div class="main_page3_first_one_other_one_sub my-2">
+                            Before Tax
+                          </div>
+                          <div
+                            class="main_page3_first_one_other_one_text"
+                            style="font-size:20px"
+                          >
+                            MAJOR
+                            <br />
+                            CMAS
+                          </div>
+                        </div>`
+                        : ``
+                    }
+                      <div class="main_page3_first_one_other_one">
+                        <div
+                          class="main_page3_first_one_other_one_main"
+                          style="margin-top: 60px"
+                        >
+                        <span style="font-size: 30px">${
+                          province_income_ranking[0].ranking_before_tax
+                        }</span>
+                        </div>
+                        <div class="main_page3_first_one_other_one_sub my-2">
+                          Before Tax
+                        </div>
+                        <div class="main_page3_first_one_other_one_text" style="font-size:20px">PROVINCE</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="main_third_line"></div>
+              <h2 style="text-align: center; text-decoration: underline" class="ls-2 mb-0 my-2">
+                MEDIAN HOUSEHOLD INCOME
+              </h2>
+              <div class="main_page6_first_one">
+                <div class="main_page6_first">
+                  <div class="main_page6_first_one_charts">
+                    <div class="main_page6_first_one_charts_one">
+                      <div class="main_page5_first_one_txt" style="text-align: center">
+                        BEFORE TAX
+                      </div>
+                      <canvas
+                        id="main_page5_first_one_chart19"
+                        style="width: 550px; height: 320px"
+                      ></canvas>
+                    </div>
+                    <div class="main_page3_first_one_break"></div>
+                    <div class="main_page6_first_one_charts_two">
+                      <div class="main_page5_first_one_txt" style="text-align: center">
+                        AFTER TAX
+                      </div>
+                      <canvas
+                        id="main_page5_first_one_chart20"
+                        style="width: 550px; height: 320px"
+                      ></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </body>
