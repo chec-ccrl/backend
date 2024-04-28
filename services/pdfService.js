@@ -3242,13 +3242,67 @@ module.exports = {
                     </div>
                     <canvas id="main_page6_first_one_charts_one_21" style="min-height:250px;min-width:500px"></canvas>
                   </div>
-                  <div class="main_page6_first_one_head text-2xl mb-0">AVERAGE RENT</div>
                   <div class="main_page3_first_one_break"></div>
                   <div class="main_page6_first_one_charts_two">
                     <div class="main_page4_first_one_one_head text-xl mr-3">
                       ROW HOUSE OVERVIEW
                     </div>
                     <canvas id="main_page6_first_one_charts_two_22" style="min-height:250px;min-width:500px"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="main_page6_first_one">
+              <div class="main_page6_first_one_flex">
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                    TOP 5 CMAs - <br />
+                    AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas
+                      id="main_page6_first_one_charts_one_27"
+                      style="height: 220px; max-width: 270px"
+                    ></canvas>
+                  </div>
+                </div>
+                <div class="main_page3_first_one_break"></div>
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                    BOTTOM 5 CMAs - <br />
+                    AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas
+                      id="main_page6_first_one_charts_two_28"
+                      style="height: 220px; max-width: 270px"
+                    ></canvas>
+                  </div>
+                </div>
+                <div class="main_page3_first_one_break"></div>
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                    TOP 5 CAs - <br />
+                    AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas
+                      id="main_page6_first_one_charts_one_35"
+                      style="height: 220px; max-width: 270px"
+                    ></canvas>
+                  </div>
+                </div>
+                <div class="main_page3_first_one_break"></div>
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                    BOTTOM 5 CAs - <br />
+                    AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas
+                      id="main_page6_first_one_charts_two_36"
+                      style="height: 220px; max-width: 270px"
+                    ></canvas>
                   </div>
                 </div>
               </div>
