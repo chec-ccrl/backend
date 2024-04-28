@@ -1909,7 +1909,7 @@ module.exports = {
                   <div class="main_page3_first_one_txt" style="letter-spacing: 6px">
                     AFFORDABILITY <br /> OVERVIEW
                   </div>
-                  <p class="fw-light m-0" style="font-size:13px">
+                  <p class="fw-light m-0" style="font-size:11px">
                     Out of a total supply of ${numberWithCommas(
                       total_current_unaffordable_houses +
                         total_current_affordable_houses
@@ -1941,7 +1941,7 @@ module.exports = {
                     <div class="main_page4_first_one_one_main_one_head mx-2">
                       AFFORDABLE <br /> STOCKS
                     </div>
-                    <p class="fw-light m-0" style="font-size:13px">
+                    <p class="fw-light m-0" style="font-size:11px">
                       Out of a total affordable supply of ${total_current_affordable_houses} units, ${numberWithCommas(
         total_current_affordable_houses_available
       )} are available.
@@ -1967,7 +1967,7 @@ module.exports = {
                     <div class="main_page4_first_one_one_main_one_head">
                       UNAFFORDABLE <br /> STOCKS
                     </div>
-                    <p class="fw-light m-0" style="font-size:13px">
+                    <p class="fw-light m-0" style="font-size:11px">
                       Out of a total unaffordable supply of ${total_current_unaffordable_houses} units, ${total_current_unaffordable_houses_available} are available.</p>
                     <p class="text-xl ls-1 m-0">AVAILABLE:${total_current_unaffordable_houses_available}</p>
       
@@ -1989,7 +1989,7 @@ module.exports = {
                 <div class="main_page3_first_one_txt" style="letter-spacing: 6px">
                   NEW UNITS <br /> CONSTRUCTED
                 </div>
-                <p class="fw-light m-0" style="font-size:13px">
+                <p class="fw-light m-0" style="font-size:11px">
                   A total of ${numberWithCommas(
                     total_current_unaffordable_houses_const +
                       total_current_affordable_houses_const
