@@ -1799,7 +1799,7 @@ module.exports = {
                     >
                       ${redPercent.toFixed(1)}%
                     </div>
-                    <div class="main_page3_first_one_txt" style="margin-top:20px;font-size:18px">
+                    <div class="main_page3_first_one_txt" style="margin-top:20px;font-size:16px">
                       FAMILIES UNDER OPTIMAL INCOME
                     </div>
                   </div>
