@@ -3259,48 +3259,6 @@ module.exports = {
                 </div>
               </div>
             </div>
-            <div class="main_page6_first_one">
-              <div class="main_page6_first_one_head ls-2">
-                HISTORICAL RENT GROWTH RATE
-              </div>
-              <div class="main_page6_first_one_charts">
-                <div class="main_page6_first_one_charts_one">
-                  <canvas
-                    id="main_page6_first_one_charts_one_23"
-                    style="width: 550px"
-                  ></canvas>
-                </div>
-                <div class="main_page3_first_one_break"></div>
-                <div class="main_page6_first_one_charts_two">
-                  <canvas
-                    id="main_page6_first_one_charts_two_24"
-                    style="width: 550px"
-                  ></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="main_page6_first_one">
-              <div class="main_page6_first_one_head mb-2">
-                UTILITIES VS AFFORDABLE RENT VS AVERAGE RENT
-              </div>
-              <span> Monthly</span>
-              <div class="main_page6_first_one_charts mt-2">
-                <div class="main_page6_first_one_charts_three">
-                  <canvas
-                    id="main_page6_first_one_charts_one_25"
-                    style="width: 550px"
-                  ></canvas>
-                </div>
-                <div class="main_page3_first_one_break"></div>
-      
-                <div class="main_page6_first_one_charts_three">
-                  <canvas
-                    id="main_page6_first_one_charts_two_26"
-                    style="width: 550px"
-                  ></canvas>
-                </div>
-              </div>
-            </div>
             <div class="main_third_line"></div>
           </div>
         </body>
