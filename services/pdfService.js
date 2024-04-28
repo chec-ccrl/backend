@@ -1132,7 +1132,7 @@ module.exports = {
         }
       
         .main_page4_first_one_one_main_one_chart_bar_small {
-          width: 130px;
+          width: 120px;
           height: 50px;
           background-color: #cbb178;
           color: white;
