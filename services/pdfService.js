@@ -800,7 +800,7 @@ module.exports = {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          width: 60%;
+          width: 70%;
         }
 
         .main_page3_second_two {
@@ -808,7 +808,7 @@ module.exports = {
           flex-direction: column;
           justify-content: center;
           align-content: center;
-          width: 40%;
+          width: 30%;
           padding: 2px 15px;
           text-align: center;
         }
@@ -1785,7 +1785,7 @@ module.exports = {
                 <div class="main_page3_first_one_break"></div>
                 <div class="main_page3_second_two">
                   <div class="flex align-center justify-between">
-                    <div class="main_page3_first_one_txt" style="width: 75%;font-size:21px">
+                    <div class="main_page3_first_one_txt" style="width: 75%;font-size:18px">
                       AVERAGE OPTIMAL <br /> INCOME <br /> BEFORE TAX
                     </div>
                     <div class="main_page3_first_one_main_head_sub_two">$${numberWithCommas(
@@ -1799,7 +1799,7 @@ module.exports = {
                     >
                       ${redPercent.toFixed(1)}%
                     </div>
-                    <div class="main_page3_first_one_txt" style="margin-top:20px;font-size:22px">
+                    <div class="main_page3_first_one_txt" style="margin-top:20px;font-size:20px">
                       FAMILIES UNDER OPTIMAL INCOME
                     </div>
                   </div>
