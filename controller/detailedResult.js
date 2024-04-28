@@ -2925,78 +2925,79 @@ module.exports = {
       let tableHeigth = 2.2;
       let height = 1760;
       let invertHiegt = 250;
-      if (
-        geography === "Penticton" ||
-        geography === "Abbotsford - Mission" ||
-        geography === "Chilliwack" ||
-        geography === "Kelowna" ||
-        geography === "Lethbridge" ||
-        geography === "Grande Prairie" ||
-        geography === "Brandon" ||
-        geography === "Steinbach" ||
-        geography === "St. John'S" ||
-        geography === "Quebec" ||
-        geography === "North Bay" ||
-        geography === "Sault Ste. Marie" ||
-        geography === "Sarnia" ||
-        geography === "Woodstock" ||
-        geography === "Chatam - Kent" ||
-        geography === "St. Catharines - Niagara" ||
-        geography === "Guelph" ||
-        geography === "Red Deer" ||
-        geography === "Windsor"
-      ) {
-        height = 1860;
-        tableHeigth = 3.2;
-      } else if (geography === "Saskatoon") {
-        tableHeigth = 2.5;
-        height = 1800;
-      } else if (
-        geography === "Victoria" ||
-        geography === "Winnipeg" ||
-        geography === "Halifax" ||
-        geography === "Hamilton"
-      ) {
-        tableHeigth = 4.2;
-        invertHiegt = 430;
-        height = 1850;
-      } else if (
-        geography === "Vancouver" ||
-        geography === "Medicine Hat" ||
-        geography === "Charlottetown" ||
-        geography === "Oshawa" ||
-        geography === "Fredericton" ||
-        geography === "Moncton"
-      ) {
-        tableHeigth = 3.5;
-        height = 1800;
-      } else if (
-        geography === "Edmonton" ||
-        geography === "Toronto" ||
-        geography === "London"
-      ) {
-        tableHeigth = 3.5;
-        invertHiegt = 500;
-        height = 2000;
-      } else if (
-        geography === "Calgary" ||
-        geography === "Montréal" ||
-        geography === "Greater Sudbury" ||
-        geography === "Ottawa" ||
-        geography === "Kitchener - Cambridge - Waterloo"
-      ) {
-        tableHeigth = 3.3;
-        invertHiegt = 500;
-        height = 2000;
-      } else if (
-        geography === "Kentville" ||
-        geography === "Cape Breton" ||
-        geography === "Truro"
-      ) {
-        tableHeigth = 2.55;
-      } else if (geography === "Saint John") {
-        tableHeigth = 3.2;
-      }
+      // if (
+      //   geography === "Penticton" ||
+      //   geography === "Abbotsford - Mission" ||
+      //   geography === "Chilliwack" ||
+      //   geography === "Kelowna" ||
+      //   geography === "Lethbridge" ||
+      //   geography === "Grande Prairie" ||
+      //   geography === "Brandon" ||
+      //   geography === "Steinbach" ||
+      //   geography === "St. John'S" ||
+      //   geography === "North Bay" ||
+      //   geography === "Sault Ste. Marie" ||
+      //   geography === "Sarnia" ||
+      //   geography === "Woodstock" ||
+      //   geography === "Chatam - Kent" ||
+      //   geography === "St. Catharines - Niagara" ||
+      //   geography === "Guelph" ||
+      //   geography === "Red Deer" ||
+      //   geography === "Windsor"
+      // ) {
+      //   height = 1860;
+      //   tableHeigth = 3.2;
+      // } else if (geography === "Saskatoon") {
+      //   tableHeigth = 2.5;
+      //   height = 1800;
+      // } else if (
+      //   geography === "Victoria" ||
+      //   geography === "Winnipeg" ||
+      //   geography === "Halifax" ||
+      //   geography === "Hamilton" ||
+      //   geography === "Quebec" ||
+      //   geography === "Sherbrooke"
+      // ) {
+      //   tableHeigth = 4.2;
+      //   invertHiegt = 430;
+      //   height = 1850;
+      // } else if (
+      //   geography === "Vancouver" ||
+      //   geography === "Medicine Hat" ||
+      //   geography === "Charlottetown" ||
+      //   geography === "Oshawa" ||
+      //   geography === "Fredericton" ||
+      //   geography === "Moncton"
+      // ) {
+      //   tableHeigth = 3.5;
+      //   height = 1800;
+      // } else if (
+      //   geography === "Edmonton" ||
+      //   geography === "Toronto" ||
+      //   geography === "London"
+      // ) {
+      //   tableHeigth = 3.5;
+      //   invertHiegt = 500;
+      //   height = 2000;
+      // } else if (
+      //   geography === "Calgary" ||
+      //   geography === "Montréal" ||
+      //   geography === "Greater Sudbury" ||
+      //   geography === "Ottawa" ||
+      //   geography === "Kitchener - Cambridge - Waterloo"
+      // ) {
+      //   tableHeigth = 3.3;
+      //   invertHiegt = 500;
+      //   height = 2000;
+      // } else if (
+      //   geography === "Kentville" ||
+      //   geography === "Cape Breton" ||
+      //   geography === "Truro"
+      // ) {
+      //   tableHeigth = 2.55;
+      // } else if (geography === "Saint John" || geography === "Saguenay") {
+      //   tableHeigth = 3.2;
+      // }
 
       const link = await Services.pdfService.detailPdfGenerator({
         province,
