@@ -1902,7 +1902,36 @@ module.exports = {
               style="text-align: center; letter-spacing: 8px;margin-bottom:0px"
             >
               ROW HOUSE & APARTMENT
-            </p>            
+            </p> 
+            <div class="flex justify-between" style="min-height:330px;max-height:331px">
+              <div class="main_page4_first_one_one_main">
+                <div class="main_page3_first_one_sub">
+                  <div class="main_page3_first_one_txt" style="letter-spacing: 6px">
+                    AFFORDABILITY <br /> OVERVIEW
+                  </div>
+                  <p class="fw-light m-0" style="font-size:13px">
+                    Out of a total supply of ${numberWithCommas(
+                      total_current_unaffordable_houses +
+                        total_current_affordable_houses
+                    )} units, ${numberWithCommas(
+        total_current_affordable_houses
+      )} are affordable.
+                  </p>
+                  <p class="text-2xl ls-1 m-0">AFFORDABLE:${numberWithCommas(
+                    total_current_affordable_houses
+                  )}
+                  </p>
+                  <canvas
+                    id="main_page3_first_one_one_main_one_chart29"
+                    style="max-width: 200px; margin: auto; height: 200px"
+                  ></canvas>
+                  <p class="text-2xl ls-1 m-0">UNAFFORDABLE:${numberWithCommas(
+                    total_current_unaffordable_houses
+                  )}
+                  </p>
+                </div>
+              </div>
+            </div>           
           </div>
         </body>
         <script>
