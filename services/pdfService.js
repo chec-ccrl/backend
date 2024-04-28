@@ -2009,7 +2009,10 @@ module.exports = {
                   total_current_unaffordable_houses_const
                 )}</p>
               </div>
-            </div>           
+            </div>    
+            <div class="main_third m-0 p-0">
+              <div class="main_third_line"></div>
+            </div>       
           </div>
         </body>
         <script>
