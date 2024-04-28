@@ -2922,9 +2922,6 @@ module.exports = {
 
       final_rank = findRank(cma === "Na" ? ca : cma, rankingArr);
 
-      let tableHeigth = 2.2;
-      let height = 1550;
-      let invertHiegt = 250;
       // if (
       //   geography === "Penticton" ||
       //   geography === "Abbotsford - Mission" ||
@@ -3001,10 +2998,7 @@ module.exports = {
 
       const link = await Services.pdfService.detailPdfGenerator({
         province,
-        tableHeigth,
-        height,
         geography,
-        invertHiegt,
         year,
         rent_source,
         house_type,
