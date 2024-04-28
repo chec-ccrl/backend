@@ -2458,8 +2458,6 @@ module.exports = {
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="main_page4_first_one_one">
                   <div class="main_page3_third mb-2">
                     <div class="main_page3_first_one_txt text-xl" style="margin-top:3px">
                       NEW UNITS ADDED
