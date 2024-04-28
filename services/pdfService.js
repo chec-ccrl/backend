@@ -1931,6 +1931,59 @@ module.exports = {
                   </p>
                 </div>
               </div>
+              <div class="main_page3_first_one_break"></div>
+              <div class="px-4">
+                <div class="main_page3_first_one_sub" style="letter-spacing: 6px">
+                  <h1 class="mt-0">AVAILABLE STOCK OVERVIEW</h1>
+                </div>
+                <div class="main_page4_first_one_one_main w-fit">
+                  <div class="main_page3_first_one_sub mr-2">
+                    <div class="main_page4_first_one_one_main_one_head mx-2">
+                      AFFORDABLE <br /> STOCKS
+                    </div>
+                    <p class="fw-light m-0" style="font-size:13px">
+                      Out of a total affordable supply of ${total_current_affordable_houses} units, ${numberWithCommas(
+        total_current_affordable_houses_available
+      )} are available.
+                    </p>
+                    <p class="text-2xl ls-1 m-0">AVAILABLE:${numberWithCommas(
+                      total_current_affordable_houses_available
+                    )}
+                    </p>
+                    <div class="main_page4_first_one_one_main_one_chart">
+                      <canvas
+                        id="main_page3_first_one_one_main_one_chart30"
+                        style="max-width: 158px; margin: auto; height: 158px"
+                      ></canvas>
+                    </div>
+                    <p class="text-2xl ls-1 m-0">OCCUPIED:${numberWithCommas(
+                      total_current_affordable_houses -
+                        total_current_affordable_houses_available
+                    )}
+                    </p>
+                  </div>
+                  <div class="main_page3_first_one_break"></div>
+                  <div class="main_page3_first_one_sub ml-2">
+                    <div class="main_page4_first_one_one_main_one_head">
+                      UNAFFORDABLE <br /> STOCKS
+                    </div>
+                    <p class="fw-light m-0" style="font-size:13px">
+                      Out of a total unaffordable supply of ${total_current_unaffordable_houses} units, ${total_current_unaffordable_houses_available} are available.</p>
+                    <p class="text-2xl ls-1 m-0">AVAILABLE:${total_current_unaffordable_houses_available}</p>
+      
+                    <div class="main_page4_first_one_one_main_one_chart">
+                      <canvas
+                        id="main_page3_first_one_one_main_one_chart31"
+                        style="max-width: 158px; margin: auto; height: 158px"
+                      ></canvas>
+                    </div>
+                    <p class="text-2xl ls-1 m-0">OCCUPIED:${
+                      total_current_unaffordable_houses -
+                      total_current_unaffordable_houses_available
+                    }</p>
+                  </div>
+                </div>
+              </div>
             </div>           
           </div>
         </body>
@@ -3591,11 +3644,6 @@ module.exports = {
       </html>`;
 
       await page.setContent(htmlContent);
-      await page.evaluate(() => {
-        return new Promise((resolve) => {
-          setTimeout(resolve, 3000);
-        });
-      });
       const pdfFilePath = `${Common.helper.generateId()}.pdf`;
       const pdfBuffer = await page.pdf({
         path: pdfFilePath,
