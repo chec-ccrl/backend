@@ -1638,7 +1638,7 @@ module.exports = {
                 <div class="main_first_text_tex2 fw-md">KEY INSIGHTS</div>
               </div>
             </div>
-            <div class="main_second" style="min-height:200px;max-height:201px">
+            <div class="main_second" style="min-height:180px;max-height:181px">
               <div class="main_second1">
                 <div class="main_second_select1">
                   <label class="label" for="cars" style="font-size:15px">PROVINCE:</label>
@@ -1671,7 +1671,7 @@ module.exports = {
                 <div class="main_second_select1">
                   <div
                     class="main_second_select1_label label"
-                    style="margin-left: 15px;font-size:15px"
+                    style="margin-left: 15px;font-size:15px;margin-top:20px"
                   >
                     YEAR:
                   </div>
@@ -1686,7 +1686,7 @@ module.exports = {
                 <div class="main_second_select1" style="margin-left:28px">
                   <div
                     class="main_second_select1_label label"
-                    style="margin-left: 15px;margin-top:20px;font-size:15px"
+                    style="margin-left: 15px;margin-top:40px;font-size:15px"
                   >
                     RENT:
                   </div>
@@ -1716,7 +1716,7 @@ module.exports = {
                 <div class="main_second_select1" style="margin-left:30px;">
                   <div
                     class="main_second_select1_label label"
-                    style="margin-left: -40px;margin-top:5px;font-size:15px"
+                    style="margin-left: -40px;margin-top:25px;font-size:15px"
                   >
                     EXPENSES <br />
                     (EXCLUDING RENT):
