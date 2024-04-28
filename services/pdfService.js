@@ -3215,6 +3215,149 @@ module.exports = {
               </div>
             </div>
           </div>
+          <div class="main_first" >
+            <div class="main_first_img" >
+              <img
+                src="https://i.ibb.co/v3ht5Zc/logo.png"
+                style="height: 100px; width: 105px;"
+                alt=""
+              />
+            </div>
+            <div class="main_first_text" style="margin-top: 20px">
+              <div class="main_first_text_tex1">${province.toUpperCase()} - ${geography.toUpperCase()}</div>
+              <div class="main_first_text_tex2">SHELTER COST ANALYSIS</div>
+            </div>
+          </div>
+          <div class="main_third">
+            <span style="margin-left: 50px;margin-top:20px"> INCOME IS TAKEN ANUALLY </span>
+            <div class="main_third_line"></div>
+          </div>
+          <div class="main_page6_first">
+            <div class="main_page6_first_one">
+              <div class="main_page6_first_one_charts">
+                <div class="main_page4_first_one_one_head text-2xl ml-3">
+                  APARTMENT OVERVIEW
+                </div>
+                <div class="main_page4_first_one_one_head text-2xl mr-3">
+                  ROW HOUSE OVERVIEW
+                </div>
+              </div>
+              <div class="main_page6_first_one_head text-2xl mb-0">AVERAGE RENT</div>
+              <div class="main_page6_first_one_charts">
+                <div class="main_page6_first_one_charts_one">
+                  <canvas
+                    id="main_page6_first_one_charts_one_21"
+                    style="width: 550px"
+                  ></canvas>
+                </div>
+                <div class="main_page3_first_one_break"></div>
+                <div class="main_page6_first_one_charts_two">
+                  <canvas
+                    id="main_page6_first_one_charts_two_22"
+                    style="width: 550px"
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="main_page6_first_one">
+              <div class="main_page6_first_one_head ls-2">
+                HISTORICAL RENT GROWTH RATE
+              </div>
+              <div class="main_page6_first_one_charts">
+                <div class="main_page6_first_one_charts_one">
+                  <canvas
+                    id="main_page6_first_one_charts_one_23"
+                    style="width: 550px"
+                  ></canvas>
+                </div>
+                <div class="main_page3_first_one_break"></div>
+                <div class="main_page6_first_one_charts_two">
+                  <canvas
+                    id="main_page6_first_one_charts_two_24"
+                    style="width: 550px"
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="main_page6_first_one">
+              <div class="main_page6_first_one_head mb-2">
+                UTILITIES VS AFFORDABLE RENT VS AVERAGE RENT
+              </div>
+              <span> Monthly</span>
+              <div class="main_page6_first_one_charts mt-2">
+                <div class="main_page6_first_one_charts_three">
+                  <canvas
+                    id="main_page6_first_one_charts_one_25"
+                    style="width: 550px"
+                  ></canvas>
+                </div>
+                <div class="main_page3_first_one_break"></div>
+      
+                <div class="main_page6_first_one_charts_three">
+                  <canvas
+                    id="main_page6_first_one_charts_two_26"
+                    style="width: 550px"
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="main_third_line"></div>
+            <div class="main_page6_first_one">
+              <div class="main_page6_first_one_flex">
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                    TOP 5 CMAs - <br />
+                    AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas
+                      id="main_page6_first_one_charts_one_27"
+                      style="height: 220px; max-width: 270px"
+                    ></canvas>
+                  </div>
+                </div>
+                <div class="main_page3_first_one_break"></div>
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                    BOTTOM 5 CMAs - <br />
+                    AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas
+                      id="main_page6_first_one_charts_two_28"
+                      style="height: 220px; max-width: 270px"
+                    ></canvas>
+                  </div>
+                </div>
+                <div class="main_page3_first_one_break"></div>
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                    TOP 5 CAs - <br />
+                    AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas
+                      id="main_page6_first_one_charts_one_35"
+                      style="height: 220px; max-width: 270px"
+                    ></canvas>
+                  </div>
+                </div>
+                <div class="main_page3_first_one_break"></div>
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                    BOTTOM 5 CAs - <br />
+                    AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas
+                      id="main_page6_first_one_charts_two_36"
+                      style="height: 220px; max-width: 270px"
+                    ></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </body>
         <script>
           var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
