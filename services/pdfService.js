@@ -3233,6 +3233,7 @@ module.exports = {
             <div class="main_third_line"></div>
           </div>
           <div class="main_page6_first">
+
             <div class="main_page6_first_one">
               <div class="main_page6_first_one_head ls-2">
                 HISTORICAL RENT GROWTH RATE
@@ -3241,14 +3242,12 @@ module.exports = {
                 <div class="main_page6_first_one_charts_one">
                   <canvas
                     id="main_page6_first_one_charts_one_23"
-                    style="width: 550px"
                   ></canvas>
                 </div>
                 <div class="main_page3_first_one_break"></div>
                 <div class="main_page6_first_one_charts_two">
                   <canvas
                     id="main_page6_first_one_charts_two_24"
-                    style="width: 550px"
                   ></canvas>
                 </div>
               </div>
