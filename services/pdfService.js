@@ -2153,7 +2153,7 @@ module.exports = {
               <div class="main_page4_first">
                 <div class="main_page4_first_one">
                   <div class="main_page4_first_one_one">
-                    <div class="main_page4_first_one_one_head text-2xl my-2">
+                    <div class="main_page4_first_one_one_head text-xl my-2">
                       APARTMENT OVERVIEW
                     </div>
                     <div class="main_page3_third mb-2">
@@ -2192,7 +2192,7 @@ module.exports = {
                     </div>
                   </div>
                   <div class="main_page4_first_one_one">
-                    <div class="main_page4_first_one_one_head text-2xl my-2">
+                    <div class="main_page4_first_one_one_head text-xl my-2">
                       ROW HOUSE OVERVIEW
                     </div>
                     <div class="main_page3_third mb-2">
