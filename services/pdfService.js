@@ -1661,7 +1661,7 @@ module.exports = {
                   <select
                     name="cars"
                     id="cars"
-                    style="width: 200px; margin-left: 44px;font-size:15px;font-weight:400;height:30px"
+                    style="width: 200px; margin-left: 40px;font-size:15px;font-weight:400;height:30px"
                   >
                     <option value="volvo">${house_type.toUpperCase()}</option>
                   </select>
