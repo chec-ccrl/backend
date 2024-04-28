@@ -1903,7 +1903,7 @@ module.exports = {
             >
               ROW HOUSE & APARTMENT
             </p> 
-            <div class="flex justify-between" style="min-height:310px;max-height:311px">
+            <div class="flex justify-between" style="min-height:300px;max-height:301px">
               <div class="main_page4_first_one_one_main">
                 <div class="main_page3_first_one_sub">
                   <div class="main_page3_first_one_txt" style="letter-spacing: 6px">
