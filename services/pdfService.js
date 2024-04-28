@@ -1645,23 +1645,23 @@ module.exports = {
                   <select
                     name="cars"
                     id="cars"
-                    style="width: 180px; margin-left: 17px;font-size:15px;font-weight:400;height:30px"
+                    style="width: 200px; margin-left: 17px;font-size:15px;font-weight:400;height:30px"
                   >
                     <option value="volvo">${province.toUpperCase()}</option>
                   </select>
                 </div>
                 <div class="main_second_select1">
-                  <label class="label" for="cars">CMA / CA:</label>
-                  <select name="cars" id="cars" style="width: 180px;margin-left: 28px;font-size:15px;font-weight:400;height:30px">
+                  <label class="label" for="cars"  style="font-size:15px">CMA / CA:</label>
+                  <select name="cars" id="cars" style="width: 200px;margin-left: 28px;font-size:15px;font-weight:400;height:30px">
                     <option value="volvo">${geography.toUpperCase()}</option>
                   </select>
                 </div>
                 <div class="main_second_select1">
-                  <label class="label" for="cars">TYPE OF <br/> HOUSE:</label>
+                  <label class="label" for="cars"  style="font-size:15px">TYPE OF <br/> HOUSE:</label>
                   <select
                     name="cars"
                     id="cars"
-                    style="width: 180px; margin-left: 44px;font-size:15px;font-weight:400;height:30px"
+                    style="width: 200px; margin-left: 44px;font-size:15px;font-weight:400;height:30px"
                   >
                     <option value="volvo">${house_type.toUpperCase()}</option>
                   </select>
@@ -1671,14 +1671,14 @@ module.exports = {
                 <div class="main_second_select1">
                   <div
                     class="main_second_select1_label label"
-                    style="margin-left: 15px"
+                    style="margin-left: 15px;font-size:15px"
                   >
                     YEAR:
                   </div>
                   <select
                     name="cars"
                     id="cars"
-                    style="width: 180px; margin-left: 15px;font-size:15px;font-weight:400;height:30px"
+                    style="width: 200px; margin-left: 15px;font-size:15px;font-weight:400;height:30px"
                   >
                     <option value="volvo">${year}</option>
                   </select>
@@ -1686,7 +1686,7 @@ module.exports = {
                 <div class="main_second_select1" style="margin-left:28px">
                   <div
                     class="main_second_select1_label label"
-                    style="margin-left: 15px;margin-top:20px"
+                    style="margin-left: 15px;margin-top:20px;font-size:15px"
                   >
                     RENT:
                   </div>
@@ -1700,7 +1700,7 @@ module.exports = {
                 <div class="main_second_select1">
                   <div
                     class="main_second_select1_label label"
-                  
+                    style="font-size:15px"
                   >
                     AFFORDABILITY <br />
                     DEFINITION :
@@ -1708,7 +1708,7 @@ module.exports = {
                   <select
                     name="cars"
                     id="cars"
-                    style="width: 180px; margin-left: 30px;margin-right:27px;font-size:15px;font-weight:400;height:30px"
+                    style="width: 200px; margin-left: 30px;margin-right:27px;font-size:15px;font-weight:400;height:30px"
                   >
                     <option value="volvo">${affordability.toUpperCase()}</option>
                   </select>
@@ -1716,7 +1716,7 @@ module.exports = {
                 <div class="main_second_select1" style="margin-left:30px;">
                   <div
                     class="main_second_select1_label label"
-                    style="margin-left: -40px;margin-top:5px"
+                    style="margin-left: -40px;margin-top:5px;font-size:15px"
                   >
                     EXPENSES <br />
                     (EXCLUDING RENT):
