@@ -3242,6 +3242,7 @@ module.exports = {
                     </div>
                     <canvas id="main_page6_first_one_charts_one_21" style="min-height:250px;min-width:500px"></canvas>
                   </div>
+                  <div class="main_page6_first_one_head text-2xl mb-0">AVERAGE RENT</div>
                   <div class="main_page3_first_one_break"></div>
                   <div class="main_page6_first_one_charts_two">
                     <div class="main_page4_first_one_one_head text-xl mr-3">
