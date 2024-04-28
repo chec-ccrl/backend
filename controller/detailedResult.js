@@ -2923,21 +2923,20 @@ module.exports = {
       final_rank = findRank(cma === "Na" ? ca : cma, rankingArr);
 
       let tableHeigth = 2.3;
-      let height = 1730;
+      let height = 1760;
       let invertHiegt = 250;
       if (
-        geography === "Saskatoon" ||
-        geography === "Kentville" ||
-        geography === "Kamloops" ||
-        geography === "Kelowna" ||
-        geography === "Chilliwack" ||
-        geography === "Abbotsford - Mission" ||
         geography === "Penticton" ||
+        geography === "Abbotsford - Mission" ||
+        geography === "Chilliwack" ||
         geography === "Kelowna" ||
         geography === "Lethbridge" ||
         geography === "Grande Prairie" ||
         geography === "Brandon" ||
         geography === "Steinbach" ||
+        geography === "Bathurst" ||
+        geography === "Fredericton" ||
+        geography === "Moncton" ||
         geography === "Summerside" ||
         geography === "St. John'S" ||
         geography === "Quebec" ||
@@ -2949,29 +2948,37 @@ module.exports = {
         geography === "St. Catharines - Niagara" ||
         geography === "Guelph" ||
         geography === "Red Deer" ||
-        geography === "Windsor" ||
-        geography === "Nelson" ||
-        geography === "Trail" ||
-        geography === "Truro" ||
-        geography === "Cape Breton" ||
-        geography === "Vernon"
+        geography === "Windsor"
       ) {
         tableHeigth = 2.6;
+      } else if (geography === "Saskatoon") {
+        tableHeigth = 2.8;
+        height = 1800;
+      } else if (
+        geography === "Victoria" ||
+        geography === "Winnipeg" ||
+        geography === "Halifax" ||
+        geography === "Hamilton"
+      ) {
+        tableHeigth = 3.5;
+        invertHiegt = 350;
+        height = 1850;
+      } else if (
+        geography === "Vancouver" ||
+        geography === "Medicine Hat" ||
+        geography === "Charlottetown" ||
+        geography === "Oshawa"
+      ) {
+        tableHeigth = 3.1;
         height = 1800;
       } else if (
         geography === "Edmonton" ||
         geography === "Toronto" ||
-        geography === "London" ||
-        geography === "Medicine Hat" ||
-        geography === "Oshawa" ||
-        geography === "Charlottetown" ||
-        geography === "Moncton" ||
-        geography === "Saint John" ||
-        geography === "Fredericton"
+        geography === "London"
       ) {
-        tableHeigth = 3.5;
-        invertHiegt = 400;
-        height = 1900;
+        tableHeigth = 3.8;
+        invertHiegt = 500;
+        height = 2000;
       } else if (
         geography === "Calgary" ||
         geography === "Montréal" ||
@@ -2979,17 +2986,7 @@ module.exports = {
         geography === "Ottawa" ||
         geography === "Kitchener - Cambridge - Waterloo"
       ) {
-        tableHeigth = 3.3;
-        invertHiegt = 400;
-        height = 1900;
-      } else if (
-        geography === "Victoria" ||
-        geography === "Winnipeg" ||
-        geography === "Halifax" ||
-        geography === "Hamilton" ||
-        geography === "Vancouver"
-      ) {
-        tableHeigth = 4.2;
+        tableHeigth = 3.6;
         invertHiegt = 500;
         height = 2000;
       }
