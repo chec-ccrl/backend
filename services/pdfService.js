@@ -3316,7 +3316,7 @@ module.exports = {
                       AVERAGE RENT
                   </div>
                   <div class="main_page6_first_one_charts_three m-auto">
-                    <canvas id="main_page6_first_one_charts_two_36" style="height: 220px; max-width: 270px"></canvas>
+                    <canvas id="main_page6_first_one_charts_two_36" style="height: 220px; max-width: 240px"></canvas>
                   </div>
                 </div>
               </div>
