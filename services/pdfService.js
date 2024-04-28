@@ -3055,7 +3055,7 @@ module.exports = {
           </div>
       
           <!-- SEVENTH PAGE -->
-          <div style="height: ${height - 100}px;">
+          <div style="height: ${height - 50}px;">
           <div class="main_first" >
             <div class="main_first_img" >
               <img
