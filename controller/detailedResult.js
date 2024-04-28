@@ -2950,9 +2950,9 @@ module.exports = {
         geography === "Red Deer" ||
         geography === "Windsor"
       ) {
-        tableHeigth = 2.6;
+        tableHeigth = 2.3;
       } else if (geography === "Saskatoon") {
-        tableHeigth = 2.8;
+        tableHeigth = 2.5;
         height = 1800;
       } else if (
         geography === "Victoria" ||
@@ -2960,7 +2960,7 @@ module.exports = {
         geography === "Halifax" ||
         geography === "Hamilton"
       ) {
-        tableHeigth = 3.5;
+        tableHeigth = 3.2;
         invertHiegt = 350;
         height = 1850;
       } else if (
@@ -2969,14 +2969,14 @@ module.exports = {
         geography === "Charlottetown" ||
         geography === "Oshawa"
       ) {
-        tableHeigth = 3.1;
+        tableHeigth = 2.8;
         height = 1800;
       } else if (
         geography === "Edmonton" ||
         geography === "Toronto" ||
         geography === "London"
       ) {
-        tableHeigth = 3.8;
+        tableHeigth = 3.5;
         invertHiegt = 500;
         height = 2000;
       } else if (
@@ -2986,7 +2986,7 @@ module.exports = {
         geography === "Ottawa" ||
         geography === "Kitchener - Cambridge - Waterloo"
       ) {
-        tableHeigth = 3.6;
+        tableHeigth = 3.3;
         invertHiegt = 500;
         height = 2000;
       }
