@@ -282,7 +282,7 @@ module.exports = {
       
       <style>
         body {
-          margin: auto;
+          margin: 0;
           background-color: #f0f3f8;
           padding: 3px;
           font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
@@ -1728,7 +1728,6 @@ module.exports = {
                 </div>
               </div>
             </div>
-            
         </body>
         <script>
           var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
