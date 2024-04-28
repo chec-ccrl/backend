@@ -2994,7 +2994,7 @@ module.exports = {
         geography === "Cape Breton" ||
         geography === "Truro"
       ) {
-        tableHeigth = 2.8;
+        tableHeigth = 2.5;
       }
 
       const link = await Services.pdfService.detailPdfGenerator({
