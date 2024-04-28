@@ -2991,10 +2991,11 @@ module.exports = {
       } else if (
         geography === "Kentville" ||
         geography === "Cape Breton" ||
-        geography === "Truro" ||
-        geography === "Saint John"
+        geography === "Truro"
       ) {
         tableHeigth = 2.55;
+      } else if (geography === "Saint John") {
+        tableHeigth = 2.8;
       }
 
       const link = await Services.pdfService.detailPdfGenerator({
