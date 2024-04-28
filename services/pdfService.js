@@ -3192,7 +3192,7 @@ module.exports = {
               </div>
             </div>
             <div class="main_third_line"></div>
-            <h2 style="text-align: center; text-decoration: underline" class="ls-2 mb-0 my-2">
+            <h2 style="text-align: center; text-decoration: underline" class="ls-2 mb-2 my-2">
               MEDIAN HOUSEHOLD INCOME
             </h2>
             <div class="main_page6_first_one">
