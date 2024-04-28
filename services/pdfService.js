@@ -3240,20 +3240,14 @@ module.exports = {
                     <div class="main_page4_first_one_one_head text-xl ml-3">
                       APARTMENT OVERVIEW
                     </div>
-                    <canvas
-                    id="main_page6_first_one_charts_one_21"
-                    style="width: 550px"
-                    ></canvas>
+                    
                   </div>
                   <div class="main_page3_first_one_break"></div>
                   <div class="main_page6_first_one_charts_two">
                     <div class="main_page4_first_one_one_head text-xl mr-3">
                       ROW HOUSE OVERVIEW
                     </div>
-                    <canvas
-                      id="main_page6_first_one_charts_two_22"
-                      style="width: 550px"
-                    ></canvas>
+                    
                   </div>
                 </div>
               </div>
