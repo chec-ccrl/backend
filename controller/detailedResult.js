@@ -2926,6 +2926,13 @@ module.exports = {
       let height = 1730;
       let invertHiegt = 250;
       if (
+        geography === "Saskatoon" ||
+        geography === "Kentville" ||
+        geography === "Kamloops" ||
+        geography === "Kelowna" ||
+        geography === "Chilliwack" ||
+        geography === "Abbotsford - Mission" ||
+        geography === "Penticton" ||
         geography === "Kelowna" ||
         geography === "Lethbridge" ||
         geography === "Grande Prairie" ||
@@ -2948,16 +2955,6 @@ module.exports = {
         geography === "Truro" ||
         geography === "Cape Breton" ||
         geography === "Vernon"
-      ) {
-        tableHeigth = 2.3;
-      } else if (
-        geography === "Saskatoon" ||
-        geography === "Kentville" ||
-        geography === "Kamloops" ||
-        geography === "Kelowna" ||
-        geography === "Chilliwack" ||
-        geography === "Abbotsford - Mission" ||
-        geography === "Penticton"
       ) {
         tableHeigth = 2.6;
         height = 1800;
