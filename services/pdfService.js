@@ -1638,7 +1638,7 @@ module.exports = {
                 <div class="main_first_text_tex2 fw-md">KEY INSIGHTS</div>
               </div>
             </div>
-            <div class="main_second" style="min-height:250px;max-height:251px">
+            <div class="main_second" style="min-height:200px;max-height:201px">
               <div class="main_second1">
                 <div class="main_second_select1">
                   <label class="label" for="cars">PROVINCE:</label>
