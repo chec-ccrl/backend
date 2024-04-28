@@ -2235,7 +2235,7 @@ module.exports = {
                   <div class="main_page4_first_one_one">
                     <div class="main_third_line main_third_line_new"></div>
                     <div
-                      class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-2xl mt-1"
+                      class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-xl mt-1"
                     >
                       HISTORICAL RENTAL STOCK
                     </div>
@@ -2291,7 +2291,7 @@ module.exports = {
                     <div class="main_third_line main_third_line_new"></div>
         
                     <div
-                      class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-2xl mt-1"
+                      class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-xl mt-1"
                     >
                       HISTORICAL RENTAL STOCK
                     </div>
@@ -2346,7 +2346,7 @@ module.exports = {
                 <div class="main_page4_first_one">
                   <div class="main_page4_first_one_one">
                     <div class="main_page3_third mb-2">
-                      <div class="main_page3_first_one_txt text-2xl" style="margin-top:3px">
+                      <div class="main_page3_first_one_txt text-xl mt-2">
                         NEW UNITS ADDED
                       </div>
                       <div
@@ -2458,7 +2458,7 @@ module.exports = {
       
                   <div class="main_page4_first_one_one">
                     <div class="main_page3_third mb-2">
-                      <div class="main_page3_first_one_txt text-2xl" style="margin-top:3px">
+                      <div class="main_page3_first_one_txt text-xl mt-2">
                         NEW UNITS ADDED
                       </div>
                       <div
