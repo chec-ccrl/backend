@@ -1917,7 +1917,7 @@ module.exports = {
         total_current_affordable_houses
       )} are affordable.
                   </p>
-                  <p class="text-2xl ls-1 m-0">AFFORDABLE:${numberWithCommas(
+                  <p class="text-xl ls-1 m-0">AFFORDABLE:${numberWithCommas(
                     total_current_affordable_houses
                   )}
                   </p>
@@ -1925,7 +1925,7 @@ module.exports = {
                     id="main_page3_first_one_one_main_one_chart29"
                     style="max-width: 200px; margin: auto; height: 200px"
                   ></canvas>
-                  <p class="text-2xl ls-1 m-0">UNAFFORDABLE:${numberWithCommas(
+                  <p class="text-xl ls-1 m-0">UNAFFORDABLE:${numberWithCommas(
                     total_current_unaffordable_houses
                   )}
                   </p>
@@ -3591,6 +3591,11 @@ module.exports = {
       </html>`;
 
       await page.setContent(htmlContent);
+      await page.evaluate(() => {
+        return new Promise((resolve) => {
+          setTimeout(resolve, 3000);
+        });
+      });
       const pdfFilePath = `${Common.helper.generateId()}.pdf`;
       const pdfBuffer = await page.pdf({
         path: pdfFilePath,
