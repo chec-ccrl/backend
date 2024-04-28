@@ -676,14 +676,14 @@ module.exports = {
           flex-direction: column;
           justify-content: space-between;
           align-items: center;
-          width: 24%;
+          width: 20%;
         }
         .main_page3_first_two {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           align-items: center;
-          width: 56%;
+          width: 60%;
         }
         .main_page3_first_three {
           display: flex;
