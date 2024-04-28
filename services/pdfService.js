@@ -3310,6 +3310,15 @@ module.exports = {
                   </div>
                 </div>
                 <div class="main_page3_first_one_break"></div>
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                      BOTTOM 5 CMAs - <br />
+                      AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas id="main_page6_first_one_charts_two_36" style="height: 220px; max-width: 270px"></canvas>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -4888,7 +4897,6 @@ module.exports = {
           });
           const chart36 = new Chart(main_page6_first_one_charts_two_36, {
             type: "horizontalBar",
-      
             data: {
               labels: [${c36l}], // Data labels
               datasets: [
@@ -4903,13 +4911,12 @@ module.exports = {
               ],
             },
             options: {
-              responsive: true, // Make the chart responsive
               title: {
                 display: false, // Display chart title
                 text: "Sales by Quarter", // Chart title text
               },
               legend: {
-                display: false, // Hide chart legend
+                display: false, 
               },
               scales: {
                 yAxes: [
@@ -4931,9 +4938,6 @@ module.exports = {
                     },
                   },
                 ],
-              },
-              animation: {
-                duration: 0,
               },
             },
           });
