@@ -2922,11 +2922,10 @@ module.exports = {
 
       final_rank = findRank(cma === "Na" ? ca : cma, rankingArr);
 
-      let tableHeigth = 2;
-      let height = 1660;
+      let tableHeigth = 2.3;
+      let height = 1730;
       let invertHiegt = 250;
       if (
-        geography === "Penticton" ||
         geography === "Kelowna" ||
         geography === "Lethbridge" ||
         geography === "Grande Prairie" ||
@@ -2944,8 +2943,11 @@ module.exports = {
         geography === "Guelph" ||
         geography === "Red Deer" ||
         geography === "Windsor" ||
+        geography === "Nelson" ||
+        geography === "Trail" ||
         geography === "Truro" ||
-        geography === "Cape Breton"
+        geography === "Cape Breton" ||
+        geography === "Vernon"
       ) {
         tableHeigth = 2.3;
       } else if (
@@ -2954,10 +2956,11 @@ module.exports = {
         geography === "Kamloops" ||
         geography === "Kelowna" ||
         geography === "Chilliwack" ||
-        geography === "Abbotsford - Mission"
+        geography === "Abbotsford - Mission" ||
+        geography === "Penticton"
       ) {
         tableHeigth = 2.6;
-        height = 1730;
+        height = 1800;
       } else if (
         geography === "Edmonton" ||
         geography === "Toronto" ||
