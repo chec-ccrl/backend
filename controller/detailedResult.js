@@ -2970,7 +2970,7 @@ module.exports = {
         geography === "Charlottetown" ||
         geography === "Oshawa"
       ) {
-        tableHeigth = 2.8;
+        tableHeigth = 3.2;
         height = 1800;
       } else if (
         geography === "Edmonton" ||
