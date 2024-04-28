@@ -1641,7 +1641,7 @@ module.exports = {
             <div class="main_second" style="min-height:200px;max-height:201px">
               <div class="main_second1">
                 <div class="main_second_select1">
-                  <label class="label" for="cars" style="font-size:20px">PROVINCE:</label>
+                  <label class="label" for="cars" style="font-size:15px">PROVINCE:</label>
                   <select
                     name="cars"
                     id="cars"
