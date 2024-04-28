@@ -1738,72 +1738,73 @@ module.exports = {
               </div>
               <div class="main_third_line"></div>
             </div>
-            <div class="main_page3_second" style="min-height:220px; max-height:221px">
-            <div class="main_page3_second_one">
-              <div class="main_page3_first_one_txt1" style="font-size:px">RANKING</div>
-              <div class="main_page3_first_one_other">
-                <div class="main_page3_first_one_other_one" style="margin-right:-20px">
-                  <div class="main_page3_first_one_other_one_main">
-                  <span style="font-size: 30px">${
-                    affordability_ranking?.ranking ?? 0
-                  }</span>
-                  </div>
-                  <div class="main_page3_first_one_other_one_text">
-                    AFFORDABILITY<br />
-                    (BY RENT)
-                  </div>
-                  <div class="main_page3_first_one_other_one_sub" style="margin-top:3px">
-                    *Places with the lowest rent have the highest ranking
+              <div class="main_page3_second" style="min-height:220px; max-height:221px">
+                <div class="main_page3_second_one">
+                  <div class="main_page3_first_one_txt1" style="font-size:px">RANKING</div>
+                  <div class="main_page3_first_one_other">
+                    <div class="main_page3_first_one_other_one" style="margin-right:-20px">
+                      <div class="main_page3_first_one_other_one_main">
+                        <span style="font-size: 30px">${
+                          affordability_ranking?.ranking ?? 0
+                        }</span>
+                      </div>
+                      <div class="main_page3_first_one_other_one_text">
+                        AFFORDABILITY<br />
+                        (BY RENT)
+                      </div>
+                      <div class="main_page3_first_one_other_one_sub" style="margin-top:3px">
+                        *Places with the lowest rent have the highest ranking
+                      </div>
+                    </div>
+                    <div class="main_page3_first_one_other_one">
+                      <div class="main_page3_first_one_other_one_main">
+                      <span style="font-size: 30px">${final_rank}</span>
+                      </div>
+                      <div class="main_page3_first_one_other_one_text" style="margin-bottom:8px">
+                        AFFORDABILITY<br />
+                        (BY AFFORDABLE UNITS)
+                      </div>
+                    </div>
+                    <div class="main_page3_first_one_other_one">
+                      <div class="main_page3_first_one_other_one_main">
+                      <span style="font-size: 30px">${income_rank}</span>
+                      </div>
+                      <div class="main_page3_first_one_other_one_text">
+                        MEDIAN<br />
+                        INCOME
+                      </div>
+                      <div class="main_page3_first_one_other_one_sub" style="margin-top:3px">*${
+                        affordability === "30% of Gross Income" ||
+                        affordability === "Both Definations"
+                          ? "Before Tax"
+                          : `After Tax`
+                      }</div>
+                    </div>
                   </div>
                 </div>
-                <div class="main_page3_first_one_other_one">
-                  <div class="main_page3_first_one_other_one_main">
-                  <span style="font-size: 30px">${final_rank}</span>
+                <div class="main_page3_first_one_break"></div>
+                <div class="main_page3_second_two">
+                  <div class="flex align-center justify-between">
+                    <div class="main_page3_first_one_txt" style="width: 75%;font-size:21px">
+                      AVERAGE OPTIMAL <br /> INCOME <br /> BEFORE TAX
+                    </div>
+                    <div class="main_page3_first_one_main_head_sub_two">$${numberWithCommas(
+                      averageRent
+                    )}</div>
                   </div>
-                  <div class="main_page3_first_one_other_one_text" style="margin-bottom:8px">
-                    AFFORDABILITY<br />
-                    (BY AFFORDABLE UNITS)
+                  <div class="flex justify-center align-center" style="margin-top:20px">
+                    <div
+                      class="main_page3_first_one_main_head_sub_two"
+                      style="margin-top:20px; width:180px"
+                    >
+                      ${redPercent.toFixed(1)}%
+                    </div>
+                    <div class="main_page3_first_one_txt" style="margin-top:20px;font-size:22px">
+                      FAMILIES UNDER OPTIMAL INCOME
+                    </div>
                   </div>
-                </div>
-                <div class="main_page3_first_one_other_one">
-                  <div class="main_page3_first_one_other_one_main">
-                  <span style="font-size: 30px">${income_rank}</span>
-                  </div>
-                  <div class="main_page3_first_one_other_one_text">
-                    MEDIAN<br />
-                    INCOME
-                  </div>
-                  <div class="main_page3_first_one_other_one_sub" style="margin-top:3px">*${
-                    affordability === "30% of Gross Income" ||
-                    affordability === "Both Definations"
-                      ? "Before Tax"
-                      : `After Tax`
-                  }</div>
                 </div>
               </div>
-            </div>
-            <div class="main_page3_first_one_break"></div>
-            <div class="main_page3_second_two">
-              <div class="flex align-center justify-between">
-                <div class="main_page3_first_one_txt" style="width: 75%;font-size:21px">
-                  AVERAGE OPTIMAL <br /> INCOME <br /> BEFORE TAX
-                </div>
-                <div class="main_page3_first_one_main_head_sub_two">$${numberWithCommas(
-                  averageRent
-                )}</div>
-              </div>
-              <div class="flex justify-center align-center" style="margin-top:20px">
-                <div
-                  class="main_page3_first_one_main_head_sub_two"
-                  style="margin-top:20px; width:180px"
-                >
-                  ${redPercent.toFixed(1)}%
-                </div>
-                <div class="main_page3_first_one_txt" style="margin-top:20px;font-size:22px">
-                  FAMILIES UNDER OPTIMAL INCOME
-                </div>
-              </div>
-            </div>
           </div>
         </body>
         <script>
