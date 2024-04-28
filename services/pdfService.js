@@ -3289,15 +3289,34 @@ module.exports = {
                     <canvas id="main_page6_first_one_charts_one_27" style="height: 220px; max-width: 270px"></canvas>
                   </div>
                 </div>
-              </div>
-              <div class="main_page3_first_one_break"></div>
-              <div>
-                <div class="main_page6_first_one_head text-lg">
-                    BOTTOM 5 CMAs - <br />
-                    AVERAGE RENT
+                <div class="main_page3_first_one_break"></div>
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                      BOTTOM 5 CMAs - <br />
+                      AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas id="main_page6_first_one_charts_two_28" style="height: 220px; max-width: 270px"></canvas>
+                  </div>
                 </div>
-                <div class="main_page6_first_one_charts_three m-auto">
-                  <canvas id="main_page6_first_one_charts_two_28" style="height: 220px; max-width: 270px"></canvas>
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                    TOP 5 CMAs - <br />
+                    AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas id="main_page6_first_one_charts_one_35" style="height: 220px; max-width: 270px"></canvas>
+                  </div>
+                </div>
+                <div class="main_page3_first_one_break"></div>
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                      BOTTOM 5 CMAs - <br />
+                      AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas id="main_page6_first_one_charts_two_36" style="height: 220px; max-width: 270px"></canvas>
+                  </div>
                 </div>
               </div>
             </div>
