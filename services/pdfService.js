@@ -3278,6 +3278,19 @@ module.exports = {
                 </div>
               </div>
             </div>
+            <div class="main_page6_first_one">
+              <div class="main_page6_first_one_flex">
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                    TOP 5 CMAs - <br />
+                    AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas id="main_page6_first_one_charts_one_27" style="height: 220px; max-width: 270px"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </body>
         <script>
