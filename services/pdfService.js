@@ -3299,6 +3299,7 @@ module.exports = {
                     <canvas id="main_page6_first_one_charts_two_28" style="height: 220px; max-width: 270px"></canvas>
                   </div>
                 </div>
+                <div class="main_page3_first_one_break"></div>
                 <div>
                   <div class="main_page6_first_one_head text-lg">
                     TOP 5 CMAs - <br />
