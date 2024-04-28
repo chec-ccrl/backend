@@ -2937,7 +2937,6 @@ module.exports = {
         geography === "Bathurst" ||
         geography === "Fredericton" ||
         geography === "Moncton" ||
-        geography === "Summerside" ||
         geography === "St. John'S" ||
         geography === "Quebec" ||
         geography === "North Bay" ||
