@@ -3325,7 +3325,7 @@ module.exports = {
                 <div class="main_page3_first_one_break"></div>
                 <div>
                   <div class="main_page6_first_one_head text-lg">
-                    TOP 5 CMAs - <br />
+                    TOP 5 CAs - <br />
                     AVERAGE RENT
                   </div>
                   <div class="main_page6_first_one_charts_three m-auto">
@@ -3335,7 +3335,7 @@ module.exports = {
                 <div class="main_page3_first_one_break"></div>
                 <div>
                   <div class="main_page6_first_one_head text-lg">
-                      BOTTOM 5 CMAs - <br />
+                      BOTTOM 5 CAs - <br />
                       AVERAGE RENT
                   </div>
                   <div class="main_page6_first_one_charts_three m-auto">
