@@ -1390,7 +1390,7 @@ module.exports = {
       
         .main_float_line2 {
           top: 83px !important;
-          height: 1490px !important;
+          height: 1200px !important;
         }
       
         .main_float_line3 {
