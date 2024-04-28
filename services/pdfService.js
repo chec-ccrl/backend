@@ -1587,9 +1587,9 @@ module.exports = {
           border-radius: 4rem;
         }
         .half_width_table {
-          line-height: 2.2rem;
+          line-height: 1.8rem;
           td {
-            font-size: 21px;
+            font-size: 16px;
           }
         }
         .btn-green {
@@ -2016,7 +2016,7 @@ module.exports = {
             <div class="main_page3_third" style="min-height:320px;max-height:321px">
               <div class="main_page3_third_one">
                 <div style="display: flex">
-                  <div class="main_page3_first_one_txt" style="font-size: 18px;margin-top:7px">
+                  <div class="main_page3_first_one_txt" style="font-size: 15px;margin-top:7px">
                     PROVINCIAL AVERAGE INCOME
                   </div>
                   <div
