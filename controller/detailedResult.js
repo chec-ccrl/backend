@@ -2947,6 +2947,9 @@ module.exports = {
         geography === "St. Catharines - Niagara" ||
         geography === "Guelph" ||
         geography === "Red Deer" ||
+        geography === "Kentville" ||
+        geography === "Cape Breton" ||
+        geography === "Truro" ||
         geography === "Windsor"
       ) {
         height = 1860;
