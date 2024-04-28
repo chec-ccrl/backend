@@ -2923,7 +2923,7 @@ module.exports = {
       final_rank = findRank(cma === "Na" ? ca : cma, rankingArr);
 
       let tableHeigth = 2.2;
-      let height = 1500;
+      let height = 1550;
       let invertHiegt = 250;
       // if (
       //   geography === "Penticton" ||
