@@ -1946,7 +1946,7 @@ module.exports = {
         total_current_affordable_houses_available
       )} are available.
                     </p>
-                    <p class="text-2xl ls-1 m-0">AVAILABLE:${numberWithCommas(
+                    <p class="text-xl ls-1 m-0">AVAILABLE:${numberWithCommas(
                       total_current_affordable_houses_available
                     )}
                     </p>
@@ -1956,7 +1956,7 @@ module.exports = {
                         style="max-width: 158px; margin: auto; height: 158px"
                       ></canvas>
                     </div>
-                    <p class="text-2xl ls-1 m-0">OCCUPIED:${numberWithCommas(
+                    <p class="text-xl ls-1 m-0">OCCUPIED:${numberWithCommas(
                       total_current_affordable_houses -
                         total_current_affordable_houses_available
                     )}
@@ -1969,7 +1969,7 @@ module.exports = {
                     </div>
                     <p class="fw-light m-0" style="font-size:13px">
                       Out of a total unaffordable supply of ${total_current_unaffordable_houses} units, ${total_current_unaffordable_houses_available} are available.</p>
-                    <p class="text-2xl ls-1 m-0">AVAILABLE:${total_current_unaffordable_houses_available}</p>
+                    <p class="text-xl ls-1 m-0">AVAILABLE:${total_current_unaffordable_houses_available}</p>
       
                     <div class="main_page4_first_one_one_main_one_chart">
                       <canvas
@@ -1977,7 +1977,7 @@ module.exports = {
                         style="max-width: 158px; margin: auto; height: 158px"
                       ></canvas>
                     </div>
-                    <p class="text-2xl ls-1 m-0">OCCUPIED:${
+                    <p class="text-xl ls-1 m-0">OCCUPIED:${
                       total_current_unaffordable_houses -
                       total_current_unaffordable_houses_available
                     }</p>
