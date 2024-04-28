@@ -1162,7 +1162,7 @@ module.exports = {
       
         .main_page4_first_one_one_main_one_chart_bar_other_rate_num {
           /* margin: 0 !important; */
-          font-size: 20px;
+          font-size: 15px;
           font-weight: bold;
         }
       
