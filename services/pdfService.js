@@ -1738,7 +1738,7 @@ module.exports = {
               </div>
               <div class="main_third_line"></div>
             </div>
-            <div class="main_page3_second" style="min-height:220px; max-height:221px">
+            <div class="main_page3_second" style="min-height:230px; max-height:231px">
               <div class="main_page3_second_one">
                 <div class="main_page3_first_one_txt1" style="font-size:px">RANKING</div>
                 <div class="main_page3_first_one_other">
@@ -1810,7 +1810,7 @@ module.exports = {
             <div class="main_third m-0 p-0">
               <div class="main_third_line"></div>
             </div>
-            <div class="main_page3_first" style="min-height:350px;max-height:351px">
+            <div class="main_page3_first" style="min-height:370px;max-height:371px">
               <div class="main_page3_first_one">
                 <div class="main_page3_first_one_txt ls-2" style="font-size: 20px">
                   AVERAGE <br />
