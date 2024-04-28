@@ -1623,7 +1623,7 @@ module.exports = {
       <html>
         <body>
           <!-- Main ELEMENT FOR COMPLETE PDF -->
-          <div class="main" style="min-height:1550px" >
+          <div class="main" style="min-height:1530px" >
             <!-- FIFTH PAGE -->
             <div class="main_first">
               <div class="main_first_img">
@@ -3192,7 +3192,7 @@ module.exports = {
             type: "pyramidInverted",
             legend_visible: false,
             width: 500,
-            height: 230,
+            height: 250,
             yAxis: { label_text: "Cost", formatString: "c" },
             backgroundColor: "#f1f3f9",
             defaultSeries: {
