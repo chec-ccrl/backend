@@ -1213,7 +1213,7 @@ module.exports = {
         }
       
         .main_third_line_new {
-          width: 95% !important;
+          width: 100% !important;
           margin-top: 5px;
         }
       
@@ -1671,7 +1671,7 @@ module.exports = {
                 <div class="main_second_select1">
                   <div
                     class="main_second_select1_label label"
-                    style="margin-left: 15px;font-size:15px;"
+                    style="margin-left: 15px;font-size:15px;margin-top:10px"
                   >
                     YEAR:
                   </div>
