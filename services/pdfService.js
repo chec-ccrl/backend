@@ -2570,7 +2570,7 @@ module.exports = {
                 <div class="main_third_line"></div>
                 <div class="main_page4_first_one">
                   <div class="main_page4_first_one_one">
-                    <div class="main_page3_first_one_txt text-2xl mb-4 mt-1">
+                    <div class="main_page3_first_one_txt text-xl mb-4 mt-2">
                       RENTAL UNITS OVERVIEW
                     </div>
                     <div class="main_page3_third">
@@ -2629,7 +2629,7 @@ module.exports = {
                     </div>
                   </div>
                   <div class="main_page4_first_one_one">
-                    <div class="main_page3_first_one_txt text-2xl mb-4 mt-1">
+                    <div class="main_page3_first_one_txt text-xl mb-4 mt-2">
                       RENTAL UNITS OVERVIEW
                     </div>
                     <div class="main_page3_third mb-2 text-md">
