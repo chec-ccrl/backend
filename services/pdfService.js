@@ -2132,7 +2132,7 @@ module.exports = {
               </div>
             </div>                    
           </div>
-          <div style="position: relative;">
+          <div style="position: relative; height:1500px;">
             <div class="main_first" >
               <div class="main_first_img">
                 <img
@@ -2142,16 +2142,13 @@ module.exports = {
                 />
               </div>
               <div class="main_first_text" style="margin-top: -25px">
-                <div class="main_first_text_tex1">${province.toUpperCase()} - ${geography.toUpperCase()}</div>
-                  <div class="main_first_text_tex2">SUPPLY ANALYSIS</div>
-                </div>
+              <div class="main_first_text_tex1">${province.toUpperCase()} - ${geography.toUpperCase()}</div>
+                <div class="main_first_text_tex2">SUPPLY ANALYSIS</div>
               </div>
-              <div class="main_third m-0 p-0">
-                <div class="main_third_text" style="text-align:left">
-                  <span> NOTE 1: B = Bedrooms </span>
-                </div>
-                <div class="main_third_line"></div>
-              </div>
+            </div>
+            <div class="main_third">
+              <span> NOTE - B = Bedrooms </span>
+              <div class="main_third_line" style="margin: 0"></div>
             </div>
             <div class="main_page4_first">
               <div class="main_page4_first_one">
@@ -2204,7 +2201,7 @@ module.exports = {
                       class="main_page3_first_one_main_head_sub_two ml-2"
                       style="padding: 4px 12px; letter-spacing: 3px; margin-top: -10px"
                     >
-                      ${numberWithCommas(rowTotal)}
+                    ${numberWithCommas(rowTotal)}
                     </div>
                   </div>
                   <div class="main_page4_first_one_one_main">
@@ -2238,7 +2235,7 @@ module.exports = {
                 <div class="main_page4_first_one_one">
                   <div class="main_third_line main_third_line_new"></div>
                   <div
-                    class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-xl mt-1"
+                    class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-2xl mt-1"
                   >
                     HISTORICAL RENTAL STOCK
                   </div>
@@ -2281,8 +2278,7 @@ module.exports = {
                             height="16" />`
                           }
                             </span
-                        >
-                        <br />
+                        ><br />
                         <span
                           class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
                           >RENTAL</span
@@ -2293,8 +2289,9 @@ module.exports = {
                 </div>
                 <div class="main_page4_first_one_one">
                   <div class="main_third_line main_third_line_new"></div>
+      
                   <div
-                    class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-xl mt-1"
+                    class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-2xl mt-1"
                   >
                     HISTORICAL RENTAL STOCK
                   </div>
@@ -2345,13 +2342,11 @@ module.exports = {
                   </div>
                 </div>
               </div>
-              <div class="main_third m-0 p-0">
-                <div class="main_third_line"></div>
-              </div
+              <div class="main_third_line main_third_line_new"></div>
               <div class="main_page4_first_one">
                 <div class="main_page4_first_one_one">
                   <div class="main_page3_third mb-2">
-                    <div class="main_page3_first_one_txt text-xl" style="margin-top:3px">
+                    <div class="main_page3_first_one_txt text-2xl" style="margin-top:3px">
                       NEW UNITS ADDED
                     </div>
                     <div
@@ -2369,6 +2364,7 @@ module.exports = {
                         OWNED / RENTAL SHARE
                       </div>
                       <br />
+      
                       <div class="main_page4_first_one_one_main_one_chart mr-2">
                         <div class="main_page4_first_one_one_main_one_chart_bar">
                           <div
@@ -2445,12 +2441,24 @@ module.exports = {
                       </div>
                     </div>
                     <div class="main_page3_first_one_break"></div>
-                   
+                    <div class="main_page4_first_one_one_main_one">
+                      <div
+                        class="main_page4_first_one_one_main_one_head fw-light ls-1"
+                      >
+                        TYPE OF BEDROOM
+                      </div>
+                      <div class="main_page4_first_one_one_main_one_chart">
+                        <canvas
+                          id="main_page4_first_one_one_main_one_chart14"
+                        ></canvas>
+                      </div>
+                    </div>
                   </div>
                 </div>
+      
                 <div class="main_page4_first_one_one">
                   <div class="main_page3_third mb-2">
-                    <div class="main_page3_first_one_txt text-xl" style="margin-top:3px">
+                    <div class="main_page3_first_one_txt text-2xl" style="margin-top:3px">
                       NEW UNITS ADDED
                     </div>
                     <div
@@ -2548,7 +2556,7 @@ module.exports = {
                       <div
                         class="main_page4_first_one_one_main_one_head fw-light ls-1"
                       >
-                        TYPE OF <br/> BEDROOM
+                        TYPE OF BEDROOM
                       </div>
                       <div class="main_page4_first_one_one_main_one_chart">
                         <canvas
@@ -2681,6 +2689,8 @@ module.exports = {
                 </div>
               </div>
               <br />
+              <!-- INSET HERE -->
+      
               <div class="main_page3_first">
                 <div class="main_page3_first_second_one">
                   <div class="main_third_line main_third_line_new bg-black"></div>
@@ -3034,6 +3044,338 @@ module.exports = {
                       </div>
                       <p class="text-lg m-0">UNAFFORDABLE</p>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="main_float_line main_float_line2"></div>
+          </div>
+
+
+<!-- SEVENTH PAGE -->
+          <div style="height: ${height - 50}px;">
+          <div class="main_first" >
+            <div class="main_first_img" >
+              <img
+                src="https://i.ibb.co/v3ht5Zc/logo.png"
+                style="height: 100px; width: 105px;"
+                alt=""
+              />
+            </div>
+            <div class="main_first_text" style="margin-top: 20px">
+            <div class="main_first_text_tex1">${province.toUpperCase()} - ${geography.toUpperCase()}</div>
+              <div class="main_first_text_tex2">INCOME ANALYSIS</div>
+            </div>
+          </div>
+      
+          <div class="main_third" style="margin-top: 10px">
+            <span style="margin-left: 5rem" class="text-sm">
+              INCOME IS TAKEN ANUALLY
+            </span>
+            <div class="main_third_line"></div>
+          </div>
+          <h1
+            class="ls-2 mx-auto"
+            style="text-align: center; text-decoration: underline"
+          >
+            POPULATION BELOW & ABOVE OPTIMAL INCOME
+          </h1>
+          <p style="text-align: center; font-weight: 600" class="text-lg">
+            <span class="bg-yellow p-1 px-2" style="border-radius: 5px"
+              >OPTIMAL INCOME : $${numberWithCommas(
+                Math.ceil(averageRent)
+              )}</span
+            >
+          </p>
+          <div class="flex" style="margin: auto 80px">
+            <p
+              style="
+                width: ${averageRent / 1000 + 5}%;
+                text-align: center;
+                border-bottom: 1px solid;
+                position: relative;
+                letter-spacing: 1px;
+                font-size:10px;
+              "
+              class="mx-2"
+            >
+              PERCENTAGE OF POPULATION BELOW OPTIMAL INCOME <br />
+              ${redPercent.toFixed(1)}%
+              <span style="position: absolute; left: -4px; bottom: -5.5px"> < </span>
+              <span style="position: absolute; right: -4px; bottom: -5px"> > </span>
+            </p>
+            <p
+              style="
+                width: ${95 - averageRent / 1000}%;
+                text-align: center;
+                border-bottom: 1px solid;
+                position: relative;
+                letter-spacing: 1px;
+                font-size:10px;
+              "
+              class="mx-1"
+            >
+              PERCENTAGE OF POPULATION ABOVE OPTIMAL INCOME <br />
+              ${greenPercent.toFixed(1)}%
+              <span style="position: absolute; left: -4px; bottom: -6.5px"> < </span>
+              <span style="position: absolute; right: -4px; bottom: -6.5px"> > </span>
+            </p>
+          </div>
+          <div class="main_page5_first_one_chart">
+            <canvas
+              id="main_page5_first_one_chart17"
+              style="
+                max-height: 400px;
+                margin: 10px 40px 10px 0px;
+                width: 1500px !important;
+              "
+            ></canvas>
+          </div>
+          <p style="text-align: center; font-weight: 600; font-size: larger" class="mt-0 mb-1">
+            DIFFERENT INCOME RANGES
+          </p>
+          <div class="main_third_line"></div>
+      
+          <!-- above this -->
+          <div class="main_page5_first">
+            <div class="main_page5_first_one">
+              <div
+                class="main_page5_first_one_one"
+              >
+                <div class="main_page5_first_one_txt">
+                  DISCRETIONARY INCOME VS <br />
+                  MEDIAN INCOME AFTER TAX/BEFORE TAX
+                </div>
+                <div class="main_page5_first_one_chart">
+                  <canvas
+                    id="main_page5_first_one_chart18"
+                    style="width: max-content; min-height: 280px; min-width: 720px"
+                  ></canvas>
+                </div>
+              </div>
+              <div class="main_page3_first_one_break"></div>
+              <div class="main_page5_first_one_one2">
+                <div class="main_page5_first_one_txt text-2xl" style="width:118%">
+                  MEDIAN INCOME <br />
+                  RANKING
+                </div>
+                <div class="main_page3_first_one_other">
+                 ${
+                   cma_income_ranking?.length > 0
+                     ? `<div class="main_page3_first_one_other_one" style="margin-right:20px">
+                       <div
+                         class="main_page3_first_one_other_one_main"
+                         style="margin-top: 80px"
+                       >
+                         <span style="font-size: 30px">${cma_income_ranking[0].ranking_before_tax}</span>
+                       </div>
+                       <div class="main_page3_first_one_other_one_sub my-2">
+                         Before Tax
+                       </div>
+                       <div
+                         class="main_page3_first_one_other_one_text"
+                         style="font-size:20px"
+                       >
+                         MAJOR
+                         <br />
+                         CMAS
+                       </div>
+                     </div>`
+                     : ``
+                 }
+                  <div class="main_page3_first_one_other_one">
+                    <div
+                      class="main_page3_first_one_other_one_main"
+                      style="margin-top: 60px"
+                    >
+                    <span style="font-size: 30px">${
+                      province_income_ranking[0].ranking_before_tax
+                    }</span>
+                    </div>
+                    <div class="main_page3_first_one_other_one_sub my-2">
+                      Before Tax
+                    </div>
+                    <div class="main_page3_first_one_other_one_text" style="font-size:20px">PROVINCE</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="main_third_line"></div>
+          <h2 style="text-align: center; text-decoration: underline" class="ls-2 mb-0 my-2">
+            MEDIAN HOUSEHOLD INCOME
+          </h2>
+          <div class="main_page6_first_one">
+            <div class="main_page6_first">
+              <div class="main_page6_first_one_charts">
+                <div class="main_page6_first_one_charts_one">
+                  <div class="main_page5_first_one_txt" style="text-align: center">
+                    BEFORE TAX
+                  </div>
+                  <canvas
+                    id="main_page5_first_one_chart19"
+                    style="width: 550px; height: 320px"
+                  ></canvas>
+                </div>
+                <div class="main_page3_first_one_break"></div>
+                <div class="main_page6_first_one_charts_two">
+                  <div class="main_page5_first_one_txt" style="text-align: center">
+                    AFTER TAX
+                  </div>
+                  <canvas
+                    id="main_page5_first_one_chart20"
+                    style="width: 550px; height: 320px"
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <!-- LAST PAGE -->
+          <div class="main_first" >
+            <div class="main_first_img" >
+              <img
+                src="https://i.ibb.co/v3ht5Zc/logo.png"
+                style="height: 100px; width: 105px;"
+                alt=""
+              />
+            </div>
+            <div class="main_first_text" style="margin-top: 20px">
+            <div class="main_first_text_tex1">${province.toUpperCase()} - ${geography.toUpperCase()}</div>
+              <div class="main_first_text_tex2">SHELTER COST ANALYSIS</div>
+            </div>
+          </div>
+          <div class="main_third">
+            <span style="margin-left: 50px;margin-top:20px"> INCOME IS TAKEN ANUALLY </span>
+            <div class="main_third_line"></div>
+          </div>
+          <div class="main_page6_first">
+            <div class="main_page6_first_one">
+              <div class="main_page6_first_one_charts">
+                <div class="main_page4_first_one_one_head text-2xl ml-3">
+                  APARTMENT OVERVIEW
+                </div>
+                <div class="main_page4_first_one_one_head text-2xl mr-3">
+                  ROW HOUSE OVERVIEW
+                </div>
+              </div>
+              <div class="main_page6_first_one_head text-2xl mb-0">AVERAGE RENT</div>
+      
+              <div class="main_page6_first_one_charts">
+                <div class="main_page6_first_one_charts_one">
+                  <canvas
+                    id="main_page6_first_one_charts_one_21"
+                    style="width: 550px"
+                  ></canvas>
+                </div>
+                <div class="main_page3_first_one_break"></div>
+                <div class="main_page6_first_one_charts_two">
+                  <canvas
+                    id="main_page6_first_one_charts_two_22"
+                    style="width: 550px"
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="main_page6_first_one">
+              <div class="main_page6_first_one_head ls-2">
+                HISTORICAL RENT GROWTH RATE
+              </div>
+              <div class="main_page6_first_one_charts">
+                <div class="main_page6_first_one_charts_one">
+                  <canvas
+                    id="main_page6_first_one_charts_one_23"
+                    style="width: 550px"
+                  ></canvas>
+                </div>
+                <div class="main_page3_first_one_break"></div>
+      
+                <div class="main_page6_first_one_charts_two">
+                  <canvas
+                    id="main_page6_first_one_charts_two_24"
+                    style="width: 550px"
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+      
+            <div class="main_page6_first_one">
+              <div class="main_page6_first_one_head mb-2">
+                UTILITIES VS AFFORDABLE RENT VS AVERAGE RENT
+              </div>
+              <span> Monthly</span>
+      
+              <div class="main_page6_first_one_charts mt-2">
+                <div class="main_page6_first_one_charts_three">
+                  <canvas
+                    id="main_page6_first_one_charts_one_25"
+                    style="width: 550px"
+                  ></canvas>
+                </div>
+                <div class="main_page3_first_one_break"></div>
+      
+                <div class="main_page6_first_one_charts_three">
+                  <canvas
+                    id="main_page6_first_one_charts_two_26"
+                    style="width: 550px"
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="main_third_line" style="margin: 0px 15px; width: 95%"></div>
+            <!-- <div > -->
+            <div class="main_page6_first_one">
+              <div class="main_page6_first_one_flex">
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                    TOP 5 CMAs - <br />
+                    AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas
+                      id="main_page6_first_one_charts_one_27"
+                      style="height: 220px; max-width: 270px"
+                    ></canvas>
+                  </div>
+                </div>
+                <div class="main_page3_first_one_break"></div>
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                    BOTTOM 5 CMAs - <br />
+                    AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas
+                      id="main_page6_first_one_charts_two_28"
+                      style="height: 220px; max-width: 270px"
+                    ></canvas>
+                  </div>
+                </div>
+                <div class="main_page3_first_one_break"></div>
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                    TOP 5 CAs - <br />
+                    AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas
+                      id="main_page6_first_one_charts_one_35"
+                      style="height: 220px; max-width: 270px"
+                    ></canvas>
+                  </div>
+                </div>
+                <div class="main_page3_first_one_break"></div>
+      
+                <div>
+                  <div class="main_page6_first_one_head text-lg">
+                    BOTTOM 5 CAs - <br />
+                    AVERAGE RENT
+                  </div>
+                  <div class="main_page6_first_one_charts_three m-auto">
+                    <canvas
+                      id="main_page6_first_one_charts_two_36"
+                      style="height: 220px; max-width: 270px"
+                    ></canvas>
                   </div>
                 </div>
               </div>
