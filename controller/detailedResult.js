@@ -2951,7 +2951,7 @@ module.exports = {
         geography === "Windsor"
       ) {
         height = 1860;
-        tableHeigth = 2.9;
+        tableHeigth = 3.2;
       } else if (geography === "Saskatoon") {
         tableHeigth = 2.5;
         height = 1800;
