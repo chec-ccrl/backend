@@ -2966,8 +2966,7 @@ module.exports = {
         geography === "Charlottetown" ||
         geography === "Oshawa" ||
         geography === "Fredericton" ||
-        geography === "Moncton" ||
-        geography === "Saint John"
+        geography === "Moncton"
       ) {
         tableHeigth = 3.5;
         height = 1800;
@@ -2992,7 +2991,8 @@ module.exports = {
       } else if (
         geography === "Kentville" ||
         geography === "Cape Breton" ||
-        geography === "Truro"
+        geography === "Truro" ||
+        geography === "Saint John"
       ) {
         tableHeigth = 2.55;
       }
