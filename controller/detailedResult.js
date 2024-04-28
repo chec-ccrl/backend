@@ -2960,9 +2960,8 @@ module.exports = {
         geography === "Halifax" ||
         geography === "Hamilton"
       ) {
-        tableHeigth = 3.8;
-        invertHiegt = 400;
-        height = 1850;
+        tableHeigth = 4.2;
+        invertHiegt = 430;
       } else if (
         geography === "Vancouver" ||
         geography === "Medicine Hat" ||
