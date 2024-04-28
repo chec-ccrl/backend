@@ -2273,7 +2273,7 @@ module.exports = {
           const chart7 = JSC.chart("chartDiv", {
             type: "pyramidInverted",
             legend_visible: false,
-            width: 530,
+            width: 500,
             height: 250,
             yAxis: { label_text: "Cost", formatString: "c" },
             backgroundColor: "#f1f3f9",
