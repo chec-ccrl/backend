@@ -2142,372 +2142,285 @@ module.exports = {
                 />
               </div>
               <div class="main_first_text" style="margin-top: -25px">
-              <div class="main_first_text_tex1">${province.toUpperCase()} - ${geography.toUpperCase()}</div>
-                <div class="main_first_text_tex2">SUPPLY ANALYSIS</div>
+                <div class="main_first_text_tex1">${province.toUpperCase()} - ${geography.toUpperCase()}</div>
+                  <div class="main_first_text_tex2">SUPPLY ANALYSIS</div>
+                </div>
               </div>
-            </div>
-            <div class="main_third">
-              <span> NOTE - B = Bedrooms </span>
-              <div class="main_third_line" style="margin: 0"></div>
-            </div>
-            <div class="main_page4_first">
-              <div class="main_page4_first_one">
-                <div class="main_page4_first_one_one">
-                  <div class="main_page4_first_one_one_head text-2xl my-2">
-                    APARTMENT OVERVIEW
-                  </div>
-                  <div class="main_page3_third mb-2">
-                    <div class="main_page3_first_one_txt">TOTAL RENTAL UNITS</div>
-                    <div
-                      class="main_page3_first_one_main_head_sub_two ml-2"
-                      style="padding: 4px 12px; letter-spacing: 3px; margin-top: -10px"
-                    >
-                      ${numberWithCommas(apartmentTotal)}
+              <div class="main_third">
+                <span> NOTE - B = Bedrooms </span>
+                <div class="main_third_line" style="margin: 0"></div>
+              </div>
+              <div class="main_page4_first">
+                <div class="main_page4_first_one">
+                  <div class="main_page4_first_one_one">
+                    <div class="main_page4_first_one_one_head text-2xl my-2">
+                      APARTMENT OVERVIEW
                     </div>
-                  </div>
-                  <div class="main_page4_first_one_one_main">
-                    <div class="main_page4_first_one_one_main_one">
-                      <div class="main_page4_first_one_one_main_one_head mr-2">
-                        HOUSES AVAILABLE
-                      </div>
-                      <div class="main_page4_first_one_one_main_one_chart">
-                        <canvas
-                          id="main_page4_first_one_one_main_one_chart8"
-                          style="min-width: 250px; min-height: 250px"
-                        ></canvas>
+                    <div class="main_page3_third mb-2">
+                      <div class="main_page3_first_one_txt">TOTAL RENTAL UNITS</div>
+                      <div
+                        class="main_page3_first_one_main_head_sub_two ml-2"
+                        style="padding: 4px 12px; letter-spacing: 3px; margin-top: -10px"
+                      >
+                        ${numberWithCommas(apartmentTotal)}
                       </div>
                     </div>
-                    <div class="main_page3_first_one_break"></div>
-                    <div class="main_page4_first_one_one_main_one">
-                      <div class="main_page4_first_one_one_main_one_head ml-2">
-                        TYPE OF BEDROOM
+                    <div class="main_page4_first_one_one_main">
+                      <div class="main_page4_first_one_one_main_one">
+                        <div class="main_page4_first_one_one_main_one_head mr-2">
+                          HOUSES AVAILABLE
+                        </div>
+                        <div class="main_page4_first_one_one_main_one_chart">
+                          <canvas
+                            id="main_page4_first_one_one_main_one_chart8"
+                            style="min-width: 250px; min-height: 250px"
+                          ></canvas>
+                        </div>
                       </div>
-                      <div class="main_page4_first_one_one_main_one_chart">
-                        <canvas
-                          id="main_page4_first_one_one_main_one_chart9"
-                          style="min-width: 200px; min-height: 200px"
-                        ></canvas>
+                      <div class="main_page3_first_one_break"></div>
+                      <div class="main_page4_first_one_one_main_one">
+                        <div class="main_page4_first_one_one_main_one_head ml-2">
+                          TYPE OF BEDROOM
+                        </div>
+                        <div class="main_page4_first_one_one_main_one_chart">
+                          <canvas
+                            id="main_page4_first_one_one_main_one_chart9"
+                            style="min-width: 200px; min-height: 200px"
+                          ></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main_page4_first_one_one">
+                    <div class="main_page4_first_one_one_head text-2xl my-2">
+                      ROW HOUSE OVERVIEW
+                    </div>
+                    <div class="main_page3_third mb-2">
+                      <div class="main_page3_first_one_txt">TOTAL RENTAL UNITS</div>
+                      <div
+                        class="main_page3_first_one_main_head_sub_two ml-2"
+                        style="padding: 4px 12px; letter-spacing: 3px; margin-top: -10px"
+                      >
+                        ${numberWithCommas(rowTotal)}
+                      </div>
+                    </div>
+                    <div class="main_page4_first_one_one_main">
+                      <div class="main_page4_first_one_one_main_one">
+                        <div class="main_page4_first_one_one_main_one_head">
+                          TOTAL UNITS
+                        </div>
+                        <div class="main_page4_first_one_one_main_one_chart">
+                          <canvas
+                            id="main_page4_first_one_one_main_one_chart10"
+                            style="min-width: 250px; min-height: 250px"
+                          ></canvas>
+                        </div>
+                      </div>
+                      <div class="main_page3_first_one_break"></div>
+                      <div class="main_page4_first_one_one_main_one ml-2">
+                        <div class="main_page4_first_one_one_main_one_head">
+                          TYPE OF BEDROOM
+                        </div>
+                        <div class="main_page4_first_one_one_main_one_chart">
+                          <canvas
+                            id="main_page4_first_one_one_main_one_chart11"
+                            style="min-width: 200px; min-height: 200px"
+                          ></canvas>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="main_page4_first_one_one">
-                  <div class="main_page4_first_one_one_head text-2xl my-2">
-                    ROW HOUSE OVERVIEW
-                  </div>
-                  <div class="main_page3_third mb-2">
-                    <div class="main_page3_first_one_txt">TOTAL RENTAL UNITS</div>
+                <div class="main_page4_first_one">
+                  <div class="main_page4_first_one_one">
+                    <div class="main_third_line main_third_line_new"></div>
                     <div
-                      class="main_page3_first_one_main_head_sub_two ml-2"
-                      style="padding: 4px 12px; letter-spacing: 3px; margin-top: -10px"
+                      class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-2xl mt-1"
                     >
-                    ${numberWithCommas(rowTotal)}
-                    </div>
-                  </div>
-                  <div class="main_page4_first_one_one_main">
-                    <div class="main_page4_first_one_one_main_one">
-                      <div class="main_page4_first_one_one_main_one_head">
-                        TOTAL UNITS
-                      </div>
-                      <div class="main_page4_first_one_one_main_one_chart">
-                        <canvas
-                          id="main_page4_first_one_one_main_one_chart10"
-                          style="min-width: 250px; min-height: 250px"
-                        ></canvas>
-                      </div>
-                    </div>
-                    <div class="main_page3_first_one_break"></div>
-                    <div class="main_page4_first_one_one_main_one ml-2">
-                      <div class="main_page4_first_one_one_main_one_head">
-                        TYPE OF BEDROOM
-                      </div>
-                      <div class="main_page4_first_one_one_main_one_chart">
-                        <canvas
-                          id="main_page4_first_one_one_main_one_chart11"
-                          style="min-width: 200px; min-height: 200px"
-                        ></canvas>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="main_page4_first_one">
-                <div class="main_page4_first_one_one">
-                  <div class="main_third_line main_third_line_new"></div>
-                  <div
-                    class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-2xl mt-1"
-                  >
-                    HISTORICAL RENTAL STOCK
-                  </div>
-                  <div
-                    class="main_page4_first_one_one_main main_page4_first_one_one_main_pluse_growth"
-                  >
-                    <div class="main_page4_first_one_one_main_one">
-                      <div class="main_page4_first_one_one_main_one_chart">
-                        <canvas
-                          id="main_page4_first_one_one_main_one_chart12"
-                          style="min-width: 450px"
-                        ></canvas>
-                      </div>
+                      HISTORICAL RENTAL STOCK
                     </div>
                     <div
-                      class="main_page4_first_one_one_main_one_chart_bar_other ml-2"
+                      class="main_page4_first_one_one_main main_page4_first_one_one_main_pluse_growth"
                     >
-                      <div
-                        class="main_page4_first_one_one_main_one_chart_bar_other_head"
-                      >
-                        GROWTH RATE
+                      <div class="main_page4_first_one_one_main_one">
+                        <div class="main_page4_first_one_one_main_one_chart">
+                          <canvas
+                            id="main_page4_first_one_one_main_one_chart12"
+                            style="min-width: 450px"
+                          ></canvas>
+                        </div>
                       </div>
                       <div
-                        class="main_page4_first_one_one_main_one_chart_bar_other_rate"
+                        class="main_page4_first_one_one_main_one_chart_bar_other ml-2"
                       >
-                        <span
-                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                          > ${historical_rental_stock_apartment_growth.toFixed(
-                            1
-                          )}%
-                          ${
-                            historical_rental_stock_apartment_growth < 0
-                              ? `<img
-                            src="https://i.ibb.co/hgwPPJd/8.png"
-                            width="20"
-                            height="16" />`
-                              : `<img
-                            src="https://i.ibb.co/JsqKWHm/7.png"
-                            width="20"
-                            height="16" />`
-                          }
-                            </span
-                        ><br />
-                        <span
-                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                          >RENTAL</span
+                        <div
+                          class="main_page4_first_one_one_main_one_chart_bar_other_head"
                         >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="main_page4_first_one_one">
-                  <div class="main_third_line main_third_line_new"></div>
-      
-                  <div
-                    class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-2xl mt-1"
-                  >
-                    HISTORICAL RENTAL STOCK
-                  </div>
-                  <div
-                    class="main_page4_first_one_one_main main_page4_first_one_one_main_pluse_growth"
-                  >
-                    <div class="main_page4_first_one_one_main_one">
-                      <div class="main_page4_first_one_one_main_one_chart">
-                        <canvas
-                          id="main_page4_first_one_one_main_one_chart13"
-                          style="min-width: 450px"
-                        ></canvas>
-                      </div>
-                    </div>
-                    <div
-                      class="main_page4_first_one_one_main_one_chart_bar_other ml-2"
-                    >
-                      <div
-                        class="main_page4_first_one_one_main_one_chart_bar_other_head"
-                      >
-                        GROWTH RATE
-                      </div>
-                      <div
-                        class="main_page4_first_one_one_main_one_chart_bar_other_rate"
-                      >
-                        <span
-                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                          > ${historical_rental_stock_row_growth.toFixed(1)}%
-                          ${
-                            historical_rental_stock_row_growth < 0
-                              ? `<img
-                            src="https://i.ibb.co/hgwPPJd/8.png"
-                            width="20"
-                            height="16" />`
-                              : `<img
-                            src="https://i.ibb.co/JsqKWHm/7.png"
-                            width="20"
-                            height="16" />`
-                          }
-                            </span
-                        ><br />
-                        <span
-                          class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                          >RENTAL</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="main_third_line main_third_line_new"></div>
-              <div class="main_page4_first_one">
-                <div class="main_page4_first_one_one">
-                  <div class="main_page3_third mb-2">
-                    <div class="main_page3_first_one_txt text-2xl" style="margin-top:3px">
-                      NEW UNITS ADDED
-                    </div>
-                    <div
-                      class="main_page3_first_one_main_head_sub_two ml-2"
-                      style="padding: 4px 12px; letter-spacing: 3px"
-                    >
-                      ${numberWithCommas(apartmentTotalAdded)}
-                    </div>
-                  </div>
-                  <div class="main_page4_first_one_one_main">
-                    <div class="main_page4_first_one_one_main_one">
-                      <div
-                        class="main_page4_first_one_one_main_one_head fw-light ls-1"
-                      >
-                        OWNED / RENTAL SHARE
-                      </div>
-                      <br />
-      
-                      <div class="main_page4_first_one_one_main_one_chart mr-2">
-                        <div class="main_page4_first_one_one_main_one_chart_bar">
-                          <div
-                            class="main_page4_first_one_one_main_one_chart_bar_big"
-                          >
-                            ${owner_share_apa.toFixed(1)}% <br />
-                            OWNED
-                          </div>
-                          <div
-                            class="main_page4_first_one_one_main_one_chart_bar_small"
-                          >
-                            ${rental_share_apa.toFixed(1)}% <br />
-                            RENTAL
-                          </div>
+                          GROWTH RATE
                         </div>
                         <div
-                          class="main_page4_first_one_one_main_one_chart_bar_other"
+                          class="main_page4_first_one_one_main_one_chart_bar_other_rate"
                         >
-                          <div
-                            class="main_page4_first_one_one_main_one_chart_bar_other_head"
-                          >
-                            GROWTH RATE
-                          </div>
-                          <div
-                            class="main_page4_first_one_one_main_one_chart_bar_other_rate"
-                          >
-                            <span
-                              class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                              >${owned_share_apa_growth.toFixed(1)}%
-                              ${
-                                owned_share_apa_growth < 0
-                                  ? `<img
-                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABpUlEQVQ4jWP8Nn999c/5G+oY/jMwMiADVB4DAwPDf1R5RlTxf/+Z2IJdpjB+8M56+f/9JzEM7WQARgHe10ysrpbLqGEYAwMDA6ut0UbGf1+/83yKqbjy/+VbeYpcJ8T/nHdZpxYTIxfHF67ShExKXcdZFJfLxMv9gYmBgYGB1dJgOyVeZ7E12sDmaLaWgYGBgfH/f2gkvf8k+jmq/Pr/T1+ESTKNm/Mj39JOLSZRwWcMDAwMTDBxJkG+1xy5UUWkuo4zK6IcZhiKgQwMDAxsnjaLWEy0dxNrGLO++iE2f8dZyGIoBjIyMjJwliVlMHCwfSVoGhvrD67ypDRGRkaUBM+Ero5ZWuweR3JQAyHzOBL8m5nlpW6ii2MYyMDAwMAe7tHPrKZwFpdhTMqyl9ijvbuxymETZGRm/stZkZzKwMz0B1MH41+uiuQURhaW30QbyMDAwMCirnCePcKzD12cLdRtEouW8mlc+uDpEBv4/+Mn5+e4qkv/nr5SYWBgYGCUFLnPt7hdl5GTA3ek/f//Hy/+de6a3Xv3tHcffLOf/Tp7zZ6QegDtJaSx3DtD8QAAAABJRU5ErkJgggAA"
+                          <span
+                            class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
+                            > ${historical_rental_stock_apartment_growth.toFixed(
+                              1
+                            )}%
+                            ${
+                              historical_rental_stock_apartment_growth < 0
+                                ? `<img
+                              src="https://i.ibb.co/hgwPPJd/8.png"
                               width="20"
                               height="16" />`
-                                  : `<img
-                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB3UlEQVQ4jWP4//8/Az584P4Be4keiWeCHYJvD9w/YEdIPeP///8ZcIEvv75w607XvfzgwwNFBgYGBmVB5TuXMi/pcbFyfcelhwmnaQwMDLX7apthhjEwMDDcfX9XpfFgYz0+PThdeOrpKTPLuZbH/v3/x4wszsLE8udUyilTQ0nDC0S78Pff36wpm1JmoxvGwMDA8OffH5bUzalz/vz7gyGH08Cuo11ll19d1sPqdAYGhrPPzxpPODGhAJschpdvvLmhbjDD4MLPvz85cBnIwMDAwMXK9fVy5mVdJUGl+zhd+O//P8a0zWmzCBnGwMDA8O33N+6MLRkz0B2EYuCss7PSDj86bEfIMBjYfW+326KLi+KQxeBefvrpqZTWNK1rn35+4ifWQAYGBgZhTuE317KvaYlxi71GcWH2tuyppBrGwMDA8Pb7W5GCHQUTYHwmBgYGhtVXV4dsvLkxgFTDYGD5leVR229v92RgYGBgfPftnYDWNK3rL768kCDXQAYGBgZ5fvmHV7KuaDO/NXs7+dCjQ0RHBC7w8edHgW+/v3ExinSJvHrz7Y0opQYyMDAwiHGLvWSK0Y1ZysLI8oeNme0XGzPbL1YmVhj+jYxZmFiw4T8wzMrE+ivXLHcyAOYX+EkJeBCMAAAAAElFTkSuQmCC"
+                                : `<img
+                              src="https://i.ibb.co/JsqKWHm/7.png"
                               width="20"
-                              height="16"
-                            /> `
-                              }
+                              height="16" />`
+                            }
                               </span
                             ><br />
-                            <span
-                              class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                              >OWNED</span
-                            >
-                          </div>
-                          <div
-                            class="main_page4_first_one_one_main_one_chart_bar_other_rate"
+                          <span
+                            class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
+                            >RENTAL</span
                           >
-                            <span
-                              class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                              >${rental_share_apa_growth.toFixed(1)}%
-                             ${
-                               rental_share_apa_growth < 0
-                                 ? `<img
-                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABpUlEQVQ4jWP8Nn999c/5G+oY/jMwMiADVB4DAwPDf1R5RlTxf/+Z2IJdpjB+8M56+f/9JzEM7WQARgHe10ysrpbLqGEYAwMDA6ut0UbGf1+/83yKqbjy/+VbeYpcJ8T/nHdZpxYTIxfHF67ShExKXcdZFJfLxMv9gYmBgYGB1dJgOyVeZ7E12sDmaLaWgYGBgfH/f2gkvf8k+jmq/Pr/T1+ESTKNm/Mj39JOLSZRwWcMDAwMTDBxJkG+1xy5UUWkuo4zK6IcZhiKgQwMDAxsnjaLWEy0dxNrGLO++iE2f8dZyGIoBjIyMjJwliVlMHCwfSVoGhvrD67ypDRGRkaUBM+Ero5ZWuweR3JQAyHzOBL8m5nlpW6ii2MYyMDAwMAe7tHPrKZwFpdhTMqyl9ijvbuxymETZGRm/stZkZzKwMz0B1MH41+uiuQURhaW30QbyMDAwMCirnCePcKzD12cLdRtEouW8mlc+uDpEBv4/+Mn5+e4qkv/nr5SYWBgYGCUFLnPt7hdl5GTA3ek/f//Hy/+de6a3Xv3tHcffLOf/Tp7zZ6QegDtJaSx3DtD8QAAAABJRU5ErkJgggAA"
-                             width="20"
-                             height="16" />`
-                                 : `<img
-                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB3UlEQVQ4jWP4//8/Az584P4Be4keiWeCHYJvD9w/YEdIPeP///8ZcIEvv75w607XvfzgwwNFBgYGBmVB5TuXMi/pcbFyfcelhwmnaQwMDLX7apthhjEwMDDcfX9XpfFgYz0+PThdeOrpKTPLuZbH/v3/x4wszsLE8udUyilTQ0nDC0S78Pff36wpm1JmoxvGwMDA8OffH5bUzalz/vz7gyGH08Cuo11ll19d1sPqdAYGhrPPzxpPODGhAJschpdvvLmhbjDD4MLPvz85cBnIwMDAwMXK9fVy5mVdJUGl+zhd+O//P8a0zWmzCBnGwMDA8O33N+6MLRkz0B2EYuCss7PSDj86bEfIMBjYfW+326KLi+KQxeBefvrpqZTWNK1rn35+4ifWQAYGBgZhTuE317KvaYlxi71GcWH2tuyppBrGwMDA8Pb7W5GCHQUTYHwmBgYGhtVXV4dsvLkxgFTDYGD5leVR229v92RgYGBgfPftnYDWNK3rL768kCDXQAYGBgZ5fvmHV7KuaDO/NXs7+dCjQ0RHBC7w8edHgW+/v3ExinSJvHrz7Y0opQYyMDAwiHGLvWSK0Y1ZysLI8oeNme0XGzPbL1YmVhj+jYxZmFiw4T8wzMrE+ivXLHcyAOYX+EkJeBCMAAAAAElFTkSuQmCC"
-                             width="20"
-                             height="16"
-                           /> `
-                             } </span
-                            ><br />
-                            <span
-                              class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                              >RENTAL</span
-                            >
-                          </div>
                         </div>
                       </div>
                     </div>
-                    <div class="main_page3_first_one_break"></div>
-                    <div class="main_page4_first_one_one_main_one">
-                      <div
-                        class="main_page4_first_one_one_main_one_head fw-light ls-1"
-                      >
-                        TYPE OF BEDROOM
+                  </div>
+                  <div class="main_page4_first_one_one">
+                    <div class="main_third_line main_third_line_new"></div>
+        
+                    <div
+                      class="main_page4_first_one_one_main_one_head mb-4 ls-2 text-2xl mt-1"
+                    >
+                      HISTORICAL RENTAL STOCK
+                    </div>
+                    <div
+                      class="main_page4_first_one_one_main main_page4_first_one_one_main_pluse_growth"
+                    >
+                      <div class="main_page4_first_one_one_main_one">
+                        <div class="main_page4_first_one_one_main_one_chart">
+                          <canvas
+                            id="main_page4_first_one_one_main_one_chart13"
+                            style="min-width: 450px"
+                          ></canvas>
+                        </div>
                       </div>
-                      <div class="main_page4_first_one_one_main_one_chart">
-                        <canvas
-                          id="main_page4_first_one_one_main_one_chart14"
-                        ></canvas>
+                      <div
+                        class="main_page4_first_one_one_main_one_chart_bar_other ml-2"
+                      >
+                        <div
+                          class="main_page4_first_one_one_main_one_chart_bar_other_head"
+                        >
+                          GROWTH RATE
+                        </div>
+                        <div
+                          class="main_page4_first_one_one_main_one_chart_bar_other_rate"
+                        >
+                          <span
+                            class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
+                            > ${historical_rental_stock_row_growth.toFixed(1)}%
+                            ${
+                              historical_rental_stock_row_growth < 0
+                                ? `<img
+                              src="https://i.ibb.co/hgwPPJd/8.png"
+                              width="20"
+                              height="16" />`
+                                : `<img
+                              src="https://i.ibb.co/JsqKWHm/7.png"
+                              width="20"
+                              height="16" />`
+                            }
+                              </span
+                          ><br />
+                          <span
+                            class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
+                            >RENTAL</span
+                          >
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-      
-                <div class="main_page4_first_one_one">
-                  <div class="main_page3_third mb-2">
-                    <div class="main_page3_first_one_txt text-2xl" style="margin-top:3px">
-                      NEW UNITS ADDED
-                    </div>
-                    <div
-                      class="main_page3_first_one_main_head_sub_two ml-2"
-                      style="padding: 4px 12px; letter-spacing: 3px"
-                    >
-                    ${numberWithCommas(rowTotalAdded)}
-                    </div>
-                  </div>
-                  <div class="main_page4_first_one_one_main">
-                    <div class="main_page4_first_one_one_main_one">
-                      <div
-                        class="main_page4_first_one_one_main_one_head fw-light ls-1"
-                      >
-                        OWNED / RENTAL SHARE
+                <div class="main_third_line main_third_line_new"></div>
+                <div class="main_page4_first_one">
+                  <div class="main_page4_first_one_one">
+                    <div class="main_page3_third mb-2">
+                      <div class="main_page3_first_one_txt text-2xl" style="margin-top:3px">
+                        NEW UNITS ADDED
                       </div>
-      
-                      <br />
-                      <div class="main_page4_first_one_one_main_one_chart">
-                        <div class="main_page4_first_one_one_main_one_chart_bar">
-                          <div
-                            class="main_page4_first_one_one_main_one_chart_bar_big"
-                          >
-                          ${owner_share_row.toFixed(1)}% <br />
-                            OWNED
-                          </div>
-                          <div
-                            class="main_page4_first_one_one_main_one_chart_bar_small"
-                          >
-                          ${rental_share_row.toFixed(1)}% <br />
-                            RENTAL
-                          </div>
-                        </div>
+                      <div
+                        class="main_page3_first_one_main_head_sub_two ml-2"
+                        style="padding: 4px 12px; letter-spacing: 3px"
+                      >
+                        ${numberWithCommas(apartmentTotalAdded)}
+                      </div>
+                    </div>
+                    <div class="main_page4_first_one_one_main">
+                      <div class="main_page4_first_one_one_main_one">
                         <div
-                          class="main_page4_first_one_one_main_one_chart_bar_other"
+                          class="main_page4_first_one_one_main_one_head fw-light ls-1"
                         >
-                          <div
-                            class="main_page4_first_one_one_main_one_chart_bar_other_head"
-                          >
-                            GROWTH RATE
+                          OWNED / RENTAL SHARE
+                        </div>
+                        <br />
+      
+                        <div class="main_page4_first_one_one_main_one_chart mr-2">
+                          <div class="main_page4_first_one_one_main_one_chart_bar">
+                            <div
+                              class="main_page4_first_one_one_main_one_chart_bar_big"
+                            >
+                              ${owner_share_apa.toFixed(1)}% <br />
+                              OWNED
+                            </div>
+                            <div
+                              class="main_page4_first_one_one_main_one_chart_bar_small"
+                            >
+                              ${rental_share_apa.toFixed(1)}% <br />
+                              RENTAL
+                            </div>
                           </div>
                           <div
-                            class="main_page4_first_one_one_main_one_chart_bar_other_rate"
+                            class="main_page4_first_one_one_main_one_chart_bar_other"
                           >
-                            <span
-                              class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                              >${owned_share_row_growth.toFixed(1)}%
+                            <div
+                              class="main_page4_first_one_one_main_one_chart_bar_other_head"
+                            >
+                              GROWTH RATE
+                            </div>
+                            <div
+                              class="main_page4_first_one_one_main_one_chart_bar_other_rate"
+                            >
+                              <span
+                                class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
+                                >${owned_share_apa_growth.toFixed(1)}%
+                                ${
+                                  owned_share_apa_growth < 0
+                                    ? `<img
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABpUlEQVQ4jWP8Nn999c/5G+oY/jMwMiADVB4DAwPDf1R5RlTxf/+Z2IJdpjB+8M56+f/9JzEM7WQARgHe10ysrpbLqGEYAwMDA6ut0UbGf1+/83yKqbjy/+VbeYpcJ8T/nHdZpxYTIxfHF67ShExKXcdZFJfLxMv9gYmBgYGB1dJgOyVeZ7E12sDmaLaWgYGBgfH/f2gkvf8k+jmq/Pr/T1+ESTKNm/Mj39JOLSZRwWcMDAwMTDBxJkG+1xy5UUWkuo4zK6IcZhiKgQwMDAxsnjaLWEy0dxNrGLO++iE2f8dZyGIoBjIyMjJwliVlMHCwfSVoGhvrD67ypDRGRkaUBM+Ero5ZWuweR3JQAyHzOBL8m5nlpW6ii2MYyMDAwMAe7tHPrKZwFpdhTMqyl9ijvbuxymETZGRm/stZkZzKwMz0B1MH41+uiuQURhaW30QbyMDAwMCirnCePcKzD12cLdRtEouW8mlc+uDpEBv4/+Mn5+e4qkv/nr5SYWBgYGCUFLnPt7hdl5GTA3ek/f//Hy/+de6a3Xv3tHcffLOf/Tp7zZ6QegDtJaSx3DtD8QAAAABJRU5ErkJgggAA"
+                                width="20"
+                                height="16" />`
+                                    : `<img
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB3UlEQVQ4jWP4//8/Az584P4Be4keiWeCHYJvD9w/YEdIPeP///8ZcIEvv75w607XvfzgwwNFBgYGBmVB5TuXMi/pcbFyfcelhwmnaQwMDLX7apthhjEwMDDcfX9XpfFgYz0+PThdeOrpKTPLuZbH/v3/x4wszsLE8udUyilTQ0nDC0S78Pff36wpm1JmoxvGwMDA8OffH5bUzalz/vz7gyGH08Cuo11ll19d1sPqdAYGhrPPzxpPODGhAJschpdvvLmhbjDD4MLPvz85cBnIwMDAwMXK9fVy5mVdJUGl+zhd+O//P8a0zWmzCBnGwMDA8O33N+6MLRkz0B2EYuCss7PSDj86bEfIMBjYfW+326KLi+KQxeBefvrpqZTWNK1rn35+4ifWQAYGBgZhTuE317KvaYlxi71GcWH2tuyppBrGwMDA8Pb7W5GCHQUTYHwmBgYGhtVXV4dsvLkxgFTDYGD5leVR229v92RgYGBgfPftnYDWNK3rL768kCDXQAYGBgZ5fvmHV7KuaDO/NXs7+dCjQ0RHBC7w8edHgW+/v3ExinSJvHrz7Y0opQYyMDAwiHGLvWSK0Y1ZysLI8oeNme0XGzPbL1YmVhj+jYxZmFiw4T8wzMrE+ivXLHcyAOYX+EkJeBCMAAAAAElFTkSuQmCC"
+                                width="20"
+                                height="16"
+                              /> `
+                                }
+                                </span
+                              ><br />
+                              <span
+                                class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
+                                >OWNED</span
+                              >
+                            </div>
+                            <div
+                              class="main_page4_first_one_one_main_one_chart_bar_other_rate"
+                            >
+                              <span
+                                class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
+                                >${rental_share_apa_growth.toFixed(1)}%
                               ${
-                                owned_share_row_growth < 0
+                                rental_share_apa_growth < 0
                                   ? `<img
                               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABpUlEQVQ4jWP8Nn999c/5G+oY/jMwMiADVB4DAwPDf1R5RlTxf/+Z2IJdpjB+8M56+f/9JzEM7WQARgHe10ysrpbLqGEYAwMDA6ut0UbGf1+/83yKqbjy/+VbeYpcJ8T/nHdZpxYTIxfHF67ShExKXcdZFJfLxMv9gYmBgYGB1dJgOyVeZ7E12sDmaLaWgYGBgfH/f2gkvf8k+jmq/Pr/T1+ESTKNm/Mj39JOLSZRwWcMDAwMTDBxJkG+1xy5UUWkuo4zK6IcZhiKgQwMDAxsnjaLWEy0dxNrGLO++iE2f8dZyGIoBjIyMjJwliVlMHCwfSVoGhvrD67ypDRGRkaUBM+Ero5ZWuweR3JQAyHzOBL8m5nlpW6ii2MYyMDAwMAe7tHPrKZwFpdhTMqyl9ijvbuxymETZGRm/stZkZzKwMz0B1MH41+uiuQURhaW30QbyMDAwMCirnCePcKzD12cLdRtEouW8mlc+uDpEBv4/+Mn5+e4qkv/nr5SYWBgYGCUFLnPt7hdl5GTA3ek/f//Hy/+de6a3Xv3tHcffLOf/Tp7zZ6QegDtJaSx3DtD8QAAAABJRU5ErkJgggAA"
                               width="20"
@@ -2518,867 +2431,621 @@ module.exports = {
                               height="16"
                             /> `
                               } </span
-                            ><br />
-                            <span
-                              class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                              >OWNED</span
+                              ><br />
+                              <span
+                                class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
+                                >RENTAL</span
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="main_page3_first_one_break"></div>
+                      <div class="main_page4_first_one_one_main_one">
+                        <div
+                          class="main_page4_first_one_one_main_one_head fw-light ls-1"
+                        >
+                          TYPE OF BEDROOM
+                        </div>
+                        <div class="main_page4_first_one_one_main_one_chart">
+                          <canvas
+                            id="main_page4_first_one_one_main_one_chart14"
+                          ></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="main_page4_first_one_one">
+                    <div class="main_page3_third mb-2">
+                      <div class="main_page3_first_one_txt text-2xl" style="margin-top:3px">
+                        NEW UNITS ADDED
+                      </div>
+                      <div
+                        class="main_page3_first_one_main_head_sub_two ml-2"
+                        style="padding: 4px 12px; letter-spacing: 3px"
+                      >
+                      ${numberWithCommas(rowTotalAdded)}
+                      </div>
+                    </div>
+                    <div class="main_page4_first_one_one_main">
+                      <div class="main_page4_first_one_one_main_one">
+                        <div
+                          class="main_page4_first_one_one_main_one_head fw-light ls-1"
+                        >
+                          OWNED / RENTAL SHARE
+                        </div>
+        
+                        <br />
+                        <div class="main_page4_first_one_one_main_one_chart">
+                          <div class="main_page4_first_one_one_main_one_chart_bar">
+                            <div
+                              class="main_page4_first_one_one_main_one_chart_bar_big"
                             >
+                            ${owner_share_row.toFixed(1)}% <br />
+                              OWNED
+                            </div>
+                            <div
+                              class="main_page4_first_one_one_main_one_chart_bar_small"
+                            >
+                            ${rental_share_row.toFixed(1)}% <br />
+                              RENTAL
+                            </div>
                           </div>
                           <div
-                            class="main_page4_first_one_one_main_one_chart_bar_other_rate"
+                            class="main_page4_first_one_one_main_one_chart_bar_other"
                           >
-                            <span
-                              class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
-                              >${rental_share_row_growth.toFixed(1)}%
-                              ${
-                                rental_share_row_growth < 0
-                                  ? `<img
-                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABpUlEQVQ4jWP8Nn999c/5G+oY/jMwMiADVB4DAwPDf1R5RlTxf/+Z2IJdpjB+8M56+f/9JzEM7WQARgHe10ysrpbLqGEYAwMDA6ut0UbGf1+/83yKqbjy/+VbeYpcJ8T/nHdZpxYTIxfHF67ShExKXcdZFJfLxMv9gYmBgYGB1dJgOyVeZ7E12sDmaLaWgYGBgfH/f2gkvf8k+jmq/Pr/T1+ESTKNm/Mj39JOLSZRwWcMDAwMTDBxJkG+1xy5UUWkuo4zK6IcZhiKgQwMDAxsnjaLWEy0dxNrGLO++iE2f8dZyGIoBjIyMjJwliVlMHCwfSVoGhvrD67ypDRGRkaUBM+Ero5ZWuweR3JQAyHzOBL8m5nlpW6ii2MYyMDAwMAe7tHPrKZwFpdhTMqyl9ijvbuxymETZGRm/stZkZzKwMz0B1MH41+uiuQURhaW30QbyMDAwMCirnCePcKzD12cLdRtEouW8mlc+uDpEBv4/+Mn5+e4qkv/nr5SYWBgYGCUFLnPt7hdl5GTA3ek/f//Hy/+de6a3Xv3tHcffLOf/Tp7zZ6QegDtJaSx3DtD8QAAAABJRU5ErkJgggAA"
-                              width="20"
-                              height="16" />`
-                                  : `<img
-                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB3UlEQVQ4jWP4//8/Az584P4Be4keiWeCHYJvD9w/YEdIPeP///8ZcIEvv75w607XvfzgwwNFBgYGBmVB5TuXMi/pcbFyfcelhwmnaQwMDLX7apthhjEwMDDcfX9XpfFgYz0+PThdeOrpKTPLuZbH/v3/x4wszsLE8udUyilTQ0nDC0S78Pff36wpm1JmoxvGwMDA8OffH5bUzalz/vz7gyGH08Cuo11ll19d1sPqdAYGhrPPzxpPODGhAJschpdvvLmhbjDD4MLPvz85cBnIwMDAwMXK9fVy5mVdJUGl+zhd+O//P8a0zWmzCBnGwMDA8O33N+6MLRkz0B2EYuCss7PSDj86bEfIMBjYfW+326KLi+KQxeBefvrpqZTWNK1rn35+4ifWQAYGBgZhTuE317KvaYlxi71GcWH2tuyppBrGwMDA8Pb7W5GCHQUTYHwmBgYGhtVXV4dsvLkxgFTDYGD5leVR229v92RgYGBgfPftnYDWNK3rL768kCDXQAYGBgZ5fvmHV7KuaDO/NXs7+dCjQ0RHBC7w8edHgW+/v3ExinSJvHrz7Y0opQYyMDAwiHGLvWSK0Y1ZysLI8oeNme0XGzPbL1YmVhj+jYxZmFiw4T8wzMrE+ivXLHcyAOYX+EkJeBCMAAAAAElFTkSuQmCC"
-                              width="20"
-                              height="16"
-                            /> `
-                              }</span
-                            ><br />
-                            <span
-                              class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
-                              >RENTAL</span
+                            <div
+                              class="main_page4_first_one_one_main_one_chart_bar_other_head"
                             >
+                              GROWTH RATE
+                            </div>
+                            <div
+                              class="main_page4_first_one_one_main_one_chart_bar_other_rate"
+                            >
+                              <span
+                                class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
+                                >${owned_share_row_growth.toFixed(1)}%
+                                ${
+                                  owned_share_row_growth < 0
+                                    ? `<img
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABpUlEQVQ4jWP8Nn999c/5G+oY/jMwMiADVB4DAwPDf1R5RlTxf/+Z2IJdpjB+8M56+f/9JzEM7WQARgHe10ysrpbLqGEYAwMDA6ut0UbGf1+/83yKqbjy/+VbeYpcJ8T/nHdZpxYTIxfHF67ShExKXcdZFJfLxMv9gYmBgYGB1dJgOyVeZ7E12sDmaLaWgYGBgfH/f2gkvf8k+jmq/Pr/T1+ESTKNm/Mj39JOLSZRwWcMDAwMTDBxJkG+1xy5UUWkuo4zK6IcZhiKgQwMDAxsnjaLWEy0dxNrGLO++iE2f8dZyGIoBjIyMjJwliVlMHCwfSVoGhvrD67ypDRGRkaUBM+Ero5ZWuweR3JQAyHzOBL8m5nlpW6ii2MYyMDAwMAe7tHPrKZwFpdhTMqyl9ijvbuxymETZGRm/stZkZzKwMz0B1MH41+uiuQURhaW30QbyMDAwMCirnCePcKzD12cLdRtEouW8mlc+uDpEBv4/+Mn5+e4qkv/nr5SYWBgYGCUFLnPt7hdl5GTA3ek/f//Hy/+de6a3Xv3tHcffLOf/Tp7zZ6QegDtJaSx3DtD8QAAAABJRU5ErkJgggAA"
+                                width="20"
+                                height="16" />`
+                                    : `<img
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB3UlEQVQ4jWP4//8/Az584P4Be4keiWeCHYJvD9w/YEdIPeP///8ZcIEvv75w607XvfzgwwNFBgYGBmVB5TuXMi/pcbFyfcelhwmnaQwMDLX7apthhjEwMDDcfX9XpfFgYz0+PThdeOrpKTPLuZbH/v3/x4wszsLE8udUyilTQ0nDC0S78Pff36wpm1JmoxvGwMDA8OffH5bUzalz/vz7gyGH08Cuo11ll19d1sPqdAYGhrPPzxpPODGhAJschpdvvLmhbjDD4MLPvz85cBnIwMDAwMXK9fVy5mVdJUGl+zhd+O//P8a0zWmzCBnGwMDA8O33N+6MLRkz0B2EYuCss7PSDj86bEfIMBjYfW+326KLi+KQxeBefvrpqZTWNK1rn35+4ifWQAYGBgZhTuE317KvaYlxi71GcWH2tuyppBrGwMDA8Pb7W5GCHQUTYHwmBgYGhtVXV4dsvLkxgFTDYGD5leVR229v92RgYGBgfPftnYDWNK3rL768kCDXQAYGBgZ5fvmHV7KuaDO/NXs7+dCjQ0RHBC7w8edHgW+/v3ExinSJvHrz7Y0opQYyMDAwiHGLvWSK0Y1ZysLI8oeNme0XGzPbL1YmVhj+jYxZmFiw4T8wzMrE+ivXLHcyAOYX+EkJeBCMAAAAAElFTkSuQmCC"
+                                width="20"
+                                height="16"
+                              /> `
+                                } </span
+                              ><br />
+                              <span
+                                class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
+                                >OWNED</span
+                              >
+                            </div>
+                            <div
+                              class="main_page4_first_one_one_main_one_chart_bar_other_rate"
+                            >
+                              <span
+                                class="main_page4_first_one_one_main_one_chart_bar_other_rate_num"
+                                >${rental_share_row_growth.toFixed(1)}%
+                                ${
+                                  rental_share_row_growth < 0
+                                    ? `<img
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABpUlEQVQ4jWP8Nn999c/5G+oY/jMwMiADVB4DAwPDf1R5RlTxf/+Z2IJdpjB+8M56+f/9JzEM7WQARgHe10ysrpbLqGEYAwMDA6ut0UbGf1+/83yKqbjy/+VbeYpcJ8T/nHdZpxYTIxfHF67ShExKXcdZFJfLxMv9gYmBgYGB1dJgOyVeZ7E12sDmaLaWgYGBgfH/f2gkvf8k+jmq/Pr/T1+ESTKNm/Mj39JOLSZRwWcMDAwMTDBxJkG+1xy5UUWkuo4zK6IcZhiKgQwMDAxsnjaLWEy0dxNrGLO++iE2f8dZyGIoBjIyMjJwliVlMHCwfSVoGhvrD67ypDRGRkaUBM+Ero5ZWuweR3JQAyHzOBL8m5nlpW6ii2MYyMDAwMAe7tHPrKZwFpdhTMqyl9ijvbuxymETZGRm/stZkZzKwMz0B1MH41+uiuQURhaW30QbyMDAwMCirnCePcKzD12cLdRtEouW8mlc+uDpEBv4/+Mn5+e4qkv/nr5SYWBgYGCUFLnPt7hdl5GTA3ek/f//Hy/+de6a3Xv3tHcffLOf/Tp7zZ6QegDtJaSx3DtD8QAAAABJRU5ErkJgggAA"
+                                width="20"
+                                height="16" />`
+                                    : `<img
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB3UlEQVQ4jWP4//8/Az584P4Be4keiWeCHYJvD9w/YEdIPeP///8ZcIEvv75w607XvfzgwwNFBgYGBmVB5TuXMi/pcbFyfcelhwmnaQwMDLX7apthhjEwMDDcfX9XpfFgYz0+PThdeOrpKTPLuZbH/v3/x4wszsLE8udUyilTQ0nDC0S78Pff36wpm1JmoxvGwMDA8OffH5bUzalz/vz7gyGH08Cuo11ll19d1sPqdAYGhrPPzxpPODGhAJschpdvvLmhbjDD4MLPvz85cBnIwMDAwMXK9fVy5mVdJUGl+zhd+O//P8a0zWmzCBnGwMDA8O33N+6MLRkz0B2EYuCss7PSDj86bEfIMBjYfW+326KLi+KQxeBefvrpqZTWNK1rn35+4ifWQAYGBgZhTuE317KvaYlxi71GcWH2tuyppBrGwMDA8Pb7W5GCHQUTYHwmBgYGhtVXV4dsvLkxgFTDYGD5leVR229v92RgYGBgfPftnYDWNK3rL768kCDXQAYGBgZ5fvmHV7KuaDO/NXs7+dCjQ0RHBC7w8edHgW+/v3ExinSJvHrz7Y0opQYyMDAwiHGLvWSK0Y1ZysLI8oeNme0XGzPbL1YmVhj+jYxZmFiw4T8wzMrE+ivXLHcyAOYX+EkJeBCMAAAAAElFTkSuQmCC"
+                                width="20"
+                                height="16"
+                              /> `
+                                }</span
+                              ><br />
+                              <span
+                                class="main_page4_first_one_one_main_one_chart_bar_other_rate_who"
+                                >RENTAL</span
+                              >
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="main_page3_first_one_break"></div>
-                    <div class="main_page4_first_one_one_main_one">
-                      <div
-                        class="main_page4_first_one_one_main_one_head fw-light ls-1"
-                      >
-                        TYPE OF BEDROOM
-                      </div>
-                      <div class="main_page4_first_one_one_main_one_chart">
-                        <canvas
-                          id="main_page4_first_one_one_main_one_chart15"
-                        ></canvas>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="main_third_line"></div>
-              <div class="main_page4_first_one">
-                <div class="main_page4_first_one_one">
-                  <div class="main_page3_first_one_txt text-2xl mb-4 mt-1">
-                    RENTAL UNITS OVERVIEW
-                  </div>
-                  <div class="main_page3_third">
-                    <div class="main_page3_first_one_txt ls-2 text-md">
-                      TOTAL RENTAL STOCK
-                    </div>
-                    <div
-                      class="main_page3_first_one_main_head_sub_two ml-2 text-md"
-                      style="padding: 8px 12px; letter-spacing: 3px;margin-top:-10px"
-                    >
-                      ${numberWithCommas(
-                        total_current_affordable_houses_apa +
-                          total_current_unaffordable_houses_apa
-                      )}
-                    </div>
-                    <div
-                      class="main_page3_first_one_main_head_sub_two ml-2 text-md"
-                      style="
-                        padding: 8px 12px;
-                        margin-top: -10px;
-                        letter-spacing: 3px;
-                        background-color: brown;
-                        border-radius: 18px;
-                      "
-                    >
-                        100%
-                    </div>
-                  </div>
-                  <div class="main_page4_first_one_one_main">
-                    <div class="main_page4_first_one_one_main_one">
-                      <div class="main_page4_first_one_one_main_one_chart mt-2">
-                        <p
-                          style="
-                            margin-right: -15px;
-                            letter-spacing: 1px;
-                            font-size: large;
-                          "
-                        >
-                          AFFORDABLE:${total_current_affordable_houses_apa}
-                        </p>
-                        <canvas
-                          id="main_page4_first_one_one_main_one_chart34"
-                        ></canvas>
-                        <p
-                          style="
-                            margin-left: -15px;
-                            letter-spacing: 1px;
-                            font-size: large;
-                            margin-top: auto;
-                          "
-                        >
-                          UNAFFORDABLE:${total_current_unaffordable_houses_apa}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="main_page4_first_one_one">
-                  <div class="main_page3_first_one_txt text-2xl mb-4 mt-1">
-                    RENTAL UNITS OVERVIEW
-                  </div>
-                  <div class="main_page3_third mb-2 text-md">
-                    <div class="main_page3_first_one_txt ls-2 text-md">
-                      TOTAL RENTAL STOCK
-                    </div>
-                    <div
-                      class="main_page3_first_one_main_head_sub_two ml-2 text-md"
-                      style="padding: 8px 12px; letter-spacing: 3px;margin-top:-10px"
-                    >
-                    ${numberWithCommas(
-                      total_current_affordable_houses_row +
-                        total_current_unaffordable_houses_row
-                    )}
-                    </div>
-                    <div
-                      class="main_page3_first_one_main_head_sub_two ml-2 text-md"
-                      style="
-                        padding:  8px 12px;
-                        margin-top: -10px;
-                        letter-spacing: 3px;
-                        background-color: brown;
-                        border-radius: 18px;
-                      "
-                    >
-                   100%
-                    </div>
-                  </div>
-                  <div class="main_page4_first_one_one_main">
-                    <div class="main_page4_first_one_one_main_one">
-                      <div class="main_page4_first_one_one_main_one_chart">
-                        <p
-                          style="
-                            margin-right: -15px;
-                            letter-spacing: 1px;
-                            font-size: large;
-                          "
-                        >
-                          AFFORDABLE:${total_current_affordable_houses_row}
-                        </p>
-                        <canvas
-                          id="main_page4_first_one_one_main_one_chart33"
-                        ></canvas>
-                        <p
-                          style="
-                            margin-left: -15px;
-                            letter-spacing: 1px;
-                            font-size: large;
-                            margin-top: auto;
-                          "
-                        >
-                          UNAFFORDABLE:${total_current_unaffordable_houses_row}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <br />
-              <!-- INSET HERE -->
-      
-              <div class="main_page3_first">
-                <div class="main_page3_first_second_one">
-                  <div class="main_third_line main_third_line_new bg-black"></div>
-                  <div class="main_page3_first_one_txt ls-2 ws-2 text-xl">
-                    AVAILABLE RENTAL STOCK
-                  </div>
-                  <div class="main_page4_first_one_content">
-                    <div class="main_page3_first_one_content_one">
-                      <div class="main_page3_first_one_content_one_buttons">
+                      <div class="main_page3_first_one_break"></div>
+                      <div class="main_page4_first_one_one_main_one">
                         <div
-                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
-                          style="height: 45px; width: 90px"
+                          class="main_page4_first_one_one_main_one_head fw-light ls-1"
                         >
-                          <span
-                            style="
-                              font-size: 34px;
-                              margin-right: 0px !important;
-                              padding: 5px;
-                            "
-                          >
-                            ${total_current_affordable_houses_available_apa}
-                          </span>
+                          TYPE OF BEDROOM
                         </div>
-                        <div
-                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                          style="width: 40px"
-                        >
-                          <span
+                        <div class="main_page4_first_one_one_main_one_chart">
+                          <canvas
+                            id="main_page4_first_one_one_main_one_chart15"
+                          ></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="main_third_line"></div>
+                <div class="main_page4_first_one">
+                  <div class="main_page4_first_one_one">
+                    <div class="main_page3_first_one_txt text-2xl mb-4 mt-1">
+                      RENTAL UNITS OVERVIEW
+                    </div>
+                    <div class="main_page3_third">
+                      <div class="main_page3_first_one_txt ls-2 text-md">
+                        TOTAL RENTAL STOCK
+                      </div>
+                      <div
+                        class="main_page3_first_one_main_head_sub_two ml-2 text-md"
+                        style="padding: 8px 12px; letter-spacing: 3px;margin-top:-10px"
+                      >
+                        ${numberWithCommas(
+                          total_current_affordable_houses_apa +
+                            total_current_unaffordable_houses_apa
+                        )}
+                      </div>
+                      <div
+                        class="main_page3_first_one_main_head_sub_two ml-2 text-md"
+                        style="
+                          padding: 8px 12px;
+                          margin-top: -10px;
+                          letter-spacing: 3px;
+                          background-color: brown;
+                          border-radius: 18px;
+                        "
+                      >
+                          100%
+                      </div>
+                    </div>
+                    <div class="main_page4_first_one_one_main">
+                      <div class="main_page4_first_one_one_main_one">
+                        <div class="main_page4_first_one_one_main_one_chart mt-2">
+                          <p
                             style="
-                            font-size: 14px;
-                            margin-right: -5px !important;
-                            padding: 5px;
-                            font-weight:600;
+                              margin-right: -15px;
+                              letter-spacing: 1px;
+                              font-size: large;
                             "
                           >
+                            AFFORDABLE:${total_current_affordable_houses_apa}
+                          </p>
+                          <canvas
+                            id="main_page4_first_one_one_main_one_chart34"
+                          ></canvas>
+                          <p
+                            style="
+                              margin-left: -15px;
+                              letter-spacing: 1px;
+                              font-size: large;
+                              margin-top: auto;
+                            "
+                          >
+                            UNAFFORDABLE:${total_current_unaffordable_houses_apa}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main_page4_first_one_one">
+                    <div class="main_page3_first_one_txt text-2xl mb-4 mt-1">
+                      RENTAL UNITS OVERVIEW
+                    </div>
+                    <div class="main_page3_third mb-2 text-md">
+                      <div class="main_page3_first_one_txt ls-2 text-md">
+                        TOTAL RENTAL STOCK
+                      </div>
+                      <div
+                        class="main_page3_first_one_main_head_sub_two ml-2 text-md"
+                        style="padding: 8px 12px; letter-spacing: 3px;margin-top:-10px"
+                      >
+                      ${numberWithCommas(
+                        total_current_affordable_houses_row +
+                          total_current_unaffordable_houses_row
+                      )}
+                      </div>
+                      <div
+                        class="main_page3_first_one_main_head_sub_two ml-2 text-md"
+                        style="
+                          padding:  8px 12px;
+                          margin-top: -10px;
+                          letter-spacing: 3px;
+                          background-color: brown;
+                          border-radius: 18px;
+                        "
+                      >
+                    100%
+                      </div>
+                    </div>
+                    <div class="main_page4_first_one_one_main">
+                      <div class="main_page4_first_one_one_main_one">
+                        <div class="main_page4_first_one_one_main_one_chart">
+                          <p
+                            style="
+                              margin-right: -15px;
+                              letter-spacing: 1px;
+                              font-size: large;
+                            "
+                          >
+                            AFFORDABLE:${total_current_affordable_houses_row}
+                          </p>
+                          <canvas
+                            id="main_page4_first_one_one_main_one_chart33"
+                          ></canvas>
+                          <p
+                            style="
+                              margin-left: -15px;
+                              letter-spacing: 1px;
+                              font-size: large;
+                              margin-top: auto;
+                            "
+                          >
+                            UNAFFORDABLE:${total_current_unaffordable_houses_row}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="main_page3_first">
+                  <div class="main_page3_first_second_one">
+                    <div class="main_third_line main_third_line_new bg-black"></div>
+                    <div class="main_page3_first_one_txt ls-2 ws-2 text-xl">
+                      AVAILABLE RENTAL STOCK
+                    </div>
+                    <div class="main_page4_first_one_content">
+                      <div class="main_page3_first_one_content_one">
+                        <div class="main_page3_first_one_content_one_buttons">
+                          <div
+                            class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
+                            style="height: 45px; width: 90px"
+                          >
+                            <span
+                              style="
+                                font-size: 34px;
+                                margin-right: 0px !important;
+                                padding: 5px;
+                              "
+                            >
+                              ${total_current_affordable_houses_available_apa}
+                            </span>
+                          </div>
+                          <div
+                            class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
+                            style="width: 40px"
+                          >
+                            <span
+                              style="
+                              font-size: 14px;
+                              margin-right: -5px !important;
+                              padding: 5px;
+                              font-weight:600;
+                              "
+                            >
+                              ${
+                                Math.ceil(
+                                  total_current_affordable_houses_available_apa /
+                                    (total_current_affordable_houses_apa +
+                                      total_current_unaffordable_houses_apa)
+                                ) * 100
+                              }%
+                            </span>
+                          </div>
+                        </div>
+                        <p class="text-lg m-0">AFFORDABLE</p>
+                      </div>
+                      <div class="main_page3_first_one_content_one">
+                        <div class="main_page3_first_one_content_one_buttons">
+                          <div
+                            class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
+                            style="height: 45px; width: 90px"
+                          >
+                            <span
+                              style="
+                                font-size: 35px;
+                                margin-right: 0px !important;
+                                padding: 5px;
+                              "
+                            >
+                              ${total_current_unaffordable_houses_available_apa}
+                            </span>
+                          </div>
+                          <div
+                            class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
+                            style="width: 40px"
+                          >
+                            <span
+                              style="
+                              font-size: 14px;
+                              margin-right: -5px !important;
+                              padding: 5px;
+                              font-weight:600;
+                              "
+                            >
                             ${
                               Math.ceil(
-                                total_current_affordable_houses_available_apa /
+                                total_current_unaffordable_houses_available_apa /
                                   (total_current_affordable_houses_apa +
                                     total_current_unaffordable_houses_apa)
                               ) * 100
                             }%
-                          </span>
+                            </span>
+                          </div>
                         </div>
+                        <p class="text-lg m-0">UNAFFORDABLE</p>
                       </div>
-                      <p class="text-lg m-0">AFFORDABLE</p>
                     </div>
-                    <div class="main_page3_first_one_content_one">
-                      <div class="main_page3_first_one_content_one_buttons">
-                        <div
-                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
-                          style="height: 45px; width: 90px"
-                        >
-                          <span
-                            style="
-                              font-size: 35px;
-                              margin-right: 0px !important;
-                              padding: 5px;
-                            "
-                          >
-                            ${total_current_unaffordable_houses_available_apa}
-                          </span>
-                        </div>
-                        <div
-                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                          style="width: 40px"
-                        >
-                          <span
-                            style="
-                            font-size: 14px;
-                            margin-right: -5px !important;
-                            padding: 5px;
-                            font-weight:600;
-                            "
-                          >
-                          ${
-                            Math.ceil(
-                              total_current_unaffordable_houses_available_apa /
-                                (total_current_affordable_houses_apa +
-                                  total_current_unaffordable_houses_apa)
-                            ) * 100
-                          }%
-                          </span>
-                        </div>
-                      </div>
-                      <p class="text-lg m-0">UNAFFORDABLE</p>
+                    <div class="main_page3_first_one_content_one" style="font-size:7px">
+                      *AVAILABLE = VACANT
                     </div>
                   </div>
-                  <div class="main_page3_first_one_content_one" style="font-size:7px">
-                    *AVAILABLE = VACANT
-                  </div>
-                </div>
-                <div class="main_page3_first_second_one">
-                  <div class="main_third_line main_third_line_new bg-black"></div>
-                  <div class="main_page3_first_one_txt ls-2 ws-2 text-xl">
-                    AVAILABLE RENTAL STOCK
-                  </div>
-                  <div class="main_page4_first_one_content">
-                    <div class="main_page3_first_one_content_one">
-                      <div class="main_page3_first_one_content_one_buttons">
-                        <div
-                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
-                          style="height: 45px; width: 90px"
-                        >
-                          <span
-                            style="
-                              font-size: 35px;
-                              margin-right: 0px !important;
-                              padding: 5px;
-                            "
-                          >
-                          ${total_current_affordable_houses_available_row}
-                          </span>
-                        </div>
-                        <div
-                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                          style="width: 40px"
-                        >
-                          <span
-                            style="
-                            font-size: 14px;
-                            margin-right: -5px !important;
-                            padding: 5px;
-                            font-weight:600;
-                            "
-                          >
-                          ${Math.ceil(
-                            (total_current_affordable_houses_available_row /
-                              (total_current_affordable_houses_row +
-                                total_current_unaffordable_houses_row)) *
-                              100
-                          )}%
-                          </span>
-                        </div>
-                      </div>
-                      <p class="text-lg m-0">AFFORDABLE</p>
+                  <div class="main_page3_first_second_one">
+                    <div class="main_third_line main_third_line_new bg-black"></div>
+                    <div class="main_page3_first_one_txt ls-2 ws-2 text-xl">
+                      AVAILABLE RENTAL STOCK
                     </div>
-                    <div class="main_page3_first_one_content_one">
-                      <div class="main_page3_first_one_content_one_buttons">
-                        <div
-                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
-                          style="height: 45px; width: 90px"
-                        >
-                          <span
-                            style="
-                              font-size: 35px;
-                              margin-right: 0px !important;
-                              padding: 5px;
-                            "
+                    <div class="main_page4_first_one_content">
+                      <div class="main_page3_first_one_content_one">
+                        <div class="main_page3_first_one_content_one_buttons">
+                          <div
+                            class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
+                            style="height: 45px; width: 90px"
                           >
-                          ${total_current_unaffordable_houses_available_row}
-                          </span>
-                        </div>
-                        <div
-                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                          style="width: 40px"
-                        >
-                          <span
-                            style="
-                            font-size: 14px;
-                            margin-right: -5px !important;
-                            padding: 5px;
-                            font-weight:600;
-                            "
+                            <span
+                              style="
+                                font-size: 35px;
+                                margin-right: 0px !important;
+                                padding: 5px;
+                              "
+                            >
+                            ${total_current_affordable_houses_available_row}
+                            </span>
+                          </div>
+                          <div
+                            class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
+                            style="width: 40px"
                           >
-                          ${Math.ceil(
-                            (total_current_unaffordable_houses_available_row /
-                              (total_current_affordable_houses_row +
-                                total_current_unaffordable_houses_row)) *
-                              100
-                          )}%
-                          </span>
-                        </div>
-                      </div>
-                      <p class="text-lg m-0">UNAFFORDABLE</p>
-                    </div>
-                  </div>
-                  <div class="main_page3_first_one_content_one" style="font-size:7px">
-                    *AVAILABLE = VACANT
-                  </div>
-                </div>
-              </div>
-              <div class="main_page3_first">
-                <div class="main_page3_first_second_one">
-                  <div class="main_third_line main_third_line_new bg-black"></div>
-                  <div class="main_page3_first_one_txt ls-2 ws-2 text-xl">
-                    NEW UNITS CONSTRUCTED
-                  </div>
-                  <div class="main_page4_first_one_content">
-                    <div class="main_page3_first_one_content_one">
-                      <div class="main_page3_first_one_content_one_buttons">
-                        <div
-                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
-                          style="height: 45px; width: 90px"
-                        >
-                          <span
-                            style="
-                              font-size: 35px;
-                              margin-right: 0px !important;
-                              padding: 5px;
-                            "
-                          >
-                          ${total_current_affordable_houses_const_apa}
-                          </span>
-                        </div>
-                        <div
-                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                          style="width: 40px"
-                        >
-                          <span
-                            style="
-                            font-size: 14px;
-                            margin-right: -5px !important;
-                            padding: 5px;
-                            font-weight:600;
-                            "
-                          >
-                          ${Math.ceil(
-                            (total_current_affordable_houses_const_apa /
-                              (total_current_affordable_houses_apa +
-                                total_current_unaffordable_houses_apa)) *
-                              100
-                          )}%
-                          </span>
-                        </div>
-                      </div>
-                      <p class="text-lg m-0">AFFORDABLE</p>
-                    </div>
-                    <div class="main_page3_first_one_content_one">
-                      <div class="main_page3_first_one_content_one_buttons">
-                        <div
-                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
-                          style="height: 45px; width: 90px"
-                        >
-                          <span
-                            style="
-                              font-size: 35px;
-                              margin-right: 0px !important;
-                              padding: 5px;
-                            "
-                          >
-                          ${total_current_unaffordable_houses_const_apa}
-                          </span>
-                        </div>
-                        <div
-                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                          style="width: 40px"
-                        >
-                          <span
-                            style="
-                            font-size: 14px;
-                            margin-right: -5px !important;
-                            padding: 5px;
-                            font-weight:600;
-                            "
-                          >
-                          ${Math.ceil(
-                            (total_current_unaffordable_houses_const_apa /
-                              (total_current_affordable_houses_apa +
-                                total_current_unaffordable_houses_apa)) *
-                              100
-                          )}%
-                          </span>
-                        </div>
-                      </div>
-                      <p class="text-lg m-0">UNAFFORDABLE</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="main_page3_first_second_one">
-                  <div class="main_third_line main_third_line_new bg-black"></div>
-                  <div class="main_page3_first_one_txt ls-2 ws-2 text-xl">
-                    NEW UNITS CONSTRUCTED
-                  </div>
-                  <div class="main_page4_first_one_content">
-                    <div class="main_page3_first_one_content_one">
-                      <div class="main_page3_first_one_content_one_buttons">
-                        <div
-                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
-                          style="height: 45px; width: 90px"
-                        >
-                          <span
-                            style="
-                              font-size: 35px;
-                              margin-right: 0px !important;
-                              padding: 5px;
-                            "
-                          >
-                          ${total_current_affordable_houses_const_row}
-                          </span>
-                        </div>
-                        <div
-                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                          style="width: 40px"
-                        >
-                          <span
-                            style="
-                            font-size: 14px;
-                            margin-right: -5px !important;
-                            padding: 5px;
-                            font-weight:600;
-                            "
-                          >
-                          ${Math.ceil(
-                            (total_current_affordable_houses_const_row /
-                              (total_current_affordable_houses_row +
-                                total_current_unaffordable_houses_row)) *
-                              100
-                          )}%
-                          </span>
-                        </div>
-                      </div>
-                      <p class="text-lg m-0">AFFORDABLE</p>
-                    </div>
-                    <div class="main_page3_first_one_content_one">
-                      <div class="main_page3_first_one_content_one_buttons">
-                        <div
-                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
-                          style="height: 45px; width: 90px"
-                        >
-                          <span
-                            style="
-                              font-size: 37px;
-                              margin-right: 0px !important;
-                              padding: 5px;
-                            "
-                          >
-                          ${total_current_unaffordable_houses_const_row}
-                          </span>
-                        </div>
-                        <div
-                          class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
-                          style="width: 40px"
-                        >
-                          <span
-                            style="
-                              font-size: 16px;
+                            <span
+                              style="
+                              font-size: 14px;
                               margin-right: -5px !important;
                               padding: 5px;
                               font-weight:600;
-                            "
-                          >
-                          ${Math.ceil(
-                            (total_current_unaffordable_houses_const_row /
-                              (total_current_affordable_houses_row +
-                                total_current_unaffordable_houses_row)) *
-                              100
-                          )}%
-                          </span>
+                              "
+                            >
+                            ${Math.ceil(
+                              (total_current_affordable_houses_available_row /
+                                (total_current_affordable_houses_row +
+                                  total_current_unaffordable_houses_row)) *
+                                100
+                            )}%
+                            </span>
+                          </div>
                         </div>
+                        <p class="text-lg m-0">AFFORDABLE</p>
                       </div>
-                      <p class="text-lg m-0">UNAFFORDABLE</p>
+                      <div class="main_page3_first_one_content_one">
+                        <div class="main_page3_first_one_content_one_buttons">
+                          <div
+                            class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
+                            style="height: 45px; width: 90px"
+                          >
+                            <span
+                              style="
+                                font-size: 35px;
+                                margin-right: 0px !important;
+                                padding: 5px;
+                              "
+                            >
+                            ${total_current_unaffordable_houses_available_row}
+                            </span>
+                          </div>
+                          <div
+                            class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
+                            style="width: 40px"
+                          >
+                            <span
+                              style="
+                              font-size: 14px;
+                              margin-right: -5px !important;
+                              padding: 5px;
+                              font-weight:600;
+                              "
+                            >
+                            ${Math.ceil(
+                              (total_current_unaffordable_houses_available_row /
+                                (total_current_affordable_houses_row +
+                                  total_current_unaffordable_houses_row)) *
+                                100
+                            )}%
+                            </span>
+                          </div>
+                        </div>
+                        <p class="text-lg m-0">UNAFFORDABLE</p>
+                      </div>
+                    </div>
+                    <div class="main_page3_first_one_content_one" style="font-size:7px">
+                      *AVAILABLE = VACANT
+                    </div>
+                  </div>
+                </div>
+                <div class="main_page3_first">
+                  <div class="main_page3_first_second_one">
+                    <div class="main_third_line main_third_line_new bg-black"></div>
+                    <div class="main_page3_first_one_txt ls-2 ws-2 text-xl">
+                      NEW UNITS CONSTRUCTED
+                    </div>
+                    <div class="main_page4_first_one_content">
+                      <div class="main_page3_first_one_content_one">
+                        <div class="main_page3_first_one_content_one_buttons">
+                          <div
+                            class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
+                            style="height: 45px; width: 90px"
+                          >
+                            <span
+                              style="
+                                font-size: 35px;
+                                margin-right: 0px !important;
+                                padding: 5px;
+                              "
+                            >
+                            ${total_current_affordable_houses_const_apa}
+                            </span>
+                          </div>
+                          <div
+                            class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
+                            style="width: 40px"
+                          >
+                            <span
+                              style="
+                              font-size: 14px;
+                              margin-right: -5px !important;
+                              padding: 5px;
+                              font-weight:600;
+                              "
+                            >
+                            ${Math.ceil(
+                              (total_current_affordable_houses_const_apa /
+                                (total_current_affordable_houses_apa +
+                                  total_current_unaffordable_houses_apa)) *
+                                100
+                            )}%
+                            </span>
+                          </div>
+                        </div>
+                        <p class="text-lg m-0">AFFORDABLE</p>
+                      </div>
+                      <div class="main_page3_first_one_content_one">
+                        <div class="main_page3_first_one_content_one_buttons">
+                          <div
+                            class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
+                            style="height: 45px; width: 90px"
+                          >
+                            <span
+                              style="
+                                font-size: 35px;
+                                margin-right: 0px !important;
+                                padding: 5px;
+                              "
+                            >
+                            ${total_current_unaffordable_houses_const_apa}
+                            </span>
+                          </div>
+                          <div
+                            class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
+                            style="width: 40px"
+                          >
+                            <span
+                              style="
+                              font-size: 14px;
+                              margin-right: -5px !important;
+                              padding: 5px;
+                              font-weight:600;
+                              "
+                            >
+                            ${Math.ceil(
+                              (total_current_unaffordable_houses_const_apa /
+                                (total_current_affordable_houses_apa +
+                                  total_current_unaffordable_houses_apa)) *
+                                100
+                            )}%
+                            </span>
+                          </div>
+                        </div>
+                        <p class="text-lg m-0">UNAFFORDABLE</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main_page3_first_second_one">
+                    <div class="main_third_line main_third_line_new bg-black"></div>
+                    <div class="main_page3_first_one_txt ls-2 ws-2 text-xl">
+                      NEW UNITS CONSTRUCTED
+                    </div>
+                    <div class="main_page4_first_one_content">
+                      <div class="main_page3_first_one_content_one">
+                        <div class="main_page3_first_one_content_one_buttons">
+                          <div
+                            class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
+                            style="height: 45px; width: 90px"
+                          >
+                            <span
+                              style="
+                                font-size: 35px;
+                                margin-right: 0px !important;
+                                padding: 5px;
+                              "
+                            >
+                            ${total_current_affordable_houses_const_row}
+                            </span>
+                          </div>
+                          <div
+                            class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
+                            style="width: 40px"
+                          >
+                            <span
+                              style="
+                              font-size: 14px;
+                              margin-right: -5px !important;
+                              padding: 5px;
+                              font-weight:600;
+                              "
+                            >
+                            ${Math.ceil(
+                              (total_current_affordable_houses_const_row /
+                                (total_current_affordable_houses_row +
+                                  total_current_unaffordable_houses_row)) *
+                                100
+                            )}%
+                            </span>
+                          </div>
+                        </div>
+                        <p class="text-lg m-0">AFFORDABLE</p>
+                      </div>
+                      <div class="main_page3_first_one_content_one">
+                        <div class="main_page3_first_one_content_one_buttons">
+                          <div
+                            class="main_page3_first_one_content_one_buttons_button br-16 ls-1"
+                            style="height: 45px; width: 90px"
+                          >
+                            <span
+                              style="
+                                font-size: 37px;
+                                margin-right: 0px !important;
+                                padding: 5px;
+                              "
+                            >
+                            ${total_current_unaffordable_houses_const_row}
+                            </span>
+                          </div>
+                          <div
+                            class="main_page3_first_one_content_one_buttons_button br-16 ls-1 bg-brown"
+                            style="width: 40px"
+                          >
+                            <span
+                              style="
+                                font-size: 16px;
+                                margin-right: -5px !important;
+                                padding: 5px;
+                                font-weight:600;
+                              "
+                            >
+                            ${Math.ceil(
+                              (total_current_unaffordable_houses_const_row /
+                                (total_current_affordable_houses_row +
+                                  total_current_unaffordable_houses_row)) *
+                                100
+                            )}%
+                            </span>
+                          </div>
+                        </div>
+                        <p class="text-lg m-0">UNAFFORDABLE</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="main_float_line main_float_line2"></div>
-          </div>
-
-
-<!-- SEVENTH PAGE -->
-          <div style="height: ${height - 50}px;">
-          <div class="main_first" >
-            <div class="main_first_img" >
-              <img
-                src="https://i.ibb.co/v3ht5Zc/logo.png"
-                style="height: 100px; width: 105px;"
-                alt=""
-              />
-            </div>
-            <div class="main_first_text" style="margin-top: 20px">
-            <div class="main_first_text_tex1">${province.toUpperCase()} - ${geography.toUpperCase()}</div>
-              <div class="main_first_text_tex2">INCOME ANALYSIS</div>
-            </div>
-          </div>
-      
-          <div class="main_third" style="margin-top: 10px">
-            <span style="margin-left: 5rem" class="text-sm">
-              INCOME IS TAKEN ANUALLY
-            </span>
-            <div class="main_third_line"></div>
-          </div>
-          <h1
-            class="ls-2 mx-auto"
-            style="text-align: center; text-decoration: underline"
-          >
-            POPULATION BELOW & ABOVE OPTIMAL INCOME
-          </h1>
-          <p style="text-align: center; font-weight: 600" class="text-lg">
-            <span class="bg-yellow p-1 px-2" style="border-radius: 5px"
-              >OPTIMAL INCOME : $${numberWithCommas(
-                Math.ceil(averageRent)
-              )}</span
-            >
-          </p>
-          <div class="flex" style="margin: auto 80px">
-            <p
-              style="
-                width: ${averageRent / 1000 + 5}%;
-                text-align: center;
-                border-bottom: 1px solid;
-                position: relative;
-                letter-spacing: 1px;
-                font-size:10px;
-              "
-              class="mx-2"
-            >
-              PERCENTAGE OF POPULATION BELOW OPTIMAL INCOME <br />
-              ${redPercent.toFixed(1)}%
-              <span style="position: absolute; left: -4px; bottom: -5.5px"> < </span>
-              <span style="position: absolute; right: -4px; bottom: -5px"> > </span>
-            </p>
-            <p
-              style="
-                width: ${95 - averageRent / 1000}%;
-                text-align: center;
-                border-bottom: 1px solid;
-                position: relative;
-                letter-spacing: 1px;
-                font-size:10px;
-              "
-              class="mx-1"
-            >
-              PERCENTAGE OF POPULATION ABOVE OPTIMAL INCOME <br />
-              ${greenPercent.toFixed(1)}%
-              <span style="position: absolute; left: -4px; bottom: -6.5px"> < </span>
-              <span style="position: absolute; right: -4px; bottom: -6.5px"> > </span>
-            </p>
-          </div>
-          <div class="main_page5_first_one_chart">
-            <canvas
-              id="main_page5_first_one_chart17"
-              style="
-                max-height: 400px;
-                margin: 10px 40px 10px 0px;
-                width: 1500px !important;
-              "
-            ></canvas>
-          </div>
-          <p style="text-align: center; font-weight: 600; font-size: larger" class="mt-0 mb-1">
-            DIFFERENT INCOME RANGES
-          </p>
-          <div class="main_third_line"></div>
-      
-          <!-- above this -->
-          <div class="main_page5_first">
-            <div class="main_page5_first_one">
-              <div
-                class="main_page5_first_one_one"
-              >
-                <div class="main_page5_first_one_txt">
-                  DISCRETIONARY INCOME VS <br />
-                  MEDIAN INCOME AFTER TAX/BEFORE TAX
-                </div>
-                <div class="main_page5_first_one_chart">
-                  <canvas
-                    id="main_page5_first_one_chart18"
-                    style="width: max-content; min-height: 280px; min-width: 720px"
-                  ></canvas>
-                </div>
-              </div>
-              <div class="main_page3_first_one_break"></div>
-              <div class="main_page5_first_one_one2">
-                <div class="main_page5_first_one_txt text-2xl" style="width:118%">
-                  MEDIAN INCOME <br />
-                  RANKING
-                </div>
-                <div class="main_page3_first_one_other">
-                 ${
-                   cma_income_ranking?.length > 0
-                     ? `<div class="main_page3_first_one_other_one" style="margin-right:20px">
-                       <div
-                         class="main_page3_first_one_other_one_main"
-                         style="margin-top: 80px"
-                       >
-                         <span style="font-size: 30px">${cma_income_ranking[0].ranking_before_tax}</span>
-                       </div>
-                       <div class="main_page3_first_one_other_one_sub my-2">
-                         Before Tax
-                       </div>
-                       <div
-                         class="main_page3_first_one_other_one_text"
-                         style="font-size:20px"
-                       >
-                         MAJOR
-                         <br />
-                         CMAS
-                       </div>
-                     </div>`
-                     : ``
-                 }
-                  <div class="main_page3_first_one_other_one">
-                    <div
-                      class="main_page3_first_one_other_one_main"
-                      style="margin-top: 60px"
-                    >
-                    <span style="font-size: 30px">${
-                      province_income_ranking[0].ranking_before_tax
-                    }</span>
-                    </div>
-                    <div class="main_page3_first_one_other_one_sub my-2">
-                      Before Tax
-                    </div>
-                    <div class="main_page3_first_one_other_one_text" style="font-size:20px">PROVINCE</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="main_third_line"></div>
-          <h2 style="text-align: center; text-decoration: underline" class="ls-2 mb-0 my-2">
-            MEDIAN HOUSEHOLD INCOME
-          </h2>
-          <div class="main_page6_first_one">
-            <div class="main_page6_first">
-              <div class="main_page6_first_one_charts">
-                <div class="main_page6_first_one_charts_one">
-                  <div class="main_page5_first_one_txt" style="text-align: center">
-                    BEFORE TAX
-                  </div>
-                  <canvas
-                    id="main_page5_first_one_chart19"
-                    style="width: 550px; height: 320px"
-                  ></canvas>
-                </div>
-                <div class="main_page3_first_one_break"></div>
-                <div class="main_page6_first_one_charts_two">
-                  <div class="main_page5_first_one_txt" style="text-align: center">
-                    AFTER TAX
-                  </div>
-                  <canvas
-                    id="main_page5_first_one_chart20"
-                    style="width: 550px; height: 320px"
-                  ></canvas>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-          <!-- LAST PAGE -->
-          <div class="main_first" >
-            <div class="main_first_img" >
-              <img
-                src="https://i.ibb.co/v3ht5Zc/logo.png"
-                style="height: 100px; width: 105px;"
-                alt=""
-              />
-            </div>
-            <div class="main_first_text" style="margin-top: 20px">
-            <div class="main_first_text_tex1">${province.toUpperCase()} - ${geography.toUpperCase()}</div>
-              <div class="main_first_text_tex2">SHELTER COST ANALYSIS</div>
-            </div>
-          </div>
-          <div class="main_third">
-            <span style="margin-left: 50px;margin-top:20px"> INCOME IS TAKEN ANUALLY </span>
-            <div class="main_third_line"></div>
-          </div>
-          <div class="main_page6_first">
-            <div class="main_page6_first_one">
-              <div class="main_page6_first_one_charts">
-                <div class="main_page4_first_one_one_head text-2xl ml-3">
-                  APARTMENT OVERVIEW
-                </div>
-                <div class="main_page4_first_one_one_head text-2xl mr-3">
-                  ROW HOUSE OVERVIEW
-                </div>
-              </div>
-              <div class="main_page6_first_one_head text-2xl mb-0">AVERAGE RENT</div>
-      
-              <div class="main_page6_first_one_charts">
-                <div class="main_page6_first_one_charts_one">
-                  <canvas
-                    id="main_page6_first_one_charts_one_21"
-                    style="width: 550px"
-                  ></canvas>
-                </div>
-                <div class="main_page3_first_one_break"></div>
-                <div class="main_page6_first_one_charts_two">
-                  <canvas
-                    id="main_page6_first_one_charts_two_22"
-                    style="width: 550px"
-                  ></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="main_page6_first_one">
-              <div class="main_page6_first_one_head ls-2">
-                HISTORICAL RENT GROWTH RATE
-              </div>
-              <div class="main_page6_first_one_charts">
-                <div class="main_page6_first_one_charts_one">
-                  <canvas
-                    id="main_page6_first_one_charts_one_23"
-                    style="width: 550px"
-                  ></canvas>
-                </div>
-                <div class="main_page3_first_one_break"></div>
-      
-                <div class="main_page6_first_one_charts_two">
-                  <canvas
-                    id="main_page6_first_one_charts_two_24"
-                    style="width: 550px"
-                  ></canvas>
-                </div>
-              </div>
-            </div>
-      
-            <div class="main_page6_first_one">
-              <div class="main_page6_first_one_head mb-2">
-                UTILITIES VS AFFORDABLE RENT VS AVERAGE RENT
-              </div>
-              <span> Monthly</span>
-      
-              <div class="main_page6_first_one_charts mt-2">
-                <div class="main_page6_first_one_charts_three">
-                  <canvas
-                    id="main_page6_first_one_charts_one_25"
-                    style="width: 550px"
-                  ></canvas>
-                </div>
-                <div class="main_page3_first_one_break"></div>
-      
-                <div class="main_page6_first_one_charts_three">
-                  <canvas
-                    id="main_page6_first_one_charts_two_26"
-                    style="width: 550px"
-                  ></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="main_third_line" style="margin: 0px 15px; width: 95%"></div>
-            <!-- <div > -->
-            <div class="main_page6_first_one">
-              <div class="main_page6_first_one_flex">
-                <div>
-                  <div class="main_page6_first_one_head text-lg">
-                    TOP 5 CMAs - <br />
-                    AVERAGE RENT
-                  </div>
-                  <div class="main_page6_first_one_charts_three m-auto">
-                    <canvas
-                      id="main_page6_first_one_charts_one_27"
-                      style="height: 220px; max-width: 270px"
-                    ></canvas>
-                  </div>
-                </div>
-                <div class="main_page3_first_one_break"></div>
-                <div>
-                  <div class="main_page6_first_one_head text-lg">
-                    BOTTOM 5 CMAs - <br />
-                    AVERAGE RENT
-                  </div>
-                  <div class="main_page6_first_one_charts_three m-auto">
-                    <canvas
-                      id="main_page6_first_one_charts_two_28"
-                      style="height: 220px; max-width: 270px"
-                    ></canvas>
-                  </div>
-                </div>
-                <div class="main_page3_first_one_break"></div>
-                <div>
-                  <div class="main_page6_first_one_head text-lg">
-                    TOP 5 CAs - <br />
-                    AVERAGE RENT
-                  </div>
-                  <div class="main_page6_first_one_charts_three m-auto">
-                    <canvas
-                      id="main_page6_first_one_charts_one_35"
-                      style="height: 220px; max-width: 270px"
-                    ></canvas>
-                  </div>
-                </div>
-                <div class="main_page3_first_one_break"></div>
-      
-                <div>
-                  <div class="main_page6_first_one_head text-lg">
-                    BOTTOM 5 CAs - <br />
-                    AVERAGE RENT
-                  </div>
-                  <div class="main_page6_first_one_charts_three m-auto">
-                    <canvas
-                      id="main_page6_first_one_charts_two_36"
-                      style="height: 220px; max-width: 270px"
-                    ></canvas>
-                  </div>
-                </div>
-              </div>
+              <div class="main_float_line main_float_line2"></div>
             </div>
           </div>
         </body>
