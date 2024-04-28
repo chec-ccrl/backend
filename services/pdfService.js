@@ -756,7 +756,7 @@ module.exports = {
           background-color: #c2a36fc9;
           width: 80px;
           margin: 4px;
-          font-size: 15px;
+          font-size: 14px;
           padding: 2px 7px;
           border-radius: 10px;
           color: white;
@@ -1810,7 +1810,7 @@ module.exports = {
             <div class="main_third m-0 p-0">
               <div class="main_third_line"></div>
             </div>
-            <div class="main_page3_first" style="min-height:370px;max-height:371px">
+            <div class="main_page3_first" style="min-height:380px;max-height:381px">
               <div class="main_page3_first_one">
                 <div class="main_page3_first_one_txt ls-2" style="font-size: 20px">
                   AVERAGE <br />
