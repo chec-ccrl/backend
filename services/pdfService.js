@@ -1204,7 +1204,7 @@ module.exports = {
         }
       
         .main_page4_first_one2 .main_page4_first_one_one {
-          width: 45%;
+          width: 50%;
         }
       
         .main_page4_first_one_one_main_one_border {
@@ -2445,18 +2445,18 @@ module.exports = {
                       </div>
                     </div>
                     <div class="main_page3_first_one_break"></div>
-                    // <div class="main_page4_first_one_one_main_one">
-                    //   <div
-                    //     class="main_page4_first_one_one_main_one_head fw-light ls-1"
-                    //   >
-                    //     TYPE OF <br/> BEDROOM
-                    //   </div>
-                    //   <div class="main_page4_first_one_one_main_one_chart">
-                    //     <canvas
-                    //       id="main_page4_first_one_one_main_one_chart14"
-                    //     ></canvas>
-                    //   </div>
-                    // </div>
+                    <div class="main_page4_first_one_one_main_one">
+                      <div
+                        class="main_page4_first_one_one_main_one_head fw-light ls-1"
+                      >
+                        TYPE OF <br/> BEDROOM
+                      </div>
+                      <div class="main_page4_first_one_one_main_one_chart">
+                        <canvas
+                          id="main_page4_first_one_one_main_one_chart14"
+                        ></canvas>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="main_page4_first_one_one">
@@ -2555,18 +2555,18 @@ module.exports = {
                       </div>
                     </div>
                     <div class="main_page3_first_one_break"></div>
-                    // <div class="main_page4_first_one_one_main_one">
-                    //   <div
-                    //     class="main_page4_first_one_one_main_one_head fw-light ls-1"
-                    //   >
-                    //     TYPE OF <br/> BEDROOM
-                    //   </div>
-                    //   <div class="main_page4_first_one_one_main_one_chart">
-                    //     <canvas
-                    //       id="main_page4_first_one_one_main_one_chart15"
-                    //     ></canvas>
-                    //   </div>
-                    // </div>
+                    <div class="main_page4_first_one_one_main_one">
+                      <div
+                        class="main_page4_first_one_one_main_one_head fw-light ls-1"
+                      >
+                        TYPE OF <br/> BEDROOM
+                      </div>
+                      <div class="main_page4_first_one_one_main_one_chart">
+                        <canvas
+                          id="main_page4_first_one_one_main_one_chart15"
+                        ></canvas>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
