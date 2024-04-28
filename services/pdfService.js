@@ -1883,7 +1883,7 @@ module.exports = {
               <span style="width: 8%"></span>
               <div
                 class="main_page3_first_one_txt"
-                style="letter-spacing: 6px; font-size: 30px"
+                style="letter-spacing: 6px; font-size: 20px"
               >
                 TOTAL RENTAL STOCK :
               </div>
