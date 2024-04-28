@@ -1946,7 +1946,7 @@ module.exports = {
         total_current_affordable_houses_available
       )} are available.
                     </p>
-                    <p class="text-xl ls-1 m-0">AVAILABLE:${numberWithCommas(
+                    <p class="text-2xl ls-1 m-0">AVAILABLE:${numberWithCommas(
                       total_current_affordable_houses_available
                     )}
                     </p>
@@ -1981,6 +1981,31 @@ module.exports = {
                       total_current_unaffordable_houses -
                       total_current_unaffordable_houses_available
                     }</p>
+                  </div>
+                  <div class="main_page3_first_one_break"></div>
+                  <div class="main_page3_first_one_sub h-max">
+                    <div class="main_page3_first_one_txt" style="letter-spacing: 6px">
+                      NEW UNITS <br /> CONSTRUCTED
+                    </div>
+                    <p class="fw-light m-0" style="font-size:13px">
+                      A total of ${numberWithCommas(
+                        total_current_unaffordable_houses_const +
+                          total_current_affordable_houses_const
+                      )} new units were constructed this year, with ${numberWithCommas(
+        total_current_affordable_houses_const
+      )} being
+                      affordable
+                    </p>
+                    <p class="text-xl ls-1 m-0">AFFORDABLE:${numberWithCommas(
+                      total_current_affordable_houses_const
+                    )}</p>
+                    <canvas
+                      id="main_page3_first_one_one_main_one_chart32"
+                      style="max-width: 200px; margin: auto; height: 200px"
+                    ></canvas>
+                    <p class="text-xl ls-1 m-0">UNAFFORDABLE:${numberWithCommas(
+                      total_current_unaffordable_houses_const
+                    )}</p>
                   </div>
                 </div>
               </div>
