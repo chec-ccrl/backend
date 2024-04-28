@@ -3195,6 +3195,25 @@ module.exports = {
             <h2 style="text-align: center; text-decoration: underline" class="ls-2 mb-0 my-2">
               MEDIAN HOUSEHOLD INCOME
             </h2>
+            <div class="main_page6_first_one">
+              <div class="main_page6_first">
+                <div class="main_page6_first_one_charts">
+                  <div class="main_page6_first_one_charts_one">
+                    <div class="main_page5_first_one_txt" style="text-align: center">
+                      BEFORE TAX
+                    </div>
+                    <canvas id="main_page5_first_one_chart19"></canvas>
+                  </div>
+                  <div class="main_page3_first_one_break"></div>
+                  <div class="main_page6_first_one_charts_two">
+                    <div class="main_page5_first_one_txt" style="text-align: center">
+                      AFTER TAX
+                    </div>
+                    <canvas id="main_page5_first_one_chart20"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </body>
         <script>
