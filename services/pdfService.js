@@ -3252,6 +3252,19 @@ module.exports = {
                 </div>
               </div>
             </div>
+            <div class="main_page6_first_one">
+              <div class="main_page6_first">
+                <div class="main_page6_first_one_charts">
+                  <div class="main_page6_first_one_charts_one">
+                    <canvas id="main_page6_first_one_charts_one_23" style="min-height:250px;min-width:500px"></canvas>
+                  </div>
+                  <div class="main_page3_first_one_break"></div>
+                  <div class="main_page6_first_one_charts_two">
+                    <canvas id="main_page6_first_one_charts_two_24" style="min-height:250px;min-width:500px"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </body>
         <script>
