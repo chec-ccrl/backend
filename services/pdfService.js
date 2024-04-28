@@ -222,7 +222,7 @@ module.exports = {
       ${abj3}
       ${abj4}
       </div>`;
-      let rentSourceCheckBox1 =
+      let drentSourceCheckBox1 =
         rent_source === "Rental Market Survey"
           ? ` <div>
                 <label for="c1" class="small_label pt-1">RENTAL MARKET<br /> SURVEY</label>
