@@ -3253,7 +3253,7 @@ module.exports = {
               </div>
             </div>
             <div class="main_third_line"></div>
-            <div class="main_page6_first_one_head ls-2">
+            <div class="main_page6_first_one_head ls-2" style="margin-left:50px">
               HISTORICAL RENT GROWTH RATE
             </div>
             <div class="main_page6_first_one">
@@ -3270,7 +3270,7 @@ module.exports = {
               </div>
             </div>
             <div class="main_third_line"></div>
-            <div class="main_page6_first_one_head mb-2">
+            <div class="main_page6_first_one_head mb-2" style="margin-left:50px">
               UTILITIES VS AFFORDABLE RENT VS AVERAGE RENT
             </div>
             <span> Monthly</span>
