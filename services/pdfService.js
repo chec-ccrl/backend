@@ -368,7 +368,7 @@ module.exports = {
         }
       
         .main_first_text_tex1 {
-          font-size: 20px;
+          font-size: 25px;
           font-weight: bold;
           letter-spacing: 0.5cap;
           font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
@@ -443,7 +443,7 @@ module.exports = {
       
         /* FOR SMALL LABEL ON UPPER PART OF PDF */
         .small_label {
-          font-size: 12px;
+          font-size: 15px;
           font-weight: 400;
         }
       
