@@ -2132,7 +2132,7 @@ module.exports = {
               </div>
             </div>                    
           </div>
-          <div style="position: relative; height:1500px;">
+          <div style="position: relative; height:1550px;">
             <div class="main_first" >
               <div class="main_first_img">
                 <img
