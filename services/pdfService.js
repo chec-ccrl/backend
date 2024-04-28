@@ -1661,7 +1661,7 @@ module.exports = {
                   <select
                     name="cars"
                     id="cars"
-                    style="width: 200px; margin-left: 40px;font-size:15px;font-weight:400;height:30px"
+                    style="width: 200px; margin-left: 38px;font-size:15px;font-weight:400;height:30px"
                   >
                     <option value="volvo">${house_type.toUpperCase()}</option>
                   </select>
@@ -1728,6 +1728,17 @@ module.exports = {
                 </div>
               </div>
             </div>
+            <div class="main_third mb-0 pt-0 pb-0 mt-0">
+              <div class="main_third_text">
+                <span> NOTE 1: B = Bedrooms </span>
+                <span>
+                  Note 2: All figures mentioned in this report are presented on an
+                  annual basis unless otherwise specified
+                </span>
+              </div>
+              <div class="main_third_line"></div>
+            </div>
+          </div
         </body>
         <script>
           var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
