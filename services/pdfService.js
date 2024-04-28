@@ -491,7 +491,7 @@ module.exports = {
         .main_third {
           display: flex;
           flex-direction: column;
-          width: 95%;
+          width: 100%;
           margin: auto;
         }
       
@@ -1623,7 +1623,7 @@ module.exports = {
       <html>
         <body>
           <!-- Main ELEMENT FOR COMPLETE PDF -->
-          <div class="main" style="min-height:1700px" >
+          <div class="main" style="min-height:1500px" >
             <!-- FIFTH PAGE -->
             <div class="main_first">
               <div class="main_first_img">
@@ -1728,7 +1728,7 @@ module.exports = {
                 </div>
               </div>
             </div>
-            <div class="main_third mb-0 pt-0 pb-0 mt-0">
+            <div class="main_third m-0 p-0">
               <div class="main_third_text">
                 <span> NOTE 1: B = Bedrooms </span>
                 <span>
