@@ -2934,9 +2934,6 @@ module.exports = {
         geography === "Grande Prairie" ||
         geography === "Brandon" ||
         geography === "Steinbach" ||
-        geography === "Bathurst" ||
-        geography === "Fredericton" ||
-        geography === "Moncton" ||
         geography === "St. John'S" ||
         geography === "Quebec" ||
         geography === "North Bay" ||
@@ -2967,7 +2964,10 @@ module.exports = {
         geography === "Vancouver" ||
         geography === "Medicine Hat" ||
         geography === "Charlottetown" ||
-        geography === "Oshawa"
+        geography === "Oshawa" ||
+        geography === "Fredericton" ||
+        geography === "Moncton" ||
+        geography === "Saint John"
       ) {
         tableHeigth = 3.5;
         height = 1800;
