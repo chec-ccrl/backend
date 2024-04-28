@@ -3278,6 +3278,7 @@ module.exports = {
                 </div>
               </div>
             </div>
+            <div class="main_third_line"></div>
             <div class="main_page6_first_one">
               <div class="main_page6_first_one_flex">
                 <div>
@@ -3321,6 +3322,7 @@ module.exports = {
                 </div>
               </div>
             </div>
+            <div class="main_third_line"></div>
           </div>
         </body>
         <script>
