@@ -2947,9 +2947,6 @@ module.exports = {
         geography === "St. Catharines - Niagara" ||
         geography === "Guelph" ||
         geography === "Red Deer" ||
-        geography === "Kentville" ||
-        geography === "Cape Breton" ||
-        geography === "Truro" ||
         geography === "Windsor"
       ) {
         height = 1860;
@@ -2992,6 +2989,12 @@ module.exports = {
         tableHeigth = 3.3;
         invertHiegt = 500;
         height = 2000;
+      } else if (
+        geography === "Kentville" ||
+        geography === "Cape Breton" ||
+        geography === "Truro"
+      ) {
+        tableHeigth = 2.8;
       }
 
       const link = await Services.pdfService.detailPdfGenerator({
