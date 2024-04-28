@@ -1623,7 +1623,7 @@ module.exports = {
       <html>
         <body>
           <!-- Main ELEMENT FOR COMPLETE PDF -->
-          <div class="main" style="min-height:1530px" >
+          <div class="main" style="min-height:1550px" >
             <!-- FIFTH PAGE -->
             <div class="main_first">
               <div class="main_first_img">
@@ -3252,6 +3252,7 @@ module.exports = {
                 </div>
               </div>
             </div>
+            <div class="main_third_line"></div>
             <div class="main_page6_first_one">
               <div class="main_page6_first">
                 <div class="main_page6_first_one_charts">
@@ -3265,6 +3266,7 @@ module.exports = {
                 </div>
               </div>
             </div>
+            <div class="main_third_line"></div>
             <div class="main_page6_first_one">
               <div class="main_page6_first">
                 <div class="main_page6_first_one_charts">
