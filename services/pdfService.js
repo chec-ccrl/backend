@@ -368,7 +368,7 @@ module.exports = {
         }
       
         .main_first_text_tex1 {
-          font-size: 25px;
+          font-size: 20px;
           font-weight: bold;
           letter-spacing: 0.5cap;
           font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
@@ -376,7 +376,7 @@ module.exports = {
         }
       
         .main_first_text_tex2 {
-          font-size: 44px;
+          font-size: 34px;
           font-weight: bolder;
           color: #f44d2d;
           font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
@@ -1641,18 +1641,18 @@ module.exports = {
             <div class="main_second" style="min-height:200px;max-height:201px">
               <div class="main_second1">
                 <div class="main_second_select1">
-                  <label class="label" for="cars">PROVINCE:</label>
+                  <label class="label" for="cars" style="font-size:20px">PROVINCE:</label>
                   <select
                     name="cars"
                     id="cars"
-                    style="width: 200px; margin-left: 17px;font-size:15px;font-weight:400;height:40px"
+                    style="width: 180px; margin-left: 17px;font-size:15px;font-weight:400;height:30px"
                   >
                     <option value="volvo">${province.toUpperCase()}</option>
                   </select>
                 </div>
                 <div class="main_second_select1">
                   <label class="label" for="cars">CMA / CA:</label>
-                  <select name="cars" id="cars" style="width: 200px;margin-left: 28px;font-size:15px;font-weight:400;height:40px">
+                  <select name="cars" id="cars" style="width: 180px;margin-left: 28px;font-size:15px;font-weight:400;height:30px">
                     <option value="volvo">${geography.toUpperCase()}</option>
                   </select>
                 </div>
@@ -1661,7 +1661,7 @@ module.exports = {
                   <select
                     name="cars"
                     id="cars"
-                    style="width: 200px; margin-left: 44px;font-size:15px;font-weight:400;height:40px"
+                    style="width: 180px; margin-left: 44px;font-size:15px;font-weight:400;height:30px"
                   >
                     <option value="volvo">${house_type.toUpperCase()}</option>
                   </select>
@@ -1678,7 +1678,7 @@ module.exports = {
                   <select
                     name="cars"
                     id="cars"
-                    style="width: 200px; margin-left: 15px;font-size:15px;font-weight:400;height:40px"
+                    style="width: 180px; margin-left: 15px;font-size:15px;font-weight:400;height:30px"
                   >
                     <option value="volvo">${year}</option>
                   </select>
@@ -1708,7 +1708,7 @@ module.exports = {
                   <select
                     name="cars"
                     id="cars"
-                    style="width: 200px; margin-left: 30px;margin-right:27px;font-size:15px;font-weight:400;height:40px"
+                    style="width: 180px; margin-left: 30px;margin-right:27px;font-size:15px;font-weight:400;height:30px"
                   >
                     <option value="volvo">${affordability.toUpperCase()}</option>
                   </select>
