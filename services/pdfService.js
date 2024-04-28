@@ -3240,20 +3240,14 @@ module.exports = {
                     <div class="main_page4_first_one_one_head text-xl ml-3">
                       APARTMENT OVERVIEW
                     </div>
-                    <canvas
-                    id="main_page6_first_one_charts_one_21"
-                    style="width: 550px"
-                    ></canvas>
+                    <canvas id="main_page6_first_one_charts_one_21"></canvas>
                   </div>
                   <div class="main_page3_first_one_break"></div>
                   <div class="main_page6_first_one_charts_two">
                     <div class="main_page4_first_one_one_head text-xl mr-3">
                       ROW HOUSE OVERVIEW
                     </div>
-                    <canvas
-                      id="main_page6_first_one_charts_two_22"
-                      style="width: 550px"
-                    ></canvas>
+                    <canvas id="main_page6_first_one_charts_two_22"></canvas>
                   </div>
                 </div>
               </div>
@@ -4095,7 +4089,9 @@ module.exports = {
               datasets: [
                 {
                   label: "CMA",
-                  data: [${graph_4_1_cma[4]}, ${graph_4_1_cma[5]}, ${graph_4_1_cma[6]}, ${graph_4_1_cma[7]}], // Data values
+                  data: [${graph_4_1_cma[4]}, ${graph_4_1_cma[5]}, ${
+        graph_4_1_cma[6]
+      }, ${graph_4_1_cma[7]}], // Data values
                   backgroundColor: "#683733", 
                   borderColor: "#683733", 
                   borderWidth: 2, 
