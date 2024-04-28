@@ -3057,7 +3057,7 @@ module.exports = {
                   alt=""
                 />
               </div>
-              <div class="main_first_text" style="margin-top: 20px">
+              <div class="main_first_text">
                 <div class="main_first_text_tex1">${province.toUpperCase()} - ${geography.toUpperCase()}</div>
                 <div class="main_first_text_tex2">INCOME ANALYSIS</div>
               </div>
@@ -3223,7 +3223,7 @@ module.exports = {
                 alt=""
               />
             </div>
-            <div class="main_first_text" style="margin-top: 20px">
+            <div class="main_first_text">
               <div class="main_first_text_tex1">${province.toUpperCase()} - ${geography.toUpperCase()}</div>
               <div class="main_first_text_tex2">SHELTER COST ANALYSIS</div>
             </div>
