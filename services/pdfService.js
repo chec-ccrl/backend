@@ -4246,16 +4246,16 @@ module.exports = {
                   data: [${graph_4_1_cma[0]} ,${graph_4_1_cma[1]},${
         graph_4_1_cma[2]
       },${graph_4_1_cma[3]}], // Data values
-                  backgroundColor: "#683733", // Bar background color
-                  borderColor: "#683733", // Bar border color
-                  borderWidth: 2, // Bar border width
+                  backgroundColor: "#683733",
+                  borderColor: "#683733", 
+                  borderWidth: 2, 
                 },
                 {
                   label: "Province", // Dataset label
                   data: [${graph_4_1_province[0]} ,${graph_4_1_province[1]},${
         graph_4_1_province[2]
       },${graph_4_1_province[3]}],
-                  backgroundColor: "#5e6043", // Bar background color
+                  backgroundColor: "#5e6043",
                   borderColor: "#5e6043", // Bar border color
                   borderWidth: 2, // Bar border width
                 },
@@ -4272,7 +4272,7 @@ module.exports = {
             },
             options: {
               legend: {
-                display: true, // Hide chart legend
+                display: true,
                 labels: {
                   boxWidth: 14,
                 },
@@ -4962,6 +4962,9 @@ module.exports = {
                     },
                   },
                 ],
+              },
+              animation: {
+                duration: 0,
               },
             },
           });
