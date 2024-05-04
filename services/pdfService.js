@@ -4233,6 +4233,9 @@ module.exports = {
                   },
                 ],
               },
+              animation: {
+                duration: 0,
+              },
             },
           });
       
@@ -4293,6 +4296,9 @@ module.exports = {
                     categoryPercentage: 0.5, // Adjust bar spacing
                   },
                 ],
+              },
+              animation: {
+                duration: 0,
               },
             },
           });
