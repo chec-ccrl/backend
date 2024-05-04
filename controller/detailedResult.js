@@ -2048,6 +2048,7 @@ module.exports = {
           }
         }
       });
+      console.log(graph_4_1_cma);
 
       const rentProvince = await Services.rentService.getAlls({
         province,
