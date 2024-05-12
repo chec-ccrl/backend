@@ -2121,14 +2121,66 @@ module.exports = {
               <div class="main_page3_third_two">
                 <div class="main_page3_first_one_txt ls-2" style="font-size:20px">DISCRETIONARY INCOME</div>
                 <div class="main_page3_four_one">
-                  <div class="main_page3_first_one_tri">
-                  <img
-                    src="https://i.ibb.co/xDX3b9B/Screenshot-2024-05-12-at-19-10-13.png"
-                    style="margin-left: auto;height: 250px;margin-top:10px"
-                  />
+                <div class="main_page3_first_one_tri">
+                  <div class="main_page3_four_one">
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+                      "
+                    >
+                      <div
+                        style="font-size: 20px; margin-top: 20px; font-weight: 600;color:#4c3848"
+                      >
+                        HOUSEHOLD INCOME <br />BEFORE TAX - $${median_household_income_before_tax}
+                      </div>
+                      <div
+                        style="font-size: 20px; margin-top: 20px; font-weight: 600:color:#5e6043"
+                      >
+                        INCOME AFTER TAX - $${
+                          median_household_income_after_tax / 100
+                        }
+                      </div>
+                      <div
+                        style="font-size: 20px; margin-top: 20px; font-weight: 600;color:#683733"
+                      >
+                        COST OF NON SHELTER <br />
+                        NECESSITIES  - $${cost_of_non_shelter_necessity / 1000}
+                      </div>
+                      <div
+                        style="font-size: 20px; margin-top: 20px; font-weight: 600;color:#8f7e18"
+                      >
+                        RESIDUAL INCOME - $${
+                          (median_household_income_after_tax -
+                            cost_of_non_shelter_necessity) /
+                          1000
+                        }
+                      </div>
+                      <div
+                        style="font-size: 20px; margin-top: 20px; font-weight: 600;color:#c2ac7f"
+                      >
+                        SHELTER COST - $${(current_shelter_cost * 12) / 1000}
+                      </div>
+                      <div
+                        style="font-size: 20px; margin-top: 20px; font-weight: 600;color:green"
+                      >
+                        DISCRETIONARY INCOME - $${
+                          (median_household_income_after_tax -
+                            cost_of_non_shelter_necessity -
+                            current_shelter_cost * 12) /
+                          1000
+                        }
+                      </div>
                     </div>
                   </div>
+    
+                  <img
+                    src="https://i.ibb.co/xDX3b9B/Screenshot-2024-05-12-at-19-10-13.png"
+                    style="margin-left: auto; height: 250px;margin-top:10px"
+                  />
                 </div>
+              </div>
               </div>
             </div>                    
           </div>
