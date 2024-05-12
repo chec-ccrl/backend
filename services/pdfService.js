@@ -2135,7 +2135,7 @@ module.exports = {
                           HOUSEHOLD INCOME <br />BEFORE TAX - $${median_household_income_before_tax}K
                         </div>
                         <div
-                          style="font-size: 12px; margin-top: 60px; font-weight: 600:color:#5e6043"
+                          style="font-size: 12px; margin-top: 55px; font-weight: 600:color:#5e6043"
                         >
                           INCOME AFTER TAX - $${
                             median_household_income_after_tax / 100
