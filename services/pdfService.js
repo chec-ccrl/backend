@@ -877,7 +877,7 @@ module.exports = {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          align-items: center;
+          align-items: flex-end;
           width: 45%;
           padding: 0px 5px;
         }
@@ -2119,13 +2119,13 @@ module.exports = {
               </div>
               <div class="main_page3_first_one_break" style="heigth:200px" ></div>
               <div class="main_page3_third_two">
-                <div class="main_page3_first_one_txt ls-2" style="font-size:20px">DISCRETIONARY INCOME</div>
+                <div class="main_page3_first_one_txt ls-2" style="font-size:20px;margin-right: 25%">DISCRETIONARY INCOME</div>
                 <div class="main_page3_four_one">
                   <div class="main_page3_first_one_tri">
-                    <div
-                      id="chartDiv"
-                      style="background: transparent !important; margin-top: 5px"
-                    >
+                  <img
+                    src="https://i.ibb.co/xDX3b9B/Screenshot-2024-05-12-at-19-10-13.png"
+                    style="margin-left: auto"
+                  />
                     </div>
                   </div>
                 </div>
