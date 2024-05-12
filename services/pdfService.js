@@ -2130,12 +2130,12 @@ module.exports = {
                         "
                       >
                         <div
-                          style="font-size: 12px; margin-top: 30px; font-weight: 600;color:#4c3848"
+                          style="font-size: 12px; margin-top: 35px; font-weight: 600;color:#4c3848"
                         >
                           HOUSEHOLD INCOME <br />BEFORE TAX - $${median_household_income_before_tax}K
                         </div>
                         <div
-                          style="font-size: 12px; margin-top: 30px; font-weight: 600:color:#5e6043"
+                          style="font-size: 12px; margin-top: 40px; font-weight: 600:color:#5e6043"
                         >
                           INCOME AFTER TAX - $${
                             median_household_income_after_tax / 100
@@ -2164,7 +2164,7 @@ module.exports = {
                           SHELTER COST - $${(current_shelter_cost * 12) / 1000}K
                         </div>
                         <div
-                          style="font-size: 12px; margin-top: 25px; font-weight: 600;color:green"
+                          style="font-size: 12px; margin-top: 10px; font-weight: 600;color:green"
                         >
                           DISCRETIONARY INCOME - $${
                             (median_household_income_after_tax -
