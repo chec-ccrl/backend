@@ -3493,16 +3493,6 @@ module.exports = {
             backgroundColor: "#f1f3f9",
             defaultSeries: {
               shape_innerPadding: 6,
-              defaultPoint: {
-                label: {
-                  text: "%name <b>%yValuek</b> (%percentOfSeries%)",
-                  placement: "auto",
-                  align: "left", // Add this line to set the alignment to left
-                  style: {
-                    fontSize: "14px", // Adjust the font size as needed
-                  },
-                },
-              },
             },
             series: [
               {
