@@ -2124,7 +2124,7 @@ module.exports = {
                   <div class="main_page3_first_one_tri">
                   <img
                     src="https://i.ibb.co/xDX3b9B/Screenshot-2024-05-12-at-19-10-13.png"
-                    style="margin-left: auto;height: 250px"
+                    style="margin-left: auto;height: 250px;margin-top:10px"
                   />
                     </div>
                   </div>
