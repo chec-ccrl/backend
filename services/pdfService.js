@@ -2131,25 +2131,25 @@ module.exports = {
                       "
                     >
                       <div
-                        style="font-size: 20px; margin-top: 20px; font-weight: 600;color:#4c3848"
+                        style="font-size: 10px; margin-top: 20px; font-weight: 600;color:#4c3848"
                       >
                         HOUSEHOLD INCOME <br />BEFORE TAX - $${median_household_income_before_tax}
                       </div>
                       <div
-                        style="font-size: 20px; margin-top: 20px; font-weight: 600:color:#5e6043"
+                        style="font-size: 10px; margin-top: 20px; font-weight: 600:color:#5e6043"
                       >
                         INCOME AFTER TAX - $${
                           median_household_income_after_tax / 100
                         }
                       </div>
                       <div
-                        style="font-size: 20px; margin-top: 20px; font-weight: 600;color:#683733"
+                        style="font-size: 10px; margin-top: 20px; font-weight: 600;color:#683733"
                       >
                         COST OF NON SHELTER <br />
                         NECESSITIES  - $${cost_of_non_shelter_necessity / 1000}
                       </div>
                       <div
-                        style="font-size: 20px; margin-top: 20px; font-weight: 600;color:#8f7e18"
+                        style="font-size: 10px; margin-top: 20px; font-weight: 600;color:#8f7e18"
                       >
                         RESIDUAL INCOME - $${
                           (median_household_income_after_tax -
@@ -2163,7 +2163,7 @@ module.exports = {
                         SHELTER COST - $${(current_shelter_cost * 12) / 1000}
                       </div>
                       <div
-                        style="font-size: 20px; margin-top: 20px; font-weight: 600;color:green"
+                        style="font-size: 10px; margin-top: 20px; font-weight: 600;color:green"
                       >
                         DISCRETIONARY INCOME - $${
                           (median_household_income_after_tax -
