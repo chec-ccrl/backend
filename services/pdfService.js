@@ -7583,7 +7583,7 @@ module.exports = {
     }
 
     .main_page3_four_one:last-child {
-        width: 50%;
+        width: 100%;
     }
 
     .main_page3_first_one_txt_chart {
@@ -7598,7 +7598,6 @@ module.exports = {
     .main_page3_first_one_tri {
         display: flex;
         justify-content: center;
-        align-items: center;
     }
 
     .main_page4_first {
