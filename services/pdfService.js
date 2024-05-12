@@ -2119,7 +2119,7 @@ module.exports = {
               </div>
               <div class="main_page3_first_one_break" style="heigth:200px" ></div>
               <div class="main_page3_third_two">
-                <div class="main_page3_first_one_txt ls-2" style="font-size:20px;margin-right: 25%">DISCRETIONARY INCOME</div>
+                <div class="main_page3_first_one_txt ls-2" style="font-size:20px">DISCRETIONARY INCOME</div>
                 <div class="main_page3_four_one">
                   <div class="main_page3_first_one_tri">
                   <img
