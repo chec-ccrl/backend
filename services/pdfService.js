@@ -2142,7 +2142,7 @@ module.exports = {
                           }
                         </div>
                         <div
-                          style="font-size: 12px; margin-top: 40px; font-weight: 600;color:#683733"
+                          style="font-size: 12px; margin-top: 35px; font-weight: 600;color:#683733"
                         >
                           COST OF NON SHELTER <br />
                           NECESSITIES  - $${
